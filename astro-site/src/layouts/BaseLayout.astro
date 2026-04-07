@@ -41,6 +41,14 @@ const leadConnectorWidgetId =
   <head>
     <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
     <CallRailSwap />
+    {leadConnectorChat ? (
+      <script
+        is:inline
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id={leadConnectorWidgetId}
+      />
+    ) : null}
     <!-- Google Tag Manager -->
     <script is:inline>
       (function (w, d, s, l, i) {
@@ -100,13 +108,5 @@ const leadConnectorWidgetId =
     <Analytics />
     <SpeedInsights />
     <script src="/script.js" defer></script>
-    {leadConnectorChat ? (
-      <script
-        is:inline
-        src="https://widgets.leadconnectorhq.com/loader.js"
-        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id={leadConnectorWidgetId}
-      />
-    ) : null}
   </body>
 </html>
