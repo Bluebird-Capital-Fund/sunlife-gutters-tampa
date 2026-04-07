@@ -9,7 +9,7 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/f
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
 
-const { title, description, navDdPrefix = 'page' } = Astro.props
+const { title, description, navDdPrefix = 'page', leadConnectorChat = true } = Astro.props
 
 let settings = {}
 let homePage = {}
@@ -48,7 +48,13 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
 ---
 
-<BaseLayout title={title} description={description} theme={settings?.theme} forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}>
+<BaseLayout
+  title={title}
+  description={description}
+  theme={settings?.theme}
+  forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
+  leadConnectorChat={leadConnectorChat}
+>
   <header class="header">
     <div class="offer-bar"><div class="offer-bar-inner"><p class="offer-message">{asStr(header?.offerBar?.textBeforeDiscount)}<strong>{asStr(header?.offerBar?.discountLabel)}</strong>{asStr(header?.offerBar?.textAfterDiscount)} <a href={asStr(header?.offerBar?.ctaHref) || '#contact'} class="offer-link" {...externalLinkAttrs(asStr(header?.offerBar?.ctaHref) || '#contact')}><strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong></a></p></div></div>
     <div class="header-nav">

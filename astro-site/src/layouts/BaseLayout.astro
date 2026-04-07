@@ -7,7 +7,15 @@ import { buildHomeAndConstructionBusinessJsonLd } from '../lib/local-business-js
 import { getSiteSettings } from '../lib/site-settings.js'
 import { buildThemeCss } from '../lib/theme-css.js'
 
-const { title, description, theme, forms, homeRevealAnimations = false, preloadImageHref = '' } = Astro.props
+const {
+  title,
+  description,
+  theme,
+  forms,
+  homeRevealAnimations = false,
+  preloadImageHref = '',
+  leadConnectorChat = false,
+} = Astro.props
 
 const settings = await getSiteSettings()
 const localBusinessJsonLd = buildHomeAndConstructionBusinessJsonLd(settings)
@@ -73,7 +81,7 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
       />
     ) : null}
   </head>
-  <body class:list={[{ 'home-reveal-animate': homeRevealAnimations }]}>
+  <body class:list={[{ 'home-reveal-animate': homeRevealAnimations }, { 'has-lead-connector-chat': leadConnectorChat }]}>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -89,5 +97,13 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
     <Analytics />
     <SpeedInsights />
     <script src="/script.js" defer></script>
+    {leadConnectorChat ? (
+      <script
+        is:inline
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="69d57e442f3d4c960ef3effe"
+      />
+    ) : null}
   </body>
 </html>
