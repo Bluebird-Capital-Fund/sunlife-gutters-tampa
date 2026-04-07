@@ -7,7 +7,15 @@ import { buildHomeAndConstructionBusinessJsonLd } from '../lib/local-business-js
 import { getSiteSettings } from '../lib/site-settings.js'
 import { buildThemeCss } from '../lib/theme-css.js'
 
-const { title, description, theme, forms, homeRevealAnimations = false, preloadImageHref = '' } = Astro.props
+const {
+  title,
+  description,
+  theme,
+  forms,
+  homeRevealAnimations = false,
+  preloadImageHref = '',
+  leadConnectorChat = false,
+} = Astro.props
 
 const settings = await getSiteSettings()
 const localBusinessJsonLd = buildHomeAndConstructionBusinessJsonLd(settings)
@@ -24,6 +32,9 @@ const recaptchaSiteKey =
 const mapboxToken = (import.meta.env.PUBLIC_MAPBOX_TOKEN || '').trim()
 const formsForClient = { ...forms, recaptchaSiteKey, mapboxToken }
 const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
+
+const leadConnectorWidgetId =
+  (import.meta.env.PUBLIC_LEAD_CONNECTOR_WIDGET_ID || '').trim() || '69d593f63d6e166fb644b0b4'
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +84,7 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
       />
     ) : null}
   </head>
-  <body class:list={[{ 'home-reveal-animate': homeRevealAnimations }]}>
+  <body class:list={[{ 'home-reveal-animate': homeRevealAnimations }, { 'has-lead-connector-chat': leadConnectorChat }]}>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -89,5 +100,13 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
     <Analytics />
     <SpeedInsights />
     <script src="/script.js" defer></script>
+    {leadConnectorChat ? (
+      <script
+        is:inline
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id={leadConnectorWidgetId}
+      />
+    ) : null}
   </body>
 </html>

@@ -4189,3 +4189,34 @@ form[data-lead-form] button[type="submit"].is-busy {
 .blog-index-intro-block p:last-child {
   margin-bottom: 0;
 }
+
+/* StandardPageChrome footer: CTAs only (no lead form) when Lead Connector chat is on those pages */
+.footer-estimate-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.footer-estimate-cta-intro {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.footer-estimate-cta .btn {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Lead Connector chat (StandardPageChrome only): above reCAPTCHA v3 badge */
+body.has-lead-connector-chat .grecaptcha-badge {
+  z-index: 9990 !important;
+}
+
+body.has-lead-connector-chat chat-widget {
+  position: relative;
+  z-index: 2147483000 !important;
+  isolation: isolate;
+}

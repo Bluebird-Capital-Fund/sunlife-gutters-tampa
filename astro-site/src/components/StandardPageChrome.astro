@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
-import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
@@ -23,7 +22,6 @@ const business = settings?.business ?? {}
 const header = mergeHeaderFromSettings(settings, homePage?.header)
 const footerEstimate = settings?.footerEstimate ?? homePage?.footerEstimate ?? {}
 const footerEstimateFields = footerEstimate?.formFields ?? {}
-const formsCfg = settings?.forms ?? {}
 const footerBrand = settings?.footerBrand ?? homePage?.footerBrand ?? {}
 const footerColumns = settings?.footerColumns ?? homePage?.footerColumns ?? []
 const footerSupport = settings?.footerSupport ?? homePage?.footerSupport ?? {}
@@ -42,13 +40,15 @@ const copyrightHref = asStr(business.copyrightSiteUrl) || '#'
 const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay }) || phoneDisplay
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
-const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
-const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
-const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
-const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
 ---
 
-<BaseLayout title={title} description={description} theme={settings?.theme} forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}>
+<BaseLayout
+  title={title}
+  description={description}
+  theme={settings?.theme}
+  forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
+  leadConnectorChat={true}
+>
   <header class="header">
     <div class="offer-bar"><div class="offer-bar-inner"><p class="offer-message">{asStr(header?.offerBar?.textBeforeDiscount)}<strong>{asStr(header?.offerBar?.discountLabel)}</strong>{asStr(header?.offerBar?.textAfterDiscount)} <a href={asStr(header?.offerBar?.ctaHref) || '#contact'} class="offer-link" {...externalLinkAttrs(asStr(header?.offerBar?.ctaHref) || '#contact')}><strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong></a></p></div></div>
     <div class="header-nav">
@@ -119,17 +119,17 @@ const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
             <p>{asStr(footerEstimate?.intro) || 'Contact us for fast service and straightforward estimates.'}</p>
             <FooterContactInfo variant="estimate" phoneTel={phoneTel} phoneDisplay={phoneDisplay} email={email} address={address} addressHref={addressHref} />
           </div>
-          <form class="contact-form" data-lead-form={`${pageIdPrefix}-footer`} action={universalFormAction} method={universalFormMethod}>
-            <div class="contact-form-grid">
-              <div class="contact-form-field"><label for={`${pageIdPrefix}-contact-name`}>{asStr(footerEstimateFields?.nameLabel) || 'Name'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id={`${pageIdPrefix}-contact-name`} name="name" type="text" required autocomplete="name" /></div>
-              <div class="contact-form-field"><label for={`${pageIdPrefix}-contact-email`}>{asStr(footerEstimateFields?.emailLabel) || 'Email'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id={`${pageIdPrefix}-contact-email`} name="email" type="email" required autocomplete="email" /></div>
-              <div class="contact-form-field"><label for={`${pageIdPrefix}-contact-phone`}>{asStr(footerEstimateFields?.phoneLabel) || 'Phone'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id={`${pageIdPrefix}-contact-phone`} name="phone" type="tel" required autocomplete="tel" /></div>
-              <div class="contact-form-field"><label for={`${pageIdPrefix}-contact-location`}>{asStr(footerEstimateFields?.cityLabel) || 'City'}</label><input id={`${pageIdPrefix}-contact-location`} name="location" type="text" autocomplete="address-level2" /></div>
-              <div class="contact-form-field contact-form-field-full"><label for={`${pageIdPrefix}-contact-message`}>{asStr(footerEstimateFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id={`${pageIdPrefix}-contact-message`} name="message" rows="4"></textarea></div>
-            </div>
-            <SmsMarketingConsent checkboxId={`${pageIdPrefix}-footer-sms-consent`} />
-            <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
-          </form>
+          {/*
+            Lead Connector SMS compliance: no lead form (phone/SMS fields) on the same page as the chat widget.
+            Full quote forms stay on the homepage and all other main layouts; this chrome is only privacy, terms, thank-you, 404.
+          */}
+          <div class="footer-estimate-cta" role="region" aria-label="Get a quote">
+            <p class="footer-estimate-cta-intro">
+              Request a quote on our contact page or call us—same forms and experience as the rest of the site.
+            </p>
+            <a href="/contact-us/" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request a quote'}</a>
+            <a href={`tel:${phoneTel}`} class="btn btn-outline btn-lg">{callLabelNav}</a>
+          </div>
         </div>
       </div>
     </section>
