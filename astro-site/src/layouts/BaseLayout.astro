@@ -89,5 +89,11 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
     <Analytics />
     <SpeedInsights />
     <script src="/script.js" defer></script>
+    <!-- Lead Connector (GoHighLevel) chat — load after page scripts -->
+    <script
+      is:inline
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="69d57e442f3d4c960ef3effe"></script>
   </body>
 </html>

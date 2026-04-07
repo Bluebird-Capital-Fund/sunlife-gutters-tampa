@@ -4189,3 +4189,14 @@ form[data-lead-form] button[type="submit"].is-busy {
 .blog-index-intro-block p:last-child {
   margin-bottom: 0;
 }
+
+/* Lead Connector chat above Google reCAPTCHA v3 badge (both default bottom-right) */
+.grecaptcha-badge {
+  z-index: 9990 !important;
+}
+
+chat-widget {
+  position: relative;
+  z-index: 2147483000 !important;
+  isolation: isolate;
+}
