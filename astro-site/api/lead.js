@@ -146,6 +146,11 @@ export default {
       return jsonResponse({ ok: false, error: 'invalid_email' }, 400);
     }
 
+    const smsConsent = body.smsMarketingConsent;
+    if (smsConsent !== true && smsConsent !== 'yes') {
+      return jsonResponse({ ok: false, error: 'sms_consent_required' }, 400);
+    }
+
     const payload = {
       formSource,
       name,
@@ -153,6 +158,7 @@ export default {
       phone,
       location,
       message,
+      smsMarketingConsent: true,
       submittedAt: new Date().toISOString(),
       pageUrl,
       utm_source,

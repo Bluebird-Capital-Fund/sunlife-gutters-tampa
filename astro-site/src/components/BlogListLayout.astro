@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { asStr, mediaUrl } from '../lib/sanity-strings.js'
@@ -189,6 +190,7 @@ const {
               <textarea id={`${formIdPrefix}-message`} name="message" rows="3" />
             </div>
           </div>
+          <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} />
           <button type="submit" class="btn btn-primary btn-lg">{asStr(universalFormFields?.submitButton) || 'Send'}</button>
         </form>
       </div>
@@ -238,6 +240,7 @@ const {
                 <textarea id={`${formIdPrefix}-contact-message`} name="message" rows="4" />
               </div>
             </div>
+            <SmsMarketingConsent checkboxId={`${formIdPrefix}-footer-sms-consent`} />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

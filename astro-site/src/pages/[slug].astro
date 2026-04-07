@@ -8,6 +8,7 @@ import CityServicePage from '../components/CityServicePage.astro'
 import FooterSocialIcon from '../components/FooterSocialIcon.astro'
 import FooterContactInfo from '../components/FooterContactInfo.astro'
 import FooterHoursRow from '../components/FooterHoursRow.astro'
+import SmsMarketingConsent from '../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { sanity } from '../lib/sanity.js'
@@ -262,6 +263,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
               <textarea id={`${idPrefix}-message`} name="message" rows="3" />
             </div>
           </div>
+          <SmsMarketingConsent checkboxId={`${idPrefix}-hero-sms-consent`} />
           <button type="submit" class="btn btn-primary btn-lg">{asStr(universalFormFields?.submitButton) || 'Send'}</button>
         </form>
       </div>
@@ -354,6 +356,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
                 <textarea id={`${idPrefix}-contact-message`} name="message" rows="4" />
               </div>
             </div>
+            <SmsMarketingConsent checkboxId={`${idPrefix}-footer-sms-consent`} />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

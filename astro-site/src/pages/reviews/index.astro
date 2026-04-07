@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
+import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
@@ -153,6 +154,7 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
             <div class="hero-form-field"><label for="reviews-location">{asStr(universalFormFields?.cityLabel) || 'City'}</label><input id="reviews-location" name="location" type="text" autocomplete="address-level2" /></div>
             <div class="hero-form-field hero-form-field-full"><label for="reviews-message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id="reviews-message" name="message" rows="3"></textarea></div>
           </div>
+          <SmsMarketingConsent checkboxId="reviews-hero-sms-consent" />
           <button type="submit" class="btn btn-primary btn-lg">{asStr(universalFormFields?.submitButton) || 'Send'}</button>
         </form>
       </div>
@@ -233,6 +235,7 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
               <div class="contact-form-field"><label for="contact-location">{asStr(universalFormFields?.cityLabel) || 'City'}</label><input id="contact-location" name="location" type="text" autocomplete="address-level2" /></div>
               <div class="contact-form-field contact-form-field-full"><label for="contact-message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id="contact-message" name="message" rows="4"></textarea></div>
             </div>
+            <SmsMarketingConsent checkboxId="reviews-footer-sms-consent" />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

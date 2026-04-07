@@ -931,6 +931,7 @@
           location: (fd.get('address') || '').toString().trim(),
           message: (fd.get('message') || '').toString().trim(),
           website: (fd.get('website') || '').toString().trim(),
+          smsMarketingConsent: fd.get('smsMarketingConsent') === 'yes',
           pageUrl: typeof window.location.href === 'string' ? window.location.href : ''
         };
 
@@ -976,7 +977,9 @@
                             ? 'Could not verify security. Please try again in a moment.'
                             : err === 'missing_fields'
                               ? 'Please fill in all required fields.'
-                              : err === 'invalid_email'
+                              : err === 'sms_consent_required'
+                                ? 'Please confirm SMS consent to submit this form.'
+                                : err === 'invalid_email'
                                 ? 'Please enter a valid email address.'
                                 : err === 'upstream_unreachable'
                                   ? 'Could not reach the form service. Please try again or call us.'

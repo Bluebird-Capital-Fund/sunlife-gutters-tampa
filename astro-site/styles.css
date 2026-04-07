@@ -1704,6 +1704,45 @@ form[data-lead-form] button[type='submit'].btn-primary:hover {
   color: var(--color-form-button-text);
 }
 
+/* Lead forms — A2P / TCPA SMS marketing consent */
+.lead-form-sms-consent {
+  margin: 0.15rem 0 0;
+}
+
+.hero-form .lead-form-sms-consent {
+  margin-top: var(--space-sm);
+}
+
+.lead-form-sms-consent-label {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.hero-form .lead-form-sms-consent-label {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.lead-form-sms-consent-label input[type='checkbox'] {
+  margin-top: 0.2em;
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.lead-form-sms-consent-text .required-mark {
+  color: var(--color-accent);
+  margin-right: 0.15em;
+}
+
 /* Lead forms (hero + footer) — Zapier via /api/lead */
 .lead-form-honeypot-wrap {
   position: absolute;

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
+import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
@@ -215,6 +216,7 @@ const faqItems = Array.isArray(faqData?.items)
               <textarea id="faq-message" name="message" rows="3"></textarea>
             </div>
           </div>
+          <SmsMarketingConsent checkboxId="faq-hero-sms-consent" />
           <button type="submit" class="btn btn-primary btn-lg">{asStr(universalFormFields?.submitButton) || 'Send'}</button>
         </form>
       </div>
@@ -339,6 +341,7 @@ const faqItems = Array.isArray(faqData?.items)
                 <textarea id="contact-message" name="message" rows="4"></textarea>
               </div>
             </div>
+            <SmsMarketingConsent checkboxId="faq-footer-sms-consent" />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

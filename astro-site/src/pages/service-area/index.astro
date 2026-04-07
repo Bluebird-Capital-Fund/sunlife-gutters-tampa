@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
+import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
@@ -315,6 +316,7 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
               <div class="contact-form-field"><label for="service-area-contact-location">{asStr(footerEstimateFields?.cityLabel) || 'City'}</label><input id="service-area-contact-location" name="location" type="text" autocomplete="address-level2" /></div>
               <div class="contact-form-field contact-form-field-full"><label for="service-area-contact-message">{asStr(footerEstimateFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id="service-area-contact-message" name="message" rows="4"></textarea></div>
             </div>
+            <SmsMarketingConsent checkboxId="service-area-footer-sms-consent" />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

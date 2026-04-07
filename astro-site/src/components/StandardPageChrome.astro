@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
@@ -126,6 +127,7 @@ const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
               <div class="contact-form-field"><label for={`${pageIdPrefix}-contact-location`}>{asStr(footerEstimateFields?.cityLabel) || 'City'}</label><input id={`${pageIdPrefix}-contact-location`} name="location" type="text" autocomplete="address-level2" /></div>
               <div class="contact-form-field contact-form-field-full"><label for={`${pageIdPrefix}-contact-message`}>{asStr(footerEstimateFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id={`${pageIdPrefix}-contact-message`} name="message" rows="4"></textarea></div>
             </div>
+            <SmsMarketingConsent checkboxId={`${pageIdPrefix}-footer-sms-consent`} />
             <button type="submit" class="btn btn-primary btn-lg">{asStr(footerEstimateFields?.submitButton) || 'Request Quote'}</button>
           </form>
         </div>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  /** Unique id for the checkbox (and label association). */
+  checkboxId: string
+}
+
+const { checkboxId } = Astro.props
+---
+
+<div class="lead-form-sms-consent">
+  <label class="lead-form-sms-consent-label" for={checkboxId}>
+    <input
+      type="checkbox"
+      id={checkboxId}
+      name="smsMarketingConsent"
+      value="yes"
+      required
+    />
+    <span class="lead-form-sms-consent-text">
+      <span class="required-mark" aria-hidden="true">*</span>
+      I consent to receive promotional and marketing text messages from Bluebird Miami, LLC about SunLife Gutters at the
+      mobile number I provided. Messages may include special offers, discounts, event promotions, and service
+      announcements. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe.
+    </span>
+  </label>
+</div>
