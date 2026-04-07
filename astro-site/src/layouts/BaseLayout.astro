@@ -1,6 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
+import CallRailSwap from '../components/CallRailSwap.astro'
 import '../../styles.css'
 import { buildHomeAndConstructionBusinessJsonLd } from '../lib/local-business-json-ld.js'
 import { getSiteSettings } from '../lib/site-settings.js'
@@ -27,6 +28,8 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
+    <CallRailSwap />
     <!-- Google Tag Manager -->
     <script is:inline>
       (function (w, d, s, l, i) {
