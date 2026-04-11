@@ -27,7 +27,8 @@ const meta = settings.meta
 const statsValues = settings.statsValues
 const mapEmbedUrl = asStr(settings.mapEmbedUrl)
 
-const companyName = asStr(business?.companyName)
+/** Public-facing business name on the home page (header, footer, templates). */
+const companyName = 'SunLife Gutters Tampa'
 const phoneDisplay = asStr(business?.phoneDisplay)
 const tel = asStr(business?.phoneTel)
 const email = asStr(business?.email)
@@ -190,6 +191,7 @@ const serviceHref = (svc) => {
   homeRevealAnimations
   preloadImageHref={mediaUrl(heroBgSrc)}
   leadConnectorChat={true}
+  localBusinessName={companyName}
 >
   <header class="header">
     <div class="offer-bar">

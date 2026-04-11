@@ -20,13 +20,15 @@ function normalizeSiteUrl(raw) {
 
 /**
  * @param {Record<string, unknown>} settings siteSettings merge result
+ * @param {string} [nameOverride] If set, used as schema.org `name` instead of `business.companyName`
  * @returns {string | null} Serialized JSON-LD or null if no business name
  */
-export function buildHomeAndConstructionBusinessJsonLd(settings) {
+export function buildHomeAndConstructionBusinessJsonLd(settings, nameOverride) {
   const business = settings?.business ?? {}
   const listings = settings?.businessListings ?? {}
 
-  const name = asStr(business.companyName).trim()
+  const name =
+    (typeof nameOverride === 'string' && nameOverride.trim()) || asStr(business.companyName).trim()
   if (!name) return null
 
   const url = normalizeSiteUrl(asStr(business.websiteUrl))

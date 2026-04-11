@@ -15,10 +15,15 @@ const {
   homeRevealAnimations = false,
   preloadImageHref = '',
   leadConnectorChat = false,
+  /** Optional override for LocalBusiness JSON-LD `name` (e.g. home page branding). */
+  localBusinessName = '',
 } = Astro.props
 
 const settings = await getSiteSettings()
-const localBusinessJsonLd = buildHomeAndConstructionBusinessJsonLd(settings)
+const localBusinessJsonLd = buildHomeAndConstructionBusinessJsonLd(
+  settings,
+  typeof localBusinessName === 'string' ? localBusinessName : '',
+)
 
 if (!forms || typeof forms.submitPath !== 'string' || !forms.submitPath.trim()) {
   throw new Error('BaseLayout: forms.submitPath is required (set from Sanity siteSettings.forms).')

@@ -9,7 +9,13 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/f
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
 
-const { title, description, navDdPrefix = 'page' } = Astro.props
+const {
+  title,
+  description,
+  navDdPrefix = 'page',
+  /** When set, overrides Sanity `business.companyName` for visible branding on this page. */
+  companyNameDisplay = '',
+} = Astro.props
 
 let settings = {}
 let homePage = {}
@@ -28,7 +34,7 @@ const footerBrand = settings?.footerBrand ?? homePage?.footerBrand ?? {}
 const footerColumns = settings?.footerColumns ?? homePage?.footerColumns ?? []
 const footerSupport = settings?.footerSupport ?? homePage?.footerSupport ?? {}
 
-const companyName = asStr(business.companyName) || 'SGT'
+const companyName = (companyNameDisplay && String(companyNameDisplay).trim()) || asStr(business.companyName) || 'SGT'
 const phoneDisplay = asStr(business.phoneDisplay) || '(303) 000-0000'
 const phoneTel = asStr(business.phoneTel) || '3030000000'
 const email = asStr(business.email) || 'hello@example.com'
