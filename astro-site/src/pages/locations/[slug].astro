@@ -111,7 +111,6 @@ const normalizeServiceCardHref = (href) => {
     '/soffit-and-fascias/': '/soffit-fascia-repair-tampa-fl/',
     '/super-gutters/': '/super-gutters-tampa-fl/',
     '/screen-rooms-and-lanais/': '/screen-rooms-lanais-tampa-fl/',
-    '/underground-drainage/': '/underground-drainage-tampa-fl/',
     '/siding/': '/siding-tampa-fl/',
   }
   return legacyMap[value] || value
@@ -129,7 +128,6 @@ const serviceHref = (svc) => {
     'super gutters': 'super-gutters-tampa-fl',
     'screen rooms & lanais': 'screen-rooms-lanais-tampa-fl',
     'screen rooms and lanais': 'screen-rooms-lanais-tampa-fl',
-    'underground drainage': 'underground-drainage-tampa-fl',
     siding: 'siding-tampa-fl',
   }
   if (knownSlugs[title]) return `/${knownSlugs[title]}/`

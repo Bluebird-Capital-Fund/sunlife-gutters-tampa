@@ -7,6 +7,21 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/underground-drainage-tampa-fl/",
+      "destination": "/seamless-gutters-tampa-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/services/underground-drainage-tampa-fl/",
+      "destination": "/seamless-gutters-tampa-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/underground-drainage/",
+      "destination": "/seamless-gutters-tampa-fl/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
@@ -73,7 +88,6 @@
     { "source": "/soffit-and-fascias/", "destination": "/services/soffit-fascia-repair-tampa-fl/" },
     { "source": "/super-gutters/", "destination": "/services/super-gutters-tampa-fl/" },
     { "source": "/screen-rooms-and-lanais/", "destination": "/services/screen-rooms-lanais-tampa-fl/" },
-    { "source": "/underground-drainage/", "destination": "/services/underground-drainage-tampa-fl/" },
     { "source": "/siding/", "destination": "/services/siding-tampa-fl/" },
     { "source": "/siding-services-in-central-florida/", "destination": "/services/siding-tampa-fl/" },
     { "source": "/anna-maria-island-florida/", "destination": "/locations/anna-maria-island-florida/" },

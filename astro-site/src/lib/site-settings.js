@@ -8,7 +8,6 @@ function normalizeHref(href) {
     '/soffit-and-fascias/': '/soffit-fascia-repair-tampa-fl/',
     '/super-gutters/': '/super-gutters-tampa-fl/',
     '/screen-rooms-and-lanais/': '/screen-rooms-lanais-tampa-fl/',
-    '/underground-drainage/': '/underground-drainage-tampa-fl/',
     '/siding/': '/siding-tampa-fl/',
   }
   const legacyLocationHrefMap = {
