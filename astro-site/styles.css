@@ -1739,6 +1739,17 @@ form[data-lead-form] button[type='submit'].btn-primary:hover {
   margin-right: 0.12em;
 }
 
+.lead-form-sms-consent-text a.lead-form-sms-consent-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.lead-form-sms-consent-text a.lead-form-sms-consent-link:hover {
+  color: var(--color-accent-hover);
+}
+
 /* Lead forms (hero + footer) — Zapier via /api/lead */
 .lead-form-honeypot-wrap {
   position: absolute;
@@ -1915,6 +1926,22 @@ form[data-lead-form] button[type="submit"].is-busy {
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.92rem;
   line-height: 1.85;
+}
+
+.footer-sms-disclosure-heading {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-sms-disclosure-text {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.footer-sms-disclosure-text:last-child {
+  margin-bottom: 0;
 }
 
 .footer-contact-list {

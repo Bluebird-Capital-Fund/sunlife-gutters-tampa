@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
+import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -532,6 +533,7 @@ const serviceHref = (svc) => {
             ) : null}
             {col.hoursHeading ? <p class="footer-heading footer-hours-heading">{asStr(col.hoursHeading)}</p> : null}
             {col.hoursText ? <FooterHoursRow hoursText={col.hoursText} /> : null}
+            {(col.hoursHeading || col.hoursText) ? <FooterSmsDisclosure /> : null}
           </div>
         ))}
       </div>

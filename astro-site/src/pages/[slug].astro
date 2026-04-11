@@ -8,6 +8,7 @@ import CityServicePage from '../components/CityServicePage.astro'
 import FooterSocialIcon from '../components/FooterSocialIcon.astro'
 import FooterContactInfo from '../components/FooterContactInfo.astro'
 import FooterHoursRow from '../components/FooterHoursRow.astro'
+import FooterSmsDisclosure from '../components/FooterSmsDisclosure.astro'
 import SmsMarketingConsent from '../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -392,6 +393,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
             ) : null}
             {col.hoursHeading ? <p class="footer-heading footer-hours-heading">{asStr(col.hoursHeading)}</p> : null}
             {col.hoursText ? <FooterHoursRow hoursText={col.hoursText} /> : null}
+            {(col.hoursHeading || col.hoursText) ? <FooterSmsDisclosure /> : null}
           </div>
         ))}
       </div>
