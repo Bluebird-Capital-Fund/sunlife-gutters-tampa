@@ -208,17 +208,20 @@ export async function getSiteSettings() {
     list.find((d) => d?._id !== singleton?._id && Array.isArray(d?.header?.navItems)) ||
     singleton
 
-  // Nav/footer links may come from a second siteSettings doc; offer bar must follow
-  // **siteSettingsSingleton** only — never list[0]'s offerBar when that isn't the singleton.
+  // Nav/footer may come from a second siteSettings doc. Offer bar copy must always follow
+  // **siteSettingsSingleton** when that document exists — merge singleton fields over the
+  // links doc so a stale secondary `header.offerBar` never wins (and Studio edits to the
+  // singleton always apply, even if `offerBar` was temporarily empty in the dataset).
   const rawHeader = linksSource?.header ?? singleton?.header
-  const singletonOffer = singletonDoc?.header?.offerBar
-  const mergedHeader =
-    rawHeader && singletonOffer != null
-      ? {
-          ...rawHeader,
-          offerBar: { ...rawHeader?.offerBar, ...singletonOffer },
-        }
-      : rawHeader
+  const singletonOfferBar = singletonDoc?.header?.offerBar
+  const mergedHeader = rawHeader
+    ? {
+        ...rawHeader,
+        offerBar: singletonDoc
+          ? { ...rawHeader?.offerBar, ...(singletonOfferBar && typeof singletonOfferBar === 'object' ? singletonOfferBar : {}) }
+          : rawHeader?.offerBar,
+      }
+    : rawHeader
 
   /**
    * Footer columns: prefer the canonical site settings doc (`singleton`) when it has columns.
