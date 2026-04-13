@@ -4259,13 +4259,56 @@ form[data-lead-form] button[type="submit"].is-busy {
   text-align: center;
 }
 
-/* Lead Connector chat (StandardPageChrome only): above reCAPTCHA v3 badge */
-body.has-lead-connector-chat .grecaptcha-badge {
-  z-index: 9990 !important;
+/*
+ * reCAPTCHA v3: badge may be hidden if disclosure is shown (Google FAQ).
+ * Move badge off-screen so it does not stack or steal space next to fixed chat widgets.
+ * https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+ */
+.grecaptcha-badge {
+  position: fixed !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
+/*
+ * Keep disclosure out of the bottom-right chat launcher zone (Lead Connector / GHL).
+ * Fixed bottom-left, compact; z-index below the chat widget.
+ */
+.recaptcha-disclosure {
+  position: fixed;
+  z-index: 9990;
+  left: var(--space-sm);
+  bottom: var(--space-sm);
+  right: auto;
+  max-width: min(20rem, calc(100vw - 5.5rem));
+  margin: 0;
+  padding: 0.35rem 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  text-align: left;
+  background: rgba(250, 251, 252, 0.96);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.recaptcha-disclosure a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.recaptcha-disclosure a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Do not override widget positioning (e.g. position: relative broke bottom anchoring). */
 body.has-lead-connector-chat chat-widget {
-  position: relative;
   z-index: 2147483000 !important;
-  isolation: isolate;
 }
