@@ -14,7 +14,6 @@ const {
   forms,
   homeRevealAnimations = false,
   preloadImageHref = '',
-  leadConnectorChat = false,
   /** Optional override for LocalBusiness JSON-LD `name` (e.g. home page branding). */
   localBusinessName = '',
 } = Astro.props
@@ -46,14 +45,12 @@ const leadConnectorWidgetId =
   <head>
     <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
     <CallRailSwap />
-    {leadConnectorChat ? (
-      <script
-        is:inline
-        src="https://widgets.leadconnectorhq.com/loader.js"
-        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id={leadConnectorWidgetId}
-      />
-    ) : null}
+    <script
+      is:inline
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id={leadConnectorWidgetId}
+    />
     <!-- Google Tag Manager -->
     <script is:inline>
       (function (w, d, s, l, i) {
@@ -100,7 +97,7 @@ const leadConnectorWidgetId =
   <body
     class:list={[
       { 'home-reveal-animate': homeRevealAnimations },
-      { 'has-lead-connector-chat': leadConnectorChat },
+      'has-lead-connector-chat',
       { 'has-recaptcha': !!recaptchaSiteKey },
     ]}
   >

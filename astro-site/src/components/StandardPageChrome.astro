@@ -60,7 +60,6 @@ const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
   description={description}
   theme={settings?.theme}
   forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
-  leadConnectorChat={false}
 >
   <header class="header">
     <div class="offer-bar"><div class="offer-bar-inner"><p class="offer-message">{asStr(header?.offerBar?.textBeforeDiscount)}<strong>{asStr(header?.offerBar?.discountLabel)}</strong>{asStr(header?.offerBar?.textAfterDiscount)} <a href={asStr(header?.offerBar?.ctaHref) || '#contact'} class="offer-link" {...externalLinkAttrs(asStr(header?.offerBar?.ctaHref) || '#contact')}><strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong></a></p></div></div>
