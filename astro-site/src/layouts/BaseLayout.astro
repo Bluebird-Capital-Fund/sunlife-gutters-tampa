@@ -87,11 +87,7 @@ const leadConnectorWidgetId =
     />
     <script type="application/json" id="site-forms-config" set:html={formsJson} />
     {recaptchaSiteKey ? (
-      <script
-        src={`https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`}
-        async
-        defer
-      />
+      <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer />
     ) : null}
   </head>
   <body
