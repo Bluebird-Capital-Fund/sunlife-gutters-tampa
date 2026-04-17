@@ -4260,8 +4260,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 }
 
 /*
- * reCAPTCHA v3: anchor the badge bottom-left so it stays clear of the chat launcher (right).
- * https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+ * reCAPTCHA v3: anchor the badge bottom-left (Google branding on the badge itself).
  */
 body.has-recaptcha .grecaptcha-badge {
   right: auto !important;
@@ -4272,38 +4271,6 @@ body.has-recaptcha .grecaptcha-badge {
   height: 60px !important;
   overflow: visible !important;
   pointer-events: auto !important;
-}
-
-/*
- * Text disclosure sits above the v3 badge (both left); z-index below the chat widget.
- */
-.recaptcha-disclosure {
-  position: fixed;
-  z-index: 9990;
-  left: var(--space-sm);
-  bottom: calc(var(--space-sm) + 4.25rem);
-  right: auto;
-  max-width: min(20rem, calc(100vw - 5.5rem));
-  margin: 0;
-  padding: 0.35rem 0.45rem;
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  line-height: 1.45;
-  color: var(--color-text-muted);
-  text-align: left;
-  background: rgba(250, 251, 252, 0.96);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.recaptcha-disclosure a {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-
-.recaptcha-disclosure a:hover {
-  color: var(--color-accent-hover);
 }
 
 /* Do not override widget positioning (e.g. position: relative broke bottom anchoring). */

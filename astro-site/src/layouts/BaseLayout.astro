@@ -111,15 +111,6 @@ const leadConnectorWidgetId =
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <slot />
-    {recaptchaSiteKey ? (
-      <p class="recaptcha-disclosure">
-        This site is protected by reCAPTCHA and the Google{' '}
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>{' '}
-        and{' '}
-        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>{' '}
-        apply.
-      </p>
-    ) : null}
     <!-- After bundled styles.css so :root theme tokens override file defaults -->
     <style id="site-theme-vars" set:html={themeCss}></style>
     <Analytics />
