@@ -4260,27 +4260,28 @@ form[data-lead-form] button[type="submit"].is-busy {
 }
 
 /*
- * reCAPTCHA v2 (checkbox): render target is injected before each submit button; keep widget left-aligned.
+ * reCAPTCHA v3: anchor the badge bottom-left so it stays clear of the chat launcher (right).
+ * https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
  */
-.lead-form-recaptcha {
-  text-align: left;
-  margin: var(--space-sm) 0 var(--space-md);
-}
-
-.lead-form-recaptcha > div {
-  display: inline-block;
-  text-align: left;
+body.has-recaptcha .grecaptcha-badge {
+  right: auto !important;
+  left: var(--space-sm) !important;
+  bottom: var(--space-sm) !important;
+  visibility: visible !important;
+  width: 256px !important;
+  height: 60px !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
 }
 
 /*
- * Keep disclosure out of the bottom-right chat launcher zone (Lead Connector / GHL).
- * Fixed bottom-left, compact; z-index below the chat widget.
+ * Text disclosure sits above the v3 badge (both left); z-index below the chat widget.
  */
 .recaptcha-disclosure {
   position: fixed;
   z-index: 9990;
   left: var(--space-sm);
-  bottom: var(--space-sm);
+  bottom: calc(var(--space-sm) + 4.25rem);
   right: auto;
   max-width: min(20rem, calc(100vw - 5.5rem));
   margin: 0;

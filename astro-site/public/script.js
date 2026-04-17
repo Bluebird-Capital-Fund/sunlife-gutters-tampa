@@ -898,30 +898,6 @@
         setupMapboxAddressAutofill(locationInput, mapboxToken);
       }
 
-      var submitForCaptcha = form.querySelector('button[type="submit"]');
-      if (recaptchaSiteKey && submitForCaptcha && submitForCaptcha.parentNode) {
-        var capWrap = document.createElement('div');
-        capWrap.className = 'lead-form-recaptcha';
-        submitForCaptcha.parentNode.insertBefore(capWrap, submitForCaptcha);
-        (function (wrapper, siteKey, f) {
-          var tries = 0;
-          var timer = setInterval(function () {
-            tries++;
-            if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
-              clearInterval(timer);
-              try {
-                var wid = window.grecaptcha.render(wrapper, { sitekey: siteKey, theme: 'light' });
-                f._sgtRecaptchaWidgetId = wid;
-              } catch (e) {
-                /* invalid key or double render */
-              }
-            } else if (tries > 200) {
-              clearInterval(timer);
-            }
-          }, 50);
-        })(capWrap, recaptchaSiteKey, form);
-      }
-
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (!form.checkValidity()) {
@@ -959,17 +935,6 @@
           pageUrl: typeof window.location.href === 'string' ? window.location.href : ''
         };
 
-        var resetFormRecaptcha = function () {
-          var wid = form._sgtRecaptchaWidgetId;
-          if (typeof wid === 'number' && window.grecaptcha && typeof window.grecaptcha.reset === 'function') {
-            try {
-              window.grecaptcha.reset(wid);
-            } catch (e) {
-              /* ignore */
-            }
-          }
-        };
-
         var runSend = function () {
           fetch(endpoint, {
             method: 'POST',
@@ -1003,31 +968,33 @@
                   : err === 'recaptcha_misconfigured'
                     ? 'This form is missing security configuration. Please call us instead.'
                     : err === 'recaptcha_missing' || err === 'recaptcha_failed'
-                      ? 'Security check failed. Complete the reCAPTCHA box again or refresh the page.'
-                      : err === 'recaptcha_unreachable'
-                        ? 'Could not verify security. Please try again in a moment.'
-                        : err === 'missing_fields'
-                          ? 'Please fill in all required fields.'
-                          : err === 'sms_consent_required'
-                            ? 'Please confirm SMS consent to submit this form.'
-                            : err === 'invalid_email'
-                              ? 'Please enter a valid email address.'
-                              : err === 'upstream_unreachable'
-                                ? 'Could not reach the form service. Please try again or call us.'
-                                : err === 'upstream_error'
-                                  ? 'The form service rejected the submission (code ' +
-                                    (zst || result.status || '?') +
-                                    '). Check the Zapier webhook URL in Vercel, or call us.'
-                                  : err === 'bad_response' || result.status === 404
-                                    ? 'Form endpoint not found (404). Redeploy the site or check Vercel Root Directory / api folder.'
-                                    : 'Something went wrong. Please try again or call us.';
+                      ? 'Security check failed. Please refresh the page and try again.'
+                      : err === 'recaptcha_low_score'
+                        ? 'We could not verify this submission. Please try again or call us.'
+                        : err === 'recaptcha_action_mismatch'
+                          ? 'Security check mismatch. Please refresh and try again.'
+                          : err === 'recaptcha_unreachable'
+                            ? 'Could not verify security. Please try again in a moment.'
+                            : err === 'missing_fields'
+                              ? 'Please fill in all required fields.'
+                              : err === 'sms_consent_required'
+                                ? 'Please confirm SMS consent to submit this form.'
+                                : err === 'invalid_email'
+                                  ? 'Please enter a valid email address.'
+                                  : err === 'upstream_unreachable'
+                                    ? 'Could not reach the form service. Please try again or call us.'
+                                    : err === 'upstream_error'
+                                      ? 'The form service rejected the submission (code ' +
+                                        (zst || result.status || '?') +
+                                        '). Check the Zapier webhook URL in Vercel, or call us.'
+                                      : err === 'bad_response' || result.status === 404
+                                        ? 'Form endpoint not found (404). Redeploy the site or check Vercel Root Directory / api folder.'
+                                        : 'Something went wrong. Please try again or call us.';
               setStatus(form, msg, 'error');
-              resetFormRecaptcha();
             })
             .catch(function () {
               if (submitBtn) submitBtn.classList.remove('is-busy');
               setStatus(form, 'Network error. Please check your connection and try again.', 'error');
-              resetFormRecaptcha();
             });
         };
 
@@ -1036,25 +1003,23 @@
             runSend();
             return;
           }
-          if (typeof window.grecaptcha === 'undefined' || typeof window.grecaptcha.getResponse !== 'function') {
+          if (typeof window.grecaptcha === 'undefined' || !window.grecaptcha.execute) {
             if (submitBtn) submitBtn.classList.remove('is-busy');
             setStatus(form, 'Security check failed to load. Please refresh the page and try again.', 'error');
             return;
           }
-          var wid = form._sgtRecaptchaWidgetId;
-          if (typeof wid !== 'number') {
-            if (submitBtn) submitBtn.classList.remove('is-busy');
-            setStatus(form, 'Security check is still loading. Wait a moment and try again.', 'error');
-            return;
-          }
-          var token = window.grecaptcha.getResponse(wid);
-          if (!token) {
-            if (submitBtn) submitBtn.classList.remove('is-busy');
-            setStatus(form, 'Please check the reCAPTCHA box above.', 'error');
-            return;
-          }
-          payload.recaptchaToken = token;
-          runSend();
+          window.grecaptcha.ready(function () {
+            window.grecaptcha
+              .execute(recaptchaSiteKey, { action: 'lead_form' })
+              .then(function (token) {
+                payload.recaptchaToken = token;
+                runSend();
+              })
+              .catch(function () {
+                if (submitBtn) submitBtn.classList.remove('is-busy');
+                setStatus(form, 'Security check failed. Please try again.', 'error');
+              });
+          });
         };
 
         startSend();

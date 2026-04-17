@@ -1,13 +1,12 @@
 /**
  * CANONICAL lead API — Vercel `/api/lead`. After edits, copy to `astro-site/api/lead.js` if your deploy uses that path.
  *
- * Verifies reCAPTCHA v2 (checkbox), then forwards JSON to Zapier.
+ * Verifies reCAPTCHA v3, then forwards JSON to Zapier.
  *
  * Env:
  * - ZAPIER_WEBHOOK_URL (required, https)
- * - RECAPTCHA_SECRET_KEY (required) — v2 secret from Google reCAPTCHA admin
- *
- * Site keys must be reCAPTCHA v2 "I'm not a robot" Checkbox keys (not v3).
+ * - RECAPTCHA_SECRET_KEY (required) — from Google reCAPTCHA admin (v3 secret)
+ * - RECAPTCHA_MIN_SCORE (optional, default 0.5) — v3 score threshold
  */
 
 /** Visitor-submitted phone from forms → NNN-NNN-NNNN when US 10 digits. */
@@ -18,6 +17,8 @@ function formatUsPhoneDashes(value) {
   if (n.length === 10) return `${n.slice(0, 3)}-${n.slice(3, 6)}-${n.slice(6)}`;
   return String(value || '').trim();
 }
+
+const RECAPTCHA_ACTION = 'lead_form';
 
 function jsonResponse(data, status, extraHeaders = {}) {
   return Response.json(data, {
@@ -32,7 +33,7 @@ function jsonResponse(data, status, extraHeaders = {}) {
   });
 }
 
-async function verifyRecaptchaV2(token, secret, remoteIp) {
+async function verifyRecaptchaV3(token, secret, remoteIp) {
   const params = new URLSearchParams();
   params.set('secret', secret);
   params.set('response', token);
@@ -45,7 +46,14 @@ async function verifyRecaptchaV2(token, secret, remoteIp) {
   if (!res.ok) return { ok: false, reason: 'verify_http' };
   const data = await res.json();
   if (!data.success) return { ok: false, reason: 'verify_failed', raw: data };
-  return { ok: true, raw: data };
+  if (data.action && data.action !== RECAPTCHA_ACTION) {
+    return { ok: false, reason: 'action_mismatch', raw: data };
+  }
+  const score = typeof data.score === 'number' ? data.score : 0;
+  const min = Number.parseFloat(process.env.RECAPTCHA_MIN_SCORE || '0.5');
+  const threshold = Number.isFinite(min) ? min : 0.5;
+  if (score < threshold) return { ok: false, reason: 'low_score', score, raw: data };
+  return { ok: true, score, raw: data };
 }
 
 export default {
@@ -102,12 +110,18 @@ export default {
     const remoteIp = forwardedFor ? forwardedFor.split(',')[0].trim() : undefined;
     let verify;
     try {
-      verify = await verifyRecaptchaV2(recaptchaToken, recaptchaSecret, remoteIp);
+      verify = await verifyRecaptchaV3(recaptchaToken, recaptchaSecret, remoteIp);
     } catch {
       return jsonResponse({ ok: false, error: 'recaptcha_unreachable' }, 502);
     }
     if (!verify.ok) {
-      return jsonResponse({ ok: false, error: 'recaptcha_failed' }, 400);
+      const err =
+        verify.reason === 'low_score'
+          ? 'recaptcha_low_score'
+          : verify.reason === 'action_mismatch'
+            ? 'recaptcha_action_mismatch'
+            : 'recaptcha_failed';
+      return jsonResponse({ ok: false, error: err }, 400);
     }
 
     const name = String(body.name || '').trim().slice(0, 500);
