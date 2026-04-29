@@ -116,7 +116,13 @@ const servicesBgStyle = `background-color: #143980; background-image: linear-gra
 
 const uniquePointsBgStyle = `background: var(--color-surface); background-image: url("${mediaUrl(uniquePointsBgSrc)}"); background-size: cover; background-position: center;`
 
-const typedPhrases = asStrArray(hero?.typedPhrases)
+const typedPhrases = [
+  'Norandex',
+  'Spectra Gutter Systems',
+  'LeafBlaster Pro',
+  'ABC Supply Co. Inc',
+  'Senox',
+]
 
 const copyrightTemplate = asStr(footerSupport?.copyrightTemplate)
 const copyrightInnerHtml = sanitizeCmsHtml(
