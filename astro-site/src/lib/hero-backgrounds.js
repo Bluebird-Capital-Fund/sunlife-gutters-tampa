@@ -1,7 +1,7 @@
 import { asStr } from './sanity-strings.js'
 
 /** Rotating hero images under `Media (SGT)/Images (SGT)/` (sync via `npm run sync:media`). */
-const HERO_POOL = [
+export const projectImagePool = [
   'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-copper-gutter-front-home.webp',
   'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-downspout-drainage.webp',
   'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-gutter-installation-residential-2.webp',
@@ -59,10 +59,10 @@ function seedIndex(seed) {
   const s = asStr(seed)
   let hash = 0
   for (let i = 0; i < s.length; i += 1) hash = (hash * 31 + s.charCodeAt(i)) >>> 0
-  return HERO_POOL.length ? hash % HERO_POOL.length : 0
+  return projectImagePool.length ? hash % projectImagePool.length : 0
 }
 
 export function heroBackgroundFor(seed) {
-  if (!HERO_POOL.length) return ''
-  return HERO_POOL[seedIndex(seed)]
+  if (!projectImagePool.length) return ''
+  return projectImagePool[seedIndex(seed)]
 }

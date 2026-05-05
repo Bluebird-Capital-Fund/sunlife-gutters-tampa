@@ -9,7 +9,7 @@ import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
-import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
+import { heroBackgroundFor, projectImagePool } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
 
 let settings = {}
@@ -83,6 +83,18 @@ const cleanProjectText = (value, fallback = '') => {
   return fallback
 }
 
+const labelFromImagePath = (value) => {
+  const file = asStr(value).split('/').pop() || ''
+  const base = file.replace(/\.[a-z0-9]+$/i, '')
+  if (!base) return ''
+  return base
+    .replace(/^sunlife-gutters-?/i, '')
+    .replace(/\bfl\b/gi, 'FL')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
 const heroBgSrc = heroBackgroundFor('projects')
 const heroBgStyle = heroBgSrc
   ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
@@ -108,7 +120,15 @@ const heroLead = cleanProjectText(
 )
 const galleryImages = allGalleryPages.flatMap((p) => (Array.isArray(p?.images) ? p.images : []))
 const homeProjectSlides = Array.isArray(homePage?.projects?.slides) ? homePage.projects.slides : []
-const allProjectImages = [...galleryImages, ...homeProjectSlides]
+const folderProjectImages = projectImagePool.map((src) => {
+  const label = labelFromImagePath(src)
+  return {
+    imageSrc: src,
+    imageAlt: label ? `${label} project photo` : 'Project photo',
+    location: label || 'Tampa Bay area',
+  }
+})
+const allProjectImages = [...galleryImages, ...homeProjectSlides, ...folderProjectImages]
 const seenImageSrc = new Set()
 const images = allProjectImages.filter((img) => {
   const src = asStr(img?.imageSrc)
