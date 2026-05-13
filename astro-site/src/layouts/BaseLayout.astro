@@ -16,6 +16,10 @@ const {
   preloadImageHref = '',
   /** Optional override for LocalBusiness JSON-LD `name` (e.g. home page branding). */
   localBusinessName = '',
+  /** When false, omit third-party chat widget scripts (e.g. paid LP pages). */
+  chatWidget = true,
+  /** When true, emit robots noindex,nofollow (paid landing pages only). */
+  robotsNoindex = false,
 } = Astro.props
 
 const settings = await getSiteSettings()
@@ -45,12 +49,14 @@ const leadConnectorWidgetId =
   <head>
     <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
     <CallRailSwap />
-    <script
-      is:inline
-      src="https://widgets.leadconnectorhq.com/loader.js"
-      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id={leadConnectorWidgetId}
-    />
+    {chatWidget ? (
+      <script
+        is:inline
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id={leadConnectorWidgetId}
+      />
+    ) : null}
     <!-- Google Tag Manager -->
     <script is:inline>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -62,6 +68,7 @@ const leadConnectorWidgetId =
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {robotsNoindex ? <meta name="robots" content="noindex,nofollow" /> : null}
     <title>{title}</title>
     <meta name="description" content={description} />
     {preloadImageHref ? <link rel="preload" as="image" href={preloadImageHref} /> : null}
@@ -92,7 +99,7 @@ const leadConnectorWidgetId =
   <body
     class:list={[
       { 'home-reveal-animate': homeRevealAnimations },
-      'has-lead-connector-chat',
+      { 'has-lead-connector-chat': chatWidget },
       { 'has-recaptcha': !!recaptchaSiteKey },
     ]}
   >
