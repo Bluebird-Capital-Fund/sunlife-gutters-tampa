@@ -4273,7 +4273,3 @@ body.has-recaptcha .grecaptcha-badge {
   pointer-events: auto !important;
 }
 
-/* Do not override widget positioning (e.g. position: relative broke bottom anchoring). */
-body.has-lead-connector-chat chat-widget {
-  z-index: 2147483000 !important;
-}

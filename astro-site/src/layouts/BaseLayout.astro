@@ -16,8 +16,6 @@ const {
   preloadImageHref = '',
   /** Optional override for LocalBusiness JSON-LD `name` (e.g. home page branding). */
   localBusinessName = '',
-  /** When false, omit third-party chat widget scripts (e.g. paid LP pages). */
-  chatWidget = true,
   /** When true, emit robots noindex,nofollow (paid landing pages only). */
   robotsNoindex = false,
 } = Astro.props
@@ -40,23 +38,12 @@ const recaptchaSiteKey =
 const mapboxToken = (import.meta.env.PUBLIC_MAPBOX_TOKEN || '').trim()
 const formsForClient = { ...forms, recaptchaSiteKey, mapboxToken }
 const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
-
-const leadConnectorWidgetId =
-  (import.meta.env.PUBLIC_LEAD_CONNECTOR_WIDGET_ID || '').trim() || '69da6cb3b5c4e03a355b6012'
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
     <CallRailSwap />
-    {chatWidget ? (
-      <script
-        is:inline
-        src="https://widgets.leadconnectorhq.com/loader.js"
-        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id={leadConnectorWidgetId}
-      />
-    ) : null}
     <!-- Google Tag Manager -->
     <script is:inline>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -99,7 +86,6 @@ const leadConnectorWidgetId =
   <body
     class:list={[
       { 'home-reveal-animate': homeRevealAnimations },
-      { 'has-lead-connector-chat': chatWidget },
       { 'has-recaptcha': !!recaptchaSiteKey },
     ]}
   >
