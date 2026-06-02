@@ -130,7 +130,7 @@ function normalizeHeader(header) {
       })
     }
   }
-  return { ...header, navItems }
+  return { ...header, navItems, offerBar: normalizeOfferBar(header.offerBar) }
 }
 
 function normalizeFooterColumns(columns) {
@@ -172,6 +172,22 @@ function hasUpdatedLinks(doc) {
     typeof privacyHref === 'string' && privacyHref.includes('/privacy-policy/')
 }
 
+/** Top offer-bar message; linked phrase is `ctaText` → `ctaHref`. */
+const CANONICAL_OFFER_BAR = {
+  textBeforeDiscount: 'Fast, friendly service you can count on. ',
+  discountLabel: '',
+  textAfterDiscount: '',
+  ctaText: 'Get your free estimate today.',
+  ctaHref: 'https://sunlifegutters.com/contact-us/#contact',
+}
+
+function normalizeOfferBar(offerBar) {
+  return {
+    ...(offerBar && typeof offerBar === 'object' ? offerBar : {}),
+    ...CANONICAL_OFFER_BAR,
+  }
+}
+
 /**
  * Prefer Site settings for the full header; many pages fall back to `homePage.header`.
  * Offer bar (discount %, CTA, etc.) must always use Site settings when present — homePage
@@ -183,10 +199,10 @@ export function mergeHeaderFromSettings(settings, fallbackHeader) {
     ...base,
     // Merge field-by-field so a partial `header.offerBar` on site settings still wins
     // (Sanity often sends only changed fields; `??` replaced the whole block with homePage's 10%).
-    offerBar: {
+    offerBar: normalizeOfferBar({
       ...fallbackHeader?.offerBar,
       ...settings?.header?.offerBar,
-    },
+    }),
   }
 }
 
