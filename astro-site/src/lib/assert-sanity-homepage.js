@@ -47,6 +47,12 @@ function reqStr(path, v) {
   return s
 }
 
+/** String field that may be empty (e.g. offer bar when no discount middle segment). */
+function reqStrAllowEmpty(path, v) {
+  req(path, v != null && typeof v === 'string', `got ${JSON.stringify(v)}`)
+  return asStr(v)
+}
+
 /**
  * @param {string} path
  * @param {unknown} v
@@ -153,8 +159,11 @@ export function assertSanityHomepage(settings, homePage) {
   const headerSourcePath = homePage.header ? 'homePage.header' : 'siteSettings.header'
   const header = reqObj(headerSourcePath, headerSource)
   const offerBar = reqObj(`${headerSourcePath}.offerBar`, header.offerBar)
-  ;['textBeforeDiscount', 'discountLabel', 'textAfterDiscount', 'ctaText', 'ctaHref'].forEach(
-    (k) => reqStr(`${headerSourcePath}.offerBar.${k}`, offerBar[k]),
+  ;['textBeforeDiscount', 'ctaText', 'ctaHref'].forEach((k) =>
+    reqStr(`${headerSourcePath}.offerBar.${k}`, offerBar[k]),
+  )
+  ;['discountLabel', 'textAfterDiscount'].forEach((k) =>
+    reqStrAllowEmpty(`${headerSourcePath}.offerBar.${k}`, offerBar[k]),
   )
   const navItems = reqArr(`${headerSourcePath}.navItems`, header.navItems)
   for (let i = 0; i < navItems.length; i++) {

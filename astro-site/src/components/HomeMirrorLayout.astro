@@ -253,7 +253,7 @@ const serviceHref = (svc) => {
       <div class="offer-bar-inner">
         <p class="offer-message">
           {asStr(offerBar?.textBeforeDiscount)}
-          <strong>{asStr(offerBar?.discountLabel)}</strong>
+          {asStr(offerBar?.discountLabel) ? <strong>{asStr(offerBar?.discountLabel)}</strong> : null}
           {asStr(offerBar?.textAfterDiscount)}
           <a
             href={asStr(offerBar?.ctaHref)}
