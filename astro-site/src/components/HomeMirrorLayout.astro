@@ -154,11 +154,32 @@ const isLp = !!(lp && lpKeyword && lpSlug)
 
 const lpCity = cityFromHeroOrFallback(hero?.headline, address)
 
+const lpSeasonCopy = (value) => {
+  if (!isLp) return asStr(value)
+  return asStr(value).replace(/\bSpring\b/gi, 'Summer')
+}
+
 const heroHeadlineDisplay = isLp
-  ? `Spring Special! Save Money Today On ${lpKeyword}.`
+  ? `Summer Special! Save Money Today On ${lpKeyword}.`
   : asStr(hero?.headline)
 
 const lpFormMainHeading = isLp ? `Get Special Pricing On ${lpKeyword}` : universalFormHeading
+
+const projectsHeadline = isLp ? `Recent ${lpKeyword} Projects` : asStr(projects?.headline)
+const whyChooseHeadline = isLp
+  ? `Trusted ${lpKeyword} partner along Florida's west coast`
+  : asStr(whyChoose?.headline)
+const servicesHeadline = isLp ? 'More Gutter Services' : asStr(services?.headline)
+const aboutHeadline = isLp ? `${lpKeyword} for Tampa Bay homes and weather` : asStr(about?.headline)
+const uniquePointsHeadline = isLp
+  ? `Simple, reliable ${lpKeyword} in Tampa Bay`
+  : asStr(uniquePoints?.headline)
+const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : asStr(faq?.headline)
+
+const offerBarTextBefore = lpSeasonCopy(offerBar?.textBeforeDiscount)
+const offerBarDiscountLabel = lpSeasonCopy(offerBar?.discountLabel)
+const offerBarTextAfter = lpSeasonCopy(offerBar?.textAfterDiscount)
+const offerBarCtaText = lpSeasonCopy(offerBar?.ctaText)
 
 const showHeroFormKicker = !isLp && asStr(universalFormKicker).trim() !== ''
 
@@ -182,7 +203,7 @@ const footerWebsiteId = isLp ? `lp-${lpSlug}-footer-website` : 'contact-website'
 const footerSmsConsentId = isLp ? `lp-${lpSlug}-footer-sms-consent` : 'footer-sms-consent'
 
 const layoutDocumentTitle = isLp
-  ? `Spring Special: ${lpKeyword} — ${lpCity} | ${companyName}`
+  ? `Summer Special: ${lpKeyword} — ${lpCity} | ${companyName}`
   : pageTitle
 
 const normalizeLocationPageHref = (href) => {
@@ -252,15 +273,15 @@ const serviceHref = (svc) => {
     <div class="offer-bar">
       <div class="offer-bar-inner">
         <p class="offer-message">
-          {asStr(offerBar?.textBeforeDiscount)}
-          {asStr(offerBar?.discountLabel) ? <strong>{asStr(offerBar?.discountLabel)}</strong> : null}
-          {asStr(offerBar?.textAfterDiscount)}
+          {offerBarTextBefore}
+          {offerBarDiscountLabel ? <strong>{offerBarDiscountLabel}</strong> : null}
+          {offerBarTextAfter}
           <a
             href={asStr(offerBar?.ctaHref)}
             class="offer-link"
             {...externalLinkAttrs(asStr(offerBar?.ctaHref))}
           >
-            <strong>{asStr(offerBar?.ctaText)}</strong>
+            <strong>{offerBarCtaText}</strong>
           </a>
         </p>
       </div>
@@ -405,7 +426,7 @@ const serviceHref = (svc) => {
 
     <section id="process" class="image-scroller" aria-label={asStr(projects?.sectionAriaLabel)}>
       <div class="container projects-head">
-        <h2 class="section-title">{asStr(projects?.headline)}</h2>
+        <h2 class="section-title">{projectsHeadline}</h2>
       </div>
       <div class="projects-carousel" id="projects-carousel">
         {projects?.slides?.map((slide) => {
@@ -459,7 +480,7 @@ const serviceHref = (svc) => {
         </div>
         <div class="why-choose-content">
           <div class="why-eyebrow">{asStr(whyChoose?.eyebrow)}</div>
-          <h2 class="section-title section-title-secondary">{asStr(whyChoose?.headline)}</h2>
+          <h2 class="section-title section-title-secondary">{whyChooseHeadline}</h2>
           <p class="section-lead">{asStr(whyChoose?.lead)}</p>
           <ul class="why-choose-list">
             {whyChoose?.bullets?.map((b) => (
@@ -485,7 +506,7 @@ const serviceHref = (svc) => {
 
     <section id="services" class="section services" style={servicesBgStyle}>
       <div class="container">
-        <h2 class="section-title">{asStr(services?.headline)}</h2>
+        <h2 class="section-title">{servicesHeadline}</h2>
         <div class="services-grid">
           {services?.items?.map((svc) => (
             <article class="service-card">
@@ -504,7 +525,7 @@ const serviceHref = (svc) => {
       <div class="container about-grid">
         <div class="about-content">
           <div class="about-eyebrow">{asStr(about?.eyebrow)}</div>
-          <h2 class="section-title">{asStr(about?.headline)}</h2>
+          <h2 class="section-title">{aboutHeadline}</h2>
           <p class="about-lead">{asStr(about?.lead)}</p>
           <ul class="about-list">
             {asStrArray(about?.bullets).map((line) => (
@@ -554,7 +575,7 @@ const serviceHref = (svc) => {
     <section class="section unique-points" style={uniquePointsBgStyle}>
       <div class="container">
         <div class="why-eyebrow">{asStr(uniquePoints?.eyebrow)}</div>
-        <h2 class="section-title section-title-secondary">{asStr(uniquePoints?.headline)}</h2>
+        <h2 class="section-title section-title-secondary">{uniquePointsHeadline}</h2>
         <div class="unique-grid">
           {uniquePoints?.items?.map((pt) => (
             <article class="result-item">
@@ -749,7 +770,7 @@ const serviceHref = (svc) => {
       <div class="container">
         <div class="faq-panel">
           <h2 class="section-title section-title-secondary" id={asStr(faq?.headingId)}>
-            {asStr(faq?.headline)}
+            {faqHeadline}
           </h2>
           <div class="faq-list" data-faq-accordion>
             {faq?.items?.map((item, idx) => {
