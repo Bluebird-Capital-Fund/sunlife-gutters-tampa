@@ -1,15 +1,5 @@
 ---
-import CallRailSwap from '../../components/CallRailSwap.astro'
+import RedirectPreserveQuery from '../../components/RedirectPreserveQuery.astro'
 const target = '/locations/gutters-clearwater-fl/'
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <CallRailSwap />
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content={`0;url=${target}`} />
-    <link rel="canonical" href={target} />
-    <title>Redirecting...</title>
-  </head>
-  <body><p>Redirecting to <a href={target}>{target}</a>.</p></body>
-</html>
+<RedirectPreserveQuery target={target} />

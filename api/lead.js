@@ -7,6 +7,24 @@
  * - ZAPIER_WEBHOOK_URL (required, https)
  * - RECAPTCHA_SECRET_KEY (required) — from Google reCAPTCHA admin (v3 secret)
  * - RECAPTCHA_MIN_SCORE (optional, default 0.5) — v3 score threshold
+ *
+ * Attribution field mapping (documented — do not rename silently in Zapier without updating this):
+ *   Website / API source → Zapier / GoHighLevel destination
+ *   gclid        → gclid1          (GHL custom field)
+ *   gbraid       → gbraid
+ *   wbraid       → wbraid
+ *   utm_source   → utm_source
+ *   utm_medium   → lead_medium
+ *   utm_campaign → lead_campaign
+ *   utm_term     → lead_term
+ *   utm_content  → utm_content
+ *   utm_id       → utm_id
+ *   first_page   → first_page
+ *   referrer     → referrer
+ *
+ * The webhook payload includes BOTH the source names and the destination aliases
+ * so existing Zaps keep working while GHL can map the destination keys.
+ * Legacy first_landing_* / first_referrer keys are still forwarded for older Zaps.
  */
 
 /** Visitor-submitted phone from forms → NNN-NNN-NNNN when US 10 digits. */
@@ -16,6 +34,10 @@ function formatUsPhoneDashes(value) {
   if (d.length === 11 && d.startsWith('1')) n = d.slice(1);
   if (n.length === 10) return `${n.slice(0, 3)}-${n.slice(3, 6)}-${n.slice(6)}`;
   return String(value || '').trim();
+}
+
+function trimField(value, max) {
+  return String(value || '').trim().slice(0, max);
 }
 
 const RECAPTCHA_ACTION = 'lead_form';
@@ -124,20 +146,29 @@ export default {
       return jsonResponse({ ok: false, error: err }, 400);
     }
 
-    const name = String(body.name || '').trim().slice(0, 500);
-    const email = String(body.email || '').trim().slice(0, 320);
+    const name = trimField(body.name, 500);
+    const email = trimField(body.email, 320);
     const phone = formatUsPhoneDashes(body.phone || '').slice(0, 80);
-    const location = String(body.location || '').trim().slice(0, 200);
-    const message = String(body.message || '').trim().slice(0, 5000);
-    const formSource = String(body.formSource || 'unknown').trim().slice(0, 80);
-    const pageUrl = String(body.pageUrl || '').trim().slice(0, 2000);
-    const utm_source = String(body.utm_source || '').trim().slice(0, 200);
-    const utm_medium = String(body.utm_medium || '').trim().slice(0, 200);
-    const utm_campaign = String(body.utm_campaign || '').trim().slice(0, 200);
-    const utm_term = String(body.utm_term || '').trim().slice(0, 200);
-    const first_landing_url = String(body.first_landing_url || '').trim().slice(0, 2000);
-    const first_landing_path = String(body.first_landing_path || '').trim().slice(0, 2000);
-    const first_referrer = String(body.first_referrer || '').trim().slice(0, 2000);
+    const location = trimField(body.location, 200);
+    const message = trimField(body.message, 5000);
+    const formSource = trimField(body.formSource || 'unknown', 80);
+    const pageUrl = trimField(body.pageUrl, 2000);
+
+    // Attribution (source names from website)
+    const gclid = trimField(body.gclid, 500);
+    const gbraid = trimField(body.gbraid, 500);
+    const wbraid = trimField(body.wbraid, 500);
+    const utm_source = trimField(body.utm_source, 200);
+    const utm_medium = trimField(body.utm_medium, 200);
+    const utm_campaign = trimField(body.utm_campaign, 200);
+    const utm_id = trimField(body.utm_id, 200);
+    const utm_content = trimField(body.utm_content, 200);
+    const utm_term = trimField(body.utm_term, 200);
+    const first_page = trimField(body.first_page || body.first_landing_path, 2000);
+    const referrer = trimField(body.referrer || body.first_referrer, 2000);
+    const first_landing_url = trimField(body.first_landing_url, 2000);
+    const first_landing_path = trimField(body.first_landing_path || first_page, 2000);
+    const first_referrer = trimField(body.first_referrer || referrer, 2000);
 
     if (!name || !email || !phone) {
       return jsonResponse({ ok: false, error: 'missing_fields' }, 400);
@@ -151,6 +182,10 @@ export default {
       return jsonResponse({ ok: false, error: 'sms_consent_required' }, 400);
     }
 
+    /**
+     * Zapier webhook body.
+     * Source keys + explicit GHL destination aliases (see file header mapping).
+     */
     const payload = {
       formSource,
       name,
@@ -161,10 +196,27 @@ export default {
       smsMarketingConsent: true,
       submittedAt: new Date().toISOString(),
       pageUrl,
+
+      // Source attribution keys (exact website field names)
+      gclid,
+      gbraid,
+      wbraid,
       utm_source,
       utm_medium,
       utm_campaign,
+      utm_id,
+      utm_content,
       utm_term,
+      first_page,
+      referrer,
+
+      // GoHighLevel destination aliases (documented mapping)
+      gclid1: gclid,
+      lead_medium: utm_medium,
+      lead_campaign: utm_campaign,
+      lead_term: utm_term,
+
+      // Legacy keys for existing Zapier paths
       first_landing_url,
       first_landing_path,
       first_referrer,

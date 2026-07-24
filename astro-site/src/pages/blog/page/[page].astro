@@ -80,7 +80,9 @@ const allPosts = await fetchAllBlogPosts(sanity)
 const { totalPages } = getBlogPagination(allPosts.length, BLOG_POSTS_PER_PAGE)
 
 if (currentPage > totalPages || currentPage < 2) {
-  return Astro.redirect('/blog/')
+  // Preserve Ads click IDs / UTMs on invalid pagination redirects
+  const qs = Astro.url.search || ''
+  return Astro.redirect(`/blog/${qs}`)
 }
 
 const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)

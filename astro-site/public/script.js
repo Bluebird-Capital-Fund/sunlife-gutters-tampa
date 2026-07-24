@@ -558,16 +558,64 @@
     return out;
   }
 
+  var ATTR_TTL_DAYS = 90;
+  var ATTR_COOKIE_PREFIX = 'sgt_';
+  var ATTR_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+  var ATTR_UTM_KEYS = [
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_id',
+    'utm_content',
+    'utm_term'
+  ];
+  var ATTR_HIDDEN_FIELDS = ATTR_CLICK_KEYS.concat(ATTR_UTM_KEYS).concat(['first_page', 'referrer']);
+
+  function isTrackingDebugEnabled() {
+    try {
+      var qs = new URLSearchParams(window.location.search || '');
+      if (qs.get('tracking_debug') === '1') {
+        try {
+          window.sessionStorage.setItem('sgt_tracking_debug', '1');
+        } catch (e) {
+          /* ignore */
+        }
+        return true;
+      }
+      try {
+        return window.sessionStorage.getItem('sgt_tracking_debug') === '1';
+      } catch (e2) {
+        return false;
+      }
+    } catch (e3) {
+      return false;
+    }
+  }
+
+  var trackingDebug = isTrackingDebugEnabled();
+
+  function trackingDebugLog() {
+    if (!trackingDebug || !window.console) return;
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift('[tracking_debug]');
+    if (typeof console.log === 'function') console.log.apply(console, args);
+  }
+
   function setCookie(name, value, days) {
     if (!name) return;
-    var maxAge = Math.max(0, Math.floor(Number(days || 90) * 24 * 60 * 60));
+    var maxAge = Math.max(0, Math.floor(Number(days || ATTR_TTL_DAYS) * 24 * 60 * 60));
+    var secure =
+      typeof window.location.protocol === 'string' && window.location.protocol === 'https:'
+        ? '; secure'
+        : '';
     document.cookie =
       encodeURIComponent(name) +
       '=' +
       encodeURIComponent(String(value || '')) +
       '; path=/; max-age=' +
       String(maxAge) +
-      '; samesite=lax';
+      '; samesite=lax' +
+      secure;
   }
 
   function getCookie(name) {
@@ -575,61 +623,191 @@
     return all[name] || '';
   }
 
-  function getPersistedUtmParams() {
-    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
+  function readAttrCookie(key) {
+    return getCookie(ATTR_COOKIE_PREFIX + key).trim();
+  }
+
+  function writeAttrCookie(key, value) {
+    var trimmed = String(value || '').trim();
+    if (!trimmed) return;
+    setCookie(ATTR_COOKIE_PREFIX + key, trimmed.slice(0, key === 'first_page' || key === 'referrer' ? 2000 : 500), ATTR_TTL_DAYS);
+  }
+
+  /**
+   * Shared Google Ads attribution utility.
+   * Captures click IDs + UTMs from the URL, first_page + referrer on first touch,
+   * and persists for 90 days so values survive navigation until form submit.
+   * Never overwrites a stored click ID with an empty value; prefers a new non-empty click ID.
+   */
+  function captureAndGetAttribution() {
     var qs = new URLSearchParams(window.location.search || '');
-    var persisted = {
+    var out = {
+      gclid: '',
+      gbraid: '',
+      wbraid: '',
       utm_source: '',
       utm_medium: '',
       utm_campaign: '',
-      utm_term: ''
+      utm_id: '',
+      utm_content: '',
+      utm_term: '',
+      first_page: '',
+      referrer: ''
     };
 
-    keys.forEach(function (key) {
+    ATTR_CLICK_KEYS.concat(ATTR_UTM_KEYS).forEach(function (key) {
       var fromQuery = (qs.get(key) || '').trim();
+      var fromCookie = readAttrCookie(key);
       if (fromQuery) {
-        persisted[key] = fromQuery.slice(0, 200);
-        setCookie('sgt_' + key, persisted[key], 90);
+        out[key] = fromQuery.slice(0, 500);
+        writeAttrCookie(key, out[key]);
         return;
       }
-      var fromCookie = getCookie('sgt_' + key).trim();
       if (fromCookie) {
-        persisted[key] = fromCookie.slice(0, 200);
+        out[key] = fromCookie.slice(0, 500);
       }
     });
 
-    return persisted;
-  }
-
-  /** First-touch only: full landing URL, path+query (page location), and referrer — not overwritten on later pages. */
-  function captureFirstTouchAttribution() {
-    if (getCookie('sgt_first_landing_url')) return;
-    try {
-      var href = typeof window.location.href === 'string' ? window.location.href : '';
-      var path = typeof window.location.pathname === 'string' ? window.location.pathname : '';
-      var search = typeof window.location.search === 'string' ? window.location.search : '';
-      var pageLocation = (path + search).slice(0, 2000);
-      setCookie('sgt_first_landing_url', href.slice(0, 2000), 90);
-      setCookie('sgt_first_landing_path', pageLocation, 90);
-      var ref = typeof document.referrer === 'string' ? document.referrer : '';
-      setCookie('sgt_first_referrer', ref.slice(0, 2000), 90);
-    } catch (e) {
-      /* ignore */
+    // First-touch only: original landing page + referrer
+    var storedFirstPage = readAttrCookie('first_page');
+    var storedReferrer = readAttrCookie('referrer');
+    // Legacy cookies from prior UTM helper
+    if (!storedFirstPage) {
+      storedFirstPage = readAttrCookie('first_landing_path') || readAttrCookie('first_landing_url');
     }
+    if (!storedReferrer) {
+      storedReferrer = readAttrCookie('first_referrer');
+    }
+
+    if (!storedFirstPage) {
+      try {
+        var path = typeof window.location.pathname === 'string' ? window.location.pathname : '';
+        var search = typeof window.location.search === 'string' ? window.location.search : '';
+        var firstPage = (path + search).slice(0, 2000);
+        writeAttrCookie('first_page', firstPage);
+        // Keep legacy keys for any older Zapier mappings still in use
+        writeAttrCookie('first_landing_path', firstPage);
+        var href = typeof window.location.href === 'string' ? window.location.href : '';
+        writeAttrCookie('first_landing_url', href.slice(0, 2000));
+        out.first_page = firstPage;
+      } catch (e) {
+        /* ignore */
+      }
+    } else {
+      out.first_page = storedFirstPage.slice(0, 2000);
+    }
+
+    if (!storedReferrer) {
+      try {
+        var ref = typeof document.referrer === 'string' ? document.referrer : '';
+        writeAttrCookie('referrer', ref.slice(0, 2000));
+        writeAttrCookie('first_referrer', ref.slice(0, 2000));
+        out.referrer = ref.slice(0, 2000);
+      } catch (e2) {
+        /* ignore */
+      }
+    } else {
+      out.referrer = storedReferrer.slice(0, 2000);
+    }
+
+    return out;
   }
 
-  function getPersistedFirstTouch() {
+  /** @deprecated Use captureAndGetAttribution — kept as thin alias for clarity at call sites. */
+  function getPersistedUtmParams() {
+    var a = captureAndGetAttribution();
     return {
-      first_landing_url: getCookie('sgt_first_landing_url').trim().slice(0, 2000),
-      first_landing_path: getCookie('sgt_first_landing_path').trim().slice(0, 2000),
-      first_referrer: getCookie('sgt_first_referrer').trim().slice(0, 2000)
+      utm_source: a.utm_source,
+      utm_medium: a.utm_medium,
+      utm_campaign: a.utm_campaign,
+      utm_term: a.utm_term,
+      utm_id: a.utm_id,
+      utm_content: a.utm_content
     };
   }
 
-  // Persist UTMs on every page load (even pages without forms),
-  // so attribution survives navigation until form submit.
-  getPersistedUtmParams();
-  captureFirstTouchAttribution();
+  function getPersistedFirstTouch() {
+    var a = captureAndGetAttribution();
+    return {
+      first_landing_url: readAttrCookie('first_landing_url').slice(0, 2000),
+      first_landing_path: a.first_page || readAttrCookie('first_landing_path').slice(0, 2000),
+      first_referrer: a.referrer || readAttrCookie('first_referrer').slice(0, 2000),
+      first_page: a.first_page,
+      referrer: a.referrer
+    };
+  }
+
+  function ensureAttributionHiddenFields(form) {
+    if (!form) return;
+    ATTR_HIDDEN_FIELDS.forEach(function (name) {
+      var existing = form.querySelector('input[type="hidden"][name="' + name + '"]');
+      if (existing) return;
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = '';
+      form.appendChild(input);
+    });
+  }
+
+  function populateAttributionHiddenFields(form, attribution) {
+    if (!form || !attribution) return false;
+    ensureAttributionHiddenFields(form);
+    var ok = true;
+    ATTR_HIDDEN_FIELDS.forEach(function (name) {
+      var input = form.querySelector('input[type="hidden"][name="' + name + '"]');
+      if (!input) {
+        ok = false;
+        return;
+      }
+      input.value = attribution[name] != null ? String(attribution[name]) : '';
+    });
+    return ok;
+  }
+
+  function runTrackingDebugReport(attribution) {
+    if (!trackingDebug || !window.console) return;
+    var qs = new URLSearchParams(window.location.search || '');
+    var callrailScript = !!document.querySelector('script[src*="cdn.callrail.com"]');
+    var telLinks = Array.prototype.slice.call(document.querySelectorAll('a[href^="tel:"]'));
+    var phoneTexts = [];
+    telLinks.forEach(function (a) {
+      phoneTexts.push({
+        href: a.getAttribute('href') || '',
+        text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40)
+      });
+    });
+    var originalPhoneFound = telLinks.length > 0;
+
+    trackingDebugLog('Current URL:', typeof window.location.href === 'string' ? window.location.href : '');
+    trackingDebugLog('Current query parameters:', window.location.search || '');
+    trackingDebugLog('GCLID found in URL:', (qs.get('gclid') || '') || '(none)');
+    trackingDebugLog('GBRAID found in URL:', (qs.get('gbraid') || '') || '(none)');
+    trackingDebugLog('WBRAID found in URL:', (qs.get('wbraid') || '') || '(none)');
+    trackingDebugLog('Stored attribution values:', attribution);
+    trackingDebugLog('Original landing page (first_page):', attribution.first_page || '(empty)');
+    trackingDebugLog('Original referrer:', attribution.referrer || '(empty)');
+    trackingDebugLog('CallRail script loaded:', callrailScript ? 'yes' : 'no');
+    trackingDebugLog('Original phone number found:', originalPhoneFound ? 'yes' : 'no');
+    trackingDebugLog('Phone numbers / tel: links (post-load snapshot):', phoneTexts);
+
+    // Re-check after CallRail has had time to swap
+    window.setTimeout(function () {
+      var after = Array.prototype.slice.call(document.querySelectorAll('a[href^="tel:"]')).map(function (a) {
+        return {
+          href: a.getAttribute('href') || '',
+          text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40)
+        };
+      });
+      trackingDebugLog('Phone number after CallRail runs (~2.5s):', after);
+    }, 2500);
+  }
+
+  // Persist attribution on every page load (even pages without forms).
+  var persistedAttribution = captureAndGetAttribution();
+  if (trackingDebug) {
+    runTrackingDebugReport(persistedAttribution);
+  }
 
   function setFieldLabelText(input, text) {
     if (!input || !input.id) return;
@@ -898,6 +1076,8 @@
         setupMapboxAddressAutofill(locationInput, mapboxToken);
       }
 
+      ensureAttributionHiddenFields(form);
+
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (!form.checkValidity()) {
@@ -910,17 +1090,27 @@
 
         setStatus(form, 'Sending…', null);
 
+        var attribution = captureAndGetAttribution();
+        var fieldsPopulated = populateAttributionHiddenFields(form, attribution);
+
         var fd = new FormData(form);
-        var utm = getPersistedUtmParams();
         var firstTouch = getPersistedFirstTouch();
         var payload = {
-          utm_source: utm.utm_source || '',
-          utm_medium: utm.utm_medium || '',
-          utm_campaign: utm.utm_campaign || '',
-          utm_term: utm.utm_term || '',
+          gclid: attribution.gclid || '',
+          gbraid: attribution.gbraid || '',
+          wbraid: attribution.wbraid || '',
+          utm_source: attribution.utm_source || '',
+          utm_medium: attribution.utm_medium || '',
+          utm_campaign: attribution.utm_campaign || '',
+          utm_id: attribution.utm_id || '',
+          utm_content: attribution.utm_content || '',
+          utm_term: attribution.utm_term || '',
+          first_page: attribution.first_page || '',
+          referrer: attribution.referrer || '',
+          // Legacy aliases still accepted by /api/lead + existing Zapier paths
           first_landing_url: firstTouch.first_landing_url || '',
-          first_landing_path: firstTouch.first_landing_path || '',
-          first_referrer: firstTouch.first_referrer || '',
+          first_landing_path: firstTouch.first_landing_path || attribution.first_page || '',
+          first_referrer: firstTouch.first_referrer || attribution.referrer || '',
           formSource: form.getAttribute('data-lead-form') || 'unknown',
           name: ((fd.get('firstName') || '').toString().trim() + ' ' + (fd.get('lastName') || '').toString().trim()).trim(),
           firstName: (fd.get('firstName') || '').toString().trim(),
@@ -934,6 +1124,55 @@
           smsMarketingConsent: fd.get('smsMarketingConsent') === 'yes',
           pageUrl: typeof window.location.href === 'string' ? window.location.href : ''
         };
+
+        if (trackingDebug && window.console) {
+          trackingDebugLog('Form fields populated:', fieldsPopulated ? 'yes' : 'no');
+          trackingDebugLog('Exact form attribution payload:');
+          if (typeof console.table === 'function') {
+            console.table({
+              gclid: payload.gclid,
+              gbraid: payload.gbraid,
+              wbraid: payload.wbraid,
+              utm_source: payload.utm_source,
+              utm_medium: payload.utm_medium,
+              utm_campaign: payload.utm_campaign,
+              utm_id: payload.utm_id,
+              utm_content: payload.utm_content,
+              utm_term: payload.utm_term,
+              first_page: payload.first_page,
+              referrer: payload.referrer
+            });
+          } else {
+            trackingDebugLog({
+              gclid: payload.gclid,
+              gbraid: payload.gbraid,
+              wbraid: payload.wbraid,
+              utm_source: payload.utm_source,
+              utm_medium: payload.utm_medium,
+              utm_campaign: payload.utm_campaign,
+              utm_id: payload.utm_id,
+              utm_content: payload.utm_content,
+              utm_term: payload.utm_term,
+              first_page: payload.first_page,
+              referrer: payload.referrer
+            });
+          }
+          trackingDebugLog('API attribution payload (non-PII fields):', {
+            gclid: payload.gclid,
+            gbraid: payload.gbraid,
+            wbraid: payload.wbraid,
+            utm_source: payload.utm_source,
+            utm_medium: payload.utm_medium,
+            utm_campaign: payload.utm_campaign,
+            utm_id: payload.utm_id,
+            utm_content: payload.utm_content,
+            utm_term: payload.utm_term,
+            first_page: payload.first_page,
+            referrer: payload.referrer,
+            formSource: payload.formSource,
+            pageUrl: payload.pageUrl
+          });
+        }
 
         var runSend = function () {
           fetch(endpoint, {

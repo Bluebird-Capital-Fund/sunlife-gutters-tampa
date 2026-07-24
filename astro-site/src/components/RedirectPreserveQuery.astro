@@ -1,0 +1,32 @@
+---
+/**
+ * Client + server redirect that keeps the inbound query string (gclid, UTMs, etc.).
+ * Prefer Vercel redirects/rewrites when possible; this is a fallback for stub pages.
+ */
+interface Props {
+  target: string
+}
+const { target } = Astro.props
+const safeTarget = String(target || '/').trim() || '/'
+const inboundSearch = Astro.url.search || ''
+const inboundHash = Astro.url.hash || ''
+const destWithQuery =
+  inboundSearch && safeTarget.indexOf('?') === -1 ? safeTarget + inboundSearch : safeTarget
+const finalDest =
+  inboundHash && destWithQuery.indexOf('#') === -1 ? destWithQuery + inboundHash : destWithQuery
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href={safeTarget} />
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content={`0;url=${finalDest}`} />
+    <script is:inline define:vars={{ finalDest }}>
+      window.location.replace(String(finalDest || '/'));
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href={finalDest}>{finalDest}</a>.</p>
+  </body>
+</html>
