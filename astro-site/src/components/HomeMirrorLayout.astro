@@ -166,6 +166,30 @@ const heroHeadlineDisplay = isLp
 const lpFormMainHeading = isLp ? `Get Special Pricing On ${lpKeyword}` : universalFormHeading
 
 const projectsHeadline = isLp ? `Recent ${lpKeyword} Projects` : asStr(projects?.headline)
+
+/** LP-specific project carousel slides (overrides homepage Sanity slides). */
+const lpProjectSlidesBySlug = {
+  'gutter-guards': [
+    {
+      imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-mesh-corner-trees.png',
+      imageAlt: 'Black mesh gutter guards on white gutters at a roof corner',
+      location: 'Tampa, FL',
+    },
+    {
+      imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-mesh-long-run.png',
+      imageAlt: 'Long run of white gutters with black mesh gutter guards',
+      location: 'Tampa, FL',
+    },
+    {
+      imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-mesh-corner-detail.png',
+      imageAlt: 'Close-up of micro-mesh gutter guard installed on a black gutter',
+      location: 'Tampa, FL',
+    },
+  ],
+}
+const projectSlides =
+  (isLp && lpProjectSlidesBySlug[lpSlug]) ||
+  (Array.isArray(projects?.slides) ? projects.slides : [])
 const whyChooseHeadline = isLp
   ? `Trusted ${lpKeyword} partner along Florida's west coast`
   : asStr(whyChoose?.headline)
@@ -514,7 +538,7 @@ const serviceHref = (svc) => {
         <h2 class="section-title">{projectsHeadline}</h2>
       </div>
       <div class="projects-carousel" id="projects-carousel">
-        {projects?.slides?.map((slide) => {
+        {projectSlides.map((slide) => {
           const loc = asStr(slide.location)
           const label = `${asStr(slide.imageAlt)} — ${loc}`
           return (
