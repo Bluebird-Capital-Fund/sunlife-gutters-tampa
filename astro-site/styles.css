@@ -3314,8 +3314,54 @@ form[data-lead-form] button[type="submit"].is-busy {
   line-height: 1.65;
 }
 
+.google-reviews .testimonial p .review-quote-highlight {
+  color: #000;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .google-reviews .testimonial cite {
   font-size: 0.78rem;
+}
+
+.reviews-carousel {
+  position: relative;
+}
+
+.reviews-carousel-page {
+  display: none;
+}
+
+.reviews-carousel-page.is-active {
+  display: grid;
+}
+
+.reviews-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.reviews-carousel-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.reviews-carousel-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #c4c4c8;
+  cursor: pointer;
+}
+
+.reviews-carousel-dot.is-active {
+  background: var(--color-primary, #1a1a1a);
 }
 
 .reviews-summary {

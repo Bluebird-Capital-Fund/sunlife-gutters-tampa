@@ -20,6 +20,11 @@ import {
 import { assertSanityHomepage } from '../lib/assert-sanity-homepage.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { cityFromHeroOrFallback } from '../lib/extract-lp-city.js'
+import {
+  GUTTER_INSTALLATION_LP_REVIEWS,
+  highlightReviewQuote,
+  chunkReviews,
+} from '../lib/lp-gutter-installation-reviews.js'
 
 interface Props {
   lp?: { slug: string; keyword: string }
@@ -190,6 +195,16 @@ const lpProjectSlidesBySlug = {
 const projectSlides =
   (isLp && lpProjectSlidesBySlug[lpSlug]) ||
   (Array.isArray(projects?.slides) ? projects.slides : [])
+
+const useLpReviewsCarousel = isLp && lpSlug === 'gutter-installation'
+const lpReviewPages = useLpReviewsCarousel
+  ? chunkReviews(GUTTER_INSTALLATION_LP_REVIEWS, 4)
+  : []
+const testimonialList = useLpReviewsCarousel
+  ? []
+  : Array.isArray(reviews?.testimonials)
+    ? reviews.testimonials
+    : []
 const whyChooseHeadline = isLp
   ? `Trusted ${lpKeyword} partner along Florida's west coast`
   : asStr(whyChoose?.headline)
@@ -487,49 +502,124 @@ const serviceHref = (svc) => {
             {asStr(reviewsSummary?.ctaText)}
           </a>
         </div>
-        <div class="testimonials-grid">
-          {reviews?.testimonials?.map((t) => (
-            <blockquote class="testimonial">
-              <div class="review-brand review-brand-top">
-                <img
-                  src={mediaUrl(asStr(t.avatarSrc))}
-                  alt={asStr(t.author)}
-                  class="review-avatar"
-                  width="48"
-                  height="48"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="review-meta">
-                  <strong>{asStr(t.author)}</strong>
-                  <span class="review-time">{asStr(t.timeAgo)}</span>
+        {useLpReviewsCarousel ? (
+          <div class="reviews-carousel" id="reviews-carousel" data-per-page="4">
+            {lpReviewPages.map((page, pageIndex) => (
+              <div
+                class:list={['reviews-carousel-page', 'testimonials-grid', pageIndex === 0 && 'is-active']}
+                data-page={pageIndex}
+                aria-hidden={pageIndex === 0 ? 'false' : 'true'}
+              >
+                {page.map((t) => (
+                  <blockquote class="testimonial">
+                    <div class="review-brand review-brand-top">
+                      <img
+                        src={mediaUrl(asStr(t.avatarSrc))}
+                        alt={asStr(t.author)}
+                        class="review-avatar"
+                        width="48"
+                        height="48"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div class="review-meta">
+                        <strong>{asStr(t.author)}</strong>
+                        {asStr(t.timeAgo) ? <span class="review-time">{asStr(t.timeAgo)}</span> : null}
+                      </div>
+                    </div>
+                    <img
+                      src={mediaUrl(asStr(reviewsSummary?.starsImageSrc))}
+                      alt={asStr(reviewsSummary?.starsImageAlt)}
+                      class="review-stars"
+                      width="96"
+                      height="18"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <p set:html={`&quot;${highlightReviewQuote(t.quote, t.boldPhrases)}&quot;`} />
+                    <div class="review-posted-on">
+                      <img
+                        src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
+                        alt={asStr(reviewsSummary?.brandLabel)}
+                        class="google-logo"
+                        width="20"
+                        height="20"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span>{asStr(reviews?.postedOnLabel)}</span>
+                    </div>
+                  </blockquote>
+                ))}
+              </div>
+            ))}
+            {lpReviewPages.length > 1 ? (
+              <div class="reviews-carousel-controls" aria-label="Review carousel controls">
+                <button type="button" class="project-nav" id="reviews-prev" aria-label="Previous reviews">
+                  ‹ Prev
+                </button>
+                <div class="reviews-carousel-dots" role="tablist" aria-label="Review pages">
+                  {lpReviewPages.map((_, pageIndex) => (
+                    <button
+                      type="button"
+                      class:list={['reviews-carousel-dot', pageIndex === 0 && 'is-active']}
+                      data-page={pageIndex}
+                      aria-label={`Show reviews page ${pageIndex + 1}`}
+                      aria-selected={pageIndex === 0 ? 'true' : 'false'}
+                    />
+                  ))}
                 </div>
+                <button type="button" class="project-nav" id="reviews-next" aria-label="Next reviews">
+                  Next ›
+                </button>
               </div>
-              <img
-                src={mediaUrl(asStr(reviewsSummary?.starsImageSrc))}
-                alt={asStr(reviewsSummary?.starsImageAlt)}
-                class="review-stars"
-                width="96"
-                height="18"
-                loading="lazy"
-                decoding="async"
-              />
-              <p>&quot;{asStr(t.quote)}&quot;</p>
-              <div class="review-posted-on">
+            ) : null}
+          </div>
+        ) : (
+          <div class="testimonials-grid">
+            {testimonialList.map((t) => (
+              <blockquote class="testimonial">
+                <div class="review-brand review-brand-top">
+                  <img
+                    src={mediaUrl(asStr(t.avatarSrc))}
+                    alt={asStr(t.author)}
+                    class="review-avatar"
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="review-meta">
+                    <strong>{asStr(t.author)}</strong>
+                    <span class="review-time">{asStr(t.timeAgo)}</span>
+                  </div>
+                </div>
                 <img
-                  src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
-                  alt={asStr(reviewsSummary?.brandLabel)}
-                  class="google-logo"
-                  width="20"
-                  height="20"
+                  src={mediaUrl(asStr(reviewsSummary?.starsImageSrc))}
+                  alt={asStr(reviewsSummary?.starsImageAlt)}
+                  class="review-stars"
+                  width="96"
+                  height="18"
                   loading="lazy"
                   decoding="async"
                 />
-                <span>{asStr(reviews?.postedOnLabel)}</span>
-              </div>
-            </blockquote>
-          ))}
-        </div>
+                <p>&quot;{asStr(t.quote)}&quot;</p>
+                <div class="review-posted-on">
+                  <img
+                    src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
+                    alt={asStr(reviewsSummary?.brandLabel)}
+                    class="google-logo"
+                    width="20"
+                    height="20"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>{asStr(reviews?.postedOnLabel)}</span>
+                </div>
+              </blockquote>
+            ))}
+          </div>
+        )}
       </div>
     </section>
 

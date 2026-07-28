@@ -318,6 +318,52 @@
     applySliderState();
   }
 
+  // Reviews carousel (LP pages) — pages of 4 testimonials
+  var reviewsCarousel = document.getElementById('reviews-carousel');
+  if (reviewsCarousel) {
+    var reviewPages = Array.prototype.slice.call(
+      reviewsCarousel.querySelectorAll('.reviews-carousel-page')
+    );
+    var reviewPrev = document.getElementById('reviews-prev');
+    var reviewNext = document.getElementById('reviews-next');
+    var reviewDots = Array.prototype.slice.call(
+      reviewsCarousel.querySelectorAll('.reviews-carousel-dot')
+    );
+    var reviewPageIndex = 0;
+
+    function setReviewPage(nextIndex) {
+      if (!reviewPages.length) return;
+      reviewPageIndex = (nextIndex + reviewPages.length) % reviewPages.length;
+      reviewPages.forEach(function (page, i) {
+        var active = i === reviewPageIndex;
+        page.classList.toggle('is-active', active);
+        page.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      reviewDots.forEach(function (dot, i) {
+        var active = i === reviewPageIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    if (reviewPrev) {
+      reviewPrev.addEventListener('click', function () {
+        setReviewPage(reviewPageIndex - 1);
+      });
+    }
+    if (reviewNext) {
+      reviewNext.addEventListener('click', function () {
+        setReviewPage(reviewPageIndex + 1);
+      });
+    }
+    reviewDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var page = parseInt(dot.getAttribute('data-page') || '0', 10);
+        if (!isNaN(page)) setReviewPage(page);
+      });
+    });
+  }
+
   // FAQ accordion — JS max-height animation (reliable every toggle; native <details> fights CSS height)
   var faqRoot = document.querySelector('[data-faq-accordion]');
   if (faqRoot) {
