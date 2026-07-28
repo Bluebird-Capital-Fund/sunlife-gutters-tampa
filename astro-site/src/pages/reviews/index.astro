@@ -14,6 +14,7 @@ import { asStr, applyTemplate, mediaUrl, statLookup } from '../../lib/sanity-str
 import { gutterGuardsReviews } from '../../lib/lp-gutter-guards-reviews.js'
 import { gutterInstallationReviews } from '../../lib/lp-gutter-installation-reviews.js'
 import { gutterRepairReviews } from '../../lib/lp-gutter-repair-reviews.js'
+import { guttersReviews } from '../../lib/lp-gutters-reviews.js'
 
 let settings = {}
 let homePage = {}
@@ -91,6 +92,13 @@ const testimonials = [
     quote: '',
   })),
   ...gutterRepairReviews.map((t) => ({
+    author: asStr(t.author),
+    avatarSrc: asStr(t.avatarSrc),
+    timeAgo: asStr(t.timeAgo),
+    quoteHtml: t.quoteHtml,
+    quote: '',
+  })),
+  ...guttersReviews.map((t) => ({
     author: asStr(t.author),
     avatarSrc: asStr(t.avatarSrc),
     timeAgo: asStr(t.timeAgo),
