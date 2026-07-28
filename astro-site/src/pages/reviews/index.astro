@@ -11,6 +11,7 @@ import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
 import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, mediaUrl, statLookup } from '../../lib/sanity-strings.js'
+import { gutterGuardsReviews } from '../../lib/lp-gutter-guards-reviews.js'
 
 let settings = {}
 let homePage = {}
@@ -63,7 +64,24 @@ const heroBgStyle = heroBgSrc
 const reviewsData = settings?.reviews ?? homePage?.reviews ?? {}
 const reviewSummary = reviewsData?.summary ?? {}
 const reviewValues = reviewsData?.reviewValues ?? {}
-const testimonials = Array.isArray(reviewsData?.testimonials) ? reviewsData.testimonials.slice(0, 4) : []
+const existingTestimonials = Array.isArray(reviewsData?.testimonials) ? reviewsData.testimonials : []
+/** Existing site testimonials first, then gutter-guards LP reviews (with bold highlights). */
+const testimonials = [
+  ...existingTestimonials.map((t) => ({
+    author: asStr(t.author),
+    avatarSrc: asStr(t.avatarSrc),
+    timeAgo: asStr(t.timeAgo),
+    quoteHtml: '',
+    quote: asStr(t.quote),
+  })),
+  ...gutterGuardsReviews.map((t) => ({
+    author: asStr(t.author),
+    avatarSrc: asStr(t.avatarSrc),
+    timeAgo: asStr(t.timeAgo),
+    quoteHtml: t.quoteHtml,
+    quote: '',
+  })),
+]
 const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey)
 const reviewCount = statLookup(reviewValues, reviewSummary?.reviewCountKey)
 const reviewCountDisplay = `${asStr(reviewSummary?.reviewCountPrefix)}${reviewCount}${asStr(reviewSummary?.reviewCountSuffix)}`
@@ -203,7 +221,11 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
                 alt={asStr(reviewSummary?.starsImageAlt)}
                 class="review-stars"
               />
-              <p>&quot;{asStr(t.quote)}&quot;</p>
+              {t.quoteHtml ? (
+                <p set:html={`&quot;${t.quoteHtml}&quot;`} />
+              ) : (
+                <p>&quot;{t.quote}&quot;</p>
+              )}
               <div class="review-posted-on">
                 <img
                   src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
