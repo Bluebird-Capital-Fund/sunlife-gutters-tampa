@@ -12,6 +12,7 @@ import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib
 import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, mediaUrl, statLookup } from '../../lib/sanity-strings.js'
 import { gutterGuardsReviews } from '../../lib/lp-gutter-guards-reviews.js'
+import { gutterInstallationReviews } from '../../lib/lp-gutter-installation-reviews.js'
 
 let settings = {}
 let homePage = {}
@@ -65,7 +66,7 @@ const reviewsData = settings?.reviews ?? homePage?.reviews ?? {}
 const reviewSummary = reviewsData?.summary ?? {}
 const reviewValues = reviewsData?.reviewValues ?? {}
 const existingTestimonials = Array.isArray(reviewsData?.testimonials) ? reviewsData.testimonials : []
-/** Existing site testimonials first, then gutter-guards LP reviews (with bold highlights). */
+/** Existing site testimonials first, then LP reviews (with bold highlights). */
 const testimonials = [
   ...existingTestimonials.map((t) => ({
     author: asStr(t.author),
@@ -75,6 +76,13 @@ const testimonials = [
     quote: asStr(t.quote),
   })),
   ...gutterGuardsReviews.map((t) => ({
+    author: asStr(t.author),
+    avatarSrc: asStr(t.avatarSrc),
+    timeAgo: asStr(t.timeAgo),
+    quoteHtml: t.quoteHtml,
+    quote: '',
+  })),
+  ...gutterInstallationReviews.map((t) => ({
     author: asStr(t.author),
     avatarSrc: asStr(t.avatarSrc),
     timeAgo: asStr(t.timeAgo),
