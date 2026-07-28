@@ -20,11 +20,7 @@ import {
 import { assertSanityHomepage } from '../lib/assert-sanity-homepage.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { cityFromHeroOrFallback } from '../lib/extract-lp-city.js'
-import {
-  GUTTER_INSTALLATION_LP_REVIEWS,
-  highlightReviewQuote,
-  chunkReviews,
-} from '../lib/lp-gutter-installation-reviews.js'
+import { gutterGuardsReviews, chunkReviews } from '../lib/lp-gutter-guards-reviews.js'
 
 interface Props {
   lp?: { slug: string; keyword: string }
@@ -196,15 +192,17 @@ const projectSlides =
   (isLp && lpProjectSlidesBySlug[lpSlug]) ||
   (Array.isArray(projects?.slides) ? projects.slides : [])
 
-const useLpReviewsCarousel = isLp && lpSlug === 'gutter-installation'
-const lpReviewPages = useLpReviewsCarousel
-  ? chunkReviews(GUTTER_INSTALLATION_LP_REVIEWS, 4)
-  : []
-const testimonialList = useLpReviewsCarousel
-  ? []
-  : Array.isArray(reviews?.testimonials)
-    ? reviews.testimonials
-    : []
+/** LP-specific Google reviews (carousel pages of 4). */
+const lpReviewsBySlug = {
+  'gutter-guards': gutterGuardsReviews,
+}
+const lpReviewItems = isLp ? lpReviewsBySlug[lpSlug] : null
+const useLpReviewsCarousel = Array.isArray(lpReviewItems) && lpReviewItems.length > 0
+const reviewCarouselPages = useLpReviewsCarousel ? chunkReviews(lpReviewItems, 4) : []
+const homepageTestimonials = Array.isArray(reviews?.testimonials) ? reviews.testimonials : []
+const reviewsHeadlineDisplay = useLpReviewsCarousel
+  ? `What Tampa Bay homeowners say about our ${lpKeyword}`
+  : asStr(reviews?.headline)
 const whyChooseHeadline = isLp
   ? `Trusted ${lpKeyword} partner along Florida's west coast`
   : asStr(whyChoose?.headline)
@@ -465,7 +463,7 @@ const serviceHref = (svc) => {
 
     <section id="reviews" class="section google-reviews">
       <div class="container">
-        <h2 class="section-title reviews-title">{asStr(reviews?.headline)}</h2>
+        <h2 class="section-title reviews-title">{reviewsHeadlineDisplay}</h2>
         <div class="reviews-summary">
           <div class="reviews-summary-left">
             <p class="reviews-summary-brand">
@@ -502,11 +500,12 @@ const serviceHref = (svc) => {
             {asStr(reviewsSummary?.ctaText)}
           </a>
         </div>
+
         {useLpReviewsCarousel ? (
-          <div class="reviews-carousel" id="reviews-carousel" data-per-page="4">
-            {lpReviewPages.map((page, pageIndex) => (
+          <div class="reviews-carousel" id="reviews-carousel">
+            {reviewCarouselPages.map((page, pageIndex) => (
               <div
-                class:list={['reviews-carousel-page', 'testimonials-grid', pageIndex === 0 && 'is-active']}
+                class:list={['reviews-carousel-page', 'testimonials-grid', { 'is-active': pageIndex === 0 }]}
                 data-page={pageIndex}
                 aria-hidden={pageIndex === 0 ? 'false' : 'true'}
               >
@@ -536,7 +535,7 @@ const serviceHref = (svc) => {
                       loading="lazy"
                       decoding="async"
                     />
-                    <p set:html={`&quot;${highlightReviewQuote(t.quote, t.boldPhrases)}&quot;`} />
+                    <p set:html={`&quot;${t.quoteHtml}&quot;`} />
                     <div class="review-posted-on">
                       <img
                         src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
@@ -553,31 +552,32 @@ const serviceHref = (svc) => {
                 ))}
               </div>
             ))}
-            {lpReviewPages.length > 1 ? (
-              <div class="reviews-carousel-controls" aria-label="Review carousel controls">
+            {reviewCarouselPages.length > 1 ? (
+              <div class="reviews-carousel-controls" aria-label="Review pages">
                 <button type="button" class="project-nav" id="reviews-prev" aria-label="Previous reviews">
-                  ‹ Prev
+                  Prev
                 </button>
                 <div class="reviews-carousel-dots" role="tablist" aria-label="Review pages">
-                  {lpReviewPages.map((_, pageIndex) => (
+                  {reviewCarouselPages.map((_, pageIndex) => (
                     <button
                       type="button"
-                      class:list={['reviews-carousel-dot', pageIndex === 0 && 'is-active']}
+                      class:list={['reviews-carousel-dot', { 'is-active': pageIndex === 0 }]}
                       data-page={pageIndex}
-                      aria-label={`Show reviews page ${pageIndex + 1}`}
+                      role="tab"
                       aria-selected={pageIndex === 0 ? 'true' : 'false'}
+                      aria-label={`Reviews page ${pageIndex + 1}`}
                     />
                   ))}
                 </div>
                 <button type="button" class="project-nav" id="reviews-next" aria-label="Next reviews">
-                  Next ›
+                  Next
                 </button>
               </div>
             ) : null}
           </div>
         ) : (
           <div class="testimonials-grid">
-            {testimonialList.map((t) => (
+            {homepageTestimonials.map((t) => (
               <blockquote class="testimonial">
                 <div class="review-brand review-brand-top">
                   <img

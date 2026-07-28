@@ -3336,6 +3336,10 @@ form[data-lead-form] button[type="submit"].is-busy {
   display: grid;
 }
 
+.reviews-carousel .testimonials-grid {
+  margin-top: var(--space-xl);
+}
+
 .reviews-carousel-controls {
   display: flex;
   align-items: center;
