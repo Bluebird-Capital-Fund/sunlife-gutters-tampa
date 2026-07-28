@@ -1,112 +1,61 @@
 /**
- * Gutter Installation LP reviews — from Reviews (SGT)/images/Reviews (gutter guards).odt
- * Bold phrases match the document highlights.
+ * Gutter Installation LP testimonials — from Reviews (SGT)/images/Reviews (gutter installation).odt
+ * Bold phrases match the document; rendered with .review-quote-highlight (black, bold).
  */
-import { escapeHtml } from './sanity-strings.js'
 
-/** @typedef {{ author: string, timeAgo: string, avatarSrc: string, quote: string, boldPhrases: string[] }} LpReview */
+const H = (text) =>
+  `<strong class="review-quote-highlight">${text}</strong>`
+
+/** @typedef {{ author: string, avatarSrc: string, timeAgo: string, quoteHtml: string }} LpReview */
 
 /** @type {LpReview[]} */
-export const GUTTER_INSTALLATION_LP_REVIEWS = [
+export const gutterInstallationReviews = [
   {
-    author: 'Jodi McKeithan',
+    author: 'Geily Sanchez',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Geily Sanchez (SGT).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Jodi McKeithan (SGT).png',
-    quote:
-      'I am very happy with the solution that SunLife Gutters came up with for the flooding our our patio. SunLife came out and suggested a gutter guard down the length of our pool and this solved our problem! Even during heavy rains no rain comes over the gutter and our porch stays dry. So happy with this company and will call them again to clean out my gutters.',
-    boldPhrases: ['gutter guard'],
+    quoteHtml: `We had a great experience with this company ${H('installing our new gutters')} and front porch screen. From the initial estimate to the final installation, the team was professional, courteous, and easy to work with. They showed up on time, communicated clearly throughout the process, and paid close attention to every detail. I highly recommend this company to anyone looking for reliable, high-quality service.`,
   },
   {
-    author: 'Charles Thompson',
+    author: 'Rick Romero',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Rick Romero (SGT).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Charles Thompson (SGT).png',
-    quote:
-      'I needed leaf protection due to my trees filling my gutters with leaves. I called Sunlife and they were right out with an estimate and install of leaf guards. I liked everyone I dealt with. Phone calls were answered, price was good, really good warranty, and the installation by Freddy and his helper was excellent. They went above and beyond what I expected. Very satisfied with Sunlife gutters. Sunlife will be my go to business for all gutter needs.',
-    boldPhrases: ['leaf protection'],
+    quoteHtml: `After receiving several quotes, we chose SunLife Gutters for our project. Their pricing was very fair, and their team of installers was professional, efficient, and courteous. The ${H('seamless gutters they installed')} look fantastic and perform exactly as promised. We highly recommend Sunlife Gutters to anyone considering a gutter installation.`,
   },
   {
-    author: 'Barry C',
+    author: 'Jim Coughenour',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Jim Coughenour (SGT).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Barry C (SGT).png',
-    quote:
-      "I first used SunLife G&H to install gutters at my rental property in Temple Terrace. They did such a great job I had them do another section to the house. I then had them install gutters and leaf guards to 2 more rentals in Largo. The quality of product and install is the best I've ever found. I highly recommend them.",
-    boldPhrases: ['install gutters and leaf guards'],
+    quoteHtml: `I had Sunlife Gutters come out to my home to give an estimate for ${H('new gutters')}. I was very impressed with their professionalism and attention to detail. The estimator took his time to understand my needs and then made a recommendation for the best option for my home. The installation team was on time, cleaned up after themselves, and did a great job. I am very happy with the new gutters and I would highly recommend Sunlife Gutters to anyone looking for a quality gutter installation.`,
   },
   {
-    author: 'M Yoder',
+    author: 'Angela Ujvary',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Angela Ujvary (SLG).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/M Yoder (SGT).png',
-    quote:
-      'Wow!!!! Remarkable craftsmanship and customer friendly. On installation day, Oliver and Carlos worked meticulously fitting the gutters and downspouts. They also took much time ensuring the gutters fit perfectly under the drip edge of the roof. The team also placed gutter guards on the gutters that historically plugged from tree coverage. I am very pleased with the service!!!!',
-    boldPhrases: ['gutter guards'],
+    quoteHtml: `I REALLY needed ${H('new gutters')} on my house and after getting several quotes, I went with SunLife. They were incredibly easy to work with. They walked me through every step of the process. They showed up on time and got everything done without leaving a mess. I highly recommend them to anyone that needs new gutters.`,
   },
   {
-    author: 'Elaine Jackson',
+    author: 'Felix',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Felix (SLG).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Elaine Jackson (SGT).png',
-    quote:
-      'Great experience, price and service! The gutter guards are far more affordable than competitors, allowing us to finally have these and avoid the ladders later! Highly recommend!!',
-    boldPhrases: ['gutter guards'],
+    quoteHtml: `I hired SunLife Gutters &amp; Homes company to ${H('install new gutters')} at my residence. I gave them five stars because they did an excellent job. All the processes were very responsive from the main office, professional, clean, and ideal price.`,
   },
   {
-    author: 'Eunmi Park',
+    author: 'Thomas Prow',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Thomas Prow (SLG).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Eunmi Park (SGT).png',
-    quote:
-      'We installed gutter and leaf guard. They finished the job correctly and cleaned after finishing. I am happy with job they did.',
-    boldPhrases: ['installed gutter and leaf guard'],
+    quoteHtml: `SunLife put ${H('new gutters')} on my house and the process was super easy. They communicated very well throughout the process from estimate to installation and were actually able to install before they originally said which is rare now a days! Everything was great and I am very happy with their service and products.`,
   },
   {
-    author: 'Mark Weinus',
+    author: 'Oxana Rabena',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Oxana Rabena (SGT).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Mark Weinus (SGT).png',
-    quote: 'They did a great job installing my gutter and leaf guard. Very professional.',
-    boldPhrases: ['installing my gutter and leaf guard.'],
+    quoteHtml: `SunLife ${H('installed 6" seamless gutters')} on our home and we couldn't be happier with the finished product. From the measurement appointment to installation SunLife were great at communicating with us, keeping us updated on the scheduling. The installers were experts in what they do! Our gutters and downspouts already made a difference with the rain we got this morning. We'll definitely be recommending SunLife to our friends and neighbors!`,
   },
   {
-    author: 'Jordan Thompson',
+    author: 'Kim M.',
+    avatarSrc: 'Media (SGT)/Reviews (SGT)/Kim M. (SGT).png',
     timeAgo: '',
-    avatarSrc: 'Media (SGT)/Reviews (SGT)/Jordan Thompson (SGT).png',
-    quote:
-      "Such a great company to work with. If you're looking for gutter installation, covers or anything gutter related in the greater Tampa Area, these are your people!",
-    boldPhrases: [],
+    quoteHtml: `Our home never had gutters installed. We worked with Carl and from start to finish, he was great! He came out and gave us a fair quote and the ${H('gutters were installed')}, within a couple weeks. Installation was easy and they look amazing! From start to finish, exceptional. Would highly recommend Sunlife Gutters!`,
   },
 ]
-
-/**
- * Escape quote and wrap document-highlighted phrases in <strong>.
- * @param {string} quote
- * @param {string[]} boldPhrases
- */
-export function highlightReviewQuote(quote, boldPhrases = []) {
-  let html = escapeHtml(quote)
-  const phrases = Array.isArray(boldPhrases) ? [...boldPhrases] : []
-  // Longer phrases first so nested/overlapping matches stay correct
-  phrases.sort((a, b) => b.length - a.length)
-  for (const phrase of phrases) {
-    const trimmed = String(phrase || '').trim()
-    if (!trimmed) continue
-    const needle = escapeHtml(trimmed)
-    const idx = html.indexOf(needle)
-    if (idx === -1) continue
-    html =
-      html.slice(0, idx) +
-      `<strong class="review-quote-highlight">${needle}</strong>` +
-      html.slice(idx + needle.length)
-  }
-  return html
-}
-
-/**
- * Chunk reviews into pages of `perPage` for the carousel.
- * @param {LpReview[]} reviews
- * @param {number} [perPage=4]
- */
-export function chunkReviews(reviews, perPage = 4) {
-  const list = Array.isArray(reviews) ? reviews : []
-  const pages = []
-  for (let i = 0; i < list.length; i += perPage) {
-    pages.push(list.slice(i, i + perPage))
-  }
-  return pages
-}
