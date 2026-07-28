@@ -653,9 +653,14 @@ const serviceHref = (svc) => {
             ))}
             {reviewCarouselPages.length > 1 ? (
               <div class="reviews-carousel-controls" aria-label="Review pages">
-                <button type="button" class="project-nav" id="reviews-prev" aria-label="Previous reviews">
-                  Prev
-                </button>
+                <div class="reviews-carousel-nav">
+                  <button type="button" class="project-nav" id="reviews-prev" aria-label="Previous reviews">
+                    Prev
+                  </button>
+                  <button type="button" class="project-nav" id="reviews-next" aria-label="Next reviews">
+                    Next
+                  </button>
+                </div>
                 <div class="reviews-carousel-dots" role="tablist" aria-label="Review pages">
                   {reviewCarouselPages.map((_, pageIndex) => (
                     <button
@@ -668,9 +673,6 @@ const serviceHref = (svc) => {
                     />
                   ))}
                 </div>
-                <button type="button" class="project-nav" id="reviews-next" aria-label="Next reviews">
-                  Next
-                </button>
               </div>
             ) : null}
           </div>
