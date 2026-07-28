@@ -114,15 +114,11 @@ const mapIframeTitle = applyTemplate(asStr(serviceArea?.mapIframeTitleTemplate),
 })
 
 const layoutBg = hp.layoutBackgrounds
-const heroBgSrc = asStr(layoutBg?.hero?.imageSrc)
-const servicesBgSrc = asStr(layoutBg?.services?.imageSrc)
-const uniquePointsBgSrc = asStr(layoutBg?.uniquePoints?.imageSrc)
-
-const heroBgStyle = `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
-
-const servicesBgStyle = `background-color: #143980; background-image: linear-gradient(135deg, rgba(20, 57, 128, 0.94) 0%, rgba(26, 74, 158, 0.94) 100%), url("${mediaUrl(servicesBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
-
-const uniquePointsBgStyle = `background: var(--color-surface); background-image: url("${mediaUrl(uniquePointsBgSrc)}"); background-size: cover; background-position: center;`
+const heroBgSrcDefault = asStr(layoutBg?.hero?.imageSrc)
+const servicesBgSrcDefault = asStr(layoutBg?.services?.imageSrc)
+const uniquePointsBgSrcDefault = asStr(layoutBg?.uniquePoints?.imageSrc)
+const whyChooseImageSrcDefault = asStr(whyChoose?.imageSrc)
+const aboutVisualImageSrcDefault = ''
 
 const typedPhrases = [
   'Norandex',
@@ -152,6 +148,31 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const lpKeyword = (lp?.keyword && String(lp.keyword).trim()) || ''
 const lpSlug = (lp?.slug && String(lp.slug).trim()) || ''
 const isLp = !!(lp && lpKeyword && lpSlug)
+
+/** LP-only section imagery overrides (hero / difference / services / about / unique points). */
+const lpSectionImagesBySlug = {
+  'gutter-guards': {
+    hero: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-lp-hero.png',
+    difference: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-lp-difference.png',
+    services: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-lp-services.png',
+    about: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-lp-about.png',
+    uniquePoints: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-guards-lp-unique-points.png',
+  },
+}
+const lpSectionImages = isLp ? lpSectionImagesBySlug[lpSlug] : null
+
+const heroBgSrc = asStr(lpSectionImages?.hero) || heroBgSrcDefault
+const servicesBgSrc = asStr(lpSectionImages?.services) || servicesBgSrcDefault
+const uniquePointsBgSrc = asStr(lpSectionImages?.uniquePoints) || uniquePointsBgSrcDefault
+const whyChooseImageSrc = asStr(lpSectionImages?.difference) || whyChooseImageSrcDefault
+const aboutVisualImageSrc = asStr(lpSectionImages?.about) || aboutVisualImageSrcDefault
+const useAboutImage = aboutVisualImageSrc.trim() !== ''
+
+const heroBgStyle = `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
+
+const servicesBgStyle = `background-color: #143980; background-image: linear-gradient(135deg, rgba(20, 57, 128, 0.94) 0%, rgba(26, 74, 158, 0.94) 100%), url("${mediaUrl(servicesBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
+
+const uniquePointsBgStyle = `background: var(--color-surface); background-image: url("${mediaUrl(uniquePointsBgSrc)}"); background-size: cover; background-position: center;`
 
 const lpCity = cityFromHeroOrFallback(hero?.headline, address)
 
@@ -680,7 +701,7 @@ const serviceHref = (svc) => {
       <div class="container why-choose-layout">
         <div class="why-choose-image-wrap">
           <img
-            src={mediaUrl(asStr(whyChoose?.imageSrc))}
+            src={mediaUrl(whyChooseImageSrc)}
             alt={asStr(whyChoose?.imageAlt)}
             class="why-choose-image"
             width="1200"
@@ -760,14 +781,27 @@ const serviceHref = (svc) => {
           </div>
         </div>
         <div class="about-visual">
-          <div class="media-card media-video">
-            <video controls playsinline preload="metadata" poster={mediaUrl(asStr(aboutVideo?.posterSrc))}>
-              <source
-                src={mediaUrl(asStr(aboutVideo?.sourceSrc))}
-                type={asStr(aboutVideo?.sourceType).trim() || 'video/mp4'}
+          {useAboutImage ? (
+            <div class="media-card media-image">
+              <img
+                src={mediaUrl(aboutVisualImageSrc)}
+                alt={`${lpKeyword || 'Gutter'} project photo`}
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
               />
-            </video>
-          </div>
+            </div>
+          ) : (
+            <div class="media-card media-video">
+              <video controls playsinline preload="metadata" poster={mediaUrl(asStr(aboutVideo?.posterSrc))}>
+                <source
+                  src={mediaUrl(asStr(aboutVideo?.sourceSrc))}
+                  type={asStr(aboutVideo?.sourceType).trim() || 'video/mp4'}
+                />
+              </video>
+            </div>
+          )}
           <div class="about-badges" aria-label={asStr(about?.badgesAriaLabel)}>
             {(Array.isArray(about?.badges) ? about.badges : []).map((badge) => {
               const src = mediaUrl(asStr(badge?.imageSrc))
