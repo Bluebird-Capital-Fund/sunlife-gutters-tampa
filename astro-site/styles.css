@@ -3344,14 +3344,29 @@ form[data-lead-form] button[type="submit"].is-busy {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   margin-top: var(--space-xl);
+}
+
+.reviews-carousel-controls .project-nav {
+  width: auto;
+  min-width: 4.5rem;
+  height: 2.5rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .reviews-carousel-dots {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0 0.35rem;
+  flex-shrink: 0;
 }
 
 .reviews-carousel-dot {
@@ -3362,6 +3377,7 @@ form[data-lead-form] button[type="submit"].is-busy {
   border-radius: 999px;
   background: #c4c4c8;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .reviews-carousel-dot.is-active {
