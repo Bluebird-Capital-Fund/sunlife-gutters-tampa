@@ -13,6 +13,7 @@ import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, mediaUrl, statLookup } from '../../lib/sanity-strings.js'
 import { gutterGuardsReviews } from '../../lib/lp-gutter-guards-reviews.js'
 import { gutterInstallationReviews } from '../../lib/lp-gutter-installation-reviews.js'
+import { gutterRepairReviews } from '../../lib/lp-gutter-repair-reviews.js'
 
 let settings = {}
 let homePage = {}
@@ -83,6 +84,13 @@ const testimonials = [
     quote: '',
   })),
   ...gutterInstallationReviews.map((t) => ({
+    author: asStr(t.author),
+    avatarSrc: asStr(t.avatarSrc),
+    timeAgo: asStr(t.timeAgo),
+    quoteHtml: t.quoteHtml,
+    quote: '',
+  })),
+  ...gutterRepairReviews.map((t) => ({
     author: asStr(t.author),
     avatarSrc: asStr(t.avatarSrc),
     timeAgo: asStr(t.timeAgo),
