@@ -22,6 +22,7 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { cityFromHeroOrFallback } from '../lib/extract-lp-city.js'
 import { gutterGuardsReviews, chunkReviews } from '../lib/lp-gutter-guards-reviews.js'
 import { gutterInstallationReviews } from '../lib/lp-gutter-installation-reviews.js'
+import { gutterRepairReviews } from '../lib/lp-gutter-repair-reviews.js'
 
 interface Props {
   lp?: { slug: string; keyword: string }
@@ -259,6 +260,7 @@ const projectSlides =
 const lpReviewsBySlug = {
   'gutter-guards': gutterGuardsReviews,
   'gutter-installation': gutterInstallationReviews,
+  'gutter-repair': gutterRepairReviews,
 }
 const lpReviewItems = isLp ? lpReviewsBySlug[lpSlug] : null
 const useLpReviewsCarousel = Array.isArray(lpReviewItems) && lpReviewItems.length > 0
