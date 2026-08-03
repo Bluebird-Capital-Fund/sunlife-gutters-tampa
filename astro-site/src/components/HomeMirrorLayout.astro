@@ -207,7 +207,9 @@ const lpSeasonCopy = (value) => {
 }
 
 const heroHeadlineDisplay = isLp
-  ? `Summer Special! Save Money Today On ${lpKeyword}.`
+  ? lpSlug === 'gutters'
+    ? 'Trusted Gutter Company in the Greater Tampa Area'
+    : `Summer Special! Save Money Today On ${lpKeyword}.`
   : asStr(hero?.headline)
 
 const lpFormMainHeading = isLp ? 'Book Your Free Consultation' : universalFormHeading
@@ -305,12 +307,20 @@ const reviewsHeadlineDisplay = useLpReviewsCarousel
   ? `What Tampa Bay homeowners say about our ${lpKeyword}`
   : asStr(reviews?.headline)
 const whyChooseHeadline = isLp
-  ? `Trusted ${lpKeyword} partner along Florida's west coast`
+  ? lpSlug === 'gutters'
+    ? 'Trusted Gutter Contractor in the Greater Tampa Area'
+    : `Trusted ${lpKeyword} partner along Florida's west coast`
   : asStr(whyChoose?.headline)
 const servicesHeadline = isLp ? 'More Gutter Services' : asStr(services?.headline)
-const aboutHeadline = isLp ? `${lpKeyword} for Tampa Bay homes and weather` : asStr(about?.headline)
+const aboutHeadline = isLp
+  ? lpSlug === 'gutters'
+    ? 'About Our Gutter Company'
+    : `${lpKeyword} for Tampa Bay homes and weather`
+  : asStr(about?.headline)
 const uniquePointsHeadline = isLp
-  ? `Simple, reliable ${lpKeyword} in Tampa Bay`
+  ? lpSlug === 'gutters'
+    ? 'Reliable Gutter Company in the Greater Tampa Area'
+    : `Simple, reliable ${lpKeyword} in Tampa Bay`
   : asStr(uniquePoints?.headline)
 const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : asStr(faq?.headline)
 
