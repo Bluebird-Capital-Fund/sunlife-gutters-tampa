@@ -206,10 +206,14 @@ const lpSeasonCopy = (value) => {
   return asStr(value).replace(/\bSpring\b/gi, 'Summer')
 }
 
+const lpHeroHeadlinesBySlug = {
+  gutters: 'Trusted Gutter Company in the Greater Tampa Area',
+  'gutter-guards': 'Trusted Gutter Guard Services in the Greater Tampa Area',
+  'gutter-installation': 'Trusted Gutter Installation Services in the Greater Tampa Area',
+  'gutter-repair': 'Trusted Gutter Repair Services in the Greater Tampa Area',
+}
 const heroHeadlineDisplay = isLp
-  ? lpSlug === 'gutters'
-    ? 'Trusted Gutter Company in the Greater Tampa Area'
-    : `Summer Special! Save Money Today On ${lpKeyword}.`
+  ? lpHeroHeadlinesBySlug[lpSlug] || `Summer Special! Save Money Today On ${lpKeyword}.`
   : asStr(hero?.headline)
 
 const lpFormMainHeading = isLp ? 'Book Your Free Consultation' : universalFormHeading
