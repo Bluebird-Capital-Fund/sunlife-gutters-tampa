@@ -502,7 +502,32 @@ const serviceHref = (svc) => {
           <p class="hero-typed" aria-live="polite">
             <span id="hero-typed-text"></span><span class="hero-caret" aria-hidden="true">|</span>
           </p>
-          <p class="hero-lead">{asStr(hero?.lead)}</p>
+          {
+            isLp ? (
+              <ul class="hero-lead hero-lead-list">
+                <li>
+                  <strong>10,000+</strong> projects completed
+                </li>
+                <li>
+                  <strong>7+ years</strong> serving Tampa Bay
+                </li>
+                <li>
+                  <strong>4.9-star Google rating</strong> from <strong>230+ reviews</strong>
+                </li>
+                <li>
+                  <strong>Family-owned business</strong> based in Seffner
+                </li>
+                <li>
+                  <strong>Seamless gutter systems</strong> built for Florida rain
+                </li>
+                <li>
+                  <strong>Clear communication</strong> from estimate to installation
+                </li>
+              </ul>
+            ) : (
+              <p class="hero-lead">{asStr(hero?.lead)}</p>
+            )
+          }
           <div class="hero-actions">
             <a href={telLink} class="btn btn-primary btn-lg cta1-primary-call">{callLabelHero}</a>
           </div>
