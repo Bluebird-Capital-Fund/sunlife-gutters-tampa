@@ -3,6 +3,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/lp/gutter-replacement/",
+      "destination": "/lp/gutters/",
+      "permanent": true
+    },
+    {
+      "source": "/lp/gutter-replacement",
+      "destination": "/lp/gutters/",
+      "permanent": true
+    },
+    {
       "source": "/underground-drainage-tampa-fl/",
       "destination": "/seamless-gutters-tampa-fl/",
       "permanent": true
