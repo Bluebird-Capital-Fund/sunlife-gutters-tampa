@@ -39,7 +39,14 @@ export function mediaUrl(relPath) {
   if (p.startsWith('Media (MHG)/')) {
     p = `Media (SGT)/${p.slice('Media (MHG)/'.length)}`
   }
-  return '/' + p.split('/').map(encodeURIComponent).join('/')
+  // Encode spaces and parentheses so CSS url() + img src stay valid across browsers.
+  return (
+    '/' +
+    p
+      .split('/')
+      .map((seg) => encodeURIComponent(seg).replace(/\(/g, '%28').replace(/\)/g, '%29'))
+      .join('/')
+  )
 }
 
 export function escapeHtml(s) {
