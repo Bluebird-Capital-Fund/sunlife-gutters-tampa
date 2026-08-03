@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
+import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
@@ -213,6 +214,8 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
     </section>
     <div class="container"><div class="footer-inner"><div class="footer-brand-block footer-col">{logoWhite ? <img src={mediaUrl(logoWhite)} alt={companyName} class="footer-logo" /> : null}<p class="footer-address">{descriptionShort}</p><div class="footer-social" aria-label={asStr(footerBrand?.socialAriaLabel)}>{footerBrand?.socialLinks?.map((s) => (<a href={asStr(s.href)} aria-label={asStr(s.ariaLabel)} {...externalLinkAttrs(asStr(s.href))}><FooterSocialIcon platform={asStr(s.platform)} /></a>))}</div></div>{footerColumns?.map((col) => (<div class="footer-col"><p class="footer-heading">{asStr(col.heading)}</p>{col.links?.length ? (<nav class="footer-links" aria-label={asStr(col.ariaLabel)}>{col.links.map((link) => (<a href={asStr(link.href)} {...externalLinkAttrs(asStr(link.href))}>{asStr(link.label)}</a>))}</nav>) : null}{isContactFooterColumnHeading(col.heading) ? <FooterContactInfo variant="footer-column" phoneTel={phoneTel} phoneDisplay={phoneDisplay} email={email} address={address} addressHref={addressHref} /> : null}{col.hoursHeading ? <p class="footer-heading footer-hours-heading">{asStr(col.hoursHeading)}</p> : null}{col.hoursText ? <FooterHoursRow hoursText={col.hoursText} /> : null}{(col.hoursHeading || col.hoursText) ? <FooterSmsDisclosure /> : null}</div>))}</div></div>
   </footer>
+
+  <FooterFinancingDisclosure />
 
   <div class="footer-support"><div class="container footer-support-inner"><p>© <span id="year"></span> — <a href={copyrightHref} {...externalLinkAttrs(copyrightHref)}>{companyName}</a></p><nav aria-label={asStr(footerSupport?.ariaLabel)}>{footerSupport?.links?.map((link) => (<a href={asStr(link.href)} {...externalLinkAttrs(asStr(link.href))}>{asStr(link.label)}</a>))}</nav></div></div>
 </BaseLayout>

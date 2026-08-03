@@ -4,6 +4,7 @@ import FooterSocialIcon from './FooterSocialIcon.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
 import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
+import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -537,6 +538,8 @@ const serviceHref = (svc) => {
       </div>
     </div>
   </footer>
+
+  <FooterFinancingDisclosure />
 
   <div class="footer-support">
     <div class="container footer-support-inner">

@@ -4,6 +4,7 @@ import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
+import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
@@ -391,6 +392,8 @@ const faqItems = Array.isArray(faqData?.items)
       </div>
     </div>
   </footer>
+
+  <FooterFinancingDisclosure />
 
   <div class="footer-support">
     <div class="container footer-support-inner">

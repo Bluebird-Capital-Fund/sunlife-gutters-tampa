@@ -1944,6 +1944,33 @@ form[data-lead-form] button[type="submit"].is-busy {
   margin-bottom: 0;
 }
 
+.footer-financing {
+  background: #163f7a;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.footer-financing .container {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.footer-financing-text {
+  margin: 0;
+  max-width: 72rem;
+}
+
+.footer-financing-text a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-financing-text a:hover {
+  opacity: 0.9;
+}
+
 .footer-contact-list {
   display: flex;
   flex-direction: column;
