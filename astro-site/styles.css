@@ -1989,6 +1989,10 @@ form[data-lead-form] button[type="submit"].is-busy {
   max-width: 72rem;
 }
 
+.footer-financing-text + .footer-financing-text {
+  margin-top: 0.55rem;
+}
+
 .footer-financing-text a {
   color: #fff;
   text-decoration: underline;
