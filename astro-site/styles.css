@@ -628,6 +628,50 @@ a.btn-primary[href^="tel:"]:hover {
   font-size: clamp(1.95rem, 4.2vw, 2.85rem);
 }
 
+/* Landing pages — mobile hero density */
+@media (max-width: 768px) {
+  .hero.is-lp.hero-split {
+    padding-top: var(--space-xl);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  .hero.is-lp .hero-split-inner {
+    padding-bottom: var(--space-2xl);
+    gap: var(--space-xl);
+  }
+
+  .hero.is-lp .hero-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero.is-lp h1 {
+    font-size: clamp(1.55rem, 6.2vw, 1.95rem);
+    line-height: 1.18;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero.is-lp .hero-typed {
+    display: none;
+  }
+
+  .hero.is-lp .hero-lead-list {
+    gap: 0.28rem;
+    font-size: 0.95rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero.is-lp .hero-actions {
+    margin-top: 0;
+  }
+}
+
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
