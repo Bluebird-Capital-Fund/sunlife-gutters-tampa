@@ -2241,7 +2241,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 .hero-split {
   display: block;
   min-height: auto;
-  padding-top: var(--space-5xl);
+  padding-top: var(--space-4xl);
   padding-bottom: 0;
 }
 
