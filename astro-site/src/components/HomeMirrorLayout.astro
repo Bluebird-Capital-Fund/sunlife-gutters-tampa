@@ -500,7 +500,7 @@ const serviceHref = (svc) => {
   <div id="header-nav-spacer" class="header-nav-spacer" aria-hidden="true"></div>
 
   <main>
-    <section class="hero hero-split">
+    <section class:list={['hero', 'hero-split', isLp && lpSlug ? `lp-hero-${lpSlug}` : null]}>
       <div class="hero-bg" style={heroBgStyle}></div>
       <div class="container hero-split-inner">
         <div class="hero-copy">

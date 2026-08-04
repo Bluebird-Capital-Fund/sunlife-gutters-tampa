@@ -624,6 +624,10 @@ a.btn-primary[href^="tel:"]:hover {
   margin: 0 0 var(--space-lg);
 }
 
+.lp-hero-gutter-installation.hero h1 {
+  font-size: clamp(1.95rem, 4.2vw, 2.85rem);
+}
+
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
