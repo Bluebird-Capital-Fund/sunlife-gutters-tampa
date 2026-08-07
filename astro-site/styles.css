@@ -670,6 +670,41 @@ a.btn-primary[href^="tel:"]:hover {
   .hero.is-lp .hero-actions {
     margin-top: 0;
   }
+
+  /* Homepage — mobile hero density (keep hero-lead font size) */
+  .hero.hero-split:not(.is-lp) {
+    padding-top: var(--space-lg);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  .hero.hero-split:not(.is-lp) .hero-split-inner {
+    padding-bottom: var(--space-2xl);
+    gap: var(--space-xl);
+  }
+
+  .hero.hero-split:not(.is-lp) .hero-eyebrow {
+    margin-bottom: 0.2rem;
+  }
+
+  .hero.hero-split:not(.is-lp) h1 {
+    font-size: clamp(1.75rem, 6.5vw, 2.1rem);
+    line-height: 1.18;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero.hero-split:not(.is-lp) .hero-typed {
+    display: none;
+  }
+
+  .hero.hero-split:not(.is-lp) .hero-lead-list {
+    gap: 0.28rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero.hero-split:not(.is-lp) .hero-actions {
+    margin-top: 0;
+  }
 }
 
 .hero-eyebrow {
