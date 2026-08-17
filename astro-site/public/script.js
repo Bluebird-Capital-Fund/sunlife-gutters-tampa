@@ -606,7 +606,9 @@
   }
 
   var ATTR_TTL_DAYS = 90;
+  var ATTR_TTL_MS = ATTR_TTL_DAYS * 24 * 60 * 60 * 1000;
   var ATTR_COOKIE_PREFIX = 'sgt_';
+  var ATTR_LS_KEY = 'sgt_attribution_v1';
   var ATTR_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
   var ATTR_UTM_KEYS = [
     'utm_source',
@@ -616,7 +618,8 @@
     'utm_content',
     'utm_term'
   ];
-  var ATTR_HIDDEN_FIELDS = ATTR_CLICK_KEYS.concat(ATTR_UTM_KEYS).concat(['first_page', 'referrer']);
+  var ATTR_LONG_KEYS = ['first_page', 'landing_page', 'signup_page', 'referrer', 'captured_at'];
+  var ATTR_HIDDEN_FIELDS = ATTR_CLICK_KEYS.concat(ATTR_UTM_KEYS).concat(ATTR_LONG_KEYS);
 
   function isTrackingDebugEnabled() {
     try {
@@ -674,21 +677,8 @@
     return getCookie(ATTR_COOKIE_PREFIX + key).trim();
   }
 
-  function writeAttrCookie(key, value) {
-    var trimmed = String(value || '').trim();
-    if (!trimmed) return;
-    setCookie(ATTR_COOKIE_PREFIX + key, trimmed.slice(0, key === 'first_page' || key === 'referrer' ? 2000 : 500), ATTR_TTL_DAYS);
-  }
-
-  /**
-   * Shared Google Ads attribution utility.
-   * Captures click IDs + UTMs from the URL, first_page + referrer on first touch,
-   * and persists for 90 days so values survive navigation until form submit.
-   * Never overwrites a stored click ID with an empty value; prefers a new non-empty click ID.
-   */
-  function captureAndGetAttribution() {
-    var qs = new URLSearchParams(window.location.search || '');
-    var out = {
+  function emptyAttribution() {
+    return {
       gclid: '',
       gbraid: '',
       wbraid: '',
@@ -699,57 +689,133 @@
       utm_content: '',
       utm_term: '',
       first_page: '',
-      referrer: ''
+      landing_page: '',
+      signup_page: '',
+      referrer: '',
+      captured_at: ''
     };
+  }
+
+  function readLocalStorageBlob() {
+    try {
+      var raw = window.localStorage.getItem(ATTR_LS_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return null;
+      if (parsed.expiresAt && Date.now() > Number(parsed.expiresAt)) {
+        window.localStorage.removeItem(ATTR_LS_KEY);
+        return null;
+      }
+      return parsed.values && typeof parsed.values === 'object' ? parsed.values : parsed;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function writeLocalStorageBlob(values) {
+    try {
+      window.localStorage.setItem(
+        ATTR_LS_KEY,
+        JSON.stringify({
+          expiresAt: Date.now() + ATTR_TTL_MS,
+          values: values
+        })
+      );
+    } catch (e) {
+      /* private mode / quota */
+    }
+  }
+
+  function fieldMaxLen(key) {
+    return ATTR_LONG_KEYS.indexOf(key) !== -1 ? 2000 : 500;
+  }
+
+  function writeAttrCookie(key, value) {
+    var trimmed = String(value || '').trim();
+    if (!trimmed) return;
+    setCookie(ATTR_COOKIE_PREFIX + key, trimmed.slice(0, fieldMaxLen(key)), ATTR_TTL_DAYS);
+  }
+
+  function readStoredValue(key) {
+    var fromCookie = readAttrCookie(key);
+    if (fromCookie) return fromCookie.slice(0, fieldMaxLen(key));
+    var blob = readLocalStorageBlob();
+    if (blob && blob[key]) return String(blob[key]).trim().slice(0, fieldMaxLen(key));
+    return '';
+  }
+
+  function persistAttribution(values) {
+    Object.keys(values || {}).forEach(function (key) {
+      if (values[key]) writeAttrCookie(key, values[key]);
+    });
+    writeLocalStorageBlob(values);
+    try {
+      window.__sgtAttribution = values;
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  /**
+   * Shared Google Ads attribution utility.
+   * Captures click IDs + UTMs from the URL, first landing URL + timestamp + referrer,
+   * and persists 90 days in first-party cookies + localStorage.
+   * Never overwrites a stored click ID with empty; a new non-empty click ID replaces the old one.
+   * Never invents a gclid.
+   */
+  function captureAndGetAttribution() {
+    var qs = new URLSearchParams(window.location.search || '');
+    var out = emptyAttribution();
+    var newClickId = false;
 
     ATTR_CLICK_KEYS.concat(ATTR_UTM_KEYS).forEach(function (key) {
       var fromQuery = (qs.get(key) || '').trim();
-      var fromCookie = readAttrCookie(key);
+      var stored = readStoredValue(key);
       if (fromQuery) {
         out[key] = fromQuery.slice(0, 500);
-        writeAttrCookie(key, out[key]);
+        if (ATTR_CLICK_KEYS.indexOf(key) !== -1 && fromQuery !== stored) {
+          newClickId = true;
+        }
         return;
       }
-      if (fromCookie) {
-        out[key] = fromCookie.slice(0, 500);
+      if (stored) {
+        out[key] = stored.slice(0, 500);
       }
     });
 
-    // First-touch only: original landing page + referrer
-    var storedFirstPage = readAttrCookie('first_page');
-    var storedReferrer = readAttrCookie('referrer');
-    // Legacy cookies from prior UTM helper
-    if (!storedFirstPage) {
-      storedFirstPage = readAttrCookie('first_landing_path') || readAttrCookie('first_landing_url');
-    }
-    if (!storedReferrer) {
-      storedReferrer = readAttrCookie('first_referrer');
-    }
+    var storedLanding =
+      readStoredValue('landing_page') ||
+      readStoredValue('signup_page') ||
+      readStoredValue('first_landing_url') ||
+      readStoredValue('first_page') ||
+      readStoredValue('first_landing_path');
+    var storedReferrer = readStoredValue('referrer') || readStoredValue('first_referrer');
+    var storedCapturedAt = readStoredValue('captured_at');
 
-    if (!storedFirstPage) {
+    if (!storedLanding) {
       try {
-        var path = typeof window.location.pathname === 'string' ? window.location.pathname : '';
-        var search = typeof window.location.search === 'string' ? window.location.search : '';
-        var firstPage = (path + search).slice(0, 2000);
-        writeAttrCookie('first_page', firstPage);
-        // Keep legacy keys for any older Zapier mappings still in use
-        writeAttrCookie('first_landing_path', firstPage);
         var href = typeof window.location.href === 'string' ? window.location.href : '';
-        writeAttrCookie('first_landing_url', href.slice(0, 2000));
-        out.first_page = firstPage;
+        var full = href.slice(0, 2000);
+        out.landing_page = full;
+        out.signup_page = full;
+        out.first_page = full;
+        writeAttrCookie('first_landing_url', full);
+        writeAttrCookie('first_landing_path', full);
       } catch (e) {
         /* ignore */
       }
     } else {
-      out.first_page = storedFirstPage.slice(0, 2000);
+      var landing = storedLanding.slice(0, 2000);
+      out.landing_page = landing;
+      out.signup_page = (readStoredValue('signup_page') || landing).slice(0, 2000);
+      out.first_page = landing;
     }
 
     if (!storedReferrer) {
       try {
         var ref = typeof document.referrer === 'string' ? document.referrer : '';
-        writeAttrCookie('referrer', ref.slice(0, 2000));
-        writeAttrCookie('first_referrer', ref.slice(0, 2000));
         out.referrer = ref.slice(0, 2000);
+        writeAttrCookie('first_referrer', out.referrer);
       } catch (e2) {
         /* ignore */
       }
@@ -757,6 +823,13 @@
       out.referrer = storedReferrer.slice(0, 2000);
     }
 
+    if (!storedCapturedAt || newClickId) {
+      out.captured_at = new Date().toISOString();
+    } else {
+      out.captured_at = storedCapturedAt.slice(0, 2000);
+    }
+
+    persistAttribution(out);
     return out;
   }
 
@@ -776,10 +849,13 @@
   function getPersistedFirstTouch() {
     var a = captureAndGetAttribution();
     return {
-      first_landing_url: readAttrCookie('first_landing_url').slice(0, 2000),
-      first_landing_path: a.first_page || readAttrCookie('first_landing_path').slice(0, 2000),
-      first_referrer: a.referrer || readAttrCookie('first_referrer').slice(0, 2000),
+      first_landing_url: a.landing_page || readStoredValue('first_landing_url'),
+      first_landing_path: a.first_page || readStoredValue('first_landing_path'),
+      first_referrer: a.referrer || readStoredValue('first_referrer'),
       first_page: a.first_page,
+      landing_page: a.landing_page,
+      signup_page: a.signup_page,
+      captured_at: a.captured_at,
       referrer: a.referrer
     };
   }
@@ -802,7 +878,7 @@
     ensureAttributionHiddenFields(form);
     var ok = true;
     ATTR_HIDDEN_FIELDS.forEach(function (name) {
-      var input = form.querySelector('input[type="hidden"][name="' + name + '"]');
+      var input = form.querySelector('input[name="' + name + '"]');
       if (!input) {
         ok = false;
         return;
@@ -810,6 +886,46 @@
       input.value = attribution[name] != null ? String(attribution[name]) : '';
     });
     return ok;
+  }
+
+  function fillExistingAttributionInputs(root, attribution) {
+    if (!root || !attribution) return;
+    ATTR_HIDDEN_FIELDS.forEach(function (name) {
+      var nodes = root.querySelectorAll('input[name="' + name + '"]');
+      Array.prototype.forEach.call(nodes, function (input) {
+        input.value = attribution[name] != null ? String(attribution[name]) : '';
+      });
+    });
+  }
+
+  function populateAllLeadForms(attribution) {
+    var attr = attribution || captureAndGetAttribution();
+    document.querySelectorAll('form[data-lead-form]').forEach(function (form) {
+      populateAttributionHiddenFields(form, attr);
+    });
+    document.querySelectorAll('form').forEach(function (form) {
+      if (form.hasAttribute('data-lead-form')) return;
+      fillExistingAttributionInputs(form, attr);
+    });
+    passAttributionToCallRail(attr);
+    return attr;
+  }
+
+  /**
+   * CallRail DNI reads gclid from the landing URL when swap.js loads on first visit.
+   * Call-only leads are out of scope unless CallRail's own session captured the click ID.
+   * We expose stored values on window.__sgtAttribution; CallRail does not document a
+   * supported custom-field API on this swap.js snippet, so we do not invent a GCLID for calls.
+   */
+  function passAttributionToCallRail(attribution) {
+    try {
+      window.__sgtAttribution = attribution;
+      if (window.CallTrk && typeof window.CallTrk.swap === 'function' && attribution && attribution.gclid) {
+        window.CallTrk.swap();
+      }
+    } catch (e) {
+      /* ignore */
+    }
   }
 
   function runTrackingDebugReport(attribution) {
@@ -832,7 +948,8 @@
     trackingDebugLog('GBRAID found in URL:', (qs.get('gbraid') || '') || '(none)');
     trackingDebugLog('WBRAID found in URL:', (qs.get('wbraid') || '') || '(none)');
     trackingDebugLog('Stored attribution values:', attribution);
-    trackingDebugLog('Original landing page (first_page):', attribution.first_page || '(empty)');
+    trackingDebugLog('Original landing page (landing_page):', attribution.landing_page || '(empty)');
+    trackingDebugLog('First capture timestamp (captured_at):', attribution.captured_at || '(empty)');
     trackingDebugLog('Original referrer:', attribution.referrer || '(empty)');
     trackingDebugLog('CallRail script loaded:', callrailScript ? 'yes' : 'no');
     trackingDebugLog('Original phone number found:', originalPhoneFound ? 'yes' : 'no');
@@ -852,9 +969,16 @@
 
   // Persist attribution on every page load (even pages without forms).
   var persistedAttribution = captureAndGetAttribution();
+  populateAllLeadForms(persistedAttribution);
   if (trackingDebug) {
     runTrackingDebugReport(persistedAttribution);
   }
+
+  function onClientRouteChange() {
+    populateAllLeadForms(captureAndGetAttribution());
+  }
+  window.addEventListener('popstate', onClientRouteChange);
+  window.addEventListener('hashchange', onClientRouteChange);
 
   function setFieldLabelText(input, text) {
     if (!input || !input.id) return;
@@ -1047,12 +1171,14 @@
     });
   }
 
-  if (leadForms.length) {
-    var cfg = readFormsConfig();
-    var endpoint = cfg.submitPath.indexOf('/') === 0 ? cfg.submitPath : '/' + cfg.submitPath;
-    var recaptchaSiteKey = cfg.recaptchaSiteKey || '';
-    var mapboxToken = cfg.mapboxToken || '';
-    leadForms.forEach(function (form) {
+  var cfg = readFormsConfig();
+  var endpoint = cfg.submitPath.indexOf('/') === 0 ? cfg.submitPath : '/' + cfg.submitPath;
+  var recaptchaSiteKey = cfg.recaptchaSiteKey || '';
+  var mapboxToken = cfg.mapboxToken || '';
+
+  function bindLeadForm(form) {
+    if (!form || form.getAttribute('data-sgt-lead-bound') === '1') return;
+    form.setAttribute('data-sgt-lead-bound', '1');
       var nameInput = form.querySelector('input[name="name"]');
       if (nameInput && !form.querySelector('input[name="firstName"]')) {
         var nameFieldWrap = nameInput.closest('.hero-form-field, .contact-form-field');
@@ -1152,7 +1278,10 @@
           utm_id: attribution.utm_id || '',
           utm_content: attribution.utm_content || '',
           utm_term: attribution.utm_term || '',
-          first_page: attribution.first_page || '',
+          first_page: attribution.first_page || attribution.landing_page || '',
+          landing_page: attribution.landing_page || '',
+          signup_page: attribution.signup_page || attribution.landing_page || '',
+          captured_at: attribution.captured_at || '',
           referrer: attribution.referrer || '',
           // Legacy aliases still accepted by /api/lead + existing Zapier paths
           first_landing_url: firstTouch.first_landing_url || '',
@@ -1186,6 +1315,9 @@
               utm_id: payload.utm_id,
               utm_content: payload.utm_content,
               utm_term: payload.utm_term,
+              landing_page: payload.landing_page,
+              signup_page: payload.signup_page,
+              captured_at: payload.captured_at,
               first_page: payload.first_page,
               referrer: payload.referrer
             });
@@ -1200,6 +1332,9 @@
               utm_id: payload.utm_id,
               utm_content: payload.utm_content,
               utm_term: payload.utm_term,
+              landing_page: payload.landing_page,
+              signup_page: payload.signup_page,
+              captured_at: payload.captured_at,
               first_page: payload.first_page,
               referrer: payload.referrer
             });
@@ -1214,6 +1349,9 @@
             utm_id: payload.utm_id,
             utm_content: payload.utm_content,
             utm_term: payload.utm_term,
+            landing_page: payload.landing_page,
+            signup_page: payload.signup_page,
+            captured_at: payload.captured_at,
             first_page: payload.first_page,
             referrer: payload.referrer,
             formSource: payload.formSource,
@@ -1310,6 +1448,20 @@
 
         startSend();
       });
+
+      populateAttributionHiddenFields(form, captureAndGetAttribution());
+  }
+
+  function bindAllLeadForms() {
+    document.querySelectorAll('form[data-lead-form]').forEach(bindLeadForm);
+  }
+
+  bindAllLeadForms();
+
+  if (typeof MutationObserver === 'function' && document.documentElement) {
+    var attrObserver = new MutationObserver(function () {
+      bindAllLeadForms();
     });
+    attrObserver.observe(document.documentElement, { childList: true, subtree: true });
   }
 })();

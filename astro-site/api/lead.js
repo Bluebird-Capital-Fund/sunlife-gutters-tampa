@@ -20,6 +20,9 @@
  *   utm_content  → utm_content
  *   utm_id       → utm_id
  *   first_page   → first_page
+ *   landing_page → landing_page
+ *   signup_page  → signup_page
+ *   captured_at  → captured_at
  *   referrer     → referrer
  *
  * The webhook payload includes BOTH the source names and the destination aliases
@@ -164,9 +167,12 @@ export default {
     const utm_id = trimField(body.utm_id, 200);
     const utm_content = trimField(body.utm_content, 200);
     const utm_term = trimField(body.utm_term, 200);
-    const first_page = trimField(body.first_page || body.first_landing_path, 2000);
+    const first_page = trimField(body.first_page || body.landing_page || body.first_landing_path, 2000);
+    const landing_page = trimField(body.landing_page || body.signup_page || body.first_landing_url || first_page, 2000);
+    const signup_page = trimField(body.signup_page || landing_page, 2000);
+    const captured_at = trimField(body.captured_at, 80);
     const referrer = trimField(body.referrer || body.first_referrer, 2000);
-    const first_landing_url = trimField(body.first_landing_url, 2000);
+    const first_landing_url = trimField(body.first_landing_url || landing_page, 2000);
     const first_landing_path = trimField(body.first_landing_path || first_page, 2000);
     const first_referrer = trimField(body.first_referrer || referrer, 2000);
 
@@ -208,6 +214,9 @@ export default {
       utm_content,
       utm_term,
       first_page,
+      landing_page,
+      signup_page,
+      captured_at,
       referrer,
 
       // GoHighLevel destination aliases (documented mapping)
