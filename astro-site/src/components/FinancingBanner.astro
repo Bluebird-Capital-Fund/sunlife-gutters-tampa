@@ -1,0 +1,70 @@
+---
+import { GREENSKY_FINANCING, getPrimaryPlans } from '../lib/greensky-financing.js'
+
+interface Props {
+  phoneDisplay: string
+  phoneTel: string
+}
+
+const { phoneDisplay, phoneTel } = Astro.props
+const cfg = GREENSKY_FINANCING
+const offers = getPrimaryPlans()
+const tel = String(phoneTel || '').replace(/\s/g, '')
+const telHref = tel ? (tel.indexOf('tel:') === 0 ? tel : `tel:${tel}`) : '#'
+---
+
+<section
+  class="financing-banner"
+  aria-label="Financing available"
+  data-greensky-group={cfg.financingGroup}
+  data-greensky-merchant={cfg.merchantId}
+>
+  <div class="financing-banner-inner">
+    <p class="financing-banner-eyebrow">{cfg.bannerEyebrow}</p>
+    <p class="financing-banner-support">{cfg.bannerSupport}</p>
+
+    <div class="financing-banner-offers">
+      {
+        offers.map((offer, index) => (
+          <article class="financing-banner-offer" data-plan={offer.id}>
+            {index > 0 ? <div class="financing-banner-divider" aria-hidden="true" /> : null}
+            <h3 class="financing-banner-headline">
+              {offer.bannerHeadline}
+              {offer.bannerHeadlineRest ? (
+                <>
+                  <br />
+                  {offer.bannerHeadlineRest}
+                  <sup>{offer.footnote}</sup>
+                </>
+              ) : (
+                <sup>{offer.footnote}</sup>
+              )}
+            </h3>
+            {offer.bannerSupporting ? <p class="financing-banner-line">{offer.bannerSupporting}</p> : null}
+            {offer.bannerNearby ? <p class="financing-banner-nearby">{offer.bannerNearby}</p> : null}
+            {offer.bannerSmall ? <p class="financing-banner-small">{offer.bannerSmall}</p> : null}
+            <a class="financing-banner-terms-link" href={cfg.termsAnchor}>
+              {cfg.importantTermsLabel}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="financing-banner-cta">
+      <p class="financing-banner-cta-heading">{cfg.ctaHeading}</p>
+      <a
+        class="btn btn-primary btn-lg financing-banner-cta-btn"
+        href={telHref}
+        aria-label={`${cfg.ctaText}${phoneDisplay ? ` at ${phoneDisplay}` : ''}`}
+      >
+        {cfg.ctaText}
+      </a>
+      <p class="financing-banner-cta-fine">
+        {cfg.ctaFinePrintPrefix}
+        <a href={cfg.termsAnchor}>{cfg.ctaFinePrintLink}</a>.
+      </p>
+      <a class="financing-banner-view-all" href={cfg.pageUrl}>{cfg.viewAllLabel} →</a>
+    </div>
+  </div>
+</section>

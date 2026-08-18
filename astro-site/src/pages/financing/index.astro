@@ -1,29 +1,93 @@
 ---
 import StandardPageChrome from '../../components/StandardPageChrome.astro'
+import { getSiteSettings } from '../../lib/site-settings.js'
+import { asStr } from '../../lib/sanity-strings.js'
+import {
+  GREENSKY_FINANCING,
+  getPrimaryPlans,
+  getAdditionalPlans,
+} from '../../lib/greensky-financing.js'
+
+const settings = await getSiteSettings()
+const business = settings?.business ?? {}
+const phoneTel = asStr(business.phoneTel).replace(/\s/g, '')
+const telHref = phoneTel ? `tel:${phoneTel}` : '#'
+const cfg = GREENSKY_FINANCING
+const primary = getPrimaryPlans()
+const additional = getAdditionalPlans()
 ---
 
 <StandardPageChrome
-  title="Financing | SunLife Gutters Tampa"
-  description="Financing options for SunLife Gutters Tampa projects. Rates, terms, and promotional offers subject to lender approval."
+  title="Financing Options | SunLife Gutters Tampa"
+  description="Don't let the upfront cost of your project keep you from getting the work you need. Ask about financing options available for qualifying SunLife Gutters Tampa projects."
   navDdPrefix="financing"
   companyNameDisplay="SunLife Gutters Tampa"
 >
-  <main class="section">
-    <div class="container" style="max-width: 70ch;">
-      <h1 class="section-title section-title-secondary">Financing</h1>
-      <p style="line-height: 1.75; margin-top: 1rem;">
-        Financing available with approved credit. Financing options, rates, terms, and promotional
-        offers are subject to lender approval and may vary.
-      </p>
-      <p style="line-height: 1.75; margin-top: 1rem;">
-        Ask our team about current offers when you request an estimate. Complete details, current
-        offers, terms, and conditions are provided during the financing application process with our
-        lending partners.
-      </p>
-      <p style="line-height: 1.75; margin-top: 1rem;">
-        For questions, call us or
-        <a href="/contact-us/#contact">request a free estimate</a>.
-      </p>
-    </div>
+  <main>
+    <section class="financing-page-hero">
+      <div class="container financing-page-hero-inner">
+        <p class="financing-page-eyebrow">FINANCING OPTIONS</p>
+        <h1>Fix Now, Pay Over Time</h1>
+        <p class="financing-page-lead">
+          Don't let the upfront cost of your project keep you from getting the work you need. Ask
+          about our available financing options and learn more about financing solutions available
+          for your project.
+        </p>
+        <a class="btn btn-primary btn-lg" href={telHref}>{cfg.ctaText}</a>
+      </div>
+    </section>
+
+    <section class="financing-page-offers" data-greensky-merchant={cfg.merchantId}>
+      <div class="container financing-page-offers-grid">
+        {
+          primary.map((offer) => (
+            <article class="financing-page-card" data-plan={offer.id}>
+              <p class="financing-page-card-kicker">{offer.pageEyebrow}</p>
+              <p class="financing-page-card-category">{offer.pageCategory}</p>
+              <h2 class="financing-page-card-headline">
+                {offer.pageHeadline}
+                {offer.pageHeadlineRest ? (
+                  <>
+                    <br />
+                    {offer.pageHeadlineRest}
+                    <sup>{offer.footnote}</sup>
+                  </>
+                ) : (
+                  <sup>{offer.footnote}</sup>
+                )}
+              </h2>
+              {offer.pageBody.map((line) => (
+                <p class="financing-page-card-body">{line}</p>
+              ))}
+              <a class="financing-banner-terms-link" href={cfg.termsAnchor}>
+                {cfg.importantTermsLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="financing-page-additional">
+      <div class="container">
+        {
+          additional.map((offer) => (
+            <article class="financing-page-additional-card" data-plan={offer.id}>
+              <h2 class="financing-page-additional-heading">{offer.pageCategory}</h2>
+              <p class="financing-page-additional-headline">
+                {offer.pageHeadline}
+                <sup>{offer.footnote}</sup>
+              </p>
+              {offer.pageBody.map((line) => (
+                <p class="financing-page-card-body">{line}</p>
+              ))}
+              <a class="financing-banner-terms-link" href={cfg.termsAnchor}>
+                {cfg.importantTermsLabel}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </StandardPageChrome>

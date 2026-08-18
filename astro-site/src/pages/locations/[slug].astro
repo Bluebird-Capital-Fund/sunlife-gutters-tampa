@@ -8,6 +8,7 @@ import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
+import FinancingBanner from '../../components/FinancingBanner.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
@@ -287,6 +288,8 @@ const serviceHref = (svc) => {
         </form>
       </div>
     </section>
+
+    <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={phoneTel} />
 
     <section class="section">
       <div class="container">

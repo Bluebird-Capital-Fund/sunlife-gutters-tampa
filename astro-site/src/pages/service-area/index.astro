@@ -5,6 +5,7 @@ import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
+import FinancingBanner from '../../components/FinancingBanner.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
@@ -258,6 +259,13 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
             />
           </figure>
         </div>
+      </div>
+    </section>
+
+    <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={phoneTel} />
+
+    <section class="section service-area">
+      <div class="container">
         <div class="cities-list">
           <p class="cities-label">{asStr(serviceArea?.citiesLabel) || 'Cities we serve'}</p>
           <nav class="cities-nav" aria-label={asStr(serviceArea?.citiesNavAriaLabel) || 'Cities we serve'}>

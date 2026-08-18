@@ -1,7 +1,17 @@
 ---
 /**
- * Sitewide footer disclosures for LP hero footnotes (* warranty, ** financing).
+ * Sitewide footer: warranty * plus GreenSky Important Financing Terms.
  */
+import {
+  GREENSKY_FINANCING,
+  GREENSKY_MAIN_DISCLOSURE,
+  getAdvertisedPlans,
+  linkifyMainDisclosure,
+} from '../lib/greensky-financing.js'
+
+const cfg = GREENSKY_FINANCING
+const plans = getAdvertisedPlans()
+const mainDisclosureHtml = linkifyMainDisclosure(GREENSKY_MAIN_DISCLOSURE)
 ---
 
 <div class="footer-financing">
@@ -11,11 +21,16 @@
       important factors. SunLife Gutters Tampa offers lifetime warranty options and other
       warranties. Talk to your sales representative or contact us for more information.
     </p>
-    <p class="footer-financing-text">
-      **Financing available with approved credit. Financing options, rates, terms, and promotional
-      offers are subject to lender approval and may vary. See our
-      <a href="/financing/">Financing page</a> for complete details, current offers, terms, and
-      conditions.
-    </p>
+    <div class="footer-financing-terms" id="financing-terms">
+      <h2 class="footer-financing-heading">{cfg.termsHeading}</h2>
+      {
+        plans.map((plan) => (
+          <p class="footer-financing-text">
+            <sup>{plan.footnote}</sup> {plan.disclosure}
+          </p>
+        ))
+      }
+      <p class="footer-financing-text" set:html={mainDisclosureHtml} />
+    </div>
   </div>
 </div>

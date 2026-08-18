@@ -2086,6 +2086,289 @@ form[data-lead-form] button[type="submit"].is-busy {
   opacity: 0.9;
 }
 
+.footer-financing-heading {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0.85rem 0 0.45rem;
+}
+
+#financing-terms {
+  scroll-margin-top: 7rem;
+}
+
+.footer-financing-text :global(a) {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* GreenSky financing strip */
+.financing-banner {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 1.15rem var(--space-lg);
+}
+
+.financing-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.financing-banner-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.2rem;
+}
+
+.financing-banner-support {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 600;
+  margin: 0 0 0.85rem;
+  line-height: 1.2;
+}
+
+.financing-banner-offers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  text-align: left;
+}
+
+.financing-banner-offer {
+  position: relative;
+  padding: 0.35rem 1.25rem 0.5rem;
+}
+
+.financing-banner-divider {
+  display: none;
+}
+
+.financing-banner-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+  color: #fff;
+}
+
+.financing-banner-headline sup {
+  font-size: 0.55em;
+  font-weight: 600;
+}
+
+.financing-banner-line {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.financing-banner-nearby,
+.financing-banner-small,
+.financing-banner-cta-fine {
+  margin: 0 0 0.35rem;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.financing-banner-terms-link {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.financing-banner-cta {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.financing-banner-cta-heading {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.55rem;
+}
+
+.financing-banner-cta-btn {
+  min-width: min(100%, 22rem);
+}
+
+.financing-banner-view-all {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.financing-page-hero {
+  background: var(--color-dark);
+  color: #fff;
+  padding: var(--space-3xl) var(--space-xl);
+  text-align: center;
+}
+
+.financing-page-hero-inner {
+  max-width: 46rem;
+}
+
+.financing-page-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.5rem;
+}
+
+.financing-page-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-md);
+  color: #fff;
+}
+
+.financing-page-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--space-xl);
+}
+
+.financing-page-offers {
+  padding: var(--space-3xl) var(--space-xl);
+  background: var(--color-bg);
+}
+
+.financing-page-offers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  max-width: 1100px;
+}
+
+.financing-page-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow);
+}
+
+.financing-page-card-kicker,
+.financing-page-card-category {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.25rem;
+}
+
+.financing-page-card-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0.35rem 0 0.75rem;
+}
+
+.financing-page-card-body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text);
+  margin: 0 0 0.55rem;
+}
+
+.financing-page-card .financing-banner-terms-link,
+.financing-page-additional-card .financing-banner-terms-link {
+  color: var(--color-dark);
+}
+
+.financing-page-additional {
+  padding: 0 var(--space-xl) var(--space-3xl);
+  background: var(--color-bg);
+}
+
+.financing-page-additional-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-alt);
+}
+
+.financing-page-additional-heading {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.35rem;
+}
+
+.financing-page-additional-headline {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .financing-banner-offer:nth-child(2) .financing-banner-divider {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.28);
+  }
+}
+
+@media (max-width: 768px) {
+  .financing-banner-offers,
+  .financing-page-offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .financing-banner-offer {
+    padding: 0.65rem 0;
+    text-align: center;
+  }
+
+  .financing-banner-offer + .financing-banner-offer {
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .financing-banner-cta-btn {
+    width: 100%;
+  }
+}
+
 .footer-contact-list {
   display: flex;
   flex-direction: column;
