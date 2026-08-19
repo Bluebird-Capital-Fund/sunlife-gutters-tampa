@@ -185,7 +185,12 @@ const lpSectionImagesBySlug = {
     uniquePoints: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-unique-points.png',
   },
 }
-const lpSectionImages = isLp ? lpSectionImagesBySlug[lpSlug] : null
+const lpAssetAlias = {
+  'gutter-replacement': 'gutter-installation',
+  'seamless-gutters': 'gutter-installation',
+}
+const lpAssetSlug = lpAssetAlias[lpSlug] || lpSlug
+const lpSectionImages = isLp ? lpSectionImagesBySlug[lpAssetSlug] : null
 
 const heroBgSrc = asStr(lpSectionImages?.hero) || heroBgSrcDefault
 const servicesBgSrc = asStr(lpSectionImages?.services) || servicesBgSrcDefault
@@ -219,6 +224,8 @@ const lpHeroHeadlinesBySlug = {
   'gutter-guards': 'Trusted Gutter Guard Services in the Greater Tampa Area',
   'gutter-installation': 'Trusted Gutter Installation Services in the Greater Tampa Area',
   'gutter-repair': 'Trusted Gutter Repair Services in the Greater Tampa Area',
+  'gutter-replacement': 'Trusted Gutter Replacement Services in the Greater Tampa Area',
+  'seamless-gutters': 'Trusted Seamless Gutter Services in the Greater Tampa Area',
 }
 const heroHeadlineDisplay = isLp
   ? lpHeroHeadlinesBySlug[lpSlug] || `Summer Special! Save Money Today On ${lpKeyword}.`
@@ -301,7 +308,7 @@ const lpProjectSlidesBySlug = {
   ],
 }
 const projectSlides =
-  (isLp && lpProjectSlidesBySlug[lpSlug]) ||
+  (isLp && (lpProjectSlidesBySlug[lpSlug] || lpProjectSlidesBySlug[lpAssetSlug])) ||
   (Array.isArray(projects?.slides) ? projects.slides : [])
 
 /** LP-specific Google reviews (carousel pages of 4). */
@@ -311,7 +318,7 @@ const lpReviewsBySlug = {
   'gutter-repair': gutterRepairReviews,
   gutters: guttersReviews,
 }
-const lpReviewItems = isLp ? lpReviewsBySlug[lpSlug] : null
+const lpReviewItems = isLp ? lpReviewsBySlug[lpSlug] || lpReviewsBySlug[lpAssetSlug] : null
 const useLpReviewsCarousel = Array.isArray(lpReviewItems) && lpReviewItems.length > 0
 const reviewCarouselPages = useLpReviewsCarousel ? chunkReviews(lpReviewItems, 4) : []
 const homepageTestimonials = Array.isArray(reviews?.testimonials) ? reviews.testimonials : []
@@ -365,6 +372,15 @@ const footerSmsConsentId = isLp ? `lp-${lpSlug}-footer-sms-consent` : 'footer-sm
 const layoutDocumentTitle = isLp
   ? `${lpKeyword} — ${lpCity} | ${companyName}`
   : pageTitle
+
+const lpMetaDescriptionBySlug = {
+  'gutter-replacement':
+    'Trusted gutter replacement services in the Greater Tampa Area. Book your free consultation with SunLife Gutters Tampa.',
+  'seamless-gutters':
+    'Trusted seamless gutter services in the Greater Tampa Area. Book your free consultation with SunLife Gutters Tampa.',
+}
+const layoutDescription =
+  (isLp && lpMetaDescriptionBySlug[lpSlug]) || pageDescription
 
 const normalizeLocationPageHref = (href) => {
   const value = asStr(href).trim()
@@ -421,7 +437,7 @@ const serviceHref = (svc) => {
 
 <BaseLayout
   title={layoutDocumentTitle}
-  description={pageDescription}
+  description={layoutDescription}
   theme={settings.theme}
   forms={{ submitPath: asStr(settings.forms?.submitPath) }}
   homeRevealAnimations
