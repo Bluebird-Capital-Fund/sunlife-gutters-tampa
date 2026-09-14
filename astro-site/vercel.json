@@ -333,6 +333,11 @@
       "permanent": true
     },
     {
+      "source": "/gutters-lakeland-florida/",
+      "destination": "/service-area/gutters-lakeland-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true

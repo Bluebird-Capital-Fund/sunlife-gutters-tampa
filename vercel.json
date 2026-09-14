@@ -393,6 +393,11 @@
       "permanent": true
     },
     {
+      "source": "/gutters-lakeland-florida/",
+      "destination": "/service-area/gutters-lakeland-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
