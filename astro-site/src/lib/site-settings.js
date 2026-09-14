@@ -68,6 +68,9 @@ function normalizeHref(href) {
   if (trimmed === '/locations/brandon-florida/') {
     return '/service-area/gutters-brandon-fl/'
   }
+  if (trimmed === '/gibsonton-florida/' || trimmed === '/locations/gibsonton-florida/') {
+    return '/service-area/gutters-gibsonton-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`

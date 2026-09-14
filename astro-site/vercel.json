@@ -163,6 +163,16 @@
       "permanent": true
     },
     {
+      "source": "/gibsonton-florida/",
+      "destination": "/service-area/gutters-gibsonton-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gibsonton-florida/",
+      "destination": "/service-area/gutters-gibsonton-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -236,7 +246,7 @@
     { "source": "/dade-city-florida/", "destination": "/locations/dade-city-florida/" },
     { "source": "/dover-florida/", "destination": "/locations/dover-florida/" },
     { "source": "/ellenton-florida/", "destination": "/locations/ellenton-florida/" },
-    { "source": "/gibsonton-florida/", "destination": "/locations/gibsonton-florida/" },
+    { "source": "/service-area/gutters-gibsonton-fl/", "destination": "/locations/gibsonton-florida/" },
     { "source": "/lakewood-ranch-florida/", "destination": "/locations/lakewood-ranch-florida/" },
     { "source": "/land-o-lakes-florida/", "destination": "/locations/land-o-lakes-florida/" },
     { "source": "/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
