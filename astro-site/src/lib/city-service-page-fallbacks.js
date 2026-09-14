@@ -964,6 +964,134 @@ export const cityServicePageFallbacks = {
 <p>Contact <a href="/">SunLife Gutters Tampa</a> for a professional gutter inspection in Tampa. We'll check the system, explain what we find without overcomplicating it, and let you know what deserves attention now, what can wait, and what doesn't need to be changed at all.</p>`,
     },
   },
+  'gutter-replacement-tampa-fl': {
+    title: 'Gutter Replacement in Tampa | Book Consultation | SunLife Gutters',
+    slug: 'gutter-replacement-tampa-fl',
+    eyebrow: 'Gutter Replacement',
+    headline: 'Gutter Replacement in Tampa',
+    lead:
+      "If you're repairing the same leaks every rainy season or watching old gutters sag farther away from the roofline, another patch may not be worth it. SunLife Gutters Tampa provides gutter replacement in Tampa for homes and businesses with worn, damaged, or poorly performing systems. We'll look at what's happening first and recommend replacement only when it makes more sense than continuing to repair what you have.",
+    seoDescription:
+      'Expert gutter replacement in Tampa for damaged, aging, or leaking gutters. Custom solutions and free consultation included.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-seamless-gutter-installation-front-home.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs You Need Gutter Replacement in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-seamless-gutter-installation-brandon-fl.webp',
+        imageAlt: 'New gutter replacement installation on a Tampa Bay home',
+        body: `<p>A single leak doesn't automatically mean your gutters need to go. But when problems start showing up in several places, or the same repairs keep coming back, the system may be telling you it's time for a bigger fix.</p>
+<p>Replacement may be worth considering if you're seeing:</p>
+<ul>
+<li>Leaks developing in multiple areas</li>
+<li>Gutters repeatedly pulling away from the fascia</li>
+<li>Long sections that sag or hold standing water</li>
+<li>Cracks, holes, corrosion, or visible deterioration</li>
+<li>Downspouts that frequently loosen or disconnect</li>
+<li>Overflow even after the gutters have been cleaned</li>
+<li>Water repeatedly reaching siding or fascia</li>
+<li>Soil and landscaping washing away below the roofline</li>
+<li>Previous repairs that no longer hold</li>
+<li>An older system that no longer drains consistently</li>
+<li>Storm damage affecting several sections at once</li>
+</ul>
+<p>We don't assume an older gutter system needs replacement just because of its age. Its condition and performance matter more. If a reasonable repair will solve the problem, we'll tell you.</p>`,
+      },
+      {
+        heading: 'Trusted Tampa Gutter Replacement Services',
+        showCtas: true,
+        body: `<p>Replacing gutters gives you an opportunity to correct problems that may have been built into the old system for years. Maybe one side has always overflowed. Perhaps a downspout empties next to a walkway and leaves a puddle after every storm. On some properties, the gutters themselves are worn out, but their layout also needs improvement to handle the amount of water coming off the roof.</p>
+<p>Our Tampa gutter replacement services include:</p>
+<ul>
+<li>Full gutter system replacement</li>
+<li>Replacement of deteriorated gutter sections</li>
+<li>Residential gutter replacement</li>
+<li>Commercial gutter replacement</li>
+<li>Downspout replacement and repositioning</li>
+<li>Gutter slope and drainage improvements</li>
+<li>Replacement after storm damage</li>
+<li>Updates to aging or poorly performing systems</li>
+</ul>
+<p>If you aren't sure whether your system has reached that point, a <a href="/gutter-inspection-tampa-fl/">gutter inspection in Tampa</a> can give you a better idea of its overall condition before you decide. We'll show you where the problems are and whether they can reasonably be repaired.</p>
+<p>For properties that collect a lot of leaves, pine needles, seed pods, or other debris, we can discuss <a href="/gutter-guards-tampa-fl/">Tampa gutter guards</a> and whether they make sense for the trees and roofline around your property.</p>`,
+      },
+      {
+        heading: 'Why Professional Gutter Replacement Matters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-installation-finished-corner.png',
+        imageAlt: 'Finished gutter replacement corner detail on a Tampa home',
+        body: `<p>Putting new gutters in the same position as a poorly performing old system can leave you with the same drainage headaches.</p>
+<p>Before replacement, we look at where the old gutters struggled. Water marks below a roof valley may point to concentrated runoff. Washed-out mulch can show where a downspout isn't carrying water far enough away. A section that always held water may have been pitched incorrectly from the beginning. Those clues help us plan the new system.</p>
+<p>The gutters need to sit correctly along the roofline, maintain the right slope, and send water toward downspouts that are positioned where they can actually do their job. Tampa's sudden downpours make that especially important because a large amount of roof runoff can reach the system in a short period.</p>
+<p>A replacement should solve the problems that made you call in the first place, not simply give you a newer version of the same setup.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Some gutter systems need replacement. Others still have plenty of useful life left. SunLife Gutters Tampa will tell you which situation you're dealing with and explain why, so you can make the decision without pressure.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Repair recommended when replacement isn't necessary</li>
+<li>No unnecessary products or upgrades</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the project</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>Once your new system is installed, our maintenance plans can help you stay ahead of buildup and drainage trouble. They include two professional cleanings per year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'gutter-replacement-faq',
+      headline: 'Tampa Gutter Replacement FAQs',
+      items: [
+        {
+          question: 'How do I know when my Tampa gutters should be replaced instead of repaired?',
+          answerHtml:
+            "<p>Look at how widespread the problems have become. One leaking corner or loose downspout may only need repair. Multiple leaks, long sagging sections, recurring overflow, extensive deterioration, or repairs that repeatedly fail can point toward replacement. Tampa's frequent heavy rain tends to expose weak systems quickly, so the overall condition and drainage performance matter more than one isolated issue or the gutters' age alone.</p>",
+        },
+        {
+          question: 'Why do my Tampa gutters still overflow after they\'ve been cleaned?',
+          answerHtml:
+            "<p>Clean gutters can still overflow if they're undersized, pitched incorrectly, sagging, or paired with downspouts that can't move water quickly enough. Roof valleys can also concentrate a large amount of runoff into one spot during Tampa's heavy downpours. If cleaning doesn't solve recurring overflow, the system's layout and condition should be checked before assuming that debris is still the problem.</p>",
+        },
+        {
+          question: "Should I replace damaged gutters before Tampa's rainy season?",
+          answerHtml:
+            "<p>If the system already has widespread leaks, loose sections, or serious drainage problems, replacing it before the wetter months can prevent those weaknesses from being tested repeatedly by heavy rainfall. Tampa's summer storms can send significant runoff off a roof within minutes. The decision should still be based on condition, though. A sound system with one repairable problem doesn't necessarily need full replacement.</p>",
+        },
+        {
+          question: 'Can new gutters help with water pooling around my Tampa property?',
+          answerHtml:
+            "<p>They can help when the pooling is caused by roof runoff being discharged in the wrong place or gutters that overflow before water reaches the downspouts. However, not every drainage problem starts with the gutters. Grading and other site conditions can also contribute. We look at where roof water is going so the replacement system doesn't simply move the same problem somewhere else.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If you're tired of repairing the same sections every rainy season, it may be time to find out whether the system is still worth fixing. Continuing to patch widespread problems can leave fascia, landscaping, siding, and areas around the foundation exposed to the same runoff again and again.</p>
+<p>Contact our <a href="/">Tampa gutter company</a> for a free consultation for gutter replacement in Tampa. We'll look at the existing system, explain what's worth keeping and what isn't, and recommend a replacement only when it's the sensible next step.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
