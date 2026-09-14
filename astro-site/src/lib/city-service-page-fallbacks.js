@@ -698,6 +698,138 @@ export const cityServicePageFallbacks = {
 <p>Contact <a href="/">SunLife Gutters Tampa</a> for a free consultation for gutter repair in Tampa. We'll find out what's causing the problem, explain what can be repaired, and recommend replacement only when it's actually the better option.</p>`,
     },
   },
+  'emergency-gutter-repair-tampa-fl': {
+    title: 'Emergency Gutter Repair in Tampa | Book Consultation | SunLife',
+    slug: 'emergency-gutter-repair-tampa-fl',
+    eyebrow: 'Emergency Gutter Repair',
+    headline: 'Emergency Gutter Repair in Tampa',
+    lead:
+      "A gutter hanging from the roofline or a downspout torn loose after a storm isn't something you want to leave until the next round of rain. SunLife Gutters provides emergency gutter repair in Tampa for urgent problems that can leave your home or business exposed to more water damage. We'll assess what happened, explain what needs immediate attention, and focus on the repair your property actually needs.",
+    seoDescription:
+      'Fast emergency gutter repair in Tampa for storm damage, leaks, and damaged downspouts. Get your free consultation today.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-lp-difference.png',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs You Need Emergency Gutter Repair in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-finished-corner.png',
+        imageAlt: 'Emergency gutter repair on a storm-damaged Tampa Bay home',
+        body: `<p>Tampa storms can turn an existing weak spot into an urgent gutter problem quickly. Strong winds can loosen sections and downspouts, while intense rainfall puts extra weight on gutters that are clogged, poorly supported, or already beginning to pull away.</p>
+<p>Call for help if you notice:</p>
+<ul>
+<li>A gutter section hanging or pulling away from the roofline</li>
+<li>A downspout that has detached or fallen</li>
+<li>Heavy water pouring against the siding or fascia</li>
+<li>Sudden overflow in an area that normally drains well</li>
+<li>A gutter bent or damaged after high winds</li>
+<li>Water collecting near entrances, walkways, or the foundation</li>
+<li>Fasteners or sections coming loose</li>
+<li>Storm debris weighing down the gutter</li>
+<li>Water running behind the gutter and onto exterior walls</li>
+<li>Damage that could worsen with another storm</li>
+</ul>
+<p>If something looks unstable, avoid trying to push, pull, or reattach it from a ladder. Getting the damage checked first is the safer way to determine what needs to happen next.</p>`,
+      },
+      {
+        heading: 'Fast Tampa Emergency Gutter Repair',
+        showCtas: true,
+        body: `<p>When a gutter problem is urgent, you need a clear answer about what can be done now. We start by checking the damaged area, how securely the system is attached, and where rainwater is currently going.</p>
+<p>Our emergency gutter repair services may include:</p>
+<ul>
+<li>Loose or detached gutter repairs</li>
+<li>Sagging gutter corrections</li>
+<li>Damaged downspout repairs</li>
+<li>Gutter reconnection</li>
+<li>Storm-damaged section repairs</li>
+<li>Overflow corrections</li>
+<li>Loose fastener repairs</li>
+<li>Emergency drainage corrections</li>
+<li>Residential gutter repairs</li>
+<li>Commercial gutter repairs</li>
+</ul>
+<p>Not every emergency means you need new gutters. If the damaged area can be repaired and the rest of the system is still doing its job, we'll tell you. When more extensive <a href="/gutter-repair-tampa-fl/">gutter repair in Tampa</a> is needed, we'll explain what we found and which areas should be addressed.</p>
+<p>Keeping an eye on your gutters between storms can save you from an unexpected problem later. Our <a href="/gutter-inspection-tampa-fl/">Tampa gutter inspection</a> service checks drainage, attachment points, downspouts, and overall condition so you know what may need attention.</p>`,
+      },
+      {
+        heading: 'Why Professional Emergency Gutter Repair Matters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-reseal-from-roof.png',
+        imageAlt: 'Professional emergency gutter repair work after storm damage',
+        body: `<p>After a storm, it's tempting to reattach a loose downspout or seal the first place you see water coming through. The problem is that storm damage isn't always limited to the part that's easiest to see from the ground.</p>
+<p>A gutter may look like it simply came loose, but the fasteners or fascia behind it may also need attention. A section that suddenly overflows could have shifted out of position or become blocked by storm debris. Water pouring down an exterior wall may be coming from a problem several feet away. We check the damaged section and the surrounding gutter before deciding what needs to be repaired.</p>
+<p>That matters when Tampa's weather can bring another heavy downpour shortly after the first one. A quick patch that leaves the original drainage or attachment problem unresolved may fail as soon as the system fills with water again.</p>
+<p>The aim is to stabilize the problem, restore proper drainage where possible, and give you a clear understanding of anything else that needs attention.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>An urgent repair is already stressful enough. You shouldn't also have to wonder whether you're being sold work you don't need. SunLife Gutters Tampa takes the same straightforward approach to emergency calls that we bring to every project: inspect the problem, explain what we see, and recommend the work that makes sense.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Honest repair recommendations</li>
+<li>No unnecessary upgrades or products</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Clear communication about what needs attention</li>
+<li>Fair, transparent pricing</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>Once the immediate problem is handled, our maintenance plans can help catch buildup, loose components, and drainage issues earlier. Plans include two professional cleanings per year, an annual inspection and tune-up, priority service, and discounts on additional services.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'emergency-gutter-repair-faq',
+      headline: 'Tampa Emergency Gutter Repair FAQs',
+      items: [
+        {
+          question: 'What gutter problems need emergency repair after a storm in Tampa?',
+          answerHtml:
+            '<p>A gutter hanging from the roofline, detached downspout, badly sagging section, or heavy runoff pouring against the building should be checked promptly. These problems can worsen during another Tampa storm and may direct water toward fascia, siding, walkways, or the foundation. Damage that creates a falling hazard or leaves part of the property exposed to uncontrolled runoff deserves especially quick attention.</p>',
+        },
+        {
+          question: 'What should I do if a gutter is hanging from my Tampa home after a storm?',
+          answerHtml:
+            "<p>Keep people away from the area and avoid climbing a ladder to push the gutter back into place. A hanging section may still be partially attached, and moving it can damage the fascia or cause it to fall. After Tampa storms, it's safer to have the attachment points and surrounding gutter checked so the section can be secured properly and any additional damage identified.</p>",
+        },
+        {
+          question:
+            'Can a storm-damaged gutter in Tampa usually be repaired, or will it need replacement?',
+          answerHtml:
+            '<p>It depends on how much of the system was affected. A detached downspout, loose fasteners, or damage confined to one gutter section may be repairable. If a Tampa storm has bent long sections, damaged multiple attachment points, or exposed deterioration that was already present, replacement may be more practical. We check the overall condition before recommending either option.</p>',
+        },
+        {
+          question: 'Why did my gutters suddenly start overflowing after a Tampa storm?',
+          answerHtml:
+            "<p>Storm debris can block a downspout or gutter, but overflow can also begin when a section shifts, sags, or loses its proper slope. Tampa's intense rainfall quickly exposes these problems because large amounts of roof runoff reach the gutter at once. An inspection can determine whether the issue is debris, physical damage, drainage capacity, or a combination of problems that needs attention.</p>",
+        },
+        {
+          question: 'Can emergency gutter damage cause problems inside my Tampa property?',
+          answerHtml:
+            "<p>It can, depending on where the water is being redirected. A damaged gutter may send roof runoff against fascia, exterior walls, doors, or areas near the foundation instead of carrying it away. That doesn't automatically mean interior damage will occur, but Tampa's repeated heavy rainfall can increase moisture exposure. Addressing uncontrolled runoff promptly helps reduce the chance of the problem spreading.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If a storm has left a gutter hanging, a downspout on the ground, or rainwater pouring where it shouldn't, it's worth getting the problem checked before the next downpour.</p>
+<p>Contact SunLife Gutters Tampa for emergency gutter repair in Tampa. We'll assess the condition of your <a href="/">gutters in Tampa, FL</a>, explain what needs immediate attention, and recommend the most practical next step for your home or commercial property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
