@@ -489,6 +489,9 @@ const contactBannerParagraph2 = isLp
   ? asStr(contactBanner?.paragraph2)
   : 'Call us anytime or book your free consultation online.'
 const serviceAreaHeadline = isLp ? asStr(serviceArea?.headline) : homepageHeadlines.serviceArea
+const serviceAreaIntro = isLp
+  ? asStr(serviceArea?.intro)
+  : "We're proud to provide gutter and exterior services throughout Tampa Bay, including gutters in Clearwater, Tampa, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in Seffner, our local team is on the road every day helping homeowners and businesses protect their properties with quality workmanship and honest service. Don't see your city listed? Contact us and we may still be able to help."
 const teamHeadline = isLp ? asStr(team?.headline) : homepageHeadlines.team
 const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : homepageHeadlines.faq
 const lpFormMainHeading = isLp ? 'Book Your Free Consultation' : homepageHeadlines.footerEstimate
@@ -1240,7 +1243,7 @@ const serviceHref = (svc) => {
       <div class="container">
         <div class="why-eyebrow">{asStr(serviceArea?.eyebrow)}</div>
         <h2 class="section-title">{serviceAreaHeadline}</h2>
-        <p class="section-lead service-area-intro">{asStr(serviceArea?.intro)}</p>
+        <p class="section-lead service-area-intro">{serviceAreaIntro}</p>
         <div class="service-area-grid">
           <div class="map-wrap">
             <iframe
