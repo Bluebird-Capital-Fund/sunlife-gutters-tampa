@@ -23,6 +23,9 @@ function normalizeHref(href) {
   }
   if (legacyServiceHrefMap[trimmed]) return legacyServiceHrefMap[trimmed]
   if (legacyLocationHrefMap[trimmed]) return legacyLocationHrefMap[trimmed]
+  if (trimmed === '/gutters-thonotosassa-fl/' || trimmed === '/locations/gutters-thonotosassa-fl/') {
+    return '/service-area/gutters-thonotosassa-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`

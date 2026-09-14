@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-thonotosassa-fl/",
+      "destination": "/service-area/gutters-thonotosassa-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-thonotosassa-fl/",
+      "destination": "/service-area/gutters-thonotosassa-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -107,7 +117,7 @@
     { "source": "/gutters-seffner-fl/", "destination": "/locations/gutters-seffner-fl/" },
     { "source": "/gutters-sun-city-center-fl/", "destination": "/locations/gutters-sun-city-center-fl/" },
     { "source": "/tampa-florida/", "destination": "/locations/tampa-florida/" },
-    { "source": "/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
+    { "source": "/service-area/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
     { "source": "/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
     { "source": "/wesley-chapel-florida/", "destination": "/locations/wesley-chapel-florida/" },
     { "source": "/gutters-wimauma-fl/", "destination": "/locations/gutters-wimauma-fl/" },
