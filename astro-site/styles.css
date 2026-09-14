@@ -1172,8 +1172,8 @@ a.btn-primary[href^="tel:"]:hover {
 
 .city-service-body {
   color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.6;
   margin: 0 0 var(--space-md);
 }
 
@@ -3757,7 +3757,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 }
 
 .google-reviews .reviews-title {
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
   color: var(--color-text);
 }
 
