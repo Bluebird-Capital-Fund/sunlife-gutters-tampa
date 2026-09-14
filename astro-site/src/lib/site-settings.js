@@ -41,6 +41,9 @@ function normalizeHref(href) {
   if (trimmed === '/anna-maria-island-florida/' || trimmed === '/locations/anna-maria-island-florida/') {
     return '/service-area/gutters-anna-maria-island-fl/'
   }
+  if (trimmed === '/gutters-ruskin-fl/' || trimmed === '/locations/gutters-ruskin-fl/') {
+    return '/service-area/gutters-ruskin-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
