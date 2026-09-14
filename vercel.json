@@ -323,6 +323,16 @@
       "permanent": true
     },
     {
+      "source": "/lithia-florida/",
+      "destination": "/service-area/gutters-lithia-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/lithia-florida/",
+      "destination": "/service-area/gutters-lithia-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -357,7 +367,7 @@
     { "source": "/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/service-area/gutters-largo-fl/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/locations/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
-    { "source": "/lithia-florida/", "destination": "/locations/lithia-florida/" },
+    { "source": "/service-area/gutters-lithia-fl/", "destination": "/locations/lithia-florida/" },
     { "source": "/longboat-key-florida/", "destination": "/locations/longboat-key-florida/" },
     { "source": "/lutz-florida/", "destination": "/locations/lutz-florida/" },
     { "source": "/service-area/gutters-mulberry-fl/", "destination": "/locations/gutters-mulberry-florida/" },

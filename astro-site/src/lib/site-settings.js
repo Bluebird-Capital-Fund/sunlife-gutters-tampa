@@ -77,6 +77,9 @@ function normalizeHref(href) {
   if (trimmed === '/land-o-lakes-florida/' || trimmed === '/locations/land-o-lakes-florida/') {
     return '/service-area/gutters-land-o-lakes-fl/'
   }
+  if (trimmed === '/lithia-florida/' || trimmed === '/locations/lithia-florida/') {
+    return '/service-area/gutters-lithia-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
