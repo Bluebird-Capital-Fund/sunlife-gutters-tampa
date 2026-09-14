@@ -46,14 +46,14 @@ export const cityServicePageFallbacks = {
     ],
   },
   'seamless-gutters-tampa-fl': {
-    title: 'Seamless Gutters in Tampa, FL | SunLife Gutters Tampa',
+    title: 'Seamless Gutters in Tampa | Book Consultation | SunLife Gutters',
     slug: 'seamless-gutters-tampa-fl',
     eyebrow: 'Seamless Gutters',
     headline: 'Seamless Gutters in Tampa',
     lead:
       "Heavy rain can expose every weakness in an old gutter system. If your gutters leak at the seams, overflow during summer storms, or leave water pooling around your home, it may be time for an upgrade. At SunLife Gutters Tampa, we install seamless gutters in Tampa that are built to handle Florida's changing weather while improving drainage, protecting your property, and reducing future maintenance.",
     seoDescription:
-      'Seamless gutters in Tampa, FL. SunLife Gutters Tampa installs custom-measured seamless systems built for Florida storms, with honest recommendations and free consultations.',
+      'Upgrade your home with seamless gutters in Tampa. We provide expert installation, gutter replacement, and free consultations.',
     hideServices: true,
     formHeading: 'Book a Free Consultation',
     formIntro:
