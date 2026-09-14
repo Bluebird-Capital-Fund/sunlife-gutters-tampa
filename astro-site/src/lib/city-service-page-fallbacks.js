@@ -435,6 +435,137 @@ export const cityServicePageFallbacks = {
 <p>Contact <a href="/">SunLife Gutters Tampa</a> for a free consultation if you need repair, replacement, or new super gutters in Tampa. We'll inspect the existing setup, walk you through what we find, and recommend the work your property actually needs.</p>`,
     },
   },
+  'screen-rooms-lanais-tampa-fl': {
+    title: 'Screen Rooms & Lanais in Tampa | Book Consultation | SunLife',
+    slug: 'screen-rooms-lanais-tampa-fl',
+    eyebrow: 'Screen Rooms & Lanais',
+    headline: 'Screen Rooms and Lanais in Tampa',
+    lead:
+      'A screened outdoor space lets you enjoy the Florida weather without dealing with mosquitoes, leaves, and debris every time you step outside. At SunLife Gutters Tampa, we build and improve screen rooms and lanais in Tampa with the way you actually use your outdoor space in mind, from quiet mornings on the patio to family dinners and weekends by the pool.',
+    seoDescription:
+      'Transform your outdoor space with screen rooms and lanais in Tampa. Custom design, expert installation, and free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-wesley-chapel-fl-screened-patio-gutters.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs Your Tampa Screen Room or Lanai Needs Attention',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-screened-patio-gutter-install.webp',
+        imageAlt: 'Screened patio and lanai outdoor living space in Tampa Bay',
+        body: `<p>Outdoor living is part of everyday life in Tampa, but an uncovered or poorly protected patio can be hard to enjoy. Mosquitoes become a problem in the warmer months, afternoon rain can send everyone inside, and leaves, pine needles, and other debris quickly find their way onto patios and pool decks.</p>
+<p>For some homeowners, the enclosure is already there but has seen better days. Others have an open patio they simply aren't using as much as they expected.</p>
+<p>You may be ready for an upgrade if:</p>
+<ul>
+<li>Mosquitoes and insects make your patio uncomfortable</li>
+<li>Leaves and debris constantly collect around your outdoor space</li>
+<li>Your existing screens are torn, loose, or worn</li>
+<li>Sections of the enclosure are showing their age</li>
+<li>You want more usable space without fully enclosing the patio</li>
+<li>Your pool or patio area is difficult to keep clean</li>
+<li>Rainwater is creating problems around the enclosure</li>
+<li>You want a more comfortable space for entertaining or relaxing</li>
+<li>An older lanai needs updates before problems become more extensive</li>
+</ul>
+<p>A well-planned screen room or lanai in Tampa can make the backyard feel like part of the home rather than a space you only use when the weather cooperates.</p>`,
+      },
+      {
+        heading: 'Trusted Tampa Screen Room and Lanai Services',
+        showCtas: true,
+        body: `<p>The best screened spaces fit naturally into the home and the way the family uses them. Before recommending anything, we take time to understand the existing patio or enclosure, what you'd like to change, and any drainage concerns around the area.</p>
+<p>Our Tampa screen room and lanai services include:</p>
+<ul>
+<li>New screen rooms</li>
+<li>Screened lanais</li>
+<li>Pool enclosure solutions</li>
+<li>Screen enclosure improvements</li>
+<li>Screen replacement and updates</li>
+<li>Enclosure repairs</li>
+<li>Outdoor living area improvements</li>
+<li>Residential and commercial screen enclosure projects</li>
+</ul>
+<p>A strong screen enclosure starts with the right support system. That's why many pool cages and lanais are built with <a href="/super-gutters-tampa-fl/">super gutters in Tampa</a>, designed to support the structure while improving water management. If the existing system is leaking or no longer draining correctly, we can determine whether <a href="/gutter-repair-tampa-fl/">Tampa gutter repair</a> should be part of the project.</p>`,
+      },
+      {
+        heading: 'Why Professionally Built Tampa Screen Rooms and Lanais Matter',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-wesley-chapel-fl-screen-enclosure-gutters.webp',
+        imageAlt: 'Professional screen enclosure with gutters in Tampa Bay',
+        body: `<p>A screen enclosure spends every day exposed to Florida weather. Strong sun, humidity, wind, heavy rain, and tropical weather all put stress on screens, connections, gutters, and other parts of the structure.</p>
+<p>An older attachment point may need attention before other work begins. Water running toward the enclosure instead of away from it can create an ongoing headache. A super gutter that isn't draining correctly can leave water dripping onto a lanai even after the surrounding enclosure has been improved.</p>
+<p>Taking the time to check these details upfront can save a lot of frustration later.</p>
+<p>Our team looks at the enclosure and surrounding exterior together, then walks you through what we recommend and why. You'll know what we're doing before work starts, and we'll keep you updated as the project moves forward.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>You shouldn't have to chase down a contractor just to find out what's happening with your project. SunLife Gutters Tampa is a family-owned local company built around clear communication, honest recommendations, and treating customers the way we'd want our own family to be treated.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>No unnecessary products or upgrades</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication from estimate to walkthrough</li>
+<li>Responsive service after the job is finished</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>We also offer maintenance plans for homeowners who want help staying ahead of gutter buildup around their outdoor spaces. Plans include two professional gutter cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional <a href="/">gutter services in Tampa</a>.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'screen-rooms-lanais-faq',
+      headline: 'Tampa Screen Rooms and Lanais FAQs',
+      items: [
+        {
+          question: 'Will a screened lanai help with mosquitoes around my Tampa patio?',
+          answerHtml:
+            '<p>A screened lanai can make your Tampa patio much more comfortable by creating a barrier against mosquitoes and many other insects. Screens won\'t eliminate mosquitoes elsewhere in the yard, and doors still need to remain closed for the enclosure to work effectively. For homeowners who enjoy spending evenings outside, screening a patio can significantly reduce the number of unwanted insects entering the space.</p>',
+        },
+        {
+          question: 'Can an existing patio be turned into a screened lanai in Tampa?',
+          answerHtml:
+            "<p>Many existing Tampa patios can be screened, but the right approach depends on the home's layout, roofline, patio condition, and available attachment points. We first look at what's already there and how you want to use the finished space. That helps determine what improvements are practical and whether drainage or other exterior issues should be addressed as part of the project.</p>",
+        },
+        {
+          question: 'Why does water leak into my screened lanai when it rains in Tampa?',
+          answerHtml:
+            "<p>Water entering a Tampa lanai can come from several places, including overflowing gutters, deteriorated seals, roof runoff, or drainage problems where the enclosure meets the home. Wind-driven rain can also enter through screened areas during strong storms. Finding where the water actually originates is important because sealing the visible drip won't necessarily correct the underlying problem causing it.</p>",
+        },
+        {
+          question: 'Can a screen room make my Tampa patio easier to keep clean?',
+          answerHtml:
+            "<p>Yes. Screening can reduce the amount of leaves, insects, seed pods, and larger debris that reach your Tampa patio or pool area. You'll still need routine cleaning because dust, pollen, wind-driven rain, and smaller debris can enter through screens. For many homeowners, however, an enclosure makes everyday upkeep easier and means less time clearing the patio before they can actually enjoy it.</p>",
+        },
+        {
+          question: 'What should I check before updating an older screen enclosure in Tampa?',
+          answerHtml:
+            '<p>Start with more than the screens themselves. An older Tampa enclosure may also have worn connections, drainage problems, damaged gutters, or areas where water has repeatedly reached surrounding exterior components. Checking the enclosure as a whole helps uncover issues that could affect the project. From there, you can decide what needs attention now and what can reasonably remain as it is.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If your patio spends more time collecting bugs and debris than hosting family and friends, it may be time to make the space more usable. And if you already have an enclosure that's showing its age, addressing problems now can help keep water and weather exposure from making them worse.</p>
+<p>Contact SunLife Gutters Tampa for a free consultation for screen rooms and lanais in Tampa. We'll take a look at your space, listen to what you'd like to improve, and give you straightforward recommendations without pushing work you don't need.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
