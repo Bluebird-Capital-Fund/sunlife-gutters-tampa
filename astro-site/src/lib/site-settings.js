@@ -80,6 +80,9 @@ function normalizeHref(href) {
   if (trimmed === '/lithia-florida/' || trimmed === '/locations/lithia-florida/') {
     return '/service-area/gutters-lithia-fl/'
   }
+  if (trimmed === '/zephyrhills-florida/' || trimmed === '/locations/zephyrhills-florida/') {
+    return '/service-area/gutters-zephyrhills-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
