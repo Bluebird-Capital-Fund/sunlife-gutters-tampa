@@ -303,6 +303,16 @@
       "permanent": true
     },
     {
+      "source": "/lutz-florida/",
+      "destination": "/service-area/gutters-lutz-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/lutz-florida/",
+      "destination": "/service-area/gutters-lutz-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -384,7 +394,7 @@
     { "source": "/locations/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/service-area/gutters-lithia-fl/", "destination": "/locations/lithia-florida/" },
     { "source": "/service-area/gutters-longboat-key-fl/", "destination": "/locations/longboat-key-florida/" },
-    { "source": "/lutz-florida/", "destination": "/locations/lutz-florida/" },
+    { "source": "/service-area/gutters-lutz-fl/", "destination": "/locations/lutz-florida/" },
     { "source": "/service-area/gutters-mulberry-fl/", "destination": "/locations/gutters-mulberry-florida/" },
     { "source": "/service-area/gutters-odessa-fl/", "destination": "/locations/gutters-odessa-fl/" },
     { "source": "/parrish-florida/", "destination": "/locations/parrish-florida/" },

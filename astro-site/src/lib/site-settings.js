@@ -89,6 +89,9 @@ function normalizeHref(href) {
   if (trimmed === '/longboat-key-florida/' || trimmed === '/locations/longboat-key-florida/') {
     return '/service-area/gutters-longboat-key-fl/'
   }
+  if (trimmed === '/lutz-florida/' || trimmed === '/locations/lutz-florida/') {
+    return '/service-area/gutters-lutz-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
