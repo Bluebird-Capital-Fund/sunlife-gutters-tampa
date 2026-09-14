@@ -13,6 +13,11 @@ import { mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
+import {
+  HOMEPAGE_SERVICE_AREA_HEADLINE,
+  HOMEPAGE_SERVICE_AREA_INTRO,
+  POPULAR_SERVICE_AREA_CITIES,
+} from '../lib/service-area-cities.js'
 
 /**
  * City service page renderer used by the root `/{slug}/` route.
@@ -91,6 +96,13 @@ const pageTitle = asStr(_cityPage?.title) || `${pageH1} | SunLife Gutters Tampa`
 
 const sectionShowsCtas = (sec) => sec?.showCtas !== false
 const sectionImageAfter = (sec) => asStr(sec?.imagePlacement).toLowerCase() === 'after'
+
+const reviewsHeadline = 'What Tampa Bay Neighbors Say'
+const reviewsBrandLabel = 'Google Rating Snapshot'
+const serviceAreaEyebrow = asStr(_homePage?.serviceArea?.eyebrow) || 'Where We Travel'
+const serviceAreaHeadline = HOMEPAGE_SERVICE_AREA_HEADLINE
+const serviceAreaIntro = HOMEPAGE_SERVICE_AREA_INTRO
+const serviceAreaCities = POPULAR_SERVICE_AREA_CITIES
 
 
 const normalizeServiceCardHref = (href) => {
@@ -416,16 +428,16 @@ const serviceHref = (svc) => {
 
     <section class="section google-reviews">
       <div class="container">
-        <h2 class="section-title reviews-title">{asStr(reviewsToRender?.headline) || 'Customer Reviews'}</h2>
+        <h2 class="section-title reviews-title">{reviewsHeadline}</h2>
         <div class="reviews-summary">
           <div class="reviews-summary-left">
             <p class="reviews-summary-brand">
               <img
                 src={mediaUrl(asStr(reviewsToRender?.summary?.googleIconSrc))}
-                alt={asStr(reviewsToRender?.summary?.brandLabel)}
+                alt={reviewsBrandLabel}
                 class="google-logo"
               />
-              <span>{asStr(reviewsToRender?.summary?.brandLabel)}</span>
+              <span>{reviewsBrandLabel}</span>
             </p>
           </div>
           <a
@@ -488,17 +500,32 @@ const serviceHref = (svc) => {
 
     <section class="section service-area city-service-map" id="city-map">
       <div class="container">
-        <div class="map-wrap">
-          <iframe
-            src={mapEmbedUrl}
-            width="600"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={`${companyName} service area map`}
-          ></iframe>
+        <div class="why-eyebrow">{serviceAreaEyebrow}</div>
+        <h2 class="section-title">{serviceAreaHeadline}</h2>
+        <p class="section-lead service-area-intro">{serviceAreaIntro}</p>
+        <div class="service-area-grid service-area-grid--stacked">
+          <div class="map-wrap">
+            <iframe
+              src={mapEmbedUrl}
+              width="600"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`${companyName} service area map`}
+            ></iframe>
+          </div>
+          <div class="cities-list cities-list--pills">
+            <p class="cities-label">Popular service areas</p>
+            <nav class="cities-nav cities-nav--pills" aria-label="Cities we serve">
+              {serviceAreaCities.map((c) => (
+                <a href={asStr(c.href)} {...externalLinkAttrs(asStr(c.href))}>
+                  {asStr(c.name)}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </section>

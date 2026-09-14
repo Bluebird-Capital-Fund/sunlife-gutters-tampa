@@ -1163,7 +1163,7 @@ a.btn-primary[href^="tel:"]:hover {
 }
 
 .city-service-block {
-  margin: 0 0 var(--space-3xl);
+  margin: 0 0 var(--space-2xl);
 }
 
 .city-service-block:last-child {
@@ -1172,22 +1172,22 @@ a.btn-primary[href^="tel:"]:hover {
 
 .city-service-body {
   color: var(--color-text-muted);
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  margin: 0 0 var(--space-lg);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0 0 var(--space-md);
 }
 
 .city-service-body p {
-  margin: 0 0 1rem;
+  margin: 0 0 0.65rem;
 }
 
 .city-service-body ul {
-  margin: 0 0 1.25rem;
-  padding-left: 1.15rem;
+  margin: 0 0 0.85rem;
+  padding-left: 1.1rem;
 }
 
 .city-service-body li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
 .city-service-body a {
@@ -3751,8 +3751,14 @@ form[data-lead-form] button[type="submit"].is-busy {
 
 .reviews-summary-brand {
   font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.google-reviews .reviews-title {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  color: var(--color-text);
 }
 
 .reviews-summary-rating strong {
