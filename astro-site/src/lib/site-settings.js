@@ -68,6 +68,9 @@ function normalizeHref(href) {
   if (trimmed === '/gutters-wimauma-fl/' || trimmed === '/locations/gutters-wimauma-fl/') {
     return '/service-area/gutters-wimauma-fl/'
   }
+  if (trimmed === '/wesley-chapel-florida/' || trimmed === '/locations/wesley-chapel-florida/') {
+    return '/service-area/gutters-wesley-chapel-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }

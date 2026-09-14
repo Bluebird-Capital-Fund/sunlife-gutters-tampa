@@ -293,6 +293,16 @@
       "permanent": true
     },
     {
+      "source": "/wesley-chapel-florida/",
+      "destination": "/service-area/gutters-wesley-chapel-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/wesley-chapel-florida/",
+      "destination": "/service-area/gutters-wesley-chapel-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -344,7 +354,7 @@
     { "source": "/tampa-florida/", "destination": "/locations/tampa-florida/" },
     { "source": "/service-area/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
     { "source": "/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
-    { "source": "/wesley-chapel-florida/", "destination": "/locations/wesley-chapel-florida/" },
+    { "source": "/service-area/gutters-wesley-chapel-fl/", "destination": "/locations/wesley-chapel-florida/" },
     { "source": "/service-area/gutters-wimauma-fl/", "destination": "/locations/gutters-wimauma-fl/" },
     { "source": "/zephyrhills-florida/", "destination": "/locations/zephyrhills-florida/" }
   ],
