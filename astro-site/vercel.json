@@ -113,6 +113,16 @@
       "permanent": true
     },
     {
+      "source": "/apollo-beach-fl/",
+      "destination": "/service-area/gutters-apollo-beach-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/apollo-beach-fl/",
+      "destination": "/service-area/gutters-apollo-beach-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -176,7 +186,7 @@
     { "source": "/siding/", "destination": "/siding-tampa-fl/" },
     { "source": "/siding-services-in-central-florida/", "destination": "/siding-tampa-fl/" },
     { "source": "/service-area/gutters-anna-maria-island-fl/", "destination": "/locations/anna-maria-island-florida/" },
-    { "source": "/apollo-beach-fl/", "destination": "/locations/apollo-beach-fl/" },
+    { "source": "/service-area/gutters-apollo-beach-fl/", "destination": "/locations/apollo-beach-fl/" },
     { "source": "/bradenton-florida/", "destination": "/locations/bradenton-florida/" },
     { "source": "/brandon-florida/", "destination": "/locations/brandon-florida/" },
     { "source": "/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
