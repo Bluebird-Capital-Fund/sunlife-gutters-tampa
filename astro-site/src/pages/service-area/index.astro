@@ -12,6 +12,7 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../li
 import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
+import { locationPageFallbacks } from '../../lib/location-page-fallbacks.js'
 
 const serviceAreaFigureSrc =
   'Media (SGT)/Images (SGT)/sunlife-gutters-valrico-fl-two-story-gutter-installation.webp'
@@ -75,6 +76,11 @@ const mapIframeTitle =
 
 const serviceCities = Array.isArray(serviceArea?.cities) ? serviceArea.cities : []
 const locationRows = Array.isArray(locationPages) ? locationPages : []
+for (const fallback of Object.values(locationPageFallbacks)) {
+  if (!locationRows.some((row) => asStr(row?.slug) === fallback.slug)) {
+    locationRows.push(fallback)
+  }
+}
 
 const countyBySlug = {
   'anna-maria-island-florida': 'Manatee County',
@@ -98,6 +104,7 @@ const countyBySlug = {
   'gutters-sun-city-center-fl': 'Hillsborough County',
   'gutters-thonotosassa-fl': 'Hillsborough County',
   'gutters-valrico-fl': 'Hillsborough County',
+  'gutters-lakeland-fl': 'Polk County',
   'gutters-wimauma-fl': 'Hillsborough County',
   'lakewood-ranch-florida': 'Manatee County',
   'land-o-lakes-florida': 'Pasco County',
@@ -191,7 +198,8 @@ const cityPages = locationRows
               slug === 'gutters-largo-fl' ||
               slug === 'gutters-clearwater-fl' ||
               slug === 'gutters-wimauma-fl' ||
-              slug === 'gutters-valrico-fl'
+              slug === 'gutters-valrico-fl' ||
+              slug === 'gutters-lakeland-fl'
             ? `/service-area/${slug}/`
             : `/locations/${slug}/`,
       county: countyForLocation(row),

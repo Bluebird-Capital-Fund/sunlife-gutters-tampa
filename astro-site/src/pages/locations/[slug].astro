@@ -15,6 +15,7 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../li
 import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
 import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
+import { locationPageFallback, locationPageFallbacks } from '../../lib/location-page-fallbacks.js'
 import { sanitizeCmsHtml } from '../../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
 
@@ -23,13 +24,14 @@ export async function getStaticPaths() {
     const pages = await sanity.fetch(
       `*[_type == "locationPage" && defined(slug.current)]{"slug": slug.current}`
     )
-    return (Array.isArray(pages) ? pages : [])
-      .map((p) => asStr(p?.slug))
-      .filter(Boolean)
-      .map((slug) => ({ params: { slug } }))
+    const slugs = new Set(
+      (Array.isArray(pages) ? pages : []).map((p) => asStr(p?.slug)).filter(Boolean)
+    )
+    for (const slug of Object.keys(locationPageFallbacks)) slugs.add(slug)
+    return [...slugs].map((slug) => ({ params: { slug } }))
   } catch (err) {
     console.warn('[locations/[slug]] Failed to load location page slugs.', err)
-    return []
+    return Object.keys(locationPageFallbacks).map((slug) => ({ params: { slug } }))
   }
 }
 
@@ -44,8 +46,10 @@ try {
     getHomePage(),
     sanity.fetch(`*[_type == "locationPage" && slug.current == $slug][0]`, { slug }),
   ])
+  if (!locPage?._id) locPage = locationPageFallback(slug) || locPage
 } catch (err) {
   console.warn(`[locations/${slug}] Sanity fetch failed; using fallback placeholders.`, err)
+  locPage = locationPageFallback(slug) || locPage
 }
 
 const pageDescription =
