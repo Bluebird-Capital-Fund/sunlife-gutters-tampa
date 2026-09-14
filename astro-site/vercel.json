@@ -143,6 +143,16 @@
       "permanent": true
     },
     {
+      "source": "/bradenton-florida/",
+      "destination": "/service-area/gutters-bradenton-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/bradenton-florida/",
+      "destination": "/service-area/gutters-bradenton-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -207,7 +217,7 @@
     { "source": "/siding-services-in-central-florida/", "destination": "/siding-tampa-fl/" },
     { "source": "/service-area/gutters-anna-maria-island-fl/", "destination": "/locations/anna-maria-island-florida/" },
     { "source": "/service-area/gutters-apollo-beach-fl/", "destination": "/locations/apollo-beach-fl/" },
-    { "source": "/bradenton-florida/", "destination": "/locations/bradenton-florida/" },
+    { "source": "/service-area/gutters-bradenton-fl/", "destination": "/locations/bradenton-florida/" },
     { "source": "/brandon-florida/", "destination": "/locations/brandon-florida/" },
     { "source": "/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/gutters-clearwater-fl/", "destination": "/locations/gutters-clearwater-fl/" },
