@@ -575,8 +575,9 @@ const lpMetaDescriptionBySlug = {
   'seamless-gutters':
     'Trusted seamless gutter services in the Greater Tampa Area. Book your free consultation with SunLife Gutters Tampa.',
 }
-const layoutDescription =
-  (isLp && lpMetaDescriptionBySlug[lpSlug]) || pageDescription
+const layoutDescription = isLp
+  ? lpMetaDescriptionBySlug[lpSlug] || pageDescription
+  : 'Choose a gutter company in Tampa committed to quality gutter installation, repairs, gutter guards, and honest, free consultations.'
 
 const normalizeLocationPageHref = (href) => {
   const value = asStr(href).trim()
