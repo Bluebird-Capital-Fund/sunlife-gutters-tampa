@@ -73,7 +73,7 @@ const aboutVideo = about?.video
 const uniquePoints = hp.uniquePoints
 const statsBar = hp.statsBar
 const homepageStatsLabels = {
-  statsYearsExperience: 'Years serving Tampa Bay',
+  statsYearsExperience: '',
   statsJobsCompleted: 'Projects completed',
   statsAvgRating: 'Average Google rating',
 }
@@ -1206,12 +1206,20 @@ const serviceHref = (svc) => {
 
     <section class="stats-thin" aria-label={asStr(statsBar?.ariaLabel)}>
       <div class="container stats-thin-grid">
-        {statsBar?.items?.map((row) => (
-          <div>
-            <strong>{statLookup(statsValues, row.valueKey)}</strong>
-            <span>{homepageStatsLabels[asStr(row.valueKey)] || asStr(row.label)}</span>
-          </div>
-        ))}
+        {statsBar?.items?.map((row) => {
+          const valueKey = asStr(row.valueKey)
+          const label =
+            valueKey in homepageStatsLabels
+              ? homepageStatsLabels[valueKey]
+              : asStr(row.label)
+          const isWarrantyStat = valueKey === 'statsYearsExperience'
+          return (
+            <div class:list={[isWarrantyStat ? 'stats-thin-phrase' : null]}>
+              <strong>{statLookup(statsValues, row.valueKey)}</strong>
+              {label ? <span>{label}</span> : null}
+            </div>
+          )
+        })}
       </div>
     </section>
 
