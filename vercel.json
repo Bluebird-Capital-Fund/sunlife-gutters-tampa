@@ -213,6 +213,16 @@
       "permanent": true
     },
     {
+      "source": "/brandon-florida/",
+      "destination": "/service-area/gutters-brandon-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/brandon-florida/",
+      "destination": "/service-area/gutters-brandon-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -233,7 +243,7 @@
     { "source": "/service-area/gutters-anna-maria-island-fl/", "destination": "/locations/anna-maria-island-florida/" },
     { "source": "/service-area/gutters-apollo-beach-fl/", "destination": "/locations/apollo-beach-fl/" },
     { "source": "/service-area/gutters-bradenton-fl/", "destination": "/locations/bradenton-florida/" },
-    { "source": "/brandon-florida/", "destination": "/locations/brandon-florida/" },
+    { "source": "/service-area/gutters-brandon-fl/", "destination": "/locations/brandon-florida/" },
     { "source": "/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/gutters-clearwater-fl/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/locations/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
