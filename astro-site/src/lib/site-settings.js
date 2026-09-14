@@ -280,7 +280,7 @@ const CANONICAL_OFFER_BAR = {
   textBeforeDiscount: 'Fast, friendly service you can count on. ',
   discountLabel: '',
   textAfterDiscount: '',
-  ctaText: 'Get your free estimate today.',
+  ctaText: 'Book your free consultation today.',
   ctaHref: 'https://sunlifegutters.com/contact-us/#contact',
 }
 
