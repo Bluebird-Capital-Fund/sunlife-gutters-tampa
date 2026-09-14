@@ -24,6 +24,26 @@ export const cityServicePageFallbacks = {
       },
     ],
   },
+  'french-drains-tampa-fl': {
+    title: 'French Drains in Tampa, FL | SunLife Gutters Tampa',
+    slug: 'french-drains-tampa-fl',
+    eyebrow: 'French Drains',
+    headline: 'French Drains in Tampa, FL',
+    lead: 'Stop yard puddles and soggy beds with a French drain built for Tampa Bay storms. Gravel and perforated pipe collect standing water and carry it to a safe outlet.',
+    seoDescription:
+      'French drains in Tampa, FL. SunLife Gutters installs gravel trench drains that collect standing yard water and move it away from the house.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-side-yard-drainage.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'A trench drain for yards that stay wet',
+        body: '<p>A French drain is a gravel-filled trench with perforated pipe. It catches water that sits in low spots, along a fence, or against a patio, then moves it to a discharge point instead of leaving it in the yard.</p><p>We lay the trench to the grade of your lot, set the pipe so it flows, and cover the run so the lawn can grow back over it. If roof water is part of the problem, we can tie the drain into your downspouts as well.</p>',
+      },
+    ],
+  },
 }
 
 export function cityServicePageFallback(slug) {
