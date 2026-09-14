@@ -394,6 +394,44 @@ const homepageServicesItems = [
     href: '/siding-tampa-fl/',
   },
 ]
+const homepageUniquePointsItems = [
+  {
+    iconId: 'clipboard',
+    title: 'Honest estimates',
+    description:
+      'We provide clear, straightforward estimates with transparent pricing and recommendations you can trust. No surprises or unnecessary upselling.',
+  },
+  {
+    iconId: 'package',
+    title: 'Built for Florida weather',
+    description:
+      "Every gutter system is designed to handle Tampa Bay's heavy rain, summer storms, and year-round humidity while helping protect your home from water damage.",
+  },
+  {
+    iconId: 'shield-check',
+    title: 'Family-owned, local expertise',
+    description:
+      'As a family-owned company serving Tampa Bay since 2018, we understand the homes, neighborhoods, and weather conditions that shape every installation.',
+  },
+  {
+    iconId: 'sparkle',
+    title: 'Quality workmanship',
+    description:
+      'From custom seamless gutters to exterior improvements, every project is completed with attention to detail and built to last.',
+  },
+  {
+    iconId: 'clock',
+    title: 'Respect for your home',
+    description:
+      'We treat your property like our own by protecting landscaping, maintaining a clean job site, and completing a final walkthrough before we leave.',
+  },
+  {
+    iconId: 'message',
+    title: 'Clear communication',
+    description:
+      "From your first estimate through the final walkthrough, you'll always know what to expect with responsive service and consistent communication every step of the way.",
+  },
+]
 const reviewsHeadlineDisplay = useLpReviewsCarousel
   ? `What Tampa Bay homeowners say about our ${lpKeyword}`
   : homepageHeadlines.reviews
@@ -429,6 +467,11 @@ const uniquePointsHeadline = isLp
     ? 'Reliable Gutter Company in the Greater Tampa Area'
     : `Simple, reliable ${lpKeyword} in Tampa Bay`
   : homepageHeadlines.uniquePoints
+const uniquePointsItems = isLp
+  ? Array.isArray(uniquePoints?.items)
+    ? uniquePoints.items
+    : []
+  : homepageUniquePointsItems
 const serviceAreaHeadline = isLp ? asStr(serviceArea?.headline) : homepageHeadlines.serviceArea
 const teamHeadline = isLp ? asStr(team?.headline) : homepageHeadlines.team
 const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : homepageHeadlines.faq
@@ -1127,7 +1170,7 @@ const serviceHref = (svc) => {
         <div class="why-eyebrow">{asStr(uniquePoints?.eyebrow)}</div>
         <h2 class="section-title section-title-secondary">{uniquePointsHeadline}</h2>
         <div class="unique-grid">
-          {uniquePoints?.items?.map((pt) => (
+          {uniquePointsItems.map((pt) => (
             <article class="result-item">
               <span class="result-value">
                 <span class="result-icon" aria-hidden="true">
