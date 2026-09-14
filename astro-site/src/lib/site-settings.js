@@ -71,6 +71,9 @@ function normalizeHref(href) {
   if (trimmed === '/wesley-chapel-florida/' || trimmed === '/locations/wesley-chapel-florida/') {
     return '/service-area/gutters-wesley-chapel-fl/'
   }
+  if (trimmed === '/lakewood-ranch-florida/' || trimmed === '/locations/lakewood-ranch-florida/') {
+    return '/service-area/gutters-lakewood-ranch-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }

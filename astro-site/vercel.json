@@ -243,6 +243,16 @@
       "permanent": true
     },
     {
+      "source": "/lakewood-ranch-florida/",
+      "destination": "/service-area/gutters-lakewood-ranch-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/lakewood-ranch-florida/",
+      "destination": "/service-area/gutters-lakewood-ranch-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -317,7 +327,7 @@
     { "source": "/service-area/gutters-dover-fl/", "destination": "/locations/dover-florida/" },
     { "source": "/service-area/gutters-ellenton-fl/", "destination": "/locations/ellenton-florida/" },
     { "source": "/service-area/gutters-gibsonton-fl/", "destination": "/locations/gibsonton-florida/" },
-    { "source": "/lakewood-ranch-florida/", "destination": "/locations/lakewood-ranch-florida/" },
+    { "source": "/service-area/gutters-lakewood-ranch-fl/", "destination": "/locations/lakewood-ranch-florida/" },
     { "source": "/land-o-lakes-florida/", "destination": "/locations/land-o-lakes-florida/" },
     { "source": "/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/service-area/gutters-largo-fl/", "destination": "/locations/gutters-largo-fl/" },
