@@ -343,6 +343,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-valrico-fl/",
+      "destination": "/service-area/gutters-valrico-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-valrico-fl/",
+      "destination": "/service-area/gutters-valrico-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -393,7 +403,7 @@
     { "source": "/service-area/gutters-sun-city-center-fl/", "destination": "/locations/gutters-sun-city-center-fl/" },
     { "source": "/tampa-florida/", "destination": "/locations/tampa-florida/" },
     { "source": "/service-area/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
-    { "source": "/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
+    { "source": "/service-area/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
     { "source": "/service-area/gutters-wesley-chapel-fl/", "destination": "/locations/wesley-chapel-florida/" },
     { "source": "/service-area/gutters-wimauma-fl/", "destination": "/locations/gutters-wimauma-fl/" },
     { "source": "/service-area/gutters-zephyrhills-fl/", "destination": "/locations/zephyrhills-florida/" }

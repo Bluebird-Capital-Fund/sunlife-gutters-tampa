@@ -83,6 +83,9 @@ function normalizeHref(href) {
   if (trimmed === '/zephyrhills-florida/' || trimmed === '/locations/zephyrhills-florida/') {
     return '/service-area/gutters-zephyrhills-fl/'
   }
+  if (trimmed === '/gutters-valrico-fl/' || trimmed === '/locations/gutters-valrico-fl/') {
+    return '/service-area/gutters-valrico-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
