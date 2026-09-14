@@ -153,6 +153,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-plant-city-fl/",
+      "destination": "/service-area/gutters-plant-city-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-plant-city-fl/",
+      "destination": "/service-area/gutters-plant-city-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -193,7 +203,7 @@
     { "source": "/gutters-mulberry-florida/", "destination": "/locations/gutters-mulberry-florida/" },
     { "source": "/gutters-odessa-fl/", "destination": "/locations/gutters-odessa-fl/" },
     { "source": "/parrish-florida/", "destination": "/locations/parrish-florida/" },
-    { "source": "/gutters-plant-city-fl/", "destination": "/locations/gutters-plant-city-fl/" },
+    { "source": "/service-area/gutters-plant-city-fl/", "destination": "/locations/gutters-plant-city-fl/" },
     { "source": "/service-area/gutters-riverview-fl/", "destination": "/locations/gutters-riverview-florida/" },
     { "source": "/service-area/gutters-ruskin-fl/", "destination": "/locations/gutters-ruskin-fl/" },
     { "source": "/service-area/gutters-saint-petersburg-fl/", "destination": "/locations/gutters-saint-petersburg-fl/" },
