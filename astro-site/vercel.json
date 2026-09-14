@@ -83,6 +83,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-riverview-florida/",
+      "destination": "/service-area/gutters-riverview-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-riverview-florida/",
+      "destination": "/service-area/gutters-riverview-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -169,7 +179,7 @@
     { "source": "/gutters-odessa-fl/", "destination": "/locations/gutters-odessa-fl/" },
     { "source": "/parrish-florida/", "destination": "/locations/parrish-florida/" },
     { "source": "/gutters-plant-city-fl/", "destination": "/locations/gutters-plant-city-fl/" },
-    { "source": "/gutters-riverview-florida/", "destination": "/locations/gutters-riverview-florida/" },
+    { "source": "/service-area/gutters-riverview-fl/", "destination": "/locations/gutters-riverview-florida/" },
     { "source": "/service-area/gutters-ruskin-fl/", "destination": "/locations/gutters-ruskin-fl/" },
     { "source": "/service-area/gutters-saint-petersburg-fl/", "destination": "/locations/gutters-saint-petersburg-fl/" },
     { "source": "/service-area/gutters-san-antonio-fl/", "destination": "/locations/gutters-san-antonio-fl/" },
