@@ -350,6 +350,50 @@ const homepageWhyChoose = {
   ],
   note: 'Ask about our storm-ready upgrades, including gutter guards, downspout extensions, and preventative maintenance to help keep your home protected year-round.',
 }
+const homepageServicesItems = [
+  {
+    number: '01',
+    title: 'Commercial Gutters',
+    description:
+      "Protect your commercial property with custom gutter systems built to handle Florida's heavy rain and keep water flowing where it belongs.",
+    href: '/commercial-gutters-tampa-fl/',
+  },
+  {
+    number: '02',
+    title: 'Seamless Gutters',
+    description:
+      'Upgrade your home with custom-fit seamless gutters that deliver lasting protection, fewer leaks, and a clean, finished look.',
+    href: '/seamless-gutters-tampa-fl/',
+  },
+  {
+    number: '03',
+    title: 'Super Gutters',
+    description:
+      "Built for pool enclosures and large rooflines, Super Gutters provide the strength and capacity needed for Florida's toughest storms.",
+    href: '/super-gutters-tampa-fl/',
+  },
+  {
+    number: '04',
+    title: 'Screen Rooms & Lanais',
+    description:
+      'Enjoy more of the Florida lifestyle with beautiful, custom-built screen rooms and lanais designed for comfort and year-round outdoor living.',
+    href: '/screen-rooms-lanais-tampa-fl/',
+  },
+  {
+    number: '05',
+    title: 'Soffit & Fascia Repair',
+    description:
+      "Protect your roofline and refresh your home's exterior with expert soffit and fascia repair that restores both function and curb appeal.",
+    href: '/soffit-fascia-repair-tampa-fl/',
+  },
+  {
+    number: '06',
+    title: 'Siding',
+    description:
+      "Give your home a fresh new look with durable siding that enhances curb appeal while standing up to Florida's heat, humidity, and weather.",
+    href: '/siding-tampa-fl/',
+  },
+]
 const reviewsHeadlineDisplay = useLpReviewsCarousel
   ? `What Tampa Bay homeowners say about our ${lpKeyword}`
   : homepageHeadlines.reviews
@@ -367,6 +411,11 @@ const whyChooseBullets = isLp
   : homepageWhyChoose.bullets
 const whyChooseNote = isLp ? asStr(whyChoose?.note) : homepageWhyChoose.note
 const servicesHeadline = isLp ? 'More Gutter Services' : homepageHeadlines.services
+const servicesItems = isLp
+  ? Array.isArray(services?.items)
+    ? services.items
+    : []
+  : homepageServicesItems
 const aboutHeadline = isLp
   ? lpSlug === 'gutters'
     ? 'About Our Gutter Company'
@@ -516,9 +565,12 @@ const serviceHref = (svc) => {
   const title = asStr(svc?.title).toLowerCase().trim()
   if (!title) return '/seamless-gutters-tampa-fl/'
   const knownSlugs = {
+    'commercial gutters': 'commercial-gutters-tampa-fl',
     'seamless gutters': 'seamless-gutters-tampa-fl',
     'soffit & fascia': 'soffit-fascia-repair-tampa-fl',
     'soffit and fascia': 'soffit-fascia-repair-tampa-fl',
+    'soffit & fascia repair': 'soffit-fascia-repair-tampa-fl',
+    'soffit and fascia repair': 'soffit-fascia-repair-tampa-fl',
     'super gutters': 'super-gutters-tampa-fl',
     'screen rooms & lanais': 'screen-rooms-lanais-tampa-fl',
     'screen rooms and lanais': 'screen-rooms-lanais-tampa-fl',
@@ -990,7 +1042,7 @@ const serviceHref = (svc) => {
       <div class="container">
         <h2 class="section-title">{servicesHeadline}</h2>
         <div class="services-grid">
-          {services?.items?.map((svc) => (
+          {servicesItems.map((svc) => (
             <article class="service-card">
               <a href={serviceHref(svc)} class="service-image-wrap" style="display:block; color:inherit; text-decoration:none;">
                 <span class="service-number">{asStr(svc.number)}</span>
