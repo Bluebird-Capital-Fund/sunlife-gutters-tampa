@@ -80,6 +80,9 @@ function normalizeHref(href) {
   if (trimmed === '/dade-city-florida/' || trimmed === '/locations/dade-city-florida/') {
     return '/service-area/gutters-dade-city-fl/'
   }
+  if (trimmed === '/cortez-florida/' || trimmed === '/locations/cortez-florida/') {
+    return '/service-area/gutters-cortez-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
