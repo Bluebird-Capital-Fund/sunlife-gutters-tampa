@@ -53,6 +53,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-saint-petersburg-fl/",
+      "destination": "/service-area/gutters-saint-petersburg-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-saint-petersburg-fl/",
+      "destination": "/service-area/gutters-saint-petersburg-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -141,7 +151,7 @@
     { "source": "/gutters-plant-city-fl/", "destination": "/locations/gutters-plant-city-fl/" },
     { "source": "/gutters-riverview-florida/", "destination": "/locations/gutters-riverview-florida/" },
     { "source": "/gutters-ruskin-fl/", "destination": "/locations/gutters-ruskin-fl/" },
-    { "source": "/gutters-saint-petersburg-fl/", "destination": "/locations/gutters-saint-petersburg-fl/" },
+    { "source": "/service-area/gutters-saint-petersburg-fl/", "destination": "/locations/gutters-saint-petersburg-fl/" },
     { "source": "/service-area/gutters-san-antonio-fl/", "destination": "/locations/gutters-san-antonio-fl/" },
     { "source": "/sarasota-fl/", "destination": "/locations/sarasota-fl/" },
     { "source": "/service-area/gutters-seffner-fl/", "destination": "/locations/gutters-seffner-fl/" },

@@ -14,7 +14,7 @@ function normalizeHref(href) {
     '/tampa-florida/': '/locations/tampa-florida/',
     '/brandon-florida/': '/locations/brandon-florida/',
     '/gutters-clearwater-fl/': '/locations/gutters-clearwater-fl/',
-    '/gutters-saint-petersburg-fl/': '/locations/gutters-saint-petersburg-fl/',
+    '/gutters-saint-petersburg-fl/': '/service-area/gutters-saint-petersburg-fl/',
     '/gutters-largo-fl/': '/locations/gutters-largo-fl/',
     '/gutters-plant-city-fl/': '/locations/gutters-plant-city-fl/',
     '/gutters-seffner-fl/': '/service-area/gutters-seffner-fl/',
@@ -34,6 +34,9 @@ function normalizeHref(href) {
   }
   if (trimmed === '/gutters-san-antonio-fl/' || trimmed === '/locations/gutters-san-antonio-fl/') {
     return '/service-area/gutters-san-antonio-fl/'
+  }
+  if (trimmed === '/locations/gutters-saint-petersburg-fl/') {
+    return '/service-area/gutters-saint-petersburg-fl/'
   }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
