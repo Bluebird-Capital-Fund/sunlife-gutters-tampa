@@ -95,6 +95,9 @@ function normalizeHref(href) {
   if (trimmed === '/parrish-florida/' || trimmed === '/locations/parrish-florida/') {
     return '/service-area/gutters-parrish-fl/'
   }
+  if (trimmed === '/sarasota-fl/' || trimmed === '/locations/sarasota-fl/') {
+    return '/service-area/gutters-sarasota-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
