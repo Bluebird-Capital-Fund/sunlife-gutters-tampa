@@ -22,7 +22,9 @@ import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
  */
 const { slug: slugProp, settings, homePage, cityPage } = Astro.props
 const slug = asStr(slugProp)
-const pageDescription = 'Professional gutter services in Tampa with fast scheduling and quality workmanship.'
+const pageDescription =
+  asStr(_cityPage?.seoDescription) ||
+  'Professional gutter services in Tampa with fast scheduling and quality workmanship.'
 const _settings = settings ?? {}
 const _homePage = homePage ?? {}
 const _cityPage = cityPage ?? {}
@@ -88,6 +90,7 @@ const normalizeServiceCardHref = (href) => {
     '/super-gutters/': '/super-gutters-tampa-fl/',
     '/screen-rooms-and-lanais/': '/screen-rooms-lanais-tampa-fl/',
     '/siding/': '/siding-tampa-fl/',
+    '/underground-drainage/': '/underground-drainage-tampa-fl/',
   }
   return legacyMap[value] || value
 }
@@ -105,6 +108,7 @@ const serviceHref = (svc) => {
     'screen rooms & lanais': 'screen-rooms-lanais-tampa-fl',
     'screen rooms and lanais': 'screen-rooms-lanais-tampa-fl',
     siding: 'siding-tampa-fl',
+    'underground drainage': 'underground-drainage-tampa-fl',
   }
   if (knownSlugs[title]) return `/${knownSlugs[title]}/`
   const generated = title

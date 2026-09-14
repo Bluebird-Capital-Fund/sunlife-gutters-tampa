@@ -3,13 +3,8 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/underground-drainage-tampa-fl/",
-      "destination": "/seamless-gutters-tampa-fl/",
-      "permanent": true
-    },
-    {
       "source": "/underground-drainage/",
-      "destination": "/seamless-gutters-tampa-fl/",
+      "destination": "/underground-drainage-tampa-fl/",
       "permanent": true
     },
     {

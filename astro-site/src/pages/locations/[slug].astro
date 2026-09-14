@@ -118,6 +118,7 @@ const normalizeServiceCardHref = (href) => {
     '/super-gutters/': '/super-gutters-tampa-fl/',
     '/screen-rooms-and-lanais/': '/screen-rooms-lanais-tampa-fl/',
     '/siding/': '/siding-tampa-fl/',
+    '/underground-drainage/': '/underground-drainage-tampa-fl/',
   }
   return legacyMap[value] || value
 }
@@ -135,6 +136,7 @@ const serviceHref = (svc) => {
     'screen rooms & lanais': 'screen-rooms-lanais-tampa-fl',
     'screen rooms and lanais': 'screen-rooms-lanais-tampa-fl',
     siding: 'siding-tampa-fl',
+    'underground drainage': 'underground-drainage-tampa-fl',
   }
   if (knownSlugs[title]) return `/${knownSlugs[title]}/`
   const generated = title

@@ -9,6 +9,7 @@ function normalizeHref(href) {
     '/super-gutters/': '/super-gutters-tampa-fl/',
     '/screen-rooms-and-lanais/': '/screen-rooms-lanais-tampa-fl/',
     '/siding/': '/siding-tampa-fl/',
+    '/underground-drainage/': '/underground-drainage-tampa-fl/',
   }
   const legacyLocationHrefMap = {
     '/tampa-florida/': '/locations/tampa-florida/',

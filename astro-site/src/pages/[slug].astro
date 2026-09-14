@@ -16,6 +16,7 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/f
 import { sanity } from '../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
+import { cityServicePageFallback, cityServicePageFallbacks } from '../lib/city-service-page-fallbacks.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
 
@@ -27,7 +28,11 @@ export async function getStaticPaths() {
     ])
     const slugs = Array.from(
       new Set(
-        [...(Array.isArray(blogRows) ? blogRows : []), ...(Array.isArray(serviceRows) ? serviceRows : [])]
+        [
+          ...(Array.isArray(blogRows) ? blogRows : []),
+          ...(Array.isArray(serviceRows) ? serviceRows : []),
+          ...Object.keys(cityServicePageFallbacks).map((slug) => ({ slug })),
+        ]
           .map((r) => asStr(r?.slug))
           .filter(Boolean)
       )
@@ -35,7 +40,7 @@ export async function getStaticPaths() {
     return slugs.map((slug) => ({ params: { slug } }))
   } catch (err) {
     console.warn('[slug] Failed to load root slugs.', err)
-    return []
+    return Object.keys(cityServicePageFallbacks).map((slug) => ({ params: { slug } }))
   }
 }
 
@@ -52,8 +57,10 @@ try {
     sanity.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, { slug }),
     sanity.fetch(`*[_type == "cityServicePage" && slug.current == $slug][0]`, { slug }),
   ])
+  if (!cityPage?._id) cityPage = cityServicePageFallback(slug)
 } catch (err) {
   console.warn(`[slug/${slug}] Sanity fetch failed.`, err)
+  cityPage = cityServicePageFallback(slug)
 }
 
 if (!post && !cityPage) {
