@@ -72,6 +72,11 @@ const about = hp.about
 const aboutVideo = about?.video
 const uniquePoints = hp.uniquePoints
 const statsBar = hp.statsBar
+const homepageStatsLabels = {
+  statsYearsExperience: 'Years serving Tampa Bay',
+  statsJobsCompleted: 'Projects completed',
+  statsAvgRating: 'Average Google rating',
+}
 const contactBanner = hp.contactBanner
 const reviews = settings?.reviews ?? hp.reviews
 const reviewsSummary = reviews?.summary
@@ -1201,7 +1206,7 @@ const serviceHref = (svc) => {
         {statsBar?.items?.map((row) => (
           <div>
             <strong>{statLookup(statsValues, row.valueKey)}</strong>
-            <span>{asStr(row.label)}</span>
+            <span>{homepageStatsLabels[asStr(row.valueKey)] || asStr(row.label)}</span>
           </div>
         ))}
       </div>

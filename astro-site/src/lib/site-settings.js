@@ -378,6 +378,12 @@ export async function getSiteSettings() {
     footerSupport: normalizeFooterSupport(linksSource?.footerSupport ?? singleton?.footerSupport),
     forms: singleton?.forms ?? linksSource?.forms,
     mapEmbedUrl: mapEmbedMerged,
+    statsValues: {
+      ...(singleton?.statsValues && typeof singleton.statsValues === 'object' ? singleton.statsValues : {}),
+      statsYearsExperience: '7+',
+      statsJobsCompleted: '10,000+',
+      statsAvgRating: '4.9',
+    },
   }
   return siteSettingsCache
 }
