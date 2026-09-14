@@ -193,6 +193,16 @@
       "permanent": true
     },
     {
+      "source": "/dade-city-florida/",
+      "destination": "/service-area/gutters-dade-city-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/dade-city-florida/",
+      "destination": "/service-area/gutters-dade-city-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -263,7 +273,7 @@
     { "source": "/gutters-clearwater-fl/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/locations/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/cortez-florida/", "destination": "/locations/cortez-florida/" },
-    { "source": "/dade-city-florida/", "destination": "/locations/dade-city-florida/" },
+    { "source": "/service-area/gutters-dade-city-fl/", "destination": "/locations/dade-city-florida/" },
     { "source": "/service-area/gutters-dover-fl/", "destination": "/locations/dover-florida/" },
     { "source": "/service-area/gutters-ellenton-fl/", "destination": "/locations/ellenton-florida/" },
     { "source": "/service-area/gutters-gibsonton-fl/", "destination": "/locations/gibsonton-florida/" },
