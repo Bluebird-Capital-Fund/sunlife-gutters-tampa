@@ -58,6 +58,8 @@ try {
     sanity.fetch(`*[_type == "cityServicePage" && slug.current == $slug][0]`, { slug }),
   ])
   if (!cityPage?._id) cityPage = cityServicePageFallback(slug)
+  const cityFallback = cityServicePageFallback(slug)
+  if (cityFallback) cityPage = { ...(cityPage || {}), ...cityFallback }
 } catch (err) {
   console.warn(`[slug/${slug}] Sanity fetch failed.`, err)
   cityPage = cityServicePageFallback(slug)

@@ -1156,10 +1156,75 @@ a.btn-primary[href^="tel:"]:hover {
   color: var(--color-dark);
 }
 
-/* Service area */
-.service-area {
-  background: var(--color-bg-alt);
+/* City service long-form content */
+.city-service-article {
+  max-width: 72ch;
+  margin: 0 auto;
 }
+
+.city-service-block {
+  margin: 0 0 var(--space-3xl);
+}
+
+.city-service-block:last-child {
+  margin-bottom: 0;
+}
+
+.city-service-body {
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin: 0 0 var(--space-lg);
+}
+
+.city-service-body p {
+  margin: 0 0 1rem;
+}
+
+.city-service-body ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.15rem;
+}
+
+.city-service-body li {
+  margin-bottom: 0.4rem;
+}
+
+.city-service-body a {
+  color: var(--color-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.city-service-body a:hover {
+  color: var(--color-accent);
+}
+
+.city-service-section-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: 0 0 var(--space-xl);
+}
+
+.city-service-section-image--after {
+  margin: var(--space-xl) 0 0;
+}
+
+.city-service-ctas {
+  margin: var(--space-lg) 0 0;
+}
+
+.city-service-map .map-wrap {
+  margin-top: 0;
+}
+
+.city-service-map iframe {
+  width: 100%;
+  min-height: 400px;
+}
+
 
 .service-area .service-area-intro {
   max-width: 72ch; /* wider intro paragraph under the section title */

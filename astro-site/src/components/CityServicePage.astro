@@ -62,8 +62,12 @@ const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
 const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
 const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'City service lead form'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
-const universalFormHeading = asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro = asStr(footerEstimate?.intro) || 'Short placeholder form for layout testing.'
+const universalFormHeading =
+  asStr(_cityPage?.formHeading) || asStr(footerEstimate?.headline) || 'Get Started Today'
+const universalFormIntro =
+  asStr(_cityPage?.formIntro) ||
+  asStr(footerEstimate?.intro) ||
+  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
 const heroBgSrc = asStr(_cityPage?.layoutBackgrounds?.hero?.imageSrc) || heroBackgroundFor(`service-${slug}`)
 const servicesBgSrc = asStr(_cityPage?.layoutBackgrounds?.services?.imageSrc)
 const heroBgStyle = heroBgSrc
@@ -75,11 +79,19 @@ const servicesBgStyle = servicesBgSrc
 const sharedReviews = _settings?.reviews ?? _homePage?.reviews ?? {}
 const reviewsToRender = sharedReviews
 const cityContentSections = Array.isArray(_cityPage?.contentSections) ? _cityPage.contentSections : []
+const closingSection = _cityPage?.closingSection && typeof _cityPage.closingSection === 'object'
+  ? _cityPage.closingSection
+  : null
+const hideServices = !!_cityPage?.hideServices
 const mapEmbedUrl = asStr(_cityPage?.mapEmbedUrl) || asStr(_settings?.mapEmbedUrl)
 const estimateCtaText = 'Book a Consultation'
 const estimateCtaHref = '#contact'
-const pageH1 = asStr(cityPage?.headline) || asStr(hero?.headline) || 'Gutter Services in Tampa, FL'
-const pageTitle = `${pageH1} | SGT`
+const pageH1 = asStr(_cityPage?.headline) || asStr(hero?.headline) || 'Gutter Services in Tampa, FL'
+const pageTitle = asStr(_cityPage?.title) || `${pageH1} | SunLife Gutters Tampa`
+
+const sectionShowsCtas = (sec) => sec?.showCtas !== false
+const sectionImageAfter = (sec) => asStr(sec?.imagePlacement).toLowerCase() === 'after'
+
 
 const normalizeServiceCardHref = (href) => {
   const value = asStr(href).trim()
@@ -211,9 +223,9 @@ const serviceHref = (svc) => {
       <div class="hero-bg" style={heroBgStyle}></div>
       <div class="container hero-split-inner">
         <div class="hero-copy">
-          <div class="hero-eyebrow">{asStr(cityPage?.eyebrow) || asStr(hero?.eyebrow) || 'City Service'}</div>
+          <div class="hero-eyebrow">{asStr(_cityPage?.eyebrow) || asStr(hero?.eyebrow) || 'City Service'}</div>
           <h1>{pageH1}</h1>
-          <p class="hero-lead">{asStr(cityPage?.lead) || asStr(hero?.lead) || 'City service page starter connected to Sanity content.'}</p>
+          <p class="hero-lead">{asStr(_cityPage?.lead) || asStr(hero?.lead) || 'City service page starter connected to Sanity content.'}</p>
           <div class="hero-actions">
             <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg cta1-primary-call">{heroCallLabel}</a>
           </div>
@@ -270,9 +282,9 @@ const serviceHref = (svc) => {
 
     <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={phoneTel} />
 
-    <section class="section">
+    <section class="section city-service-content">
       <div class="container">
-        <article style="max-width: 72ch; margin: 0 auto;">
+        <article class="city-service-article">
           {(cityContentSections.length > 0
             ? cityContentSections
             : [
@@ -282,36 +294,53 @@ const serviceHref = (svc) => {
                 },
               ]
           ).map((sec) => (
-            <>
-              {asStr(sec.imageSrc) ? (
+            <div class="city-service-block">
+              {!sectionImageAfter(sec) && asStr(sec.imageSrc) ? (
                 <img
                   src={mediaUrl(asStr(sec.imageSrc))}
                   alt={asStr(sec.imageAlt) || asStr(sec.heading)}
-                  style="width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.25rem; display: block;"
+                  class="city-service-section-image"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
                 />
               ) : null}
               <h2 class="section-title section-title-secondary">{asStr(sec.heading)}</h2>
               <div
-                class="section-lead"
-                style="max-width:72ch; white-space: pre-line; margin-bottom: 1rem;"
+                class="city-service-body"
                 set:html={sanitizeCmsHtml(asStr(sec.body))}
               />
-              <div class="why-choose-actions" style="margin: 0 0 2.25rem;">
-                <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{heroCallLabel}</a>
-                <a
-                  href={estimateCtaHref}
-                  class="btn btn-outline btn-lg request-estimate"
-                  {...externalLinkAttrs(estimateCtaHref)}
-                >
-                  {estimateCtaText}
-                </a>
-              </div>
-            </>
+              {sectionImageAfter(sec) && asStr(sec.imageSrc) ? (
+                <img
+                  src={mediaUrl(asStr(sec.imageSrc))}
+                  alt={asStr(sec.imageAlt) || asStr(sec.heading)}
+                  class="city-service-section-image city-service-section-image--after"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
+              {sectionShowsCtas(sec) ? (
+                <div class="why-choose-actions city-service-ctas">
+                  <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{heroCallLabel}</a>
+                  <a
+                    href={estimateCtaHref}
+                    class="btn btn-outline btn-lg request-estimate"
+                    {...externalLinkAttrs(estimateCtaHref)}
+                  >
+                    {estimateCtaText}
+                  </a>
+                </div>
+              ) : null}
+            </div>
           ))}
         </article>
       </div>
     </section>
 
+    {!hideServices ? (
     <section class="section services" style={servicesBgStyle}>
       <div class="container">
         <h2 class="section-title">{asStr(services?.headline) || 'Our Gutter Services in Tampa'}</h2>
@@ -335,6 +364,7 @@ const serviceHref = (svc) => {
         </div>
       </div>
     </section>
+    ) : null}
 
     <section class="section faq-section" id="faq">
       <div class="container">
@@ -428,18 +458,48 @@ const serviceHref = (svc) => {
       </div>
     </section>
 
-    <section class="section service-area" id="city-map">
-      <div class="map-wrap" style="max-width: none; border-radius: 0; box-shadow: none;">
-        <iframe
-          src={mapEmbedUrl}
-          width="100%"
-          height="440"
-          style="border:0; display:block;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={`${companyName} service area map`}
-        ></iframe>
+    {closingSection ? (
+      <section class="section city-service-closing">
+        <div class="container">
+          <article class="city-service-article">
+            <div class="city-service-block">
+              <h2 class="section-title section-title-secondary">{asStr(closingSection.heading)}</h2>
+              <div
+                class="city-service-body"
+                set:html={sanitizeCmsHtml(asStr(closingSection.body))}
+              />
+              {sectionShowsCtas(closingSection) ? (
+                <div class="why-choose-actions city-service-ctas">
+                  <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{heroCallLabel}</a>
+                  <a
+                    href={estimateCtaHref}
+                    class="btn btn-outline btn-lg request-estimate"
+                    {...externalLinkAttrs(estimateCtaHref)}
+                  >
+                    {estimateCtaText}
+                  </a>
+                </div>
+              ) : null}
+            </div>
+          </article>
+        </div>
+      </section>
+    ) : null}
+
+    <section class="section service-area city-service-map" id="city-map">
+      <div class="container">
+        <div class="map-wrap">
+          <iframe
+            src={mapEmbedUrl}
+            width="600"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`${companyName} service area map`}
+          ></iframe>
+        </div>
       </div>
     </section>
   </main>
@@ -449,8 +509,8 @@ const serviceHref = (svc) => {
       <div class="container">
         <div class="contact-wrapper">
           <div class="contact-info">
-            <h2 class="section-title">{asStr(footerEstimate?.headline) || 'Need Gutter Help in Tampa?'}</h2>
-            <p>{asStr(footerEstimate?.intro) || 'Placeholder contact block for the City Service page base.'}</p>
+            <h2 class="section-title">{universalFormHeading}</h2>
+            <p>{universalFormIntro}</p>
             <FooterContactInfo
               variant="estimate"
               phoneTel={phoneTel}
