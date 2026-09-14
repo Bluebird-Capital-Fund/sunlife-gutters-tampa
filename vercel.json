@@ -373,6 +373,16 @@
       "permanent": true
     },
     {
+      "source": "/parrish-florida/",
+      "destination": "/service-area/gutters-parrish-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/parrish-florida/",
+      "destination": "/service-area/gutters-parrish-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -412,7 +422,7 @@
     { "source": "/service-area/gutters-lutz-fl/", "destination": "/locations/lutz-florida/" },
     { "source": "/service-area/gutters-mulberry-fl/", "destination": "/locations/gutters-mulberry-florida/" },
     { "source": "/service-area/gutters-odessa-fl/", "destination": "/locations/gutters-odessa-fl/" },
-    { "source": "/parrish-florida/", "destination": "/locations/parrish-florida/" },
+    { "source": "/service-area/gutters-parrish-fl/", "destination": "/locations/parrish-florida/" },
     { "source": "/service-area/gutters-plant-city-fl/", "destination": "/locations/gutters-plant-city-fl/" },
     { "source": "/service-area/gutters-riverview-fl/", "destination": "/locations/gutters-riverview-florida/" },
     { "source": "/service-area/gutters-ruskin-fl/", "destination": "/locations/gutters-ruskin-fl/" },
