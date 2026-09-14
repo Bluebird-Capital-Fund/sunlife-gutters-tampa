@@ -12,7 +12,7 @@ function normalizeHref(href) {
     '/underground-drainage/': '/underground-drainage-tampa-fl/',
   }
   const legacyLocationHrefMap = {
-    '/tampa-florida/': '/locations/tampa-florida/',
+    '/tampa-florida/': '/',
     '/brandon-florida/': '/service-area/gutters-brandon-fl/',
     '/gutters-clearwater-fl/': '/service-area/gutters-clearwater-fl/',
     '/gutters-saint-petersburg-fl/': '/service-area/gutters-saint-petersburg-fl/',
@@ -24,6 +24,9 @@ function normalizeHref(href) {
   }
   if (legacyServiceHrefMap[trimmed]) return legacyServiceHrefMap[trimmed]
   if (legacyLocationHrefMap[trimmed]) return legacyLocationHrefMap[trimmed]
+  if (trimmed === '/locations/tampa-florida/') {
+    return '/'
+  }
   if (trimmed === '/gutters-thonotosassa-fl/' || trimmed === '/locations/gutters-thonotosassa-fl/') {
     return '/service-area/gutters-thonotosassa-fl/'
   }

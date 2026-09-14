@@ -393,6 +393,16 @@
       "permanent": true
     },
     {
+      "source": "/tampa-florida/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/tampa-florida/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -441,7 +451,6 @@
     { "source": "/service-area/gutters-sarasota-fl/", "destination": "/locations/sarasota-fl/" },
     { "source": "/service-area/gutters-seffner-fl/", "destination": "/locations/gutters-seffner-fl/" },
     { "source": "/service-area/gutters-sun-city-center-fl/", "destination": "/locations/gutters-sun-city-center-fl/" },
-    { "source": "/tampa-florida/", "destination": "/locations/tampa-florida/" },
     { "source": "/service-area/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
     { "source": "/service-area/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
     { "source": "/service-area/gutters-lakeland-fl/", "destination": "/locations/gutters-lakeland-fl/" },

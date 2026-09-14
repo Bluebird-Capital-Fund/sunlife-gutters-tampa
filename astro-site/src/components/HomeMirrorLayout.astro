@@ -386,7 +386,8 @@ const normalizeLocationPageHref = (href) => {
   const value = asStr(href).trim()
   if (!value) return ''
   const legacyMap = {
-    '/tampa-florida/': '/locations/tampa-florida/',
+    '/tampa-florida/': '/',
+    '/locations/tampa-florida/': '/',
     '/brandon-florida/': '/service-area/gutters-brandon-fl/',
     '/locations/brandon-florida/': '/service-area/gutters-brandon-fl/',
     '/gibsonton-florida/': '/service-area/gutters-gibsonton-fl/',
