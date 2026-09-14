@@ -3321,6 +3321,7 @@ form[data-lead-form] button[type="submit"].is-busy {
   background-image: url("/Media%20(SGT)/Images%20(SGT)/sunlife-gutters-tampa-residential-gutter-install.webp");
   background-size: cover;
   background-position: center;
+  padding-bottom: var(--space-4xl);
 }
 
 .unique-points::before {
@@ -3335,6 +3336,10 @@ form[data-lead-form] button[type="submit"].is-busy {
 .unique-points .unique-grid {
   position: relative;
   z-index: 1;
+}
+
+.unique-points .unique-grid {
+  margin-top: var(--space-3xl);
 }
 
 .unique-points .section-title {
