@@ -421,6 +421,9 @@ const aboutHeadline = isLp
     ? 'About Our Gutter Company'
     : `${lpKeyword} for Tampa Bay homes and weather`
   : homepageHeadlines.about
+const aboutLead = isLp
+  ? asStr(about?.lead)
+  : 'Founded in December 2018, SunLife began as the vision of husband-and-wife team Kevin and Jessica Stroh. What started with a single seamless gutter crew has grown into a full exterior team serving the greater Tampa Bay area, offering seamless gutters, Super Gutters, screen rooms, lanais, and roofline trim, while staying true to the honest estimates and attention to detail that have defined the company from the beginning.'
 const uniquePointsHeadline = isLp
   ? lpSlug === 'gutters'
     ? 'Reliable Gutter Company in the Greater Tampa Area'
@@ -1060,7 +1063,7 @@ const serviceHref = (svc) => {
         <div class="about-content">
           <div class="about-eyebrow">{asStr(about?.eyebrow)}</div>
           <h2 class="section-title">{aboutHeadline}</h2>
-          <p class="about-lead">{asStr(about?.lead)}</p>
+          <p class="about-lead">{aboutLead}</p>
           <ul class="about-list">
             {asStrArray(about?.bullets).map((line) => (
               <li>{line}</li>
