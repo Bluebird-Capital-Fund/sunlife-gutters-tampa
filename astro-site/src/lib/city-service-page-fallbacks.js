@@ -566,6 +566,138 @@ export const cityServicePageFallbacks = {
 <p>Contact SunLife Gutters Tampa for a free consultation for screen rooms and lanais in Tampa. We'll take a look at your space, listen to what you'd like to improve, and give you straightforward recommendations without pushing work you don't need.</p>`,
     },
   },
+  'gutter-repair-tampa-fl': {
+    title: 'Gutter Repair in Tampa | Book Free Consultation | SunLife Gutters',
+    slug: 'gutter-repair-tampa-fl',
+    eyebrow: 'Gutter Repair',
+    headline: 'Gutter Repair in Tampa',
+    lead:
+      "A gutter that drips at one corner or pulls away in one spot may not need to be replaced. At SunLife Gutters Tampa, we provide expert gutter repair in Tampa for leaks, loose sections, drainage problems, and storm damage. We'll check what's causing the problem first and tell you whether a repair makes sense before recommending anything more.",
+    seoDescription:
+      'Need gutter repair in Tampa? We fix leaks, sagging gutters, and drainage issues. Expert service with a free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-lp-hero.png',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs You Need Gutter Repair in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-ladder-work.png',
+        imageAlt: 'Technician performing gutter repair on a Tampa Bay home',
+        body: `<p>Gutter problems tend to become obvious once Tampa gets a hard afternoon downpour. You may see water pouring from a corner, a section sagging under the weight of rain, or a downspout dumping water somewhere it shouldn't.</p>
+<p>It's worth having your gutters checked if you've noticed:</p>
+<ul>
+<li>Water dripping from gutter joints or corners</li>
+<li>Overflow in one section during heavy rain</li>
+<li>Gutters pulling away from the fascia</li>
+<li>Sagging or uneven sections</li>
+<li>Loose, crushed, or disconnected downspouts</li>
+<li>Water running behind the gutter</li>
+<li>Puddles forming near walkways or the foundation</li>
+<li>Soil or mulch washing away below the roofline</li>
+<li>Stains developing on fascia or siding</li>
+<li>Damage after strong winds or a tropical storm</li>
+</ul>
+<p>A repair is often enough when the damage is limited to one area and the rest of the system is still in good condition. We'll inspect the problem before recommending replacement.</p>`,
+      },
+      {
+        heading: 'Trusted Tampa Gutter Repair Services',
+        showCtas: true,
+        body: `<p>When someone calls us about a gutter problem, we want to know what the water is actually doing. Where does it overflow? Does it happen during every rainfall or only a hard storm? Is the gutter leaking, or is water getting behind it?</p>
+<p>Our Tampa gutter repair services include:</p>
+<ul>
+<li>Leaking gutter repairs</li>
+<li>Loose and sagging gutter repairs</li>
+<li>Gutter realignment and slope corrections</li>
+<li>Downspout repairs and reconnections</li>
+<li>Loose fastener repairs</li>
+<li>Overflow and drainage corrections</li>
+<li>Storm-damaged gutter repairs</li>
+<li>Gutter joint and corner repairs</li>
+<li>Residential gutter repairs</li>
+<li>Commercial gutter repairs</li>
+</ul>
+<p>Sometimes the gutter itself isn't the only thing that needs attention. If repeated overflow has affected an outdoor enclosure, we can also look at <a href="/screen-rooms-lanais-tampa-fl/">Tampa screen rooms and lanais</a> and explain whether anything around that area should be addressed.</p>
+<p>Storm damage can also leave a section hanging loose, disconnected, or suddenly dumping water against the property. For problems that shouldn't wait for the next rainfall, we provide <a href="/emergency-gutter-repair-tampa-fl/">emergency gutter repair in Tampa</a> and respond as quickly as possible to assess the damage.</p>`,
+      },
+      {
+        heading: 'Why Professional Gutter Repair Matters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-reseal-from-roof.png',
+        imageAlt: 'Gutter repair resealing work from the roof line',
+        body: `<p>The spot where you see water isn't always where the problem starts.</p>
+<p>A leak near a corner may actually come from farther along the gutter. Overflow can be caused by a low section, poor slope, a blocked downspout, or too much water concentrating in one area of the roof. A gutter pulling away may also have damaged attachment points underneath.</p>
+<p>That's why repeatedly sealing the same leak doesn't always work.</p>
+<p>We check how the affected section is attached, whether it's holding water, how quickly the downspout drains, and what happens when water reaches that part of the roof. If the issue can be corrected without replacing the whole system, that's the option we'll discuss first.</p>
+<p>This matters in Tampa because a minor drainage problem gets tested again and again throughout the rainy season. Fixing the cause helps keep the same leak or overflow from showing up every time another heavy storm rolls through.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>You called because something isn't working. Our job is to figure out why, explain it clearly, and recommend what makes sense for your property. That's how SunLife Gutters Tampa approaches repairs, without pressure to replace a system that still has useful life left.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Repairs recommended when repairs make sense</li>
+<li>No unnecessary upgrades or products</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the job</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For homeowners who would rather catch problems before the next storm exposes them, our gutter maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional services.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'gutter-repair-faq',
+      headline: 'Tampa Gutter Repair FAQs',
+      items: [
+        {
+          question: 'Why does one section of my gutters overflow every time it rains heavily in Tampa?',
+          answerHtml:
+            "<p>When the same section repeatedly overflows, the problem may be a clog, incorrect slope, a low spot, or a downspout that cannot drain quickly enough. Roof valleys can also send concentrated runoff into one area during Tampa's heavy storms. Checking that section along with the nearby downspout helps determine whether it needs cleaning, adjustment, repair, or a change to improve water flow.</p>",
+        },
+        {
+          question: "Can a gutter that's pulling away from my Tampa home be repaired?",
+          answerHtml:
+            "<p>Often, yes, but the fascia and attachment points need to be checked first. A gutter may pull away because fasteners have loosened, the section has been holding too much weight, or the wood behind it has deteriorated. Tampa's frequent rain can make existing moisture problems worse. If the fascia remains sound, the gutter may be secured and realigned without replacing the entire system.</p>",
+        },
+        {
+          question: 'Why is water running behind the gutters on my Tampa home?',
+          answerHtml:
+            "<p>Water behind a gutter can result from improper positioning, a loose section, roof-edge issues, or overflow that sends water where it shouldn't go. Over time, that moisture can stain or damage the fascia. Because several problems can create the same symptom, it's best to inspect the roof edge and gutter together rather than repeatedly sealing the area where the water happens to appear.</p>",
+        },
+        {
+          question: 'Is it worth repairing older gutters on a Tampa home?',
+          answerHtml:
+            '<p>It depends on the condition of the overall system. A localized leak, loose downspout, or section that needs realignment may be worth repairing if the remaining gutters are still performing well. When leaks keep appearing in multiple places or large sections are deteriorating, replacement may make more sense. A proper inspection can help you avoid replacing gutters that still have useful service life.</p>',
+        },
+        {
+          question: 'Can heavy storms cause gutters to come loose in Tampa?',
+          answerHtml:
+            '<p>Yes. Strong winds, intense rainfall, and the added weight of standing water or debris can put considerable stress on gutters and their attachment points. After a major Tampa storm, check for sections that are sagging, pulling away, leaking, or no longer draining normally. Even if the damage looks minor from the ground, a loose section is worth checking before another heavy rainfall arrives.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If the same gutter keeps leaking every time it rains, waiting through another Tampa storm usually won't make the problem any easier to fix. Water can continue reaching fascia, siding, landscaping, walkways, and areas around the foundation while the underlying issue remains.</p>
+<p>Contact <a href="/">SunLife Gutters Tampa</a> for a free consultation for gutter repair in Tampa. We'll find out what's causing the problem, explain what can be repaired, and recommend replacement only when it's actually the better option.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
