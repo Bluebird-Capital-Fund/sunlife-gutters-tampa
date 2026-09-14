@@ -32,6 +32,9 @@ function normalizeHref(href) {
   if (trimmed === '/locations/gutters-seffner-fl/') {
     return '/service-area/gutters-seffner-fl/'
   }
+  if (trimmed === '/gutters-san-antonio-fl/' || trimmed === '/locations/gutters-san-antonio-fl/') {
+    return '/service-area/gutters-san-antonio-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
