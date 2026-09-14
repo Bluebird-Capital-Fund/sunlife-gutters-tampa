@@ -86,6 +86,9 @@ function normalizeHref(href) {
   if (trimmed === '/gutters-valrico-fl/' || trimmed === '/locations/gutters-valrico-fl/') {
     return '/service-area/gutters-valrico-fl/'
   }
+  if (trimmed === '/longboat-key-florida/' || trimmed === '/locations/longboat-key-florida/') {
+    return '/service-area/gutters-longboat-key-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }
