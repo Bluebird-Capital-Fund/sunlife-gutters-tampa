@@ -213,6 +213,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-clearwater-fl/",
+      "destination": "/service-area/gutters-clearwater-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-clearwater-fl/",
+      "destination": "/service-area/gutters-clearwater-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -280,7 +290,7 @@
     { "source": "/service-area/gutters-bradenton-fl/", "destination": "/locations/bradenton-florida/" },
     { "source": "/service-area/gutters-brandon-fl/", "destination": "/locations/brandon-florida/" },
     { "source": "/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
-    { "source": "/gutters-clearwater-fl/", "destination": "/locations/gutters-clearwater-fl/" },
+    { "source": "/service-area/gutters-clearwater-fl/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/locations/clearwater-florida/", "destination": "/locations/gutters-clearwater-fl/" },
     { "source": "/service-area/gutters-cortez-fl/", "destination": "/locations/cortez-florida/" },
     { "source": "/service-area/gutters-dade-city-fl/", "destination": "/locations/dade-city-florida/" },

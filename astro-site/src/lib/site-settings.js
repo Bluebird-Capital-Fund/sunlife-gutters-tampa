@@ -13,7 +13,7 @@ function normalizeHref(href) {
   const legacyLocationHrefMap = {
     '/tampa-florida/': '/locations/tampa-florida/',
     '/brandon-florida/': '/service-area/gutters-brandon-fl/',
-    '/gutters-clearwater-fl/': '/locations/gutters-clearwater-fl/',
+    '/gutters-clearwater-fl/': '/service-area/gutters-clearwater-fl/',
     '/gutters-saint-petersburg-fl/': '/service-area/gutters-saint-petersburg-fl/',
     '/gutters-largo-fl/': '/service-area/gutters-largo-fl/',
     '/gutters-plant-city-fl/': '/service-area/gutters-plant-city-fl/',
@@ -61,6 +61,9 @@ function normalizeHref(href) {
   }
   if (trimmed === '/locations/gutters-largo-fl/') {
     return '/service-area/gutters-largo-fl/'
+  }
+  if (trimmed === '/locations/gutters-clearwater-fl/') {
+    return '/service-area/gutters-clearwater-fl/'
   }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
