@@ -3039,6 +3039,10 @@ form[data-lead-form] button[type="submit"].is-busy {
   gap: var(--space-lg);
 }
 
+.projects-title.section-title {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
 .projects-controls {
   display: flex;
   gap: var(--space-sm);
