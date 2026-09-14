@@ -472,6 +472,15 @@ const uniquePointsItems = isLp
     ? uniquePoints.items
     : []
   : homepageUniquePointsItems
+const contactBannerHeadline = isLp
+  ? asStr(contactBanner?.headline)
+  : "Ready for Florida's Next Storm?"
+const contactBannerParagraph1 = isLp
+  ? asStr(contactBanner?.paragraph1)
+  : 'Whether you need new gutters, exterior upgrades, or repairs, our team is here to make the process simple with honest recommendations and clear communication from start to finish.'
+const contactBannerParagraph2 = isLp
+  ? asStr(contactBanner?.paragraph2)
+  : 'Call us anytime or book your free consultation online.'
 const serviceAreaHeadline = isLp ? asStr(serviceArea?.headline) : homepageHeadlines.serviceArea
 const teamHeadline = isLp ? asStr(team?.headline) : homepageHeadlines.team
 const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : homepageHeadlines.faq
@@ -1199,9 +1208,9 @@ const serviceHref = (svc) => {
     <section class="section contact-banner-split">
       <div class="container contact-banner-grid">
         <div class="contact-banner-copy">
-          <h2 class="section-title">{asStr(contactBanner?.headline)}</h2>
-          <p class="section-lead">{asStr(contactBanner?.paragraph1)}</p>
-          <p class="section-lead">{asStr(contactBanner?.paragraph2)}</p>
+          <h2 class="section-title">{contactBannerHeadline}</h2>
+          <p class="section-lead">{contactBannerParagraph1}</p>
+          <p class="section-lead">{contactBannerParagraph2}</p>
           <div class="contact-banner-actions">
             <a href={telLink} class="contact-banner-phone">
               <img
