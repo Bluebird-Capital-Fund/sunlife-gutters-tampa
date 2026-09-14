@@ -65,6 +65,9 @@ function normalizeHref(href) {
   if (trimmed === '/locations/gutters-clearwater-fl/') {
     return '/service-area/gutters-clearwater-fl/'
   }
+  if (trimmed === '/gutters-wimauma-fl/' || trimmed === '/locations/gutters-wimauma-fl/') {
+    return '/service-area/gutters-wimauma-fl/'
+  }
   if (trimmed === '/bradenton-florida/' || trimmed === '/locations/bradenton-florida/') {
     return '/service-area/gutters-bradenton-fl/'
   }

@@ -223,6 +223,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-wimauma-fl/",
+      "destination": "/service-area/gutters-wimauma-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-wimauma-fl/",
+      "destination": "/service-area/gutters-wimauma-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -320,7 +330,7 @@
     { "source": "/service-area/gutters-thonotosassa-fl/", "destination": "/locations/gutters-thonotosassa-fl/" },
     { "source": "/gutters-valrico-fl/", "destination": "/locations/gutters-valrico-fl/" },
     { "source": "/wesley-chapel-florida/", "destination": "/locations/wesley-chapel-florida/" },
-    { "source": "/gutters-wimauma-fl/", "destination": "/locations/gutters-wimauma-fl/" },
+    { "source": "/service-area/gutters-wimauma-fl/", "destination": "/locations/gutters-wimauma-fl/" },
     { "source": "/zephyrhills-florida/", "destination": "/locations/zephyrhills-florida/" }
   ],
   "functions": {
