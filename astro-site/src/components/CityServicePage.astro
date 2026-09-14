@@ -22,12 +22,12 @@ import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
  */
 const { slug: slugProp, settings, homePage, cityPage } = Astro.props
 const slug = asStr(slugProp)
-const pageDescription =
-  asStr(_cityPage?.seoDescription) ||
-  'Professional gutter services in Tampa with fast scheduling and quality workmanship.'
 const _settings = settings ?? {}
 const _homePage = homePage ?? {}
 const _cityPage = cityPage ?? {}
+const pageDescription =
+  asStr(_cityPage?.seoDescription) ||
+  'Professional gutter services in Tampa with fast scheduling and quality workmanship.'
 
 const business = _settings?.business ?? {}
 const header = mergeHeaderFromSettings(_settings, _homePage?.header)
