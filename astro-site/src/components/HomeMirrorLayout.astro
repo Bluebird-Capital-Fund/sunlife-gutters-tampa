@@ -144,7 +144,6 @@ const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction)
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
 const universalFormHeading = asStr(footerEstimate?.headline)
-const universalFormIntro = asStr(footerEstimate?.intro)
 const universalSubmitLabel = asStr(footerEstimateFields?.submitButton)
 const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
 const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'Lead form'
@@ -153,6 +152,9 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const lpKeyword = (lp?.keyword && String(lp.keyword).trim()) || ''
 const lpSlug = (lp?.slug && String(lp.slug).trim()) || ''
 const isLp = !!(lp && lpKeyword && lpSlug)
+const homepageFormIntro =
+  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
+const universalFormIntro = isLp ? asStr(footerEstimate?.intro) : homepageFormIntro
 
 /** LP-only section imagery overrides (hero / difference / services / about / unique points). */
 const lpSectionImagesBySlug = {
@@ -1330,7 +1332,7 @@ const serviceHref = (svc) => {
         <div class="contact-wrapper">
           <div class="contact-info">
             <h2 class="section-title" id="footer-estimate-heading">{lpFormMainHeading}</h2>
-            <p>{asStr(footerEstimate?.intro)}</p>
+            <p>{universalFormIntro}</p>
             <FooterContactInfo
               variant="estimate"
               phoneTel={tel}

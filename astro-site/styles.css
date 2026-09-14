@@ -3362,6 +3362,11 @@ form[data-lead-form] button[type="submit"].is-busy {
   font-family: var(--font-body);
 }
 
+.unique-points .result-item p {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
 /* Icon + title alignment for the "What Makes Us Different" cards */
 .unique-points .result-value {
   display: flex;
