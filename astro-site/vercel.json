@@ -133,6 +133,16 @@
       "permanent": true
     },
     {
+      "source": "/gutters-largo-fl/",
+      "destination": "/service-area/gutters-largo-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/gutters-largo-fl/",
+      "destination": "/service-area/gutters-largo-fl/",
+      "permanent": true
+    },
+    {
       "source": "/city-service-base/",
       "destination": "/gutter-repair-tampa-fl/",
       "permanent": true
@@ -210,7 +220,7 @@
     { "source": "/lakewood-ranch-florida/", "destination": "/locations/lakewood-ranch-florida/" },
     { "source": "/land-o-lakes-florida/", "destination": "/locations/land-o-lakes-florida/" },
     { "source": "/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
-    { "source": "/gutters-largo-fl/", "destination": "/locations/gutters-largo-fl/" },
+    { "source": "/service-area/gutters-largo-fl/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/locations/largo-florida/", "destination": "/locations/gutters-largo-fl/" },
     { "source": "/lithia-florida/", "destination": "/locations/lithia-florida/" },
     { "source": "/longboat-key-florida/", "destination": "/locations/longboat-key-florida/" },
