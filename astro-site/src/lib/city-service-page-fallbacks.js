@@ -302,6 +302,139 @@ export const cityServicePageFallbacks = {
 <p>If you're looking for professional gutter installation in Tampa, contact SunLife Gutters Tampa to schedule your free consultation. We'll evaluate your property, answer your questions, and recommend a gutter system designed to fit your home's needs, not sell you more than necessary.</p>`,
     },
   },
+  'super-gutters-tampa-fl': {
+    title: 'Super Gutters in Tampa | Book Free Consultation | SunLife Gutters',
+    slug: 'super-gutters-tampa-fl',
+    eyebrow: 'Super Gutters',
+    headline: 'Super Gutters in Tampa',
+    lead:
+      'Pool cages and screened lanais need a gutter system that can do more than manage rainwater. The gutter also serves as an attachment point for the enclosure, so its condition matters to the entire structure. At SunLife Gutters Tampa, we install and replace super gutters in Tampa for properties with screen enclosures, with careful attention to drainage, attachment, and the demands of Florida weather.',
+    seoDescription:
+      'Upgrade to super gutters in Tampa for enhanced water flow and lasting performance. Expert installation and free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-wesley-chapel-fl-screen-enclosure-gutters.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs You Need Super Gutters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-screened-patio-gutter-install.webp',
+        imageAlt: 'Super gutter installation along a screened patio in Tampa Bay',
+        body: `<p>Super gutters take on a different job than standard residential gutters. Commonly installed where a pool cage or screen enclosure meets the home, they help manage roof runoff while providing structural support at the enclosure connection.</p>
+<p>In Tampa, years of heavy rain, humidity, strong sun, and storm exposure can take a toll. Problems may first show up as a leak over the pool deck or lanai, but the gutter itself may already be deteriorating or pulling away at its attachment points.</p>
+<p>Signs your super gutter may need attention include:</p>
+<ul>
+<li>Water leaking between the home and pool enclosure</li>
+<li>Overflow during Tampa's heavy afternoon storms</li>
+<li>Sagging or visibly damaged gutter sections</li>
+<li>Loose connections around the screen enclosure</li>
+<li>Corrosion or deterioration on an older system</li>
+<li>Water dripping onto the pool deck or lanai</li>
+<li>Staining around the fascia or enclosure connection</li>
+<li>Standing water inside the gutter</li>
+<li>Loose or damaged downspouts</li>
+<li>Recurring leaks that return after previous repairs</li>
+</ul>
+<p>Catching these issues early gives you a chance to address the gutter before water exposure causes additional problems around the roofline, enclosure, or outdoor living area.</p>`,
+      },
+      {
+        heading: 'Trusted Tampa Super Gutter Services',
+        showCtas: true,
+        body: `<p>Super gutter projects require a closer look at both drainage and the screen enclosure. Before recommending a solution, we inspect the existing gutter, attachment points, roof runoff, downspouts, and the area where the enclosure connects to the home.</p>
+<p>If the existing system is worn or damaged beyond a practical repair, we can replace it with a super gutter suited to the enclosure and roofline. Proper pitch and drainage are especially important in Tampa, where a short summer storm can send a large amount of water off the roof in minutes.</p>
+<p>Our Tampa super gutter services include:</p>
+<ul>
+<li>Super gutter installation</li>
+<li>Super gutter replacement</li>
+<li>Super gutter repair</li>
+<li>Pool cage gutter solutions</li>
+<li>Screen enclosure gutter systems</li>
+<li>Downspout installation and replacement</li>
+<li>Drainage and water-flow corrections</li>
+<li>Residential and commercial applications</li>
+</ul>
+<p>Super gutters are different from a typical <a href="/gutter-installation-tampa-fl/">Tampa gutter installation</a> because they're commonly used as part of the connection between a building and its screen enclosure.</p>
+<p>If you're planning exterior improvements, we can also help with <a href="/screen-rooms-lanais-tampa-fl/">screen rooms and lanais in Tampa</a>, making it easier to address the enclosure and its drainage as part of the same project.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional Super Gutter Installation in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc:
+          'Media (SGT)/Images (SGT)/sunlife-gutters-wesley-chapel-fl-screened-patio-gutters.webp',
+        imageAlt: 'Screen enclosure with professional super gutter system',
+        body: `<p>A leaking super gutter can be frustrating because the source isn't always obvious. Water may appear along the pool deck or enclosure even though the actual problem is farther up the gutter or near an attachment point. That's why simply adding sealant to the spot where water appears doesn't always solve the problem.</p>
+<p>We check how the gutter sits against the home, how it's supported, whether water is flowing toward the downspouts, and how the enclosure connects to the system. We also look for low areas where water can sit instead of draining properly.</p>
+<p>Tampa weather makes these details particularly important. Super gutters need to manage intense rainfall while remaining securely integrated with an enclosure that is regularly exposed to heat, humidity, wind, and strong sun.</p>
+<p>Getting the installation right from the beginning helps prevent recurring leaks, poor drainage, and avoidable problems around your pool cage or lanai.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Some companies may be quick to recommend replacement. At SunLife Gutters Tampa, we start by figuring out what your super gutter actually needs. If the existing system can reasonably be repaired, we'll tell you. If replacement makes more sense, we'll explain why.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>4.9-star Google rating from more than 230 reviews</li>
+<li>More than 10,000 completed projects</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Experience with Tampa Bay screen enclosures</li>
+<li>Honest recommendations without unnecessary upselling</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Clear communication throughout the project</li>
+<li>Fair, transparent pricing</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>We also offer maintenance plans for customers who want ongoing help keeping their gutter system clean and working properly. Plans include two professional cleanings per year, an annual inspection and tune-up, priority service, and discounts on additional services.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'super-gutters-faq',
+      headline: 'Tampa Super Gutters FAQs',
+      items: [
+        {
+          question: 'What is a super gutter, and why do Tampa pool enclosures use them?',
+          answerHtml:
+            "<p>A super gutter is a larger structural gutter commonly used where a pool cage or screen enclosure attaches to a home. It collects roof runoff while also providing an attachment point for the enclosure. They're common around Tampa because screened outdoor spaces are popular, and the system needs to manage substantial rainfall while working properly with the enclosure's structure.</p>",
+        },
+        {
+          question: 'Why is my super gutter leaking over my pool deck in Tampa?',
+          answerHtml:
+            "<p>Leaks can develop from failed seals, deteriorated sections, poor drainage, standing water, or problems around connections and attachment points. Tampa's heat, humidity, and frequent heavy rain can make existing weaknesses more noticeable over time. Because water may travel before it drips onto the pool deck, inspecting the entire super gutter is often more useful than simply sealing the visible leak.</p>",
+        },
+        {
+          question: 'Why does my Tampa super gutter overflow during heavy rain?',
+          answerHtml:
+            "<p>Overflow can happen when debris restricts drainage, downspouts cannot move water quickly enough, or the gutter isn't pitched correctly. Super gutters also receive concentrated runoff from the roof, which can become significant during Tampa's sudden summer downpours. Checking the gutter, downspouts, drainage path, and areas where roof water concentrates can help identify what's preventing the system from keeping up.</p>",
+        },
+        {
+          question: 'Can an existing super gutter be repaired, or does it need replacement in Tampa?',
+          answerHtml:
+            "<p>That depends on the condition of the gutter and how widespread the damage is. An isolated leak or drainage issue may be repairable, while extensive deterioration, recurring leaks, or problems at multiple attachment points can make replacement more practical. We inspect the complete system first so Tampa homeowners can understand what's happening before deciding which option makes the most sense.</p>",
+        },
+        {
+          question: 'Should my super gutter be inspected when repairing a Tampa pool cage?',
+          answerHtml:
+            "<p>Yes. Because the super gutter and pool enclosure are connected, it's a good idea to inspect both when work is being planned around that area. Existing leaks, deterioration, loose attachment points, or drainage problems can affect the finished project. Identifying those issues beforehand helps Tampa homeowners avoid completing enclosure work only to discover that the adjoining gutter also needs attention.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>Water dripping onto your lanai or overflowing around a pool enclosure is worth checking before another stretch of heavy Tampa rain. Left alone, a damaged super gutter can continue exposing the surrounding roofline, enclosure connections, and outdoor living area to water.</p>
+<p>Contact <a href="/">SunLife Gutters Tampa</a> for a free consultation if you need repair, replacement, or new super gutters in Tampa. We'll inspect the existing setup, walk you through what we find, and recommend the work your property actually needs.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
