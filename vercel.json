@@ -233,6 +233,16 @@
       "permanent": true
     },
     {
+      "source": "/ellenton-florida/",
+      "destination": "/service-area/gutters-ellenton-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/ellenton-florida/",
+      "destination": "/service-area/gutters-ellenton-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -260,7 +270,7 @@
     { "source": "/cortez-florida/", "destination": "/locations/cortez-florida/" },
     { "source": "/dade-city-florida/", "destination": "/locations/dade-city-florida/" },
     { "source": "/dover-florida/", "destination": "/locations/dover-florida/" },
-    { "source": "/ellenton-florida/", "destination": "/locations/ellenton-florida/" },
+    { "source": "/service-area/gutters-ellenton-fl/", "destination": "/locations/ellenton-florida/" },
     { "source": "/service-area/gutters-gibsonton-fl/", "destination": "/locations/gibsonton-florida/" },
     { "source": "/lakewood-ranch-florida/", "destination": "/locations/lakewood-ranch-florida/" },
     { "source": "/land-o-lakes-florida/", "destination": "/locations/land-o-lakes-florida/" },
