@@ -383,6 +383,7 @@ export async function getSiteSettings() {
       statsYearsExperience: 'Lifetime',
       statsJobsCompleted: '10,000+',
       statsAvgRating: '4.9',
+      whyChooseHomesCount: '10,000+',
     },
   }
   return siteSettingsCache

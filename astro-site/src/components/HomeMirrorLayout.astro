@@ -157,6 +157,10 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const lpKeyword = (lp?.keyword && String(lp.keyword).trim()) || ''
 const lpSlug = (lp?.slug && String(lp.slug).trim()) || ''
 const isLp = !!(lp && lpKeyword && lpSlug)
+const whyStampLine2 = isLp ? asStr(whyStamp?.line2) : 'Tampa Bay, Florida'
+const whyStampLine3 = isLp
+  ? asStr(whyStamp?.line3)
+  : 'Projects completed from roof to grade.'
 const homepageFormIntro =
   'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
 const universalFormIntro = isLp ? asStr(footerEstimate?.intro) : homepageFormIntro
@@ -1073,8 +1077,8 @@ const serviceHref = (svc) => {
           />
           <div class="why-choose-stamp">
             <strong>{homesCountDisplay}</strong>
-            <span>{asStr(whyStamp?.line2)}</span>
-            <span>{asStr(whyStamp?.line3)}</span>
+            <span>{whyStampLine2}</span>
+            <span>{whyStampLine3}</span>
           </div>
         </div>
         <div class="why-choose-content">
