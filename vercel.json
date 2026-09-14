@@ -123,6 +123,16 @@
       "permanent": true
     },
     {
+      "source": "/anna-maria-island-florida/",
+      "destination": "/service-area/gutters-anna-maria-island-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/locations/anna-maria-island-florida/",
+      "destination": "/service-area/gutters-anna-maria-island-fl/",
+      "permanent": true
+    },
+    {
       "source": "/products-services/:slug/",
       "destination": "/services/:slug/",
       "permanent": true
@@ -140,7 +150,7 @@
     { "source": "/screen-rooms-and-lanais/", "destination": "/services/screen-rooms-lanais-tampa-fl/" },
     { "source": "/siding/", "destination": "/services/siding-tampa-fl/" },
     { "source": "/siding-services-in-central-florida/", "destination": "/services/siding-tampa-fl/" },
-    { "source": "/anna-maria-island-florida/", "destination": "/locations/anna-maria-island-florida/" },
+    { "source": "/service-area/gutters-anna-maria-island-fl/", "destination": "/locations/anna-maria-island-florida/" },
     { "source": "/apollo-beach-fl/", "destination": "/locations/apollo-beach-fl/" },
     { "source": "/bradenton-florida/", "destination": "/locations/bradenton-florida/" },
     { "source": "/brandon-florida/", "destination": "/locations/brandon-florida/" },

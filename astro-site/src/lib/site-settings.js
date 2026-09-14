@@ -38,6 +38,9 @@ function normalizeHref(href) {
   if (trimmed === '/locations/gutters-saint-petersburg-fl/') {
     return '/service-area/gutters-saint-petersburg-fl/'
   }
+  if (trimmed === '/anna-maria-island-florida/' || trimmed === '/locations/anna-maria-island-florida/') {
+    return '/service-area/gutters-anna-maria-island-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
