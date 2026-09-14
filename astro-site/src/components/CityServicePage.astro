@@ -12,7 +12,7 @@ import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/f
 import { mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
-import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
+import { asStr, applyTemplate, mediaUrl, statLookup } from '../lib/sanity-strings.js'
 import {
   HOMEPAGE_SERVICE_AREA_HEADLINE,
   HOMEPAGE_SERVICE_AREA_INTRO,
@@ -83,6 +83,12 @@ const servicesBgStyle = servicesBgSrc
   : undefined
 const sharedReviews = _settings?.reviews ?? _homePage?.reviews ?? {}
 const reviewsToRender = sharedReviews
+const reviewValues = reviewsToRender?.reviewValues
+const reviewSummary = reviewsToRender?.summary
+const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey) || '4.9'
+const reviewCount = statLookup(reviewValues, reviewSummary?.reviewCountKey) || '200'
+const reviewCountDisplay = `${asStr(reviewSummary?.reviewCountPrefix) || '('}${reviewCount}${asStr(reviewSummary?.reviewCountSuffix) || ')'}`
+const reviewsCtaHref = asStr(reviewSummary?.ctaHref) || '/reviews/'
 const cityContentSections = Array.isArray(_cityPage?.contentSections) ? _cityPage.contentSections : []
 const closingSection = _cityPage?.closingSection && typeof _cityPage.closingSection === 'object'
   ? _cityPage.closingSection
@@ -433,19 +439,36 @@ const serviceHref = (svc) => {
           <div class="reviews-summary-left">
             <p class="reviews-summary-brand">
               <img
-                src={mediaUrl(asStr(reviewsToRender?.summary?.googleIconSrc))}
+                src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
                 alt={reviewsBrandLabel}
                 class="google-logo"
+                width="20"
+                height="20"
+                loading="lazy"
+                decoding="async"
               />
               <span>{reviewsBrandLabel}</span>
             </p>
+            <p class="reviews-summary-rating">
+              <strong>{reviewRating}</strong>
+              <img
+                src={mediaUrl(asStr(reviewSummary?.starsImageSrc))}
+                alt={asStr(reviewSummary?.starsImageAlt) || '5 star rating'}
+                class="review-stars review-stars-inline"
+                width="96"
+                height="18"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>{reviewCountDisplay}</span>
+            </p>
           </div>
           <a
-            href={asStr(reviewsToRender?.summary?.ctaHref) || '/reviews/'}
-            class="btn btn-primary reviews-summary-cta"
-            {...externalLinkAttrs(asStr(reviewsToRender?.summary?.ctaHref) || '/reviews/')}
+            href={reviewsCtaHref}
+            class="btn btn-outline btn-lg request-estimate reviews-summary-cta"
+            {...externalLinkAttrs(reviewsCtaHref)}
           >
-            {asStr(reviewsToRender?.summary?.ctaText) || 'See More Reviews'}
+            {asStr(reviewSummary?.ctaText) || 'See More Reviews'}
           </a>
         </div>
         <div class="testimonials-grid">
