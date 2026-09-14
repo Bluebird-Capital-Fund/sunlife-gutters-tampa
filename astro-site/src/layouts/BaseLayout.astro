@@ -2,7 +2,10 @@
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import '../../styles.css'
-import { buildHomeAndConstructionBusinessJsonLd } from '../lib/local-business-json-ld.js'
+import {
+  buildHomeAndConstructionBusinessJsonLd,
+  CANONICAL_SITE_ORIGIN,
+} from '../lib/local-business-json-ld.js'
 import { getSiteSettings } from '../lib/site-settings.js'
 import { buildThemeCss } from '../lib/theme-css.js'
 
@@ -17,6 +20,8 @@ const {
   localBusinessName = '',
   /** When true, emit robots noindex,nofollow (paid landing pages only). */
   robotsNoindex = false,
+  /** Optional absolute canonical URL; defaults to this page’s production URL. */
+  canonical = '',
 } = Astro.props
 
 const settings = await getSiteSettings()
@@ -37,6 +42,12 @@ const recaptchaSiteKey =
 const mapboxToken = (import.meta.env.PUBLIC_MAPBOX_TOKEN || '').trim()
 const formsForClient = { ...forms, recaptchaSiteKey, mapboxToken }
 const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
+
+const canonicalOverride = typeof canonical === 'string' ? canonical.trim() : ''
+const canonicalOrigin = (Astro.site?.origin || CANONICAL_SITE_ORIGIN).replace(/\/+$/, '')
+let canonicalPath = Astro.url.pathname || '/'
+if (!canonicalPath.endsWith('/')) canonicalPath = `${canonicalPath}/`
+const canonicalUrl = canonicalOverride || `${canonicalOrigin}${canonicalPath}`
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +89,7 @@ const formsJson = JSON.stringify(formsForClient).replace(/</g, '\\u003c')
     {robotsNoindex ? <meta name="robots" content="noindex,nofollow" /> : null}
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     {preloadImageHref ? <link rel="preload" as="image" href={preloadImageHref} /> : null}
     {localBusinessJsonLd ? (
       <script type="application/ld+json" set:html={localBusinessJsonLd} />
