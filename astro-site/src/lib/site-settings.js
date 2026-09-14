@@ -26,6 +26,9 @@ function normalizeHref(href) {
   if (trimmed === '/gutters-thonotosassa-fl/' || trimmed === '/locations/gutters-thonotosassa-fl/') {
     return '/service-area/gutters-thonotosassa-fl/'
   }
+  if (trimmed === '/gutters-sun-city-center-fl/' || trimmed === '/locations/gutters-sun-city-center-fl/') {
+    return '/service-area/gutters-sun-city-center-fl/'
+  }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`

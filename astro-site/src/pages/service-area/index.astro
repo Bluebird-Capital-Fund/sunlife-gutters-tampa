@@ -139,7 +139,7 @@ const cityPages = locationRows
     if (!slug || !name) return null
     return {
       name,
-      href: slug === 'gutters-thonotosassa-fl' ? `/service-area/${slug}/` : `/locations/${slug}/`,
+      href: slug === 'gutters-thonotosassa-fl' || slug === 'gutters-sun-city-center-fl' ? `/service-area/${slug}/` : `/locations/${slug}/`,
       county: countyForLocation(row),
     }
   })
