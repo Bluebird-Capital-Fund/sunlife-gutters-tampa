@@ -380,7 +380,7 @@ export async function getSiteSettings() {
     mapEmbedUrl: mapEmbedMerged,
     statsValues: {
       ...(singleton?.statsValues && typeof singleton.statsValues === 'object' ? singleton.statsValues : {}),
-      statsYearsExperience: 'Lifetime warranty options available*',
+      statsYearsExperience: 'Lifetime',
       statsJobsCompleted: '10,000+',
       statsAvgRating: '4.9',
     },

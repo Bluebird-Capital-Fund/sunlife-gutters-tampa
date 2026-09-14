@@ -73,7 +73,7 @@ const aboutVideo = about?.video
 const uniquePoints = hp.uniquePoints
 const statsBar = hp.statsBar
 const homepageStatsLabels = {
-  statsYearsExperience: '',
+  statsYearsExperience: 'warranty options*',
   statsJobsCompleted: 'Projects completed',
   statsAvgRating: 'Average Google rating',
 }
@@ -1212,9 +1212,8 @@ const serviceHref = (svc) => {
             valueKey in homepageStatsLabels
               ? homepageStatsLabels[valueKey]
               : asStr(row.label)
-          const isWarrantyStat = valueKey === 'statsYearsExperience'
           return (
-            <div class:list={[isWarrantyStat ? 'stats-thin-phrase' : null]}>
+            <div>
               <strong>{statLookup(statsValues, row.valueKey)}</strong>
               {label ? <span>{label}</span> : null}
             </div>
