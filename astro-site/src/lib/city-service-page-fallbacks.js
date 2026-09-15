@@ -2742,6 +2742,139 @@ export const cityServicePageFallbacks = {
 <p>If you need siding in Tampa, book a free, no-obligation consultation with <a href="/">SunLife Gutters Tampa</a>. We'll take a look at the exterior, discuss the areas you're concerned about, and walk you through the options for improving the property.</p>`,
     },
   },
+  'soffit-fascia-repair-tampa-fl': {
+    title: 'Soffit and Fascia Repair in Tampa | Book Consultation | SunLife',
+    slug: 'soffit-fascia-repair-tampa-fl',
+    eyebrow: 'Soffit & Fascia Repair',
+    headline: 'Soffit and Fascia Repair in Tampa',
+    lead:
+      'Peeling paint, soft wood, sagging sections, or stains along the roof edge can be signs that your soffit or fascia needs attention. Soffit and fascia repair in Tampa helps address damaged areas before continued rain and humidity make the deterioration worse. SunLife Gutters Tampa looks closely at the roofline, surrounding gutters, and visible damage to determine what is happening and what needs to be repaired.',
+    seoDescription:
+      'Professional soffit and fascia repair in Tampa for damaged wood, water damage, and roof edge protection. Free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-lp-hero.png',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs You Need Soffit and Fascia Repair in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-reseal-from-roof.png',
+        imageAlt: 'Roofline and fascia area being inspected on a Tampa Bay home',
+        body: `<p>Soffit and fascia sit in one of the most exposed parts of your exterior. They deal with roof runoff, gutter attachment points, wind-driven rain, heat, humidity, and whatever Tampa's storm season sends their way. Damage may start in one small section and become easier to spot over time.</p>
+<p>Watch for:</p>
+<ul>
+<li>Soft or rotting fascia boards</li>
+<li>Peeling, bubbling, or flaking paint</li>
+<li>Dark stains around the roof edge</li>
+<li>Sagging or loose soffit sections</li>
+<li>Cracks, gaps, or visible openings</li>
+<li>Fascia pulling away from the roofline</li>
+<li>Gutters that no longer sit securely</li>
+<li>Water marks behind or below the gutters</li>
+<li>Sections damaged by wind or storms</li>
+<li>Signs of moisture around eaves and overhangs</li>
+<li>Visible deterioration around gutter attachment points</li>
+<li>Pieces of soffit or fascia that have shifted out of place</li>
+</ul>
+<p>These symptoms are worth checking rather than covering up. Finding out why the area deteriorated can help prevent the same problem from continuing after the visible damage is repaired.</p>`,
+      },
+      {
+        heading: 'Trusted Tampa Soffit and Fascia Repair Services',
+        showCtas: true,
+        body: `<p>The damaged section is only part of what we look at. If fascia has softened behind a gutter, we want to know whether water has been overflowing, leaking behind the system, or repeatedly reaching that area. If a soffit panel has shifted, we'll look at the surrounding roof edge for other visible concerns.</p>
+<p>Our Tampa soffit and fascia services can include:</p>
+<ul>
+<li>Fascia repair</li>
+<li>Soffit repair</li>
+<li>Damaged section replacement</li>
+<li>Repair of loose or sagging areas</li>
+<li>Storm-damaged soffit and fascia work</li>
+<li>Roof-edge exterior repairs</li>
+<li>Evaluation around gutter attachment points</li>
+<li>Residential soffit and fascia services</li>
+<li>Commercial soffit and fascia services</li>
+</ul>
+<p>Because gutters are commonly attached along the fascia, the condition of both components can be closely connected. If the existing system is also due for an upgrade, <a href="/seamless-gutters-tampa-fl/">Tampa seamless gutters</a> can be planned alongside the roof-edge work so the gutter has a sound attachment area and the finished exterior works together.</p>
+<p>We also consider how the repaired section transitions into the rest of the building. When deterioration extends beyond the roof edge, <a href="/siding-tampa-fl/">siding in Tampa</a> may need to be evaluated separately to determine whether nearby exterior areas have also been affected.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional Soffit and Fascia Repair in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-repair-finished-corner.png',
+        imageAlt: 'Finished roof-edge corner detail after exterior repair in Tampa Bay',
+        body: `<p>Replacing a visibly damaged board without checking what caused the damage can leave the underlying problem unresolved. Fascia often sits directly behind the gutter system. If water is escaping behind a gutter, overflowing in one location, or repeatedly reaching the roof edge, that moisture can affect the area over time. Soffits can also show signs of deterioration after repeated exposure to moisture, storms, or movement around the eaves.</p>
+<p>Tampa's humidity can make persistent moisture especially important to address.</p>
+<p>A professional repair starts by looking beyond the damaged surface. The gutter attachment, nearby roof edge, seams, corners, and surrounding exterior can all provide clues about why that particular section is failing.</p>
+<p>Careful installation matters too. Repaired fascia needs to provide a secure, finished roof edge, while soffit sections should fit properly with the surrounding exterior. Addressing both the visible damage and the conditions around it gives you a more complete repair than simply covering an area that looks worn.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Roof-edge damage can involve several connected parts of the exterior, and SunLife Gutters Tampa understands how gutters, fascia, soffits, and surrounding drainage work together. We'll inspect the area, explain what we're seeing, and keep the process straightforward.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Residential and commercial exterior experience</li>
+<li>Familiarity with Tampa rain, humidity, and storm conditions</li>
+<li>Experience working around gutter attachment points</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication from start to finish</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>If your <a href="/">gutters in Tampa</a> also needs ongoing care, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, 10% off additional services, and 25% off extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'soffit-fascia-repair-faq',
+      headline: 'Tampa Soffit and Fascia Repair FAQs',
+      items: [
+        {
+          question: 'Why is the fascia on my Tampa home starting to rot?',
+          answerHtml:
+            "<p>Fascia can deteriorate when it is repeatedly exposed to moisture from overflowing gutters, roof runoff, leaks, or damaged areas along the roof edge. Tampa's frequent rain and high humidity can make persistent moisture especially hard on vulnerable wood. Rot should be evaluated along with the surrounding gutter and roofline so the source of the water exposure can be identified before the damaged section is repaired.</p>",
+        },
+        {
+          question: 'Why are there water stains on the soffit of my Tampa home?',
+          answerHtml:
+            "<p>Water stains on a soffit can indicate moisture reaching the area from the roof edge, gutters, or another nearby exterior component. Wind-driven rain can also expose vulnerable areas during Tampa storms. Because the visible stain may not show exactly where the water entered, the surrounding roofline should be checked carefully. Look for gutter overflow, loose sections, gaps, or other signs of recurring moisture nearby.</p>",
+        },
+        {
+          question: 'Can damaged fascia cause my gutters to pull away in Tampa?',
+          answerHtml:
+            "<p>Yes. Gutters are commonly secured along the fascia, so deteriorated or weakened sections may no longer provide a reliable attachment point. During Tampa's heavy rainfall, gutters can become even more stressed as they carry large amounts of water. If a gutter is pulling away, both the gutter hardware and the fascia behind it should be checked to determine which components need attention before reattaching anything.</p>",
+        },
+        {
+          question: 'Should soffit and fascia be checked after a strong Tampa storm?',
+          answerHtml:
+            "<p>It's a good idea if the storm brought strong winds, heavy rain, or visible exterior damage. From the ground, Tampa property owners can look for loose soffit panels, shifted fascia, peeling sections, gaps, or gutters that appear out of alignment. Not every storm causes damage, but noticing a change around the roof edge afterward is a good reason to have the affected area evaluated.</p>",
+        },
+        {
+          question: 'Can only one damaged section of soffit or fascia be repaired in Tampa?',
+          answerHtml:
+            "<p>In many cases, localized damage can be addressed without replacing every soffit or fascia section on the property. The right approach depends on how far the deterioration extends and what caused it. On Tampa properties, it's especially important to check nearby areas for moisture exposure, gutter problems, or storm damage so the repair covers the affected section rather than overlooking connected deterioration along the roofline.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>Damage around the roof edge can be easy to overlook until a gutter starts pulling away or a soffit section becomes visibly stained or loose. Getting the area checked can help you understand what is happening before more Tampa rain reaches the same vulnerable spot.</p>
+<p>For soffit and fascia repair in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll inspect the affected area, explain what we find, and discuss the appropriate next steps for your property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
