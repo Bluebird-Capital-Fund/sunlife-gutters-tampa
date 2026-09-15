@@ -36,7 +36,7 @@ function hrefForPage(n) {
           <a href={href} class="blog-index-card-link">
             {thumb ? (
               <div class="blog-index-card-media">
-                <img src={mediaUrl(thumb)} alt="" width="640" height="360" loading="lazy" decoding="async" />
+                <img src={mediaUrl(thumb)} alt={thumbAlt} width="640" height="360" loading="lazy" decoding="async" />
               </div>
             ) : (
               <div class="blog-index-card-media blog-index-card-media-placeholder" aria-hidden="true" />

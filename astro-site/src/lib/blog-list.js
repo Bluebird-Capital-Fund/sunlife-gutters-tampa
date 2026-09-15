@@ -2,6 +2,9 @@
  * Blog index: fetch all posts + pagination helpers (static /blog/ and /blog/page/N/).
  */
 
+import { asStr } from './sanity-strings.js'
+import { heroBackgroundFor } from './hero-backgrounds.js'
+
 export const BLOG_POSTS_PER_PAGE = 9
 
 const LIST_QUERY = `*[_type == "blogPost" && defined(slug.current)] | order(publishedAt desc) {
@@ -11,14 +14,27 @@ const LIST_QUERY = `*[_type == "blogPost" && defined(slug.current)] | order(publ
   publishedAt,
   "metaTitle": meta.title,
   "metaDescription": meta.description,
-  "thumb": contentSections[0].imageSrc,
-  "thumbAlt": contentSections[0].imageAlt
+  "thumb": coalesce(
+    contentSections[imageSrc != null][0].imageSrc,
+    layoutBackgrounds.hero.imageSrc
+  ),
+  "thumbAlt": coalesce(
+    contentSections[imageSrc != null][0].imageAlt,
+    layoutBackgrounds.hero.location,
+    headline
+  )
 }`
 
 export async function fetchAllBlogPosts(sanity) {
   try {
     const rows = await sanity.fetch(LIST_QUERY)
-    return Array.isArray(rows) ? rows : []
+    if (!Array.isArray(rows)) return []
+    return rows.map((post) => {
+      const slug = asStr(post?.slug)
+      const thumb = asStr(post?.thumb) || heroBackgroundFor(`blog-${slug}`)
+      const thumbAlt = asStr(post?.thumbAlt) || asStr(post?.headline) || 'Article'
+      return { ...post, thumb, thumbAlt }
+    })
   } catch (err) {
     console.warn('[blog-list] Failed to fetch blog posts.', err)
     return []
