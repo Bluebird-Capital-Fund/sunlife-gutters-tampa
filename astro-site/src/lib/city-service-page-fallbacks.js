@@ -5,25 +5,135 @@
  */
 export const cityServicePageFallbacks = {
   'underground-drainage-tampa-fl': {
-    title: 'Underground Drainage in Tampa, FL | SunLife Gutters Tampa',
+    title: 'Underground Drainage in Tampa | Book Free Consultation | SunLife',
     slug: 'underground-drainage-tampa-fl',
     eyebrow: 'Underground Drainage',
-    headline: 'Underground Drainage in Tampa, FL',
-    lead: 'Move roof water away from your foundation, patio, and landscaping with buried drain lines tied into your downspouts. Built for Tampa Bay rain, flat yards, and homes where surface runoff pools.',
+    headline: 'Underground Drainage in Tampa',
+    lead:
+      "A downspout can move water off the roof, but dumping all that runoff beside the house can leave you with puddles, washed-out landscaping, and soggy areas after every hard storm. Underground drainage in Tampa provides a cleaner way to carry that water farther across the property. SunLife Gutters Tampa plans drainage around the way water actually moves through your yard, helping keep roof runoff away from the places where it causes trouble.",
     seoDescription:
-      'Underground drainage in Tampa, FL. SunLife Gutters ties downspouts into buried drain lines so stormwater leaves the house instead of pooling against the foundation.',
+      'Expert underground drainage in Tampa to prevent standing water, erosion, and foundation issues. Get a free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
     layoutBackgrounds: {
       hero: {
-        imageSrc:
-          'Media (SGT)/Images (SGT)/sunlife-gutters-riverview-fl-downspout-drainage-rock-bed.webp',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-side-yard-drainage.webp',
       },
     },
     contentSections: [
       {
-        heading: 'Downspouts, drain lines, and a clean yard',
-        body: '<p>Gutters only work if the water has somewhere to go. We connect downspouts to underground drainage so heavy Florida rain is carried away from the slab, walkways, and planting beds instead of dumping at the corner of the house.</p><p>A typical system includes solid buried pipe, the right fittings at each downspout, and a discharge point such as a pop-up emitter or a safe daylight outlet. We size the run for your roof and grade, then restore the work area when the install is done.</p>',
+        heading: 'Signs You Need Underground Drainage in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-downspout-drainage.webp',
+        imageAlt: 'Downspout drainage setup directing runoff away from a Tampa Bay home',
+        body: `<p>Some drainage problems are easy to trace. If the same area becomes soaked every time it rains and there's a downspout emptying nearby, you already have a good clue about where the water is coming from.</p>
+<p>Other properties have several roof sections sending runoff toward one side of the house, creating more water than the surrounding soil can comfortably handle during Tampa's heavier storms.</p>
+<p>Underground drainage may be worth considering if:</p>
+<ul>
+<li>Water pools around downspout discharge points</li>
+<li>Downspout extensions stretch across walkways or lawns</li>
+<li>Mulch and soil repeatedly wash away</li>
+<li>The ground stays soggy near the house after rain</li>
+<li>Roof runoff collects near patios or outdoor living areas</li>
+<li>Water repeatedly crosses a walkway or driveway</li>
+<li>Several downspouts discharge into the same general area</li>
+<li>Landscaping makes above-ground extensions impractical</li>
+<li>Commercial downspouts release water near customer or employee areas</li>
+<li>You want a less visible way to carry roof runoff across the property</li>
+</ul>`,
+      },
+      {
+        heading: 'Trusted Tampa Underground Drainage Services',
+        showCtas: true,
+        body: `<p>Underground drainage starts above ground. Before planning the buried portion of the system, we look at where roof water is coming from, which downspouts are feeding the problem area, and how the property behaves after a heavy rain. That helps us determine where runoff needs to travel instead of simply moving the puddle from one spot to another.</p>
+<p>Our Tampa underground drainage services can include:</p>
+<ul>
+<li>Underground downspout drainage</li>
+<li>Buried drainage lines</li>
+<li>Downspout-to-drain connections</li>
+<li>Drainage outlet planning</li>
+<li>Roof runoff management</li>
+<li>Drainage solutions around landscaping</li>
+<li>Residential underground drainage</li>
+<li>Commercial underground drainage</li>
+<li>Corrections for recurring downspout discharge problems</li>
+</ul>
+<p>Properly positioned <a href="/downspouts-tampa-fl/">Tampa downspouts</a> are an important part of the setup because they collect roof runoff and feed it into the drainage system. We consider both parts together so water has a clear route from the roofline to its final discharge point.</p>
+<p>Some properties are dealing with more than concentrated roof runoff. When water is collecting across a broader low or soggy area, <a href="/french-drains-tampa-fl/">french drains in Tampa</a> may be another drainage option to consider depending on the source of the problem and the layout of the property.</p>
+<p>We'll explain what we're seeing and which approach fits the drainage issue you're actually dealing with.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional Underground Drainage in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-riverview-fl-downspout-installation-white-gutter-drainage.webp',
+        imageAlt: 'White gutter downspout drainage installation in Tampa Bay',
+        body: `<p>Burying a pipe doesn't automatically solve a drainage problem.</p>
+<p>The line needs an appropriate route, enough slope to move water, and a discharge point that won't simply create another soggy area farther across the property. The amount of water entering the system also matters, especially when several roof sections or downspouts are involved.</p>
+<p>Tampa's heavy summer rainfall can put a lot of water into an underground line in a short period. A setup that doesn't account for that runoff may drain slowly or struggle when it's needed most.</p>
+<p>The surrounding property matters too. Walkways, patios, landscaping, driveways, and low areas can all affect where a drainage line can reasonably travel and where the water should eventually exit. By following the runoff from the roof to the ground and across the property, we can plan a route that makes sense for the site instead of simply putting the visible portion of the problem underground.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Drainage can get complicated quickly when water is coming from several places. SunLife Gutters Tampa keeps the conversation practical. We'll look at where the water starts, where it's causing trouble, and what needs to happen between those two points.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Residential and commercial drainage experience</li>
+<li>Familiarity with Tampa's heavy rainfall</li>
+<li>Practical solutions based on the property</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the project</li>
+<li>Flexible financing available</li>
+</ul>
+<p>We'll walk you through the proposed drainage route and answer your questions before work begins, so you understand where the runoff will be directed and how the system fits into the rest of the property.</p>`,
       },
     ],
+    faq: {
+      headingId: 'underground-drainage-faq',
+      headline: 'Tampa Underground Drainage FAQs',
+      items: [
+        {
+          question: 'How does underground downspout drainage work in Tampa?',
+          answerHtml:
+            "<p>Underground downspout drainage connects roof runoff to buried drainage piping that carries water toward a planned discharge location. This can keep long extensions off lawns and walkways while moving concentrated runoff away from problem areas. On Tampa properties, the route, slope, expected water volume, and final outlet all need consideration because summer storms can send substantial amounts of roof water into the system very quickly.</p>",
+        },
+        {
+          question: 'Why does water still pool near my Tampa home after adding downspout extensions?',
+          answerHtml:
+            "<p>Extensions only help if they carry water to an area where it can drain effectively. If the surrounding ground is low, poorly graded, or already saturated, moving runoff a few extra feet may not solve the problem. Tampa's heavy rainfall can make these limitations obvious. A longer drainage route or different approach may be needed to move concentrated roof water toward a more suitable location.</p>",
+        },
+        {
+          question: 'Can underground drainage run beneath my Tampa lawn?',
+          answerHtml:
+            "<p>Yes, buried drainage lines can often be routed beneath lawn areas when site conditions allow. The exact path depends on where the downspouts are located, the property's slope, obstacles, and the available discharge point. For Tampa properties, planning the route carefully is important because the line needs to move a large amount of stormwater efficiently without simply releasing it into another low area nearby.</p>",
+        },
+        {
+          question: 'Why does my underground drainage back up during heavy rain in Tampa?',
+          answerHtml:
+            "<p>A drainage line may back up if it is blocked, poorly sloped, undersized for the incoming runoff, or unable to discharge water efficiently at the outlet. Tampa's intense downpours can expose these limitations because several downspouts may send water into the system quickly. Identifying where the flow is slowing down helps determine whether the issue involves the inlet, buried line, or discharge area.</p>",
+        },
+        {
+          question: 'Can underground drainage help with water collecting near my Tampa patio?',
+          answerHtml:
+            "<p>It can when concentrated roof runoff or downspout discharge is contributing to the problem. An underground line can carry that water toward a more suitable location instead of allowing it to empty beside the patio. However, Tampa properties can also experience pooling because of grading or broader yard drainage issues, so it's important to identify where the water originates before deciding on the solution.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If every heavy rain leaves the same part of your yard soaked or forces you to step over downspout extensions, it may be worth giving that roof runoff a better route across the property.</p>
+<p>If you're considering underground drainage in Tampa, book a free, no-obligation consultation with <a href="/">SunLife Gutters Tampa</a>. We'll look at where the water is coming from, where it's collecting, and how it can be carried toward a more practical discharge point.</p>`,
+    },
   },
   'french-drains-tampa-fl': {
     title: 'French Drains in Tampa, FL | SunLife Gutters Tampa',
