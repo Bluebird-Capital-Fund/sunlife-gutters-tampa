@@ -1752,6 +1752,132 @@ export const cityServicePageFallbacks = {
 <p>If you're looking for residential gutters in Tampa, book a free, no-obligation consultation with <a href="/">SunLife Gutters Tampa</a>. We'll look at your roof and drainage around the home, listen to what's been happening when it rains, and recommend a setup that makes sense for your property.</p>`,
     },
   },
+  'half-round-gutters-tampa-fl': {
+    title: 'Half Round Gutters in Tampa | Book Free Consultation | SunLife',
+    slug: 'half-round-gutters-tampa-fl',
+    eyebrow: 'Half Round Gutters',
+    headline: 'Half Round Gutters in Tampa',
+    lead:
+      'Half round gutters in Tampa offer a smooth, curved profile that works especially well on historic, traditional, and character-rich properties. They still have an important job when Florida rain arrives, so appearance and drainage need to work together. SunLife Gutters Tampa helps property owners plan a system that looks right on the building and handles roof runoff effectively.',
+    seoDescription:
+      'Custom half round gutters in Tampa installed for lasting performance, improved drainage, and enhanced curb appeal. Free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-installation-lp-about.png',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'When Tampa Half Round Gutters Make Sense',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-installation-finished-corner.png',
+        imageAlt: 'Finished half round style gutter detail on a Tampa Bay home',
+        body: `<p>Half round gutters aren't necessarily the right choice for every property. Their rounded profile gives them a noticeably different appearance from more common gutter styles. That can make them a good fit when the roofline and exterior details are an important part of the home's character.</p>
+<p>You may want to consider half round gutters if:</p>
+<ul>
+<li>You're restoring or updating an older Tampa home</li>
+<li>Your home has traditional or distinctive architectural details</li>
+<li>The gutters will be highly visible from the street</li>
+<li>You prefer a rounded profile over a more conventional gutter shape</li>
+<li>You're renovating the exterior and want the gutters to complement the design</li>
+<li>Existing gutters look out of place with the home's architecture</li>
+<li>You're planning a new gutter system and want a more decorative option</li>
+</ul>`,
+      },
+      {
+        heading: 'Expert Half Round Gutter Services in Tampa',
+        showCtas: true,
+        body: `<p>Half round gutters have a simple shape, but the finished system still needs careful planning. We start at the roofline. We look at where water comes off the roof, where valleys concentrate runoff, how long the gutter runs will be, and where downspouts can carry water without interfering with entrances, landscaping, patios, or other areas around the property.</p>
+<p>Our Tampa half round gutter work can include:</p>
+<ul>
+<li>New half round gutter installation</li>
+<li>Complete gutter system updates</li>
+<li>Downspout installation</li>
+<li>Gutter and downspout layout planning</li>
+<li>Drainage improvements</li>
+<li>Residential applications</li>
+<li>Select commercial applications</li>
+<li>Gutter system evaluations</li>
+</ul>
+<p>For homeowners comparing different styles of <a href="/residential-gutters-tampa-fl/">residential gutters in Tampa</a>, we'll explain how the options differ and help you determine whether a half round profile fits both the look of your home and its drainage needs.</p>
+<p>Homeowners interested in a distinctive, naturally aging exterior may want to explore <a href="/copper-gutters-tampa-fl/">Tampa copper gutters</a>, particularly on homes where the gutter system is meant to complement visible architectural details.</p>`,
+      },
+      {
+        heading: 'Getting the Details Right With Half Round Gutters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-unique-points.png',
+        imageAlt: 'Detailed gutter work along a Tampa Bay home roofline',
+        body: `<p>A beautiful gutter doesn't help much if water keeps overshooting it.</p>
+<p>Tampa's summer storms can send roof runoff into the system quickly, so sizing and positioning matter. A steep roof, long roof section, or valley can concentrate water into areas that need additional attention when the system is planned.</p>
+<p>Downspouts are another part of the picture. Their locations should make sense for both drainage and appearance, especially on a home where the gutters were chosen partly for their architectural character.</p>
+<p>Installation details matter visually as well. Half round gutters have a more exposed profile, which means brackets, downspouts, alignment, and transitions can become noticeable parts of the exterior instead of fading into the background.</p>
+<p>We consider all of those details together. The idea is to end up with a gutter system that feels like it belongs on the property while still doing what Tampa weather requires it to do when the rain gets heavy.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>If you're considering half round gutters, you probably care about more than getting water off the roof. You want the finished system to look right on the property too. SunLife Gutters Tampa takes the time to understand both sides of the project before making a recommendation.</p>
+<ul>
+<li><a href="/">Tampa gutter contractor</a> based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Experience with Tampa homes and local rainfall</li>
+<li>Attention to both appearance and drainage</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the project</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For homeowners who want ongoing help after installation, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'half-round-gutters-faq',
+      headline: 'Tampa Half Round Gutter FAQs',
+      items: [
+        {
+          question: 'Are half round gutters a good choice for historic homes in Tampa?',
+          answerHtml:
+            "<p>They can be an excellent fit when you want the gutter profile to complement a historic or traditionally styled home. Their curved shape has a distinctive architectural appearance that works well on many character properties. Tampa's rainfall still needs to be considered, though. The gutters must be properly sized, positioned, and paired with appropriate downspouts so appearance doesn't come at the expense of effective drainage.</p>",
+        },
+        {
+          question: "Can half round gutters handle Tampa's heavy rain?",
+          answerHtml:
+            "<p>Yes, when the system is properly planned for the roof and expected runoff. Half round gutters come in different sizes, and downspout capacity and placement also affect how quickly water can leave the system. Tampa's intense summer downpours make those details especially important. Roof pitch, valleys, and long roof sections should be evaluated rather than choosing gutter size based on appearance alone.</p>",
+        },
+        {
+          question: 'Are half round gutters only for older Tampa homes?',
+          answerHtml:
+            '<p>No. Although half round gutters are popular on historic and traditionally styled properties, they can also work on newer Tampa homes when the architecture suits their rounded profile. Some homeowners simply prefer their more distinctive appearance. The important question is whether the style works with the exterior while the gutter size, layout, and downspouts provide the drainage performance the property needs.</p>',
+        },
+        {
+          question: 'Do half round gutters require more maintenance in Tampa?',
+          answerHtml:
+            "<p>Maintenance needs depend heavily on the surrounding trees, roof, gutter size, and amount of debris the property receives. Tampa homes near oaks, pines, or palms may collect leaves, needles, seed pods, and other material regardless of gutter profile. Half round gutters should still be checked and cleaned as needed so debris doesn't restrict outlets or interfere with drainage during heavy rainfall.</p>",
+        },
+        {
+          question: 'What should I consider before choosing half round gutters for my Tampa property?',
+          answerHtml:
+            "<p>Start with both appearance and drainage. Consider how the rounded profile will look with your home's architecture, but also look at roof size, pitch, valleys, runoff volume, downspout locations, and surrounding landscaping. Tampa's heavy rainfall makes proper sizing particularly important. A professional evaluation can help determine whether half round gutters fit the property without compromising the system's ability to manage water effectively.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If the gutters are going to be visible, they should look like they belong on the house. But they also need to be ready when Tampa's next hard downpour arrives.</p>
+<p>If you're considering half round gutters in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll look at your home's architecture, roofline, and drainage needs and help you choose a setup that balances appearance with practical performance.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
