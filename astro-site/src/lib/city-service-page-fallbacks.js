@@ -2610,6 +2610,138 @@ export const cityServicePageFallbacks = {
 <p>If you need help with downspouts in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll look at how water moves from your roof to the ground and help you plan downspout locations that work better with your property.</p>`,
     },
   },
+  'siding-tampa-fl': {
+    title: 'Siding in Tampa | Book a Free Consultation | SunLife Gutters',
+    slug: 'siding-tampa-fl',
+    eyebrow: 'Siding',
+    headline: 'Siding in Tampa',
+    lead:
+      "Your siding spends every day exposed to Florida sun, humidity, wind, and driving rain. Over time, fading, loose sections, cracks, and other signs of wear can change both the appearance of the property and how well the exterior is protected. Professional siding in Tampa can give homes and commercial buildings a cleaner, updated exterior while addressing areas that have seen better days. SunLife Gutters Tampa provides straightforward guidance from the first look through the finished project.",
+    seoDescription:
+      "Looking for siding in Tampa? We install and replace durable siding to improve your home's protection. Free consultation.",
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-front-elevation-gutter-install-stone-home.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs Your Tampa Siding Needs Attention',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-plant-city-fl-brick-home-gutters.webp',
+        imageAlt: 'Tampa Bay home exterior showing siding and roofline details',
+        body: `<p>Tampa's climate keeps exterior surfaces working year-round. Strong sunlight can affect appearance over time, while humidity, frequent rain, tropical weather, and wind can expose weak or aging areas.</p>
+<p>It may be time to have your siding looked at if:</p>
+<ul>
+<li>Sections are cracked, loose, warped, or visibly damaged</li>
+<li>Exterior panels have shifted out of position</li>
+<li>You notice recurring stains or discoloration</li>
+<li>Parts of the exterior look worn or heavily faded</li>
+<li>Storms have left visible damage</li>
+<li>Moisture appears to be getting behind an exterior section</li>
+<li>Gaps have developed around siding panels or trim</li>
+<li>The exterior is becoming harder to keep looking clean</li>
+<li>You're updating an older Tampa property</li>
+<li>You want to refresh the appearance of a commercial building</li>
+<li>Nearby exterior components show signs of moisture or deterioration</li>
+</ul>
+<p>Visible damage can sometimes point to an issue beyond the siding itself. Looking at the surrounding exterior helps determine what actually needs attention.</p>`,
+      },
+      {
+        heading: 'Our Trusted Tampa Siding Services',
+        showCtas: true,
+        body: `<p>Siding has a major visual impact on a property, but appearance isn't the only thing we look at. Before work begins, we pay attention to the condition of the existing exterior, areas where moisture or runoff has been a recurring problem, and nearby components that may affect the finished project.</p>
+<p>Our Tampa siding services can include:</p>
+<ul>
+<li>Siding installation</li>
+<li>Siding replacement</li>
+<li>Siding repairs</li>
+<li>Storm-damaged siding work</li>
+<li>Exterior updates</li>
+<li>Residential siding services</li>
+<li>Commercial siding services</li>
+<li>Evaluation of damaged exterior sections</li>
+</ul>
+<p>Water patterns around the property can provide useful clues. If recurring standing water or poor yard drainage is contributing to wet areas near the building, <a href="/french-drains-tampa-fl/">Tampa French drains</a> may be worth considering separately as part of improving how water moves through the property.</p>
+<p>We also pay attention to the roofline. Damaged trim or moisture-prone areas above the siding shouldn't simply be ignored while the walls are being updated. When those components need attention, <a href="/soffit-fascia-repair-tampa-fl/">soffit and fascia repair in Tampa</a> can address deterioration around the roof edge before it creates additional exterior concerns.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional Siding Services in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-carousel-beige-home.png',
+        imageAlt: 'Updated Tampa Bay home exterior with clean finished appearance',
+        body: `<p>Replacing an exterior panel is one thing. Understanding why that area became damaged is another. A stain below the roofline may be related to repeated water exposure. A loose section may have been affected by wind. Damage concentrated near the bottom of a wall may point to splashback or recurring moisture around that area.</p>
+<p>Tampa weather makes those details worth paying attention to.</p>
+<p>The exterior deals with strong sun for much of the year, followed by periods of intense rainfall, high humidity, and tropical weather. Installation needs to account for those conditions while keeping the finished siding aligned, secure, and properly integrated with surrounding exterior components.</p>
+<p>Corners, openings, trim, roofline transitions, and areas around doors and windows all deserve careful attention.</p>
+<p>Good siding work should leave the building looking finished from across the street and well put together when you walk up close. That combination of appearance and careful installation is what helps an exterior update feel complete rather than simply cosmetic.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Exterior projects are easier when you can get clear answers and know what to expect next. SunLife Gutters Tampa brings the same responsive, straightforward approach to siding that we bring to the rest of our exterior work.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Residential and commercial exterior experience</li>
+<li>Familiarity with Tampa weather conditions</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the project</li>
+<li>Attention to the surrounding exterior</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>From the first consultation through the final walkthrough, we'll keep you informed about the work and answer questions along the way so you're not left wondering what's happening with your property.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'siding-faq',
+      headline: 'Tampa Siding FAQs',
+      items: [
+        {
+          question: 'What are common signs of siding damage on Tampa homes?',
+          answerHtml:
+            "<p>Cracks, loose sections, warping, gaps, recurring stains, fading, and visible storm damage are all reasons to take a closer look at your siding. Tampa homes face strong sunlight, humidity, wind, and frequent rain throughout the year, so deterioration may appear differently across the property. Pay particular attention to areas near rooflines, corners, windows, and places that repeatedly stay wet after storms.</p>",
+        },
+        {
+          question: "Can Tampa's heavy rain damage siding?",
+          answerHtml:
+            "<p>Heavy rain can contribute to siding problems when water repeatedly reaches vulnerable areas, especially where panels, trim, or nearby exterior components are already damaged. Wind-driven rain during Tampa storms can also reach areas that stay relatively dry during ordinary showers. Properly installed siding is designed for exterior exposure, but recurring stains, loose sections, or signs of moisture should be checked rather than ignored.</p>",
+        },
+        {
+          question: 'Can strong winds loosen siding on Tampa properties?',
+          answerHtml:
+            "<p>Yes. Strong winds can lift or shift siding sections, particularly when components are already loose, aging, or damaged. Tampa's tropical weather can expose weak attachment points that may not be obvious during normal conditions. After a significant storm, walk around the property from the ground and look for shifted panels, gaps, missing sections, or pieces that no longer sit evenly against the exterior.</p>",
+        },
+        {
+          question: 'Should I repair or replace damaged siding on my Tampa property?',
+          answerHtml:
+            '<p>That depends on how much of the siding is affected and the condition of the surrounding exterior. One isolated damaged section on a Tampa property may be handled differently from widespread deterioration, recurring moisture issues, or extensive storm damage. The existing siding should be evaluated first so you can understand the extent of the problem and decide which approach makes the most sense for the building.</p>',
+        },
+        {
+          question: 'Can siding improve the appearance of an older Tampa home?',
+          answerHtml:
+            "<p>Yes. Siding can significantly change the appearance of an older home, especially when the existing exterior is faded, mismatched, worn, or visibly damaged. A siding update can create a cleaner and more consistent look while addressing deteriorated sections. For Tampa homes with distinctive architectural details, the surrounding trim, roofline, windows, and other exterior features should also be considered when planning the finished appearance.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If your exterior is showing cracks, loose sections, storm damage, or years of wear, getting it checked can help you understand what you're looking at before the next stretch of Tampa weather puts it through another season.</p>
+<p>If you need siding in Tampa, book a free, no-obligation consultation with <a href="/">SunLife Gutters Tampa</a>. We'll take a look at the exterior, discuss the areas you're concerned about, and walk you through the options for improving the property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
