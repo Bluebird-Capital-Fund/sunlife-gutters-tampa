@@ -8,6 +8,7 @@ import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
+import HeaderNavActions from './HeaderNavActions.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
@@ -698,9 +699,7 @@ const serviceHref = (svc) => {
         <a href="/" class="logo" aria-label={logoAriaLabel}>
           <img src={mediaUrl(logoBlack)} alt={companyName} class="logo-img" width="300" height="72" />
         </a>
-        <button class="nav-toggle" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
+        <HeaderNavActions telHref={telLink} phoneDisplay={phoneDisplay} />
         <nav class="nav">
           {navItems?.map((item, i) => {
             const label = asStr(item.label)

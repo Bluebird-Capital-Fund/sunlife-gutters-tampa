@@ -372,7 +372,7 @@ a:hover {
 
   .logo-img {
     height: 56px;
-    max-width: calc(100vw - 120px);
+    max-width: calc(100vw - 160px);
     width: auto;
   }
 
@@ -380,10 +380,14 @@ a:hover {
     display: none !important;
   }
 
+  .header-nav-actions {
+    display: flex;
+  }
+
   .nav-toggle {
     display: flex !important;
     flex-shrink: 0;
-    margin-left: var(--space-sm);
+    margin-left: 0;
     z-index: 2;
   }
 
@@ -472,6 +476,41 @@ a:hover {
   }
 }
 
+.header-nav-actions {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+  z-index: 2;
+}
+
+.header-mobile-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  color: var(--color-primary-cta-text);
+  transition: background var(--transition), border-color var(--transition), transform 0.22s ease;
+}
+
+.header-mobile-call:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-primary-cta-text);
+}
+
+.header-mobile-call svg {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -514,6 +553,7 @@ a:hover {
 a.btn,
 button.btn,
 .contact-banner-phone,
+.header-mobile-call,
 .project-nav,
 .nav-toggle {
   cursor: pointer;
@@ -2524,7 +2564,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 
   .logo-img {
     height: 56px;
-    max-width: calc(100vw - 120px);
+    max-width: calc(100vw - 160px);
     width: auto;
   }
 
@@ -2546,10 +2586,14 @@ form[data-lead-form] button[type="submit"].is-busy {
     display: none;
   }
 
+  .header-nav-actions {
+    display: flex;
+  }
+
   .nav-toggle {
     display: flex;
     flex-shrink: 0;
-    margin-left: var(--space-sm);
+    margin-left: 0;
     z-index: 2;
   }
 

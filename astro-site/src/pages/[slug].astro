@@ -11,6 +11,7 @@ import FooterHoursRow from '../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../components/SmsMarketingConsent.astro'
+import HeaderNavActions from '../components/HeaderNavActions.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { sanity } from '../lib/sanity.js'
@@ -164,9 +165,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
         <a href="/" class="logo" aria-label={logoAriaLabel}>
           {logoBlack ? <img src={mediaUrl(logoBlack)} alt={companyName} class="logo-img" /> : <span class="section-title" style="margin:0; font-size: 1.25rem;">{companyName}</span>}
         </a>
-        <button class="nav-toggle" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
+        <HeaderNavActions telHref={`tel:${phoneTel}`} phoneDisplay={phoneDisplay} />
         <nav class="nav">
           {navItems.length > 0 ? (
             navItems.map((item, i) => {
