@@ -127,6 +127,7 @@ function normalizeHref(href) {
     return '/service-area/gutters-cortez-fl/'
   }
   if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
+  if (trimmed === '/projects/' || trimmed === '/projects') return '/gallery/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
   if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
@@ -139,17 +140,20 @@ function normalizeHref(href) {
 function normalizeLabel(label) {
   if (typeof label !== 'string') return label
   const v = label.trim().toLowerCase()
-  if (v === 'gallery' || v === 'our projects') return 'Projects'
+  if (v === 'gallery' || v === 'our projects' || v === 'projects') return 'Gallery'
   if (v === 'google reviews') return 'Reviews'
   if (v === 'our team') return 'About Us'
   return label
 }
 
 function normalizeProjectsHref(label, href) {
-  if (typeof href === 'string' && href.trim().toLowerCase() === '/gallery/') return '/projects/'
+  if (typeof href === 'string') {
+    const h = href.trim().toLowerCase()
+    if (h === '/projects/' || h === '/gallery/') return '/gallery/'
+  }
   if (typeof label !== 'string') return href
   const v = label.trim().toLowerCase()
-  if (v === 'projects' || v === 'our projects' || v === 'gallery') return '/projects/'
+  if (v === 'projects' || v === 'our projects' || v === 'gallery') return '/gallery/'
   return href
 }
 

@@ -3,6 +3,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/projects/",
+      "destination": "/gallery/",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/gallery/",
+      "permanent": true
+    },
+    {
       "source": "/underground-drainage/",
       "destination": "/underground-drainage-tampa-fl/",
       "permanent": true
