@@ -2137,6 +2137,122 @@ export const cityServicePageFallbacks = {
 <p>If you're considering custom gutters in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll look at how your roof handles water, talk through the problem areas and appearance you want, and help you plan a system that fits the building from the start.</p>`,
     },
   },
+  'gutter-colors-options-tampa-fl': {
+    title: 'Gutter Color Options in Tampa | Book Free Consultation | SunLife',
+    slug: 'gutter-colors-options-tampa-fl',
+    eyebrow: 'Gutter Color Options',
+    headline: 'Gutter Color Options in Tampa',
+    lead:
+      'With different gutter color options in Tampa, homeowners and businesses can coordinate their new system with roofing, trim, siding, stucco, and other exterior details. SunLife Gutters Tampa can help you compare your options and find a combination that feels right for your property.',
+    seoDescription:
+      'Choose from premium gutter color options in Tampa for custom seamless gutters and expert installation. Free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-modern-home-black-gutters.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Custom Gutter Color Options in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-clearwater-fl-black-gutters-modern-home.webp',
+        imageAlt: 'Black gutters coordinating with a modern Tampa Bay home exterior',
+        body: `<p>If you're already investing in new gutters, color is worth thinking about before installation begins. The right combination can make the finished system feel like it belongs on the property instead of looking added on afterward.</p>
+<p>You may want to explore different gutter colors if:</p>
+<ul>
+<li>Your current gutters clash with the exterior</li>
+<li>You're updating your roof, siding, stucco, or trim</li>
+<li>The gutters are highly visible from the street</li>
+<li>You want the gutters to blend into the fascia</li>
+<li>You prefer a contrasting architectural accent</li>
+<li>You're renovating an older Tampa home</li>
+<li>Your HOA has specific exterior color guidelines</li>
+</ul>
+<p>It helps to look at the entire exterior rather than choosing a gutter color from a sample alone. Roof, fascia, walls, trim, and downspouts all influence how that color will look once installed.</p>`,
+      },
+      {
+        heading: 'Find the Right Gutter Color for Your Tampa Home',
+        showCtas: true,
+        body: `<p>There are several ways to approach gutter color, and the best choice depends on which parts of the system you want to highlight or visually minimize. Matching the gutter to the fascia can create a cleaner roofline. Coordinating it with the roof or trim can tie different exterior features together. Some homeowners intentionally choose contrast, particularly when the property already has darker windows, trim, doors, or other architectural accents.</p>
+<p>We can help you consider:</p>
+<ul>
+<li>Gutter and fascia color combinations</li>
+<li>Gutter and roof coordination</li>
+<li>Trim-inspired gutter colors</li>
+<li>Contrasting gutter finishes</li>
+<li>Downspout color combinations</li>
+<li>Residential exterior color schemes</li>
+<li>Commercial exterior color coordination</li>
+<li>Colors for traditional and modern properties</li>
+<li>Options for highly visible rooflines</li>
+</ul>
+<p>For properties where the layout and appearance need more flexibility, <a href="/custom-gutters-tampa-fl/">Tampa custom gutters</a> can be planned around specific rooflines, drainage needs, and architectural details.</p>
+<p>We also consider how <a href="/downspouts-tampa-fl/">downspouts in Tampa</a> will look against the exterior. In some cases, matching the gutters and downspouts creates the cleanest result. In others, coordinating the downspouts with the wall helps them blend in while the gutters follow the fascia or trim.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p><a href="/">SunLife Gutters Tampa</a> makes the selection process straightforward. We'll listen to the look you're trying to achieve, walk through the available choices, and help you think about how the gutters and downspouts will work with the rest of the property.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Experience with residential and commercial properties</li>
+<li>Attention to exterior appearance and drainage</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication from start to finish</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For customers who want ongoing care after installation, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, 10% off additional services, and 25% off extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'gutter-colors-options-faq',
+      headline: 'Tampa Gutter Color Options FAQs',
+      items: [
+        {
+          question: 'What gutter color should I choose for my Tampa home?',
+          answerHtml:
+            "<p>Start with the parts of your exterior you want the gutters to coordinate with, such as the fascia, roof, trim, siding, or stucco. Many Tampa homeowners prefer gutters that blend into the roofline, while others choose contrast intentionally. Viewing the exterior as a whole, rather than matching one feature alone, can help you choose a color that feels consistent with the home's architecture.</p>",
+        },
+        {
+          question: 'Should my gutters match the roof or fascia on my Tampa home?',
+          answerHtml:
+            "<p>Both approaches can work, depending on the look you prefer. Matching the fascia can make gutters feel like a natural continuation of the roofline, while coordinating with the roof can create another cohesive combination. Tampa homeowners may also use trim colors as inspiration. Consider how visible the gutters are from the street and how the chosen finish works with the home's other exterior details.</p>",
+        },
+        {
+          question: 'Should gutters and downspouts be the same color on a Tampa property?',
+          answerHtml:
+            '<p>Not necessarily. Using the same finish throughout can create a consistent appearance, but different colors can sometimes help the system blend into the property better. A Tampa homeowner might coordinate horizontal gutters with the fascia while matching vertical downspouts more closely to the exterior walls. Looking at where each component will sit on the building can help determine which combination looks most natural.</p>',
+        },
+        {
+          question: 'Can I use a contrasting gutter color on my Tampa home?',
+          answerHtml:
+            "<p>Yes. Contrasting gutters can work well when the exterior already uses defined accent colors around windows, doors, trim, or other architectural features. On some Tampa homes, a darker or contrasting gutter can emphasize the roofline rather than hide it. The key is making the choice intentional and considering how both gutters and downspouts will look against the property's other finishes once installed.</p>",
+        },
+        {
+          question: 'Do Tampa HOAs have rules about gutter colors?',
+          answerHtml:
+            "<p>Some Tampa-area HOA communities have architectural guidelines covering exterior modifications, which may include gutters, downspouts, and approved color palettes. Requirements vary from one community to another. Before selecting a noticeably different finish, review your current HOA guidelines or confirm whether approval is required. Doing this before installation can help ensure your gutter color works with both your property and your community's exterior standards.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>The gutter system has to manage rain, but that doesn't mean appearance has to be an afterthought. Choosing a finish that works with your roof, fascia, trim, and exterior can make the completed project feel much more intentional.</p>
+<p>Explore gutter color options in Tampa with SunLife Gutters Tampa. Book your free, no-obligation consultation, and we'll help you compare the available choices and find an option that complements your property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
