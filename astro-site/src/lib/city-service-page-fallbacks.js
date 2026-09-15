@@ -2253,6 +2253,140 @@ export const cityServicePageFallbacks = {
 <p>Explore gutter color options in Tampa with SunLife Gutters Tampa. Book your free, no-obligation consultation, and we'll help you compare the available choices and find an option that complements your property.</p>`,
     },
   },
+  'downspouts-tampa-fl': {
+    title: 'Downspouts in Tampa | Book Free Consultation | SunLife Gutters',
+    slug: 'downspouts-tampa-fl',
+    eyebrow: 'Downspouts',
+    headline: 'Downspouts in Tampa',
+    lead:
+      "Your gutters can collect rain perfectly and still leave you with drainage problems if the water has nowhere useful to go. Properly planned downspouts in Tampa carry roof runoff from the gutter to a discharge point that makes sense for the property. SunLife Gutters Tampa considers roof runoff, landscaping, walkways, entrances, and surrounding drainage to help keep heavy Florida rain from simply becoming a problem at ground level.",
+    seoDescription:
+      'Protect your home with quality downspouts in Tampa. Expert installation, repairs, and free consultation included.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-and-downspout-installation-home.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Common Signs Your Tampa Downspouts Need Attention',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-riverview-fl-downspout-drainage-rock-bed.webp',
+        imageAlt: 'Downspout discharging into a rock bed drainage area in Tampa Bay',
+        body: `<p>Downspout problems tend to show up at ground level. You may notice a puddle beside the house after every storm, mulch scattered across a flower bed, or water repeatedly crossing a walkway. Other times, the trouble starts higher up. A restricted or poorly positioned downspout can slow the entire gutter run and contribute to overflow when Tampa gets a hard downpour.</p>
+<p>Watch for:</p>
+<ul>
+<li>Water pooling around the bottom of a downspout</li>
+<li>Soil or mulch washing away after rainfall</li>
+<li>Water repeatedly collecting close to the building</li>
+<li>Downspouts that drain onto walkways or entrances</li>
+<li>Gutters overflowing near downspout outlets</li>
+<li>Loose or disconnected downspout sections</li>
+<li>Crushed or visibly damaged downspouts</li>
+<li>Water leaking from downspout connections</li>
+<li>Downspouts that drain slowly during heavy rain</li>
+<li>Large roof areas draining toward too few downspouts</li>
+<li>Discharge points that create standing water</li>
+<li>Downspouts pulling away from exterior walls</li>
+</ul>`,
+      },
+      {
+        heading: 'Trusted Tampa Downspout Services',
+        showCtas: true,
+        body: `<p>Downspout placement shouldn't be an afterthought. Where each one is located affects how quickly the gutters drain and where all that roof water ends up around the property.</p>
+<p>We look at how much roof area is feeding each gutter run, where runoff becomes concentrated, and which areas around the building are suitable for discharge.</p>
+<p>Our Tampa downspout services can include:</p>
+<ul>
+<li>New downspout installation</li>
+<li>Downspout replacement</li>
+<li>Downspout repairs</li>
+<li>Loose downspout reconnection</li>
+<li>Downspout repositioning</li>
+<li>Outlet and connection checks</li>
+<li>Drainage corrections</li>
+<li>Downspout extensions</li>
+<li>Residential downspout services</li>
+<li>Commercial downspout services</li>
+</ul>
+<p>Some properties need to carry runoff farther than a standard above-ground discharge can reasonably take it. In those situations, <a href="/underground-drainage-tampa-fl/">Tampa underground drainage</a> may provide a better way to move water toward a more suitable discharge area.</p>
+<p>Appearance matters too, especially when downspouts run across highly visible exterior walls. When reviewing <a href="/gutter-colors-options-tampa-fl/">gutter color options in Tampa</a>, we can also consider whether the downspouts should coordinate with the gutters, siding, stucco, trim, or other exterior finishes.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional Downspout Services in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-downspout-installation-side-yard-drainage.webp',
+        imageAlt: 'Side yard downspout drainage installation in Tampa',
+        body: `<p>A downspout in the wrong location can solve one drainage problem and create another.</p>
+<p>Moving runoff away from the roof doesn't help much if the downspout empties directly beside an entrance, sends water across a walkway, or repeatedly washes through the same landscaped area. On a commercial property, poor discharge placement can also put water near customer entrances, sidewalks, loading areas, or other frequently used spaces.</p>
+<p>During Tampa's summer storms, a large roof section can send a considerable amount of water toward one gutter run in a short time. If there aren't enough outlets or the downspouts can't move that water efficiently, the gutter may back up and overflow even when it isn't clogged.</p>
+<p>We look at the complete route the water takes, from the roof into the gutter, through the downspout, and out onto the property.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>SunLife Gutters Tampa understands that the small details around a property can make a big difference once the rain starts. We take time to look at where water is currently going and plan downspout locations around the way you actually use the space.</p>
+<ul>
+<li>Experienced <a href="/">gutter contractor in Tampa, FL</a></li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Residential and commercial experience</li>
+<li>Local knowledge of Tampa rainfall and drainage challenges</li>
+<li>Thoughtful downspout placement</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication from start to finish</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For customers who want ongoing help keeping their gutter and downspout system working properly, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, 10% off additional services, and 25% off extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'downspouts-faq',
+      headline: 'Tampa Downspout FAQs',
+      items: [
+        {
+          question: 'How far should downspouts carry water away from my Tampa home?',
+          answerHtml:
+            "<p>There isn't one distance that works for every Tampa property. The right discharge point depends on grading, soil, landscaping, walkways, and how water naturally moves around the site. The goal is to avoid repeatedly releasing roof runoff where it pools beside the building. Extensions or other drainage solutions may be useful when the existing discharge point keeps leaving water too close to the home.</p>",
+        },
+        {
+          question: 'Why does water pool around my downspouts in Tampa?',
+          answerHtml:
+            "<p>Pooling can happen when a downspout releases more water than the surrounding ground can absorb or when the property slopes in a way that keeps runoff near the discharge point. Tampa's intense downpours can make this especially noticeable. A short extension, different discharge location, or broader drainage solution may help, depending on the grading and where the water can be directed safely.</p>",
+        },
+        {
+          question: 'Why do my Tampa gutters overflow near the downspout?',
+          answerHtml:
+            "<p>Overflow near a downspout can indicate that water isn't leaving the gutter quickly enough. Leaves or debris may be restricting the outlet, the downspout itself may be clogged, or the gutter run may be sending more runoff toward that outlet than it can handle. During Tampa's heavy rain, these restrictions become obvious quickly because water reaches the system much faster than during lighter showers.</p>",
+        },
+        {
+          question: 'How many downspouts does my Tampa home need?',
+          answerHtml:
+            '<p>The number depends on the roof area, gutter length, roof pitch, valleys, gutter capacity, and how much runoff reaches each section. A large Tampa roof or an area where multiple roof surfaces concentrate water may need more drainage capacity than a smaller, simpler roofline. Downspout locations also need suitable discharge areas, so the layout should be based on the individual property rather than a fixed number.</p>',
+        },
+        {
+          question: 'Can downspouts help prevent landscape erosion around my Tampa property?',
+          answerHtml:
+            "<p>They can help when roof runoff is contributing to the erosion. A properly placed downspout carries water away from concentrated areas below the roofline and directs it toward a more suitable discharge point. During Tampa's heavy storms, however, a poorly positioned outlet can still wash away mulch or soil. The downspout and surrounding drainage should work together to control where that runoff travels.</p>",
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If every storm leaves a puddle beside the house, washes mulch across the yard, or sends water over a walkway, the problem may be where your roof runoff is being discharged.</p>
+<p>If you need help with downspouts in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll look at how water moves from your roof to the ground and help you plan downspout locations that work better with your property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
