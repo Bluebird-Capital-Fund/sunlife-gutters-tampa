@@ -1619,6 +1619,139 @@ export const cityServicePageFallbacks = {
 <p>If you need commercial gutters in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll take a look at your building, discuss the drainage challenges you're dealing with, and walk you through a practical solution for managing roof runoff around the property.</p>`,
     },
   },
+  'residential-gutters-tampa-fl': {
+    title: 'Residential Gutters in Tampa | Book Free Consultation | SunLife',
+    slug: 'residential-gutters-tampa-fl',
+    eyebrow: 'Residential Gutters',
+    headline: 'Residential Gutters in Tampa',
+    lead:
+      'A summer storm can send water rushing off your roof, over flower beds, across walkways, and into the soil around your home within minutes. Residential gutters in Tampa help control that runoff and direct it where it can drain more safely. SunLife Gutters Tampa helps local homeowners find a gutter setup that fits their roof, property layout, and the way water moves around their home.',
+    seoDescription:
+      'Professional residential gutters in Tampa with custom seamless gutter installation, repairs, and free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-carousel-beige-home.png',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Signs Your Residential Gutters in Tampa Need Attention',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-carousel-corner-detail.png',
+        imageAlt: 'Residential gutter corner detail on a Tampa Bay home',
+        body: `<p>Sometimes the first sign of a gutter problem isn't on the gutter itself. It's the trench forming below the roofline, mulch scattered across the yard, or the splash marks that keep appearing near the bottom of your siding.</p>
+<p>Tampa's heavy downpours make these drainage patterns easier to spot. If water isn't being collected and directed properly, it will find another path down from the roof.</p>
+<p>Things to watch for around your home include:</p>
+<ul>
+<li>Water pouring off the roof in concentrated areas</li>
+<li>Mulch or soil washing away after storms</li>
+<li>Puddles forming near the house</li>
+<li>Water spilling over the gutter edge</li>
+<li>Staining or splash marks on siding</li>
+<li>Gutters that sag or look uneven</li>
+<li>Downspouts releasing water in inconvenient areas</li>
+<li>Water dripping around porches or entryways</li>
+<li>Leaves and debris collecting in the system</li>
+<li>Gutters pulling away from the roofline</li>
+</ul>
+<p>Older Tampa homes may also have drainage layouts that no longer work well for the property, while additions, patios, and other changes can alter where roof runoff needs to go.</p>`,
+      },
+      {
+        heading: 'Reliable Residential Gutters for Tampa Homes',
+        showCtas: true,
+        body: `<p>Your gutters should make sense for the house they're attached to.</p>
+<p>We look at the roofline, where runoff is concentrated, the location of entryways and landscaping, and where downspouts can discharge water effectively. Those details help us plan a system that works with the property instead of simply following the roof edge.</p>
+<p>Our Tampa residential gutter work can include:</p>
+<ul>
+<li>New gutter installation</li>
+<li>Gutter replacement</li>
+<li>Gutter repairs and adjustments</li>
+<li>Seamless gutter systems</li>
+<li>Downspout installation and replacement</li>
+<li>Gutter cleaning</li>
+<li>Gutter guards</li>
+<li>Gutter inspections</li>
+<li>Drainage improvements</li>
+<li>Routine gutter upkeep</li>
+</ul>
+<p>Style can matter too, particularly on homes where the gutter system is highly visible. For homeowners looking for a more traditional profile, <a href="/half-round-gutters-tampa-fl/">half round gutters in Tampa</a> can offer a distinctive option that complements certain architectural styles while still managing roof runoff.</p>
+<p>We work with single-family homes, townhomes, older properties, newer construction, and homes with additions or outdoor living areas throughout Tampa Bay. We also work with <a href="/commercial-gutters-tampa-fl/">Tampa commercial gutters</a> for property owners who need drainage solutions.</p>`,
+      },
+      {
+        heading: 'Why Quality Tampa Residential Gutter Installation Matters',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutter-installation-lp-difference.png',
+        imageAlt: 'Residential gutter installation on a Tampa Bay home',
+        body: `<p>Two houses on the same street can handle rain very differently. One may have a steep roof that sends water quickly toward a short gutter run. Another may have a valley that concentrates runoff above a front entry. A home surrounded by mature trees may deal with constant debris, while another struggles with a downspout that empties directly beside a flower bed.</p>
+<p>Those details change what works.</p>
+<p>Before making a recommendation, we pay attention to how the roof sheds water and what happens once that water reaches the ground. Downspouts need somewhere sensible to discharge. Gutters need enough slope to keep water moving. Areas with concentrated runoff need to be accounted for instead of treated like the rest of the roofline.</p>
+<p>Tampa's sudden downpours make getting those details right especially important.</p>`,
+      },
+      {
+        heading: 'Why Homeowners Choose SunLife Gutters Tampa',
+        showCtas: true,
+        body: `<p>Having someone work on your home should feel straightforward. SunLife Gutters Tampa is a family-owned local company, and we put a lot of value on showing up, communicating clearly, and helping homeowners understand their options without making the process more complicated than it needs to be.</p>
+<ul>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Local experience with Tampa homes and weather</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication throughout the project</li>
+<li>Quality workmanship</li>
+<li>Responsive support after the job</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For homeowners who want help keeping up with their gutters after the project, our maintenance plans include two professional cleanings per year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'residential-gutters-faq',
+      headline: 'Tampa Residential Gutter FAQs',
+      items: [
+        {
+          question: 'Does every home in Tampa need gutters?',
+          answerHtml:
+            "<p>Not every Tampa home has the same drainage needs, but gutters can be especially useful where roof runoff lands near foundations, landscaping, walkways, or entrances. Florida's intense rain can send a large amount of water off a roof very quickly. Looking at roof design, overhangs, grading, and where water currently collects can help determine which areas of the home would benefit from gutters.</p>",
+        },
+        {
+          question: 'Why does rainwater wash away the landscaping around my Tampa home?',
+          answerHtml:
+            "<p>Roof runoff may be landing directly in flower beds or concentrated near a downspout that doesn't carry water far enough from the area. During Tampa's heavy storms, repeated runoff can move mulch and gradually erode exposed soil. Gutters and properly positioned downspouts can help control where roof water goes, although grading and other drainage conditions around the yard may also contribute to the problem.</p>",
+        },
+        {
+          question: 'Should gutters go around the entire roof of my Tampa home?',
+          answerHtml:
+            '<p>Not necessarily. The right gutter layout depends on where the roof sheds water and which areas need runoff controlled. Some Tampa homes benefit from gutters along most of the roofline, while others may need them only in specific locations. Roof valleys, entrances, patios, landscaping, and ground drainage should all be considered before deciding where gutters and downspouts will provide the most useful coverage.</p>',
+        },
+        {
+          question: "Why does water collect near my Tampa home's front entrance when it rains?",
+          answerHtml:
+            "<p>Water near an entrance can come from roof runoff that isn't being captured, a gutter that overflows, or a downspout that releases water too close to the walkway. Tampa's sudden downpours can make the problem much more noticeable. Watching where the water comes from during rainfall can help determine whether the gutter layout, downspout placement, or another drainage condition needs to be addressed.</p>",
+        },
+        {
+          question: 'Can gutters help protect the landscaping around my Tampa home?',
+          answerHtml:
+            '<p>Yes, when roof runoff is contributing to the problem. Gutters collect water coming off the roof and downspouts direct it toward planned discharge areas instead of letting it repeatedly hit flower beds and soil. This can help reduce washout around Tampa homes during heavy rainfall. The surrounding grade and overall property drainage still matter, so gutters should be considered as part of the complete runoff path.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>You shouldn't have to watch your yard during every storm to figure out where the roof water is going. A well-planned gutter system can help keep that runoff away from the parts of your property where it causes the most trouble.</p>
+<p>If you're looking for residential gutters in Tampa, book a free, no-obligation consultation with <a href="/">SunLife Gutters Tampa</a>. We'll look at your roof and drainage around the home, listen to what's been happening when it rains, and recommend a setup that makes sense for your property.</p>`,
+    },
+  },
 }
 
 export function cityServicePageFallback(slug) {
