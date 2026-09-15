@@ -136,24 +136,137 @@ export const cityServicePageFallbacks = {
     },
   },
   'french-drains-tampa-fl': {
-    title: 'French Drains in Tampa, FL | SunLife Gutters Tampa',
+    title: 'French Drains in Tampa | Book Free Consultation | SunLife Gutters',
     slug: 'french-drains-tampa-fl',
     eyebrow: 'French Drains',
-    headline: 'French Drains in Tampa, FL',
-    lead: 'Stop yard puddles and soggy beds with a French drain built for Tampa Bay storms. Gravel and perforated pipe collect standing water and carry it to a safe outlet.',
+    headline: 'French Drains in Tampa',
+    lead:
+      "A yard that stays soggy long after the rain stops can make parts of your property difficult to use and leave you wondering where all that water is supposed to go. French drains in Tampa can help collect excess water from problem areas and redirect it through a buried drainage system. SunLife Gutters Tampa looks at where the water is coming from, where it settles, and how the property drains before planning the right approach.",
     seoDescription:
-      'French drains in Tampa, FL. SunLife Gutters installs gravel trench drains that collect standing yard water and move it away from the house.',
+      'Professional French drains in Tampa with expert installation, yard drainage solutions, and free consultation available.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
     layoutBackgrounds: {
       hero: {
-        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-apollo-beach-fl-side-yard-drainage.webp',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-riverview-fl-downspout-drainage-rock-bed.webp',
       },
     },
     contentSections: [
       {
-        heading: 'A trench drain for yards that stay wet',
-        body: '<p>A French drain is a gravel-filled trench with perforated pipe. It catches water that sits in low spots, along a fence, or against a patio, then moves it to a discharge point instead of leaving it in the yard.</p><p>We lay the trench to the grade of your lot, set the pipe so it flows, and cover the run so the lawn can grow back over it. If roof water is part of the problem, we can tie the drain into your downspouts as well.</p>',
+        heading: 'Signs You Need French Drains in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-plant-city-fl-gutter-corner-drainage.webp',
+        imageAlt: 'Yard drainage area near a Tampa Bay home',
+        body: `<p>Some yards dry out quickly after a storm. Others seem to hold onto water for days.</p>
+<p>Low spots, changes in grading, concentrated runoff, and surrounding hardscapes can all influence where water settles. During Tampa's rainy season, repeated afternoon storms may leave already-wet areas with little time to dry before the next round of rain arrives.</p>
+<p>A French drain may be worth considering if:</p>
+<ul>
+<li>Parts of your yard stay soggy after rainfall</li>
+<li>The same low areas repeatedly collect water</li>
+<li>Standing water develops beside patios or walkways</li>
+<li>Runoff moves toward the building instead of away from it</li>
+<li>Landscaping stays overly wet in certain areas</li>
+<li>Water collects between neighboring properties</li>
+<li>Heavy rain leaves sections of the lawn difficult to use</li>
+<li>Surface runoff repeatedly follows the same path through the yard</li>
+<li>Commercial grounds develop recurring wet areas</li>
+<li>Existing surface drainage isn't handling the problem well</li>
+</ul>`,
+      },
+      {
+        heading: 'Trusted Tampa French Drain Services',
+        showCtas: true,
+        body: `<p>A French drain works by giving excess water an easier path through a problem area.</p>
+<p>The system typically uses a perforated drainage pipe placed in a gravel-filled trench. Water enters through the surrounding stone and openings in the pipe, then travels toward a planned outlet or discharge area. Before deciding where that trench should go, we look at the areas that stay wet, how the ground slopes, where runoff enters the property, and what sits around the proposed drainage route.</p>
+<p>Our Tampa French drain services can include:</p>
+<ul>
+<li>French drain installation</li>
+<li>Drainage planning for low areas</li>
+<li>Solutions for soggy lawn sections</li>
+<li>Drainage around patios and outdoor spaces</li>
+<li>Residential French drain systems</li>
+<li>Commercial French drain systems</li>
+<li>Drainage improvements around landscaping</li>
+<li>Evaluation of recurring surface water problems</li>
+</ul>
+<p>If the main issue is water coming directly from downspouts, <a href="/underground-drainage-tampa-fl/">underground drainage in Tampa</a> may be a better way to carry that concentrated runoff across the property. In some cases, both approaches can play different roles in the overall drainage plan.</p>
+<p>Repeated water exposure can also affect exterior areas beyond the yard. If moisture and runoff have contributed to problems along the walls of the building, we can discuss whether <a href="/siding-tampa-fl/">Tampa siding</a> should be evaluated as part of the broader exterior project.</p>`,
+      },
+      {
+        heading: 'Why Choose Professional French Drain Services in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-st-petersburg-fl-white-gutter-side-yard.webp',
+        imageAlt: 'Side yard area where drainage improvements help manage standing water',
+        body: `<p>A French drain has to do more than sit in the lowest part of the yard.</p>
+<p>Water needs a reason to enter the system and somewhere appropriate to go once it does. The slope of the trench, placement of the perforated pipe, surrounding drainage material, and final outlet all affect how the system performs.</p>
+<p>The source of the water is equally important.</p>
+<p>If a downspout is dumping roof runoff into the problem area, dealing with that discharge may need to be part of the plan. If the surrounding ground naturally collects water from several directions, the drain may need to intercept a broader flow.</p>
+<p>Tampa's frequent heavy rain can make those differences particularly noticeable. A low area that handles a light shower may remain saturated when several storms arrive within a short period.</p>
+<p>We look at how the whole area behaves instead of choosing a trench location based only on where the biggest puddle happens to appear. That gives the drainage system a better chance to address the reason the area stays wet.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>Drainage problems can be frustrating because the water you see isn't always coming from the place you expect. SunLife Gutters Tampa takes the time to look at the property, talk through what you've been noticing, and follow the water before recommending a drainage approach.</p>
+<ul>
+<li>Family-owned company based in Seffner</li>
+<li>More than 10,000 completed projects</li>
+<li>4.9-star Google rating from 230+ reviews</li>
+<li>Over 7 years serving Tampa Bay</li>
+<li>Residential and commercial drainage experience</li>
+<li>Familiarity with Tampa rainfall and local property conditions</li>
+<li>Complete <a href="/">Tampa gutter services</a></li>
+<li>Practical drainage planning</li>
+<li>Quick estimates and prompt callbacks</li>
+<li>Friendly, knowledgeable local team</li>
+<li>Fair, transparent pricing</li>
+<li>Clear communication from start to finish</li>
+<li>Flexible financing available</li>
+</ul>
+<p>We'll explain where the drainage system would go, what problem it's intended to address, and how it fits with the surrounding property before work begins.</p>`,
       },
     ],
+    faq: {
+      headingId: 'french-drains-faq',
+      headline: 'Tampa French Drain FAQs',
+      items: [
+        {
+          question: 'How do I know if I need a French drain in my Tampa yard?',
+          answerHtml:
+            "<p>A French drain may be useful when the same part of your yard repeatedly stays soggy or collects water after rainfall. Tampa's frequent summer storms can make low areas and poor drainage especially noticeable. The source should be identified first, though. Water coming from surrounding ground may call for a French drain, while concentrated roof runoff may be better handled with another drainage approach.</p>",
+        },
+        {
+          question: 'How does a French drain work during heavy rain in Tampa?',
+          answerHtml:
+            "<p>A French drain collects water through a gravel-filled trench and perforated pipe, then carries it toward a planned outlet. During Tampa's heavier rainfall, the system can help intercept water moving through consistently wet areas before it continues pooling at the surface. Performance depends on proper placement, slope, soil conditions, drainage capacity, and having a suitable location where the collected water can ultimately be released.</p>",
+        },
+        {
+          question: 'Can a French drain help with a soggy backyard in Tampa?',
+          answerHtml:
+            "<p>It can if excess water is moving through or collecting in a specific part of the yard. A French drain gives that water a path through a gravel-filled trench and perforated pipe toward a discharge area. Tampa yards can stay wet for different reasons, however, including grading and concentrated roof runoff. Identifying why the area remains soggy is important before deciding where a drain should go.</p>",
+        },
+        {
+          question: 'Where should a French drain be installed on a Tampa property?',
+          answerHtml:
+            "<p>The location depends on where water enters the property, how the ground slopes, which areas remain wet, and where the collected water can be discharged. The biggest puddle isn't automatically the best location for the drain. On Tampa properties, observing drainage after heavy rainfall can provide useful clues about the path water follows and where a French drain may intercept it more effectively.</p>",
+        },
+        {
+          question: 'Can French drains be installed on commercial properties in Tampa?',
+          answerHtml:
+            '<p>Yes. French drains can help manage recurring wet areas around some Tampa commercial properties, including landscaping, open grounds, and areas near walkways or other exterior spaces. The layout needs to account for the size of the drainage area, surrounding surfaces, grading, and available outlets. Commercial properties can have multiple sources of runoff, so identifying where the excess water originates is an important first step.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>If the same part of your property turns soggy every time Tampa gets a stretch of heavy rain, waiting for it to dry doesn't address why the water keeps collecting there.</p>
+<p>If you're considering French drains in Tampa, book a free, no-obligation consultation with SunLife Gutters Tampa. We'll look at the problem area, trace where the water is coming from, and help determine the most practical way to improve drainage around your property.</p>`,
+    },
   },
   'seamless-gutters-tampa-fl': {
     title: 'Seamless Gutters in Tampa | Book Consultation | SunLife Gutters',
