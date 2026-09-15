@@ -357,7 +357,7 @@ const homepageWhyChoose = {
     },
     {
       title: 'Complete exterior solutions:',
-      text: 'From seamless and Super Gutters to gutter guards, screen rooms, lanais, roofline trim, Tampa gutter repairs, and maintenance, one experienced local team handles it all.',
+      text: 'From seamless and Super Gutters to gutter guards, screen rooms, lanais, roofline trim, <a href="/gutter-repair-tampa-fl/">Tampa gutter repairs</a>, and maintenance, one experienced local team handles it all.',
     },
     {
       title: 'Trusted by Tampa Bay homeowners:',
@@ -1096,7 +1096,8 @@ const serviceHref = (svc) => {
           <ul class="why-choose-list">
             {whyChooseBullets.map((b) => (
               <li>
-                <strong>{asStr(b.title)}</strong> {asStr(b.text)}
+                <strong>{asStr(b.title)}</strong>{' '}
+                <span set:html={sanitizeCmsHtml(asStr(b.text))} />
               </li>
             ))}
           </ul>
@@ -1262,7 +1263,7 @@ const serviceHref = (svc) => {
       <div class="container">
         <div class="why-eyebrow">{asStr(serviceArea?.eyebrow)}</div>
         <h2 class="section-title">{serviceAreaHeadline}</h2>
-        <p class="section-lead service-area-intro">{serviceAreaIntro}</p>
+        <p class="section-lead service-area-intro" set:html={sanitizeCmsHtml(serviceAreaIntro)} />
         <div class:list={['service-area-grid', !isLp ? 'service-area-grid--stacked' : null]}>
           <div class="map-wrap">
             <iframe
