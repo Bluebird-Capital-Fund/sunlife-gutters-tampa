@@ -85,16 +85,101 @@ const cleanProjectText = (value, fallback = '') => {
   return fallback
 }
 
-const labelFromImagePath = (value) => {
-  const file = asStr(value).split('/').pop() || ''
-  const base = file.replace(/\.[a-z0-9]+$/i, '')
-  if (!base) return ''
-  return base
-    .replace(/^sunlife-gutters-?/i, '')
-    .replace(/\bfl\b/gi, 'FL')
-    .replace(/[-_]+/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .trim()
+const CITY_FL_SPECIAL = {
+  'st-petersburg': 'St. Petersburg',
+  'saint-petersburg': 'St. Petersburg',
+  'land-o-lakes': "Land O' Lakes",
+  'anna-maria-island': 'Anna Maria Island',
+  'sun-city-center': 'Sun City Center',
+  'lakewood-ranch': 'Lakewood Ranch',
+  'longboat-key': 'Longboat Key',
+  'wesley-chapel': 'Wesley Chapel',
+  'apollo-beach': 'Apollo Beach',
+  'plant-city': 'Plant City',
+  'dade-city': 'Dade City',
+  'new-tampa': 'New Tampa',
+}
+
+/** Longest-first so multi-word cities match before single tokens. */
+const CITY_FL_SLUGS = [
+  'anna-maria-island',
+  'sun-city-center',
+  'lakewood-ranch',
+  'land-o-lakes',
+  'longboat-key',
+  'st-petersburg',
+  'saint-petersburg',
+  'wesley-chapel',
+  'apollo-beach',
+  'plant-city',
+  'dade-city',
+  'new-tampa',
+  'clearwater',
+  'bradenton',
+  'gibsonton',
+  'ellenton',
+  'zephyrhills',
+  'thonotosassa',
+  'lakeland',
+  'valrico',
+  'riverview',
+  'brandon',
+  'seffner',
+  'wimauma',
+  'lithia',
+  'cortez',
+  'odessa',
+  'ruskin',
+  'dover',
+  'largo',
+  'lutz',
+  'tampa',
+]
+
+const titleCaseCitySlug = (slug) => {
+  if (CITY_FL_SPECIAL[slug]) return CITY_FL_SPECIAL[slug]
+  return String(slug || '')
+    .split('-')
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
+
+/** Photo captions: only "City, FL". */
+const cityFlCaption = (...candidates) => {
+  for (const raw of candidates) {
+    const text = asStr(raw).trim()
+    if (!text) continue
+    const already = text.match(/^(.+?),\s*FL\s*$/i)
+    if (already && !/\s[-–—]/.test(already[1]) && already[1].split(/\s+/).length <= 4) {
+      const city = already[1].trim()
+      if (city && !/tampa bay|metro|area|project/i.test(city)) return `${city}, FL`
+    }
+  }
+
+  const haystack = candidates.map((v) => asStr(v).toLowerCase()).join(' ')
+  const file = asStr(candidates[0] || '')
+    .split('/')
+    .pop()
+    .toLowerCase()
+  const searchIn = `${file} ${haystack}`
+
+  for (const slug of CITY_FL_SLUGS) {
+    const spaced = slug.replace(/-/g, ' ')
+    if (
+      searchIn.includes(`-${slug}-`) ||
+      searchIn.includes(`-${slug}.`) ||
+      searchIn.includes(`${slug}-fl`) ||
+      searchIn.includes(` ${spaced} `) ||
+      searchIn.includes(` ${spaced},`) ||
+      searchIn.startsWith(`${slug}-`) ||
+      searchIn.includes(`gutters-${slug}`)
+    ) {
+      return `${titleCaseCitySlug(slug)}, FL`
+    }
+  }
+
+  return 'Tampa, FL'
 }
 
 const heroBgSrc = heroBackgroundFor('gallery')
@@ -126,31 +211,40 @@ const heroLead = cleanProjectText(
 const galleryImages = allGalleryPages.flatMap((p) => (Array.isArray(p?.images) ? p.images : []))
 const homeProjectSlides = Array.isArray(homePage?.projects?.slides) ? homePage.projects.slides : []
 const folderProjectImages = projectImagePool.map((src) => {
-  const label = labelFromImagePath(src)
+  const location = cityFlCaption(src)
   return {
     imageSrc: src,
-    imageAlt: label ? `${label} project photo` : 'Project photo',
-    location: label || 'Tampa Bay area',
+    imageAlt: `${location} gutter project`,
+    location,
   }
 })
 const allProjectImages = [...galleryImages, ...homeProjectSlides, ...folderProjectImages]
 const seenImageSrc = new Set()
-const images = allProjectImages.filter((img) => {
-  const src = asStr(img?.imageSrc)
-  const alt = asStr(img?.imageAlt)
-  const location = asStr(img?.location)
-  if (!src || seenImageSrc.has(src)) return false
-  if (!isSunLifeProjectImage(src)) return false
-  if (looksLegacyColorado(src) || looksLegacyColorado(alt) || looksLegacyColorado(location)) return false
-  seenImageSrc.add(src)
-  return true
-})
+const images = allProjectImages
+  .filter((img) => {
+    const src = asStr(img?.imageSrc)
+    const alt = asStr(img?.imageAlt)
+    const location = asStr(img?.location)
+    if (!src || seenImageSrc.has(src)) return false
+    if (!isSunLifeProjectImage(src)) return false
+    if (looksLegacyColorado(src) || looksLegacyColorado(alt) || looksLegacyColorado(location)) return false
+    seenImageSrc.add(src)
+    return true
+  })
+  .map((img) => {
+    const location = cityFlCaption(img.imageSrc, img.location, img.imageAlt)
+    return {
+      ...img,
+      location,
+      imageAlt: `${location} gutter project`,
+    }
+  })
 
 /** Client-side lightbox (serialized in page script) */
 const galleryItems = images.map((img) => ({
   src: mediaUrl(asStr(img.imageSrc)),
-  alt: cleanProjectText(img.imageAlt, 'Project photo'),
-  caption: cleanProjectText(img.location, 'Tampa Bay area'),
+  alt: asStr(img.imageAlt) || 'Gutter project photo',
+  caption: asStr(img.location) || 'Tampa, FL',
 }))
 
 const universalFormFields = footerEstimateFields
@@ -298,7 +392,7 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
                       height="480"
                     />
                   </span>
-                  <span class="projects-gallery-thumb-caption">{asStr(img.location) || 'Tampa Metro'}</span>
+                  <span class="projects-gallery-thumb-caption">{asStr(img.location) || 'Tampa, FL'}</span>
                 </button>
               ))}
             </div>
