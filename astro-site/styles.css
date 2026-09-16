@@ -1450,9 +1450,31 @@ main > .breadcrumbs {
   color: #fff;
 }
 
-/* Dedicated Service Area page: horizontal counties above the map */
+/* Dedicated Service Area page: heading + copy beside image */
 .service-area-page-split {
-  margin-top: var(--space-lg);
+  margin-top: 0;
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .service-area-page-split.page-split--media-end {
+    grid-template-columns: 1fr minmax(260px, 0.9fr);
+  }
+
+  .service-area-page-media {
+    margin-top: 0.15rem;
+  }
+
+  .service-area-page-media img {
+    aspect-ratio: 4 / 5;
+    max-height: 28rem;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.service-area-page-copy .section-title {
+  margin-bottom: var(--space-md);
 }
 
 .service-area-page-locations {

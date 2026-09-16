@@ -293,22 +293,24 @@ const breadcrumbItems = simpleBreadcrumbItems('Service Area')
     <Breadcrumbs items={breadcrumbItems} />
     <section class="section service-area service-area-page" id="service-area">
       <div class="container">
-        <div class="why-eyebrow">{asStr(serviceArea?.eyebrow) || 'Service Area'}</div>
-        <h1 class="section-title">{asStr(serviceArea?.headline) || 'Areas We Serve'}</h1>
         <div class="page-split page-split--media-end service-area-page-split">
-          <div class="secondary-prose">
-            <p>
-              We're proud to serve homeowners and businesses throughout Tampa Bay, including Tampa, Clearwater,
-              Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in
-              Seffner, our local team understands the challenges Florida's weather can bring and provides custom
-              gutter and exterior solutions designed to help protect your property while enhancing its appearance.
-            </p>
-            <p>
-              Don't see your city listed? Contact us to see if we serve your area. If you're nearby, we'll do our
-              best to help.
-            </p>
+          <div class="service-area-page-copy">
+            <div class="why-eyebrow">{asStr(serviceArea?.eyebrow) || 'Service Area'}</div>
+            <h1 class="section-title">{asStr(serviceArea?.headline) || 'Areas We Serve'}</h1>
+            <div class="secondary-prose">
+              <p>
+                We're proud to serve homeowners and businesses throughout Tampa Bay, including Tampa, Clearwater,
+                Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in
+                Seffner, our local team understands the challenges Florida's weather can bring and provides custom
+                gutter and exterior solutions designed to help protect your property while enhancing its appearance.
+              </p>
+              <p>
+                Don't see your city listed? Contact us to see if we serve your area. If you're nearby, we'll do our
+                best to help.
+              </p>
+            </div>
           </div>
-          <figure class="page-split__media">
+          <figure class="page-split__media service-area-page-media">
             <img
               src={mediaUrl(serviceAreaFigureSrc)}
               alt="Two-story home with new gutters installed in Valrico, Florida"
