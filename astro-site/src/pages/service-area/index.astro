@@ -70,7 +70,8 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 
 const serviceArea = homePage?.serviceArea ?? {}
 const pageTitle = 'Service Area | SGT'
-const pageDescription = asStr(serviceArea?.intro) || 'Cities and counties we serve across the Tampa metro.'
+const pageDescription =
+  "We're proud to serve homeowners and businesses throughout Tampa Bay, including Tampa, Clearwater, Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities."
 const mapEmbedUrl =
   asStr(settings?.mapEmbedUrl) ||
   'https://maps.google.com/maps?q=1502+Lenna+Ave,+Seffner,+FL+33584&t=&z=10&ie=UTF8&iwloc=&output=embed'
@@ -294,9 +295,18 @@ const breadcrumbItems = simpleBreadcrumbItems('Service Area')
       <div class="container">
         <div class="why-eyebrow">{asStr(serviceArea?.eyebrow) || 'Service Area'}</div>
         <h1 class="section-title">{asStr(serviceArea?.headline) || 'Areas We Serve'}</h1>
-        <p class="section-lead service-area-intro">
-          {asStr(serviceArea?.intro) || 'We serve homeowners and businesses throughout the Tampa metro area.'}
-        </p>
+        <div class="secondary-prose service-area-page-intro">
+          <p>
+            We're proud to serve homeowners and businesses throughout Tampa Bay, including Tampa, Clearwater,
+            Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in
+            Seffner, our local team understands the challenges Florida's weather can bring and provides custom
+            gutter and exterior solutions designed to help protect your property while enhancing its appearance.
+          </p>
+          <p>
+            Don't see your city listed? Contact us to see if we serve your area. If you're nearby, we'll do our
+            best to help.
+          </p>
+        </div>
         <div class="page-split page-split--media-end service-area-page-split">
           <div class="secondary-prose">
             <p>
