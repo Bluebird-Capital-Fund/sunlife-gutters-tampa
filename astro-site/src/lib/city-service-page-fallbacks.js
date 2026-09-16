@@ -357,7 +357,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>For homeowners who want to keep their gutter system performing its best, expert gutter maintenance plans, which include two professional cleanings each year, an annual inspection and tune-up, priority service, discounts on additional services, and reduced pricing on extra cleanings.</p>`,
+<p>For homeowners who want to keep their gutter system performing its best, we provide expert <a href="/gutter-maintenance-tampa-fl/">gutter maintenance plans in Tampa</a>, which include two professional cleanings each year, an annual inspection and tune-up, priority service, discounts on additional services, and reduced pricing on extra cleanings.</p>`,
       },
     ],
     faq: {
