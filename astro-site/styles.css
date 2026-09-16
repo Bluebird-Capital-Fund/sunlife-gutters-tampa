@@ -1260,7 +1260,7 @@ a.btn-primary[href^="tel:"]:hover {
   background: #fff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   padding: clamp(1.15rem, 2.5vw, 1.65rem);
 }
 
