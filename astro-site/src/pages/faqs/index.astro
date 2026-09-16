@@ -9,20 +9,15 @@ import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
-import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
 import { sanitizeCmsHtml } from '../../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
+import { FAQ_PAGE_SECTIONS } from '../../lib/faq-page-content.js'
 
 let settings = {}
 let homePage = {}
-let faqPage = {}
 try {
-  ;[settings, homePage, faqPage] = await Promise.all([
-    getSiteSettings(),
-    getHomePage(),
-    sanity.fetch(`*[_type == "faqPage" && slug.current == "faqs"][0]`),
-  ])
+  ;[settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
 } catch (err) {
   console.warn('[faqs] Sanity fetch failed; using fallback placeholders.', err)
 }
@@ -48,7 +43,8 @@ const logoBlack = asStr(business.logoHorizontalBlack)
 const copyrightHref = asStr(business.copyrightSiteUrl) || '#'
 
 const pageTitle = 'Gutter FAQs Tampa | SGT'
-const pageDescription = 'Simple answers to common gutter pricing, repairs, and service questions.'
+const pageDescription =
+  'Answers to common Tampa gutter questions about cost, permits, warranties, cleaning, drainage, soffit and fascia, and storm damage.'
 
 const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay }) || phoneDisplay
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
@@ -59,18 +55,23 @@ const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 
-const faqData = faqPage?.faq ?? {}
-const faqHeading = asStr(faqData?.headline) || 'Frequently Asked Questions'
-const faqHeadingId = asStr(faqData?.headingId) || 'faq-page-heading'
-const faqItems = Array.isArray(faqData?.items)
-  ? faqData.items
-  : [
-      {
-        question: 'How often should gutters be cleaned?',
-        answerHtml:
-          '<p>Most homes should have gutters cleaned at least twice per year (spring and fall).</p>',
-      },
-    ]
+const faqSections = FAQ_PAGE_SECTIONS
+const faqSectionsWithIds = faqSections.map((section, sectionIdx) => {
+  let start = 0
+  for (let i = 0; i < sectionIdx; i += 1) start += faqSections[i].items.length
+  return {
+    heading: section.heading,
+    headingId: `faq-section-${sectionIdx + 1}`,
+    items: section.items.map((item, itemIdx) => {
+      const n = start + itemIdx + 1
+      return {
+        ...item,
+        btnId: `faq-page-btn-${n}`,
+        panelId: `faq-page-panel-${n}`,
+      }
+    }),
+  }
+})
 ---
 
 <BaseLayout
@@ -179,39 +180,38 @@ const faqItems = Array.isArray(faqData?.items)
 
     <section class="section faq-section" id="faq">
       <div class="container">
-        <div class="faq-panel">
-          <h2 class="section-title section-title-secondary" id={faqHeadingId}>{faqHeading}</h2>
-          <div class="faq-list" data-faq-accordion>
-            {faqItems.map((item, idx) => {
-              const n = idx + 1
-              const btnId = `faq-page-btn-${n}`
-              const panelId = `faq-page-panel-${n}`
-              return (
+        {faqSectionsWithIds.map((section, sectionIdx) => (
+          <div class="faq-panel" style={sectionIdx > 0 ? 'margin-top: 2rem;' : undefined}>
+            <h2 class="section-title section-title-secondary" id={section.headingId}>
+              {section.heading}
+            </h2>
+            <div class="faq-list" data-faq-accordion>
+              {section.items.map((item) => (
                 <div class="faq-item">
                   <button
                     type="button"
                     class="faq-summary"
-                    id={btnId}
+                    id={item.btnId}
                     aria-expanded="false"
-                    aria-controls={panelId}
+                    aria-controls={item.panelId}
                   >
                     <span class="faq-question">{item.question}</span>
                     <span class="faq-chevron" aria-hidden="true"></span>
                   </button>
                   <div
                     class="faq-answer-outer"
-                    id={panelId}
+                    id={item.panelId}
                     role="region"
-                    aria-labelledby={btnId}
+                    aria-labelledby={item.btnId}
                     aria-hidden="true"
                   >
                     <div class="faq-answer" set:html={sanitizeCmsHtml(asStr(item.answerHtml))} />
                   </div>
                 </div>
-              )
-            })}
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   </main>
