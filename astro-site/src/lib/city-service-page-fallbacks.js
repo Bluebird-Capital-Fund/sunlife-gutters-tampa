@@ -839,7 +839,7 @@ export const cityServicePageFallbacks = {
 <li>Leaking gutter repairs</li>
 <li>Loose and sagging gutter repairs</li>
 <li>Gutter realignment and slope corrections</li>
-<li>Downspout repairs and reconnections</li>
+<li><a href="/downspouts-tampa-fl/">Tampa downspout repairs</a> and reconnections</li>
 <li>Loose fastener repairs</li>
 <li>Overflow and drainage corrections</li>
 <li>Storm-damaged gutter repairs</li>
