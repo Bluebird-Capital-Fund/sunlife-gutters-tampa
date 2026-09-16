@@ -37,4 +37,8 @@ export const POPULAR_SERVICE_AREA_CITIES = [
 export const HOMEPAGE_SERVICE_AREA_INTRO =
   "We're proud to provide gutter and exterior services throughout Tampa Bay, including <a href=\"/service-area/gutters-clearwater-fl/\">gutters in Clearwater</a>, Tampa, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in Seffner, our local team is on the road every day helping homeowners and businesses protect their properties with quality workmanship and honest service. Don't see your city listed? Contact us and we may still be able to help."
 
+/** Plain-text version for service pages (no HTML / no inline links). */
+export const SERVICE_PAGE_SERVICE_AREA_INTRO =
+  "We're proud to provide gutter and exterior services throughout Tampa Bay, including gutters in Clearwater, Tampa, St. Petersburg, Wesley Chapel, Plant City, and surrounding communities. Based in Seffner, our local team is on the road every day helping homeowners and businesses protect their properties with quality workmanship and honest service. Don't see your city listed? Contact us and we may still be able to help."
+
 export const HOMEPAGE_SERVICE_AREA_HEADLINE = 'Rain Gutters in Tampa & Surrounding Communities'
