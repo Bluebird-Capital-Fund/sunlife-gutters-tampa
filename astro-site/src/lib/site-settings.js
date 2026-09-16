@@ -180,6 +180,7 @@ function isInvalidNavHref(href) {
 function buildAboutDropdownLinks() {
   return [
     { label: 'About Us', href: '/about-us/' },
+    { label: 'Service Area', href: '/service-area/' },
     { label: 'FAQ', href: '/faqs/' },
     { label: 'Contact Us', href: '/contact-us/' },
   ]
@@ -193,6 +194,17 @@ function buildServicesDropdownLinks() {
     { label: 'Gutter Guards', href: '/gutter-guards-tampa-fl/' },
     { label: 'Seamless Gutters', href: '/seamless-gutters-tampa-fl/' },
     { label: 'Super Gutters', href: '/super-gutters-tampa-fl/' },
+  ]
+}
+
+function buildMoreServicesDropdownLinks() {
+  return [
+    { label: 'Siding', href: '/siding-tampa-fl/' },
+    { label: 'Downspouts', href: '/downspouts-tampa-fl/' },
+    { label: 'Underground Drainage', href: '/underground-drainage-tampa-fl/' },
+    { label: 'French Drains', href: '/french-drains-tampa-fl/' },
+    { label: 'Soffit & Fascia Repair', href: '/soffit-fascia-repair-tampa-fl/' },
+    { label: 'Screen Rooms & Lanais', href: '/screen-rooms-lanais-tampa-fl/' },
   ]
 }
 
@@ -228,18 +240,41 @@ function normalizeHeader(header) {
     : header.navItems
 
   if (Array.isArray(navItems)) {
-    const servicesIdx = navItems.findIndex((item) => {
+    // Drop any existing More Services item so we can place a fresh one after Gutters.
+    navItems = navItems.filter((item) => {
       const label = String(item?.label || '').trim().toLowerCase()
-      return label === 'services' || label === 'products & services' || label === 'products and services'
+      return label !== 'more services'
     })
 
-    if (servicesIdx >= 0) {
-      navItems[servicesIdx] = {
-        ...navItems[servicesIdx],
-        label: 'Services',
-        href: '/seamless-gutters-tampa-fl/',
-        dropdown: buildServicesDropdownLinks(),
+    const guttersIdx = navItems.findIndex((item) => {
+      const label = String(item?.label || '').trim().toLowerCase()
+      return (
+        label === 'gutters' ||
+        label === 'services' ||
+        label === 'products & services' ||
+        label === 'products and services'
+      )
+    })
+
+    const guttersItem = {
+      label: 'Gutters',
+      href: '/seamless-gutters-tampa-fl/',
+      dropdown: buildServicesDropdownLinks(),
+    }
+    const moreServicesItem = {
+      label: 'More Services',
+      href: '/siding-tampa-fl/',
+      dropdown: buildMoreServicesDropdownLinks(),
+    }
+
+    if (guttersIdx >= 0) {
+      navItems[guttersIdx] = {
+        ...navItems[guttersIdx],
+        ...guttersItem,
       }
+      navItems.splice(guttersIdx + 1, 0, moreServicesItem)
+    } else {
+      navItems.unshift(guttersItem, moreServicesItem)
     }
 
     const aboutIdx = navItems.findIndex((item) => {
@@ -267,19 +302,34 @@ function normalizeHeader(header) {
 
 function normalizeFooterColumns(columns) {
   if (!Array.isArray(columns)) return columns
-  return columns.map((col) => ({
-    ...col,
-    links: Array.isArray(col?.links)
-      ? col.links.map((link) => ({
-          ...link,
-          label: normalizeLabel(link?.label),
-          href: normalizeAboutHref(
-            link?.label,
-            normalizeReviewHref(link?.label, normalizeProjectsHref(link?.label, normalizeHref(link?.href)))
-          ),
-        }))
-      : col?.links,
-  }))
+  return columns.map((col) => {
+    const heading = String(col?.heading || '').trim().toLowerCase()
+    const isServicesColumn =
+      heading === 'services' || heading === 'products & services' || heading === 'products and services'
+
+    if (isServicesColumn) {
+      return {
+        ...col,
+        heading: 'Services',
+        ariaLabel: col?.ariaLabel || 'Footer services',
+        links: buildServicesDropdownLinks(),
+      }
+    }
+
+    return {
+      ...col,
+      links: Array.isArray(col?.links)
+        ? col.links.map((link) => ({
+            ...link,
+            label: normalizeLabel(link?.label),
+            href: normalizeAboutHref(
+              link?.label,
+              normalizeReviewHref(link?.label, normalizeProjectsHref(link?.label, normalizeHref(link?.href)))
+            ),
+          }))
+        : col?.links,
+    }
+  })
 }
 
 function normalizeFooterSupport(support) {
