@@ -103,7 +103,7 @@ const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
 const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'Blog lead form'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const universalFormHeading = asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro = asStr(footerEstimate?.intro) || 'Short placeholder form for layout testing.'
+const universalFormIntro = asStr(footerEstimate?.intro) || 'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
 
 const heroBgSrc =
   asStr(post?.layoutBackgrounds?.hero?.imageSrc) || heroBackgroundFor(`blog-${slug}`)
@@ -331,7 +331,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
         <div class="contact-wrapper">
           <div class="contact-info">
             <h2 class="section-title">{asStr(footerEstimate?.headline) || 'Need Gutter Help in Tampa?'}</h2>
-            <p>{asStr(footerEstimate?.intro) || 'Contact us for fast service and straightforward estimates.'}</p>
+            <p>{asStr(footerEstimate?.intro) || 'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'}</p>
             <FooterContactInfo variant="estimate" phoneTel={phoneTel} phoneDisplay={phoneDisplay} email={email} address={address} addressHref={addressHref} />
           </div>
           <form class="contact-form" data-lead-form={`blog-footer-${slug}`} action={universalFormAction} method={universalFormMethod}>
