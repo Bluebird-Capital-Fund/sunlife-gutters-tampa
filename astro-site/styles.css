@@ -1692,6 +1692,15 @@ a.btn-primary[href^="tel:"]:hover {
   line-height: 1.65;
 }
 
+.about-intro-full {
+  margin-bottom: var(--space-2xl);
+}
+
+.about-intro-full .about-lead {
+  max-width: none;
+  margin: 0;
+}
+
 .about-content .about-lead {
   margin: 0 0 var(--space-xl); /* override .about-content p { margin: 0; } */
 }
