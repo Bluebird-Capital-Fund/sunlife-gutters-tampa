@@ -1520,7 +1520,8 @@ export const cityServicePageFallbacks = {
 <p>During one of Tampa's hard summer downpours, a blocked outlet can send water over the gutter edge and onto landscaping, walkways, siding, or areas near the foundation. Water can also sit inside low sections after the storm passes, adding weight to a system that may already be showing wear.</p>
 <p>Downspouts deserve attention too. Removing leaves from the gutter won't solve the problem if material is still restricting the outlet or downspout below.</p>
 <p>Professional cleaning gives the system a proper reset. It also means you don't have to climb a ladder and work along a wet or debris-covered roofline yourself.</p>
-<p>If your property tends to accumulate debris throughout the year, our <a href="/gutter-maintenance-tampa-fl/">Tampa gutter maintenance</a> plans can make cleaning and routine system checks part of a more consistent schedule instead of waiting for the next overflow to remind you.</p>`,
+<p>If your property tends to accumulate debris throughout the year, our <a href="/gutter-maintenance-tampa-fl/">Tampa gutter maintenance</a> plans can make cleaning and routine system checks part of a more consistent schedule instead of waiting for the next overflow to remind you.</p>
+<p>If routine maintenance uncovers damage or wear, <a href="/gutter-repair-tampa-fl/">our Tampa gutter repair</a> team can make the necessary repairs to keep your system performing as it should.</p>`,
       },
       {
         heading: 'Why Choose SunLife Gutters Tampa?',
