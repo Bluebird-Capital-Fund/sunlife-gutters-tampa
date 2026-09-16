@@ -185,6 +185,17 @@ function buildAboutDropdownLinks() {
   ]
 }
 
+function buildServicesDropdownLinks() {
+  return [
+    { label: 'Gutter Repair', href: '/gutter-repair-tampa-fl/' },
+    { label: 'Gutter Installation', href: '/gutter-installation-tampa-fl/' },
+    { label: 'Gutter Cleaning', href: '/gutter-cleaning-tampa-fl/' },
+    { label: 'Gutter Guards', href: '/gutter-guards-tampa-fl/' },
+    { label: 'Seamless Gutters', href: '/seamless-gutters-tampa-fl/' },
+    { label: 'Super Gutters', href: '/super-gutters-tampa-fl/' },
+  ]
+}
+
 function normalizeHeader(header) {
   if (!header || typeof header !== 'object') return header
   let navItems = Array.isArray(header.navItems)
@@ -217,6 +228,20 @@ function normalizeHeader(header) {
     : header.navItems
 
   if (Array.isArray(navItems)) {
+    const servicesIdx = navItems.findIndex((item) => {
+      const label = String(item?.label || '').trim().toLowerCase()
+      return label === 'services' || label === 'products & services' || label === 'products and services'
+    })
+
+    if (servicesIdx >= 0) {
+      navItems[servicesIdx] = {
+        ...navItems[servicesIdx],
+        label: 'Services',
+        href: '/seamless-gutters-tampa-fl/',
+        dropdown: buildServicesDropdownLinks(),
+      }
+    }
+
     const aboutIdx = navItems.findIndex((item) => {
       const label = String(item?.label || '').trim().toLowerCase()
       return label === 'about us' || label === 'our team'
