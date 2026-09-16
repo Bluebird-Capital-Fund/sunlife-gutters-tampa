@@ -363,10 +363,21 @@ const CANONICAL_OFFER_BAR = {
   ctaHref: 'https://sunlifegutters.com/contact-us/#contact',
 }
 
+/** Shared hero + footer form intro used site-wide. */
+export const CANONICAL_FORM_INTRO =
+  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
+
 function normalizeOfferBar(offerBar) {
   return {
     ...(offerBar && typeof offerBar === 'object' ? offerBar : {}),
     ...CANONICAL_OFFER_BAR,
+  }
+}
+
+function normalizeFooterEstimate(footerEstimate) {
+  return {
+    ...(footerEstimate && typeof footerEstimate === 'object' ? footerEstimate : {}),
+    intro: CANONICAL_FORM_INTRO,
   }
 }
 
@@ -451,7 +462,7 @@ export async function getSiteSettings() {
     ...singleton,
     reviews: singleton?.reviews ?? linksSource?.reviews,
     header: normalizeHeader(mergedHeader ?? singleton?.header) ?? {},
-    footerEstimate: linksSource?.footerEstimate ?? singleton?.footerEstimate,
+    footerEstimate: normalizeFooterEstimate(linksSource?.footerEstimate ?? singleton?.footerEstimate),
     footerBrand: linksSource?.footerBrand ?? singleton?.footerBrand,
     footerColumns: normalizeFooterColumns(footerColumnsRaw),
     footerSupport: normalizeFooterSupport(linksSource?.footerSupport ?? singleton?.footerSupport),

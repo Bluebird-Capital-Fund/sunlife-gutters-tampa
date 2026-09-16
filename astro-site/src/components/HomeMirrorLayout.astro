@@ -11,7 +11,7 @@ import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
-import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
+import { getSiteSettings, getHomePage, mergeHeaderFromSettings, CANONICAL_FORM_INTRO } from '../lib/site-settings.js'
 import {
   asStr,
   asStrArray,
@@ -166,9 +166,7 @@ const whyStampLine2 = isLp ? asStr(whyStamp?.line2) : 'Tampa Bay, Florida'
 const whyStampLine3 = isLp
   ? asStr(whyStamp?.line3)
   : 'Projects completed from roof to grade.'
-const homepageFormIntro =
-  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
-const universalFormIntro = isLp ? asStr(footerEstimate?.intro) : homepageFormIntro
+const universalFormIntro = CANONICAL_FORM_INTRO
 
 /** LP-only section imagery overrides (hero / difference / services / about / unique points). */
 const lpSectionImagesBySlug = {

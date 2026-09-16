@@ -10,7 +10,7 @@ import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
-import { mergeHeaderFromSettings } from '../lib/site-settings.js'
+import { mergeHeaderFromSettings, CANONICAL_FORM_INTRO } from '../lib/site-settings.js'
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl, statLookup } from '../lib/sanity-strings.js'
@@ -70,10 +70,7 @@ const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'City service l
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const universalFormHeading =
   asStr(_cityPage?.formHeading) || asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro =
-  asStr(_cityPage?.formIntro) ||
-  asStr(footerEstimate?.intro) ||
-  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
+const universalFormIntro = CANONICAL_FORM_INTRO
 const heroBgSrc = asStr(_cityPage?.layoutBackgrounds?.hero?.imageSrc) || heroBackgroundFor(`service-${slug}`)
 const servicesBgSrc = asStr(_cityPage?.layoutBackgrounds?.services?.imageSrc)
 const heroBgStyle = heroBgSrc
