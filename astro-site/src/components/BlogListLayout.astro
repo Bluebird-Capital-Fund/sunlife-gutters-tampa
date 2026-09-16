@@ -1,6 +1,6 @@
 ---
 /**
- * Inner page shell for /blog/ listing (header, hero+form, slot, footer).
+ * Inner page shell for /blog/ listing (header, slot, footer).
  */
 import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
@@ -11,7 +11,7 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
-import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
+import { isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { asStr, mediaUrl } from '../lib/sanity-strings.js'
 
 const {
@@ -30,7 +30,6 @@ const {
   logoBlack,
   copyrightHref,
   callLabelNav,
-  heroCallLabel,
   logoAriaLabel,
   navItems,
   header,
@@ -42,15 +41,7 @@ const {
   universalFormFields,
   universalFormAction,
   universalFormMethod,
-  universalFormKicker,
-  universalFormAriaLabel,
-  universalFormHeading,
-  universalFormIntro,
   universalRequiredIndicator,
-  heroEyebrow,
-  heroHeadline,
-  heroLead,
-  heroBgStyle,
   formIdPrefix,
   navDdPrefix = 'blog',
 } = Astro.props
@@ -137,66 +128,6 @@ const {
   </header>
 
   <main>
-    <section class="hero hero-split">
-      <div class="hero-bg" style={heroBgStyle} />
-      <div class="container hero-split-inner">
-        <div class="hero-copy">
-          <div class="hero-eyebrow">{heroEyebrow}</div>
-          <h1>{heroHeadline}</h1>
-          <p class="hero-lead">{heroLead}</p>
-          <div class="hero-actions">
-            <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg cta1-primary-call">{heroCallLabel}</a>
-          </div>
-        </div>
-        <form
-          class="hero-form"
-          data-lead-form={`${formIdPrefix}-hero`}
-          action={universalFormAction}
-          method={universalFormMethod}
-          aria-label={universalFormAriaLabel}
-        >
-          <div class="hero-form-heading">
-            <div class="hero-form-kicker">{universalFormKicker}</div>
-            <h2>{universalFormHeading}</h2>
-          </div>
-          <p class="hero-form-sub">{universalFormIntro}</p>
-          <div class="hero-form-grid">
-            <div class="hero-form-field">
-              <label for={`${formIdPrefix}-name`}>
-                {asStr(universalFormFields?.nameLabel) || 'Name'}{' '}
-                <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span>
-              </label>
-              <input id={`${formIdPrefix}-name`} name="name" type="text" required autocomplete="name" />
-            </div>
-            <div class="hero-form-field">
-              <label for={`${formIdPrefix}-email`}>
-                {asStr(universalFormFields?.emailLabel) || 'Email'}{' '}
-                <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span>
-              </label>
-              <input id={`${formIdPrefix}-email`} name="email" type="email" required autocomplete="email" />
-            </div>
-            <div class="hero-form-field">
-              <label for={`${formIdPrefix}-phone`}>
-                {asStr(universalFormFields?.phoneLabel) || 'Phone'}{' '}
-                <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span>
-              </label>
-              <input id={`${formIdPrefix}-phone`} name="phone" type="tel" required autocomplete="tel" />
-            </div>
-            <div class="hero-form-field">
-              <label for={`${formIdPrefix}-location`}>{asStr(universalFormFields?.cityLabel) || 'City'}</label>
-              <input id={`${formIdPrefix}-location`} name="location" type="text" autocomplete="address-level2" />
-            </div>
-            <div class="hero-form-field hero-form-field-full">
-              <label for={`${formIdPrefix}-message`}>{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label>
-              <textarea id={`${formIdPrefix}-message`} name="message" rows="3" />
-            </div>
-          </div>
-          <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} />
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </form>
-      </div>
-    </section>
-
     <slot />
   </main>
 

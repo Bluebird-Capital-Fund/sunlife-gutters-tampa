@@ -11,7 +11,7 @@ import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
-import { heroBackgroundFor, projectImagePool } from '../../lib/hero-backgrounds.js'
+import { projectImagePool } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
 
 let settings = {}
@@ -55,7 +55,6 @@ const logoBlack = asStr(business.logoHorizontalBlack)
 const copyrightHref = asStr(business.copyrightSiteUrl) || '#'
 
 const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay }) || phoneDisplay
-const heroCallLabel = applyTemplate(asStr(homePage?.hero?.callCtaTemplate), { phoneDisplay }) || `Call: ${phoneDisplay}`
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
 
@@ -182,11 +181,6 @@ const cityFlCaption = (...candidates) => {
   return 'Tampa, FL'
 }
 
-const heroBgSrc = heroBackgroundFor('gallery')
-const heroBgStyle = heroBgSrc
-  ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
-  : undefined
-
 const allGalleryPages = Array.isArray(galleryPages) ? galleryPages : []
 const primaryGalleryPage =
   allGalleryPages.find((p) => asStr(p?.slug) === 'gallery') ??
@@ -200,13 +194,6 @@ const pageTitle =
 const pageDescription = cleanProjectText(
   primaryGalleryPage?.lead,
   'Photo gallery of completed gutter work across Tampa Bay.'
-)
-const heroEyebrow = 'Gallery'
-const heroHeadline =
-  !cmsHeadline || /^projects\b/i.test(cmsHeadline) ? 'Our Work Gallery' : cmsHeadline
-const heroLead = cleanProjectText(
-  primaryGalleryPage?.lead,
-  'Browse completed gutter installs across Tampa Bay—seamless systems, copper accents, and drainage work after final walkthrough.'
 )
 const galleryImages = allGalleryPages.flatMap((p) => (Array.isArray(p?.images) ? p.images : []))
 const homeProjectSlides = Array.isArray(homePage?.projects?.slides) ? homePage.projects.slides : []
@@ -250,10 +237,6 @@ const galleryItems = images.map((img) => ({
 const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
-const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
-const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'Gallery lead form'
-const universalFormHeading = asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro = asStr(footerEstimate?.intro) || 'Short placeholder form for layout testing.'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 ---
 
@@ -317,35 +300,10 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
   </header>
 
   <main>
-    <section class="hero hero-split">
-      <div class="hero-bg" style={heroBgStyle}></div>
-      <div class="container hero-split-inner">
-        <div class="hero-copy">
-          <div class="hero-eyebrow">{heroEyebrow}</div>
-          <h1>{heroHeadline}</h1>
-          <p class="hero-lead">{heroLead}</p>
-          <div class="hero-actions"><a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg cta1-primary-call">{heroCallLabel}</a></div>
-        </div>
-        <form class="hero-form" data-lead-form="gallery-hero" action={universalFormAction} method={universalFormMethod} aria-label={universalFormAriaLabel}>
-          <div class="hero-form-heading"><div class="hero-form-kicker">{universalFormKicker}</div><h2>{universalFormHeading}</h2></div>
-          <p class="hero-form-sub">{universalFormIntro}</p>
-          <div class="hero-form-grid">
-            <div class="hero-form-field"><label for="gallery-name">{asStr(universalFormFields?.nameLabel) || 'Name'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="gallery-name" name="name" type="text" required autocomplete="name" /></div>
-            <div class="hero-form-field"><label for="gallery-email">{asStr(universalFormFields?.emailLabel) || 'Email'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="gallery-email" name="email" type="email" required autocomplete="email" /></div>
-            <div class="hero-form-field"><label for="gallery-phone">{asStr(universalFormFields?.phoneLabel) || 'Phone'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="gallery-phone" name="phone" type="tel" required autocomplete="tel" /></div>
-            <div class="hero-form-field"><label for="gallery-location">{asStr(universalFormFields?.cityLabel) || 'City'}</label><input id="gallery-location" name="location" type="text" autocomplete="address-level2" /></div>
-            <div class="hero-form-field hero-form-field-full"><label for="gallery-message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id="gallery-message" name="message" rows="3"></textarea></div>
-          </div>
-          <SmsMarketingConsent checkboxId="gallery-hero-sms-consent" />
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </form>
-      </div>
-    </section>
-
     <section class="section secondary-page-section" aria-labelledby="gallery-intro-heading">
       <div class="container page-split page-split--media-end">
         <div class="secondary-prose">
-          <h2 class="section-title section-title-secondary" id="gallery-intro-heading">Gallery across Tampa Bay</h2>
+          <h1 class="section-title section-title-secondary" id="gallery-intro-heading">Gallery across Tampa Bay</h1>
           <p>
             Browse a rotating set of installs from our crews—seamless aluminum, super gutters, copper accents, and downspout runs tied into drainage systems. Every photo is a completed job after final walkthrough and cleanup.
           </p>

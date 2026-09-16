@@ -3,8 +3,7 @@ import BlogListLayout from '../../../components/BlogListLayout.astro'
 import BlogPostGrid from '../../../components/BlogPostGrid.astro'
 import { sanity } from '../../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../../lib/site-settings.js'
-import { heroBackgroundFor } from '../../../lib/hero-backgrounds.js'
-import { asStr, applyTemplate, mediaUrl } from '../../../lib/sanity-strings.js'
+import { asStr, applyTemplate } from '../../../lib/sanity-strings.js'
 import {
   BLOG_POSTS_PER_PAGE,
   fetchAllBlogPosts,
@@ -51,27 +50,13 @@ const logoBlack = asStr(business.logoHorizontalBlack)
 const copyrightHref = asStr(business.copyrightSiteUrl) || '#'
 
 const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay }) || phoneDisplay
-const heroCallLabel = applyTemplate(asStr(homePage?.hero?.callCtaTemplate), { phoneDisplay }) || `Call: ${phoneDisplay}`
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
 
 const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
-const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
-const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'Blog index lead form'
-const universalFormHeading = asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro = asStr(footerEstimate?.intro) || 'Short placeholder form for layout testing.'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
-
-const heroBgSrc = heroBackgroundFor('blog-index')
-const heroBgStyle = heroBgSrc
-  ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
-  : undefined
-
-const heroEyebrow = 'Blog'
-const heroHeadline = 'Gutter tips & guides'
-const heroLead = 'Articles on gutter care, repairs, and protecting your Tampa home.'
 
 const pageParam = asStr(Astro.params?.page)
 const currentPage = Math.max(2, parseInt(pageParam, 10) || 2)
@@ -112,7 +97,6 @@ const introText =
   logoBlack={logoBlack}
   copyrightHref={copyrightHref}
   callLabelNav={callLabelNav}
-  heroCallLabel={heroCallLabel}
   logoAriaLabel={logoAriaLabel}
   navItems={navItems}
   header={header}
@@ -124,21 +108,13 @@ const introText =
   universalFormFields={universalFormFields}
   universalFormAction={universalFormAction}
   universalFormMethod={universalFormMethod}
-  universalFormKicker={universalFormKicker}
-  universalFormAriaLabel={universalFormAriaLabel}
-  universalFormHeading={universalFormHeading}
-  universalFormIntro={universalFormIntro}
   universalRequiredIndicator={universalRequiredIndicator}
-  heroEyebrow={heroEyebrow}
-  heroHeadline={heroHeadline}
-  heroLead={heroLead}
-  heroBgStyle={heroBgStyle}
   formIdPrefix={`blog-p${currentPage}`}
   navDdPrefix="blog"
 >
   <section class="section blog-index-section" id="articles">
     <div class="container">
-      <h2 class="section-title section-title-secondary blog-index-heading">All articles</h2>
+      <h1 class="section-title section-title-secondary blog-index-heading">All articles</h1>
       <p class="blog-index-intro">{introText}</p>
       <BlogPostGrid posts={posts} currentPage={currentPage} totalPages={totalPages} />
     </div>

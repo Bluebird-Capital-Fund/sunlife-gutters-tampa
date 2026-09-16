@@ -10,7 +10,6 @@ import HeaderNavActions from '../../components/HeaderNavActions.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
-import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
 import { asStr, applyTemplate, asStrArray, mediaUrl } from '../../lib/sanity-strings.js'
 
 let settings = {}
@@ -42,29 +41,17 @@ const logoBlack = asStr(business.logoHorizontalBlack)
 const copyrightHref = asStr(business.copyrightSiteUrl) || '#'
 
 const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay }) || phoneDisplay
-const heroCallLabel = applyTemplate(asStr(homePage?.hero?.callCtaTemplate), { phoneDisplay }) || `Call: ${phoneDisplay}`
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
 
 const about = homePage?.about ?? {}
-const heroBgSrc = heroBackgroundFor('about-us')
-const heroBgStyle = heroBgSrc
-  ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
-  : undefined
 
 const pageTitle = 'About Us | SGT'
 const pageDescription = asStr(about?.lead) || 'Learn more about SGT.'
-const heroEyebrow = asStr(about?.eyebrow) || 'About Us'
-const heroHeadline = asStr(about?.headline) || 'Built on Quality and Service'
-const heroLead = asStr(about?.lead) || 'Serving Tampa-area homes and businesses with reliable gutter solutions.'
 
 const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
-const universalFormKicker = asStr(formsCfg?.formKicker) || 'Free Estimate'
-const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'About us lead form'
-const universalFormHeading = asStr(footerEstimate?.headline) || 'Get Started Today'
-const universalFormIntro = asStr(footerEstimate?.intro) || 'Short placeholder form for layout testing.'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 ---
 
@@ -125,36 +112,11 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
   </header>
 
   <main>
-    <section class="hero hero-split">
-      <div class="hero-bg" style={heroBgStyle}></div>
-      <div class="container hero-split-inner">
-        <div class="hero-copy">
-          <div class="hero-eyebrow">{heroEyebrow}</div>
-          <h1>{heroHeadline}</h1>
-          <p class="hero-lead">{heroLead}</p>
-          <div class="hero-actions"><a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg cta1-primary-call">{heroCallLabel}</a></div>
-        </div>
-        <form class="hero-form" data-lead-form="about-hero" action={universalFormAction} method={universalFormMethod} aria-label={universalFormAriaLabel}>
-          <div class="hero-form-heading"><div class="hero-form-kicker">{universalFormKicker}</div><h2>{universalFormHeading}</h2></div>
-          <p class="hero-form-sub">{universalFormIntro}</p>
-          <div class="hero-form-grid">
-            <div class="hero-form-field"><label for="about-name">{asStr(universalFormFields?.nameLabel) || 'Name'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="about-name" name="name" type="text" required autocomplete="name" /></div>
-            <div class="hero-form-field"><label for="about-email">{asStr(universalFormFields?.emailLabel) || 'Email'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="about-email" name="email" type="email" required autocomplete="email" /></div>
-            <div class="hero-form-field"><label for="about-phone">{asStr(universalFormFields?.phoneLabel) || 'Phone'} <span class="required-mark" aria-hidden="true">{universalRequiredIndicator}</span></label><input id="about-phone" name="phone" type="tel" required autocomplete="tel" /></div>
-            <div class="hero-form-field"><label for="about-location">{asStr(universalFormFields?.cityLabel) || 'City'}</label><input id="about-location" name="location" type="text" autocomplete="address-level2" /></div>
-            <div class="hero-form-field hero-form-field-full"><label for="about-message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label><textarea id="about-message" name="message" rows="3"></textarea></div>
-          </div>
-          <SmsMarketingConsent checkboxId="about-hero-sms-consent" />
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </form>
-      </div>
-    </section>
-
     <section class="section about about-video">
       <div class="container about-grid">
         <div class="about-content">
           <div class="about-eyebrow">{asStr(about?.eyebrow)}</div>
-          <h2 class="section-title">{asStr(about?.headline)}</h2>
+          <h1 class="section-title">{asStr(about?.headline)}</h1>
           <p class="about-lead">{asStr(about?.lead)}</p>
           <div class="about-body-copy">
             <p>
