@@ -108,7 +108,6 @@ const serviceAreaCities = POPULAR_SERVICE_AREA_CITIES
 const estimateCtaText = 'Book a Consultation'
 const estimateCtaHref = '#contact'
 const categories = SERVICE_HUB_CATEGORIES
-const lastCategoryIdx = categories.length - 1
 ---
 
 <BaseLayout
@@ -276,13 +275,13 @@ const lastCategoryIdx = categories.length - 1
               <div class="services-hub-box">
                 <nav class="services-hub-links" aria-label={category.heading}>
                   {category.links.map((link) => (
-                    <a href={link.href} class="btn btn-primary services-hub-link">
+                    <a href={link.href} class="services-hub-link">
                       {link.label}
                     </a>
                   ))}
                 </nav>
               </div>
-              {idx === 0 || idx === lastCategoryIdx ? (
+              {idx === 0 ? (
                 <div class="why-choose-actions city-service-ctas">
                   <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{heroCallLabel}</a>
                   <a
@@ -319,6 +318,16 @@ const lastCategoryIdx = categories.length - 1
                   <li>{point}</li>
                 ))}
               </ul>
+            </div>
+            <div class="why-choose-actions city-service-ctas">
+              <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{heroCallLabel}</a>
+              <a
+                href={estimateCtaHref}
+                class="btn btn-outline btn-lg request-estimate"
+                {...externalLinkAttrs(estimateCtaHref)}
+              >
+                {estimateCtaText}
+              </a>
             </div>
           </div>
         </article>
