@@ -56,11 +56,6 @@ const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)
 
 const pageTitle = 'Gutter Blog | SGT'
 const pageDescription = 'Tips, guides, and news about gutters, maintenance, and home protection in Tampa.'
-
-const introText =
-  totalPages > 1
-    ? `Browse every post (${allPosts.length} total). Use Previous / Next or the numbered links below — ${BLOG_POSTS_PER_PAGE} articles per page.`
-    : 'Browse every article below.'
 ---
 
 <BlogListLayout
@@ -98,12 +93,11 @@ const introText =
     <div class="container">
       <h1 class="section-title section-title-secondary blog-index-heading">All articles</h1>
       <div class="blog-index-intro-block">
-        <p>{introText}</p>
         <p>
-          Posts cover seamless installation, gutter guards, soffit and fascia, storm prep, and cost factors specific to Florida homes. Bookmark this page or subscribe to updates from your reader—new guides publish as seasons and products change.
+          Explore our latest articles for practical tips on protecting and improving your home. You'll find guidance on seamless gutters, gutter guards, screen rooms, soffit and fascia, storm preparation, and other topics relevant to homeowners throughout Tampa Bay.
         </p>
         <p>
-          Have a topic you do not see here? Mention it when you request an estimate; customer questions often become the next article.
+          Looking for information on a specific topic? Let us know during your free consultation. We're always happy to answer your questions and create helpful resources based on what homeowners want to know.
         </p>
       </div>
       <BlogPostGrid posts={posts} currentPage={currentPage} totalPages={totalPages} />

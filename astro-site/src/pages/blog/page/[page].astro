@@ -74,11 +74,6 @@ const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)
 
 const pageTitle = `Gutter blog — page ${currentPage} | SGT`
 const pageDescription = `Browse gutter articles (page ${currentPage} of ${totalPages}). Tips and guides for Tampa homeowners.`
-
-const introText =
-  totalPages > 1
-    ? `Browse every post (${allPosts.length} total). Use Previous / Next or the numbered links below — ${BLOG_POSTS_PER_PAGE} articles per page.`
-    : 'Browse every article below.'
 ---
 
 <BlogListLayout
@@ -115,7 +110,14 @@ const introText =
   <section class="section blog-index-section" id="articles">
     <div class="container">
       <h1 class="section-title section-title-secondary blog-index-heading">All articles</h1>
-      <p class="blog-index-intro">{introText}</p>
+      <div class="blog-index-intro-block">
+        <p>
+          Explore our latest articles for practical tips on protecting and improving your home. You'll find guidance on seamless gutters, gutter guards, screen rooms, soffit and fascia, storm preparation, and other topics relevant to homeowners throughout Tampa Bay.
+        </p>
+        <p>
+          Looking for information on a specific topic? Let us know during your free consultation. We're always happy to answer your questions and create helpful resources based on what homeowners want to know.
+        </p>
+      </div>
       <BlogPostGrid posts={posts} currentPage={currentPage} totalPages={totalPages} />
     </div>
   </section>
