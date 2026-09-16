@@ -505,6 +505,34 @@ const serviceAreaCities = isLp
   : POPULAR_SERVICE_AREA_CITIES
 const teamHeadline = isLp ? asStr(team?.headline) : homepageHeadlines.team
 const faqHeadline = isLp ? `Tampa ${lpKeyword} questions answered` : homepageHeadlines.faq
+const homepageFaqItems = [
+  {
+    question: 'What size gutters are best for homes in Tampa?',
+    answerHtml:
+      'For many Tampa homes, 6-inch gutters are a good choice because their higher capacity helps manage the heavy rainfall common in the area. Five-inch gutters can still work well for smaller or simpler rooflines. The best size depends on roof area, pitch, valleys, downspout capacity, and drainage layout. We consider these factors to make sure the system can handle runoff effectively.',
+  },
+  {
+    question: 'Are seamless gutters better for Tampa homes?',
+    answerHtml:
+      'Seamless gutters are a good option for Tampa homes because they have fewer joints along each run, reducing potential areas for leaks to develop. They are formed to fit the roofline and can provide consistent drainage during Tampa’s frequent heavy rain. Seams are still necessary at corners and certain connections, but fewer joints generally mean fewer potential weak points throughout the gutter system.',
+  },
+  {
+    question: 'Can you add gutters to a Tampa house that has never had them?',
+    answerHtml:
+      'Yes. Gutters can be added to most Tampa homes even if the house was originally built without them. We look at the roofline, fascia condition, runoff patterns, and suitable downspout locations to design an effective drainage system. This is particularly important in Tampa, where heavy rainfall can send significant roof runoff toward foundations, landscaping, patios, walkways, and other areas around the property.',
+  },
+  {
+    question: 'How do I know if my gutters need repair or replacement in Tampa?',
+    answerHtml:
+      'Tampa gutters can often be repaired when the problem involves a small leak, loose fastener, separated joint, or isolated damage. Replacement may be better for widespread corrosion, sagging, recurring leaks, or gutters pulling away from the fascia. During an inspection, we assess the entire system, including drainage and downspouts, to determine whether repair or replacement makes the most sense for your Tampa home.',
+  },
+  {
+    question: 'Are gutter guards worth it for Tampa homes?',
+    answerHtml:
+      'Gutter guards can be worthwhile for Tampa homes, especially properties with nearby trees that regularly shed leaves, pine needles, seeds, and other debris. They help reduce debris buildup so water can move more freely through the system during heavy rainfall. Gutter guards do not eliminate maintenance completely, though. We still recommend periodic inspections and cleaning to keep gutters and downspouts working properly in Tampa’s rainy climate.',
+  },
+]
+const faqItems = isLp ? (Array.isArray(faq?.items) ? faq.items : []) : homepageFaqItems
 const lpFormMainHeading = isLp ? 'Book Your Free Consultation' : homepageHeadlines.footerEstimate
 
 const offerBarTextBefore = lpSeasonCopy(offerBar?.textBeforeDiscount)
@@ -1325,7 +1353,7 @@ const serviceHref = (svc) => {
             {faqHeadline}
           </h2>
           <div class="faq-list" data-faq-accordion>
-            {faq?.items?.map((item, idx) => {
+            {faqItems.map((item, idx) => {
               const n = idx + 1
               const btnId = `faq-btn-${n}`
               const panelId = `faq-panel-${n}`
