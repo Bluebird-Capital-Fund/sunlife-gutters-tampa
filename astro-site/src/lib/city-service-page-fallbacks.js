@@ -2841,7 +2841,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>If your <a href="/">gutters in Tampa</a> also needs ongoing care, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, 10% off additional services, and 25% off extra cleanings.</p>`,
+<p>If your <a href="/">gutters in Tampa</a> also needs ongoing care, our maintenance plans include two professional cleanings each year, an <a href="/gutter-inspection-tampa-fl/">annual Tampa gutter inspection</a> and tune-up, priority service, 10% off additional services, and 25% off extra cleanings.</p>`,
       },
     ],
     faq: {
