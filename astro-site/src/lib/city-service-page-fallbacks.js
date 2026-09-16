@@ -1248,6 +1248,7 @@ export const cityServicePageFallbacks = {
 <li>Updates to aging or poorly performing systems</li>
 </ul>
 <p>If you aren't sure whether your system has reached that point, a <a href="/gutter-inspection-tampa-fl/">gutter inspection in Tampa</a> can give you a better idea of its overall condition before you decide. We'll show you where the problems are and whether they can reasonably be repaired.</p>
+<p>A gutter replacement also gives you the opportunity to <a href="/custom-gutters-tampa-fl/">upgrade to Tampa custom gutters</a> for a better fit and improved curb appeal. You can also choose from a <a href="/gutter-colors-options-tampa-fl/">range of gutter color options in Tampa</a> to create a seamless look that complements your home's exterior.</p>
 <p>For properties that collect a lot of leaves, pine needles, seed pods, or other debris, we can discuss <a href="/gutter-guards-tampa-fl/">Tampa gutter guards</a> and whether they make sense for the trees and roofline around your property.</p>`,
       },
       {
