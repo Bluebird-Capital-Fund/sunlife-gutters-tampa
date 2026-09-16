@@ -126,7 +126,8 @@ function normalizeHref(href) {
   if (trimmed === '/cortez-florida/' || trimmed === '/locations/cortez-florida/') {
     return '/service-area/gutters-cortez-fl/'
   }
-  if (trimmed === '/services/' || trimmed === '/services') return '/seamless-gutters-tampa-fl/'
+  // Keep bare /services/ as the hub page; only remap nested legacy /services/:slug/ paths.
+  if (trimmed === '/services/' || trimmed === '/services') return '/services/'
   if (trimmed === '/projects/' || trimmed === '/projects') return '/gallery/'
   const servicesPrefixMatch = trimmed.match(/^\/services\/([^/]+)\/?$/)
   if (servicesPrefixMatch) return `/${servicesPrefixMatch[1]}/`
