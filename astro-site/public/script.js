@@ -366,10 +366,9 @@
   }
 
   // FAQ accordion — JS max-height animation (reliable every toggle; native <details> fights CSS height)
-  var faqRoot = document.querySelector('[data-faq-accordion]');
-  if (faqRoot) {
-    var faqItems = Array.prototype.slice.call(faqRoot.querySelectorAll('.faq-item'));
-
+  // Support multiple [data-faq-accordion] roots (e.g. /faqs/ category sections).
+  var faqRoots = Array.prototype.slice.call(document.querySelectorAll('[data-faq-accordion]'));
+  if (faqRoots.length) {
     function faqOuter(item) {
       return item.querySelector('.faq-answer-outer');
     }
@@ -438,22 +437,30 @@
       });
     }
 
-    faqItems.forEach(function (item) {
-      faqOuter(item).style.maxHeight = '0px';
-    });
+    var allFaqItems = [];
 
-    faqItems.forEach(function (item) {
-      faqBtn(item).addEventListener('click', function () {
-        if (item.classList.contains('is-open')) {
-          faqClose(item);
-          return;
-        }
-        faqItems.forEach(function (other) {
-          if (other !== item && other.classList.contains('is-open')) {
-            faqClose(other);
+    faqRoots.forEach(function (faqRoot) {
+      var faqItems = Array.prototype.slice.call(faqRoot.querySelectorAll('.faq-item'));
+      allFaqItems = allFaqItems.concat(faqItems);
+
+      faqItems.forEach(function (item) {
+        faqOuter(item).style.maxHeight = '0px';
+      });
+
+      faqItems.forEach(function (item) {
+        faqBtn(item).addEventListener('click', function () {
+          if (item.classList.contains('is-open')) {
+            faqClose(item);
+            return;
           }
+          // Close any open item across all FAQ sections on the page.
+          allFaqItems.forEach(function (other) {
+            if (other !== item && other.classList.contains('is-open')) {
+              faqClose(other);
+            }
+          });
+          faqOpen(item);
         });
-        faqOpen(item);
       });
     });
 
@@ -461,7 +468,7 @@
     window.addEventListener('resize', function () {
       clearTimeout(faqResizeTimer);
       faqResizeTimer = setTimeout(function () {
-        faqItems.forEach(function (item) {
+        allFaqItems.forEach(function (item) {
           if (!item.classList.contains('is-open')) return;
           var outer = faqOuter(item);
           var inner = faqInner(item);
