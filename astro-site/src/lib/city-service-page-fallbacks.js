@@ -2543,6 +2543,7 @@ export const cityServicePageFallbacks = {
 <li>Commercial downspout services</li>
 </ul>
 <p>Some properties need to carry runoff farther than a standard above-ground discharge can reasonably take it. In those situations, <a href="/underground-drainage-tampa-fl/">Tampa underground drainage</a> may provide a better way to move water toward a more suitable discharge area.</p>
+<p>If water regularly collects in low areas of your yard, <a href="/french-drains-tampa-fl/">professional French drains in Tampa</a> can help capture and redirect runoff for improved drainage throughout your property.</p>
 <p>Appearance matters too, especially when downspouts run across highly visible exterior walls. When reviewing <a href="/gutter-colors-options-tampa-fl/">gutter color options in Tampa</a>, we can also consider whether the downspouts should coordinate with the gutters, siding, stucco, trim, or other exterior finishes.</p>`,
       },
       {
