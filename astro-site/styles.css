@@ -4993,6 +4993,26 @@ form[data-lead-form] button[type="submit"].is-busy {
   margin-bottom: var(--space-3xl);
 }
 
+@media (min-width: 880px) {
+  .faq-intro-split.page-split--media-end {
+    grid-template-columns: 1fr minmax(220px, 0.72fr);
+    align-items: stretch;
+  }
+}
+
+.faq-intro .page-split__media--portrait {
+  height: 100%;
+  display: flex;
+}
+
+.faq-intro .page-split__media--portrait img {
+  aspect-ratio: 3 / 4;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .reviews-page-intro {
   margin-bottom: var(--space-3xl);
 }
