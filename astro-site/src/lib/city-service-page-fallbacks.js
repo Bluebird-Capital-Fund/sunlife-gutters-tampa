@@ -581,7 +581,7 @@ export const cityServicePageFallbacks = {
 <li>Super gutter repair</li>
 <li>Pool cage gutter solutions</li>
 <li>Screen enclosure gutter systems</li>
-<li>Downspout installation and replacement</li>
+<li><a href="/downspouts-tampa-fl/">Tampa downspout installation and replacement</a></li>
 <li>Drainage and water-flow corrections</li>
 <li>Residential and commercial applications</li>
 </ul>
@@ -617,7 +617,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>We also offer maintenance plans for customers who want ongoing help keeping their gutter system clean and working properly. Plans include two professional cleanings per year, an annual inspection and tune-up, priority service, and discounts on additional services.</p>`,
+<p>We also offer <a href="/gutter-maintenance-tampa-fl/">gutter maintenance plans in Tampa</a> for customers who want ongoing help keeping their gutter system clean and working properly. Plans include two <a href="/gutter-cleaning-tampa-fl/">professional Tampa gutter cleanings</a> per year, an annual inspection and tune-up, priority service, and discounts on additional services.</p>`,
       },
     ],
     faq: {
