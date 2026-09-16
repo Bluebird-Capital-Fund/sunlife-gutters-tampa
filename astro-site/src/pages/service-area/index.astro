@@ -313,7 +313,7 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
         <p class="section-lead service-area-intro">
           {asStr(serviceArea?.intro) || 'We serve homeowners and businesses throughout the Tampa metro area.'}
         </p>
-        <div class="page-split page-split--media-end" style="margin-top: var(--space-xl);">
+        <div class="page-split page-split--media-end service-area-page-split">
           <div class="secondary-prose">
             <p>
               Our crews travel from Seffner daily to Tampa, Brandon, Riverview, Clearwater, St. Petersburg, and the surrounding communities listed below. If you are just outside the usual radius—Pasco, southern Polk, or a Gulf beach community—call us anyway; we often extend routes when scheduling allows.
@@ -333,12 +333,8 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
             />
           </figure>
         </div>
-      </div>
-    </section>
 
-    <section class="section service-area service-area-page">
-      <div class="container">
-        <div class="service-area-grid service-area-grid--stacked">
+        <div class="service-area-grid service-area-grid--stacked service-area-page-locations">
           {counties.length > 0 ? (
             <div class="cities-list cities-list--counties">
               <p class="cities-label">Counties We Serve</p>

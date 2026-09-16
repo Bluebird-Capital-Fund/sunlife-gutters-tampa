@@ -1347,6 +1347,32 @@ a.btn-primary[href^="tel:"]:hover {
 }
 
 /* Dedicated Service Area page: horizontal counties above the map */
+.service-area-page-split {
+  margin-top: var(--space-lg);
+}
+
+.service-area-page-locations {
+  margin-top: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.service-area-page-locations .cities-list--counties {
+  margin-bottom: 0;
+}
+
+.service-area-page-locations .cities-list--pills {
+  margin-top: 0;
+}
+
+.service-area-page .cities-nav--pills {
+  gap: 0.32rem 0.36rem;
+}
+
+.service-area-page .cities-nav--pills a {
+  padding: 0.22rem 0.55rem;
+  font-size: 0.78rem;
+}
+
 .counties-nav {
   display: flex;
   flex-direction: row;
