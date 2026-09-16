@@ -1762,7 +1762,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>New commercial gutter installation</li>
 <li>Commercial gutter replacement</li>
-<li>Gutter repairs and adjustments</li>
+<li><a href="/gutter-repair-tampa-fl/">Tampa gutter repairs and adjustments</a></li>
 <li>Downspout installation and replacement</li>
 <li>Drainage improvements</li>
 <li>Gutter cleaning</li>
@@ -1772,6 +1772,7 @@ export const cityServicePageFallbacks = {
 <li>Storm-related gutter work</li>
 </ul>
 <p>For property owners and managers who want to stay ahead of buildup and drainage trouble, <a href="/gutter-maintenance-tampa-fl/">gutter maintenance in Tampa</a> can help keep outlets, downspouts, and gutter runs working consistently throughout the year.</p>
+<p>If severe weather causes unexpected damage, we also provide <a href="/emergency-gutter-repair-tampa-fl/">emergency gutter repair services in Tampa</a> to help restore proper drainage and protect your property as quickly as possible.</p>
 <p>Our team also installs <a href="/residential-gutters-tampa-fl/">Tampa residential gutters</a>, so whether you're managing a business, rental property, or your own home, you'll have one local company you can rely on.</p>`,
       },
       {
