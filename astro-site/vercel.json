@@ -3,6 +3,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": false
+    },
+    {
       "source": "/projects/",
       "destination": "/gallery/",
       "permanent": true
