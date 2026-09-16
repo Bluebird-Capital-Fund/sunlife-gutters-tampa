@@ -336,7 +336,7 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
       </div>
     </section>
 
-    <section class="section service-area">
+    <section class="section service-area service-area-page">
       <div class="container">
         <div class="service-area-grid service-area-grid--stacked">
           {counties.length > 0 ? (
@@ -349,6 +349,14 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
               </ul>
             </div>
           ) : null}
+          <div class="cities-list cities-list--pills">
+            <p class="cities-label">Cities We Serve</p>
+            <nav class="cities-nav cities-nav--pills" aria-label="Cities We Serve">
+              {cityLinks.map((city) => (
+                <a href={asStr(city?.href)}>{asStr(city?.name)}</a>
+              ))}
+            </nav>
+          </div>
           <div class="map-wrap">
             <iframe
               src={mapEmbedUrl}
@@ -360,14 +368,6 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
               referrerpolicy="no-referrer-when-downgrade"
               title={mapIframeTitle}
             ></iframe>
-          </div>
-          <div class="cities-list cities-list--pills">
-            <p class="cities-label">Cities We Serve</p>
-            <nav class="cities-nav cities-nav--pills" aria-label="Cities We Serve">
-              {cityLinks.map((city) => (
-                <a href={asStr(city?.href)}>{asStr(city?.name)}</a>
-              ))}
-            </nav>
           </div>
         </div>
       </div>
