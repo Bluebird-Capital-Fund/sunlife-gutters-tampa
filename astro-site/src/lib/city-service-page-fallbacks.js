@@ -1377,7 +1377,7 @@ export const cityServicePageFallbacks = {
 </ul>
 <p>If the existing system has extensive wear or recurring problems, we may recommend addressing <a href="/gutter-replacement-tampa-fl/">Tampa gutter replacement</a> before adding guards. There's little value in installing a new product over gutters that already need to come down.</p>
 <p>We also provide <a href="/gutter-cleaning-tampa-fl/">gutter cleaning in Tampa</a> for systems that need debris removed before installation or for homeowners who prefer to continue with regular professional cleaning instead. If guards aren't the right fit for your property, we'll tell you that too.</p>
-<p>The point is to make maintenance easier, not sell you something simply because we offer it.</p>`,
+<p>The point is to make <a href="/gutter-maintenance-tampa-fl/">Tampa gutter maintenance easier</a>, not sell you something simply because we offer it.</p>`,
       },
       {
         heading: 'Why Professional Gutter Guard Installation Matters in Tampa',
