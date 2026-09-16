@@ -445,16 +445,16 @@ export const cityServicePageFallbacks = {
 <p>Our Tampa gutter installation services include:</p>
 <ul>
 <li>New gutter system installation</li>
-<li>Gutter replacement for aging systems</li>
+<li><a href="/gutter-replacement-tampa-fl/">Professional Tampa gutter replacement</a> for aging systems</li>
 <li>Residential gutter installation</li>
 <li>Commercial gutter installation</li>
-<li>Downspout planning and placement</li>
+<li><a href="/downspouts-tampa-fl/">Tampa downspout planning</a> and placement</li>
 <li>Proper gutter sizing and slope</li>
 <li>Custom drainage recommendations</li>
 <li>New construction gutter installation</li>
 </ul>
 <p>Many homeowners also choose to upgrade to <a href="/seamless-gutters-tampa-fl/">seamless gutters in Tampa</a> during installation to reduce potential leak points and create a cleaner appearance along the roofline.</p>
-<p>For homes with pool cages or screen enclosures, we also offer <a href="/super-gutters-tampa-fl/">Tampa super gutters</a>. These heavy-duty structural gutters provide support for the enclosure while helping manage Florida's heavy rainfall and roof runoff.</p>`,
+<p>For homes with pool cages or <a href="/screen-rooms-lanais-tampa-fl/">screen enclosures in Tampa</a>, we also offer <a href="/super-gutters-tampa-fl/">Tampa super gutters</a>. These heavy-duty structural gutters provide support for the enclosure while helping manage Florida's heavy rainfall and roof runoff.</p>`,
       },
       {
         heading: 'Why Choose Professional Gutter Installation in Tampa',
