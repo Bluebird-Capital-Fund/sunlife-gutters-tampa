@@ -47,14 +47,18 @@ const navItems = Array.isArray(header.navItems) ? header.navItems : []
 const about = homePage?.about ?? {}
 
 const pageTitle = 'About Us | SGT'
-const aboutLead =
-  'Founded in December 2018, SunLife began with a simple goal. Husband-and-wife team Kevin and Jessica Stroh wanted to build a company homeowners could count on for honest recommendations, quality workmanship, and a straightforward experience. What started with a single seamless gutter crew has grown into a trusted exterior company serving homeowners and businesses throughout Tampa Bay with seamless and Super Gutters, screen rooms, lanais, soffit and fascia, and drainage solutions.'
-const pageDescription = aboutLead
+const aboutHeadline = 'Built For Tampa Bay Homes and Weather'
+const aboutLeadOpening = 'Founded in December 2018, SunLife began with a simple goal.'
+const aboutLeadRest =
+  'Husband-and-wife team Kevin and Jessica Stroh wanted to build a company homeowners could count on for honest recommendations, quality workmanship, and a straightforward experience. What started with a single seamless gutter crew has grown into a trusted exterior company serving homeowners and businesses throughout Tampa Bay with seamless and Super Gutters, screen rooms, lanais, soffit and fascia, and drainage solutions.'
+const pageDescription = `${aboutLeadOpening} ${aboutLeadRest}`
 const aboutBullets = [
   'Seamless aluminum fabricated on the truck for a perfect fit',
   'Corrosion-resistant hangers spaced for wind off Old Tampa Bay',
   'Color-matched accessories that blend with stucco, siding, or brick',
 ]
+const aboutSideImage =
+  'Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-second-story-gutter-install.webp'
 
 const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
@@ -123,10 +127,11 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
       <div class="container">
         <div class="about-intro-full">
           <div class="about-eyebrow">{asStr(about?.eyebrow)}</div>
-          <h1 class="section-title">{asStr(about?.headline)}</h1>
-          <p class="about-lead">{aboutLead}</p>
+          <h1 class="section-title">{aboutHeadline}</h1>
+          <p class="about-lead">{aboutLeadOpening}</p>
+          <p class="about-lead about-lead-continued">{aboutLeadRest}</p>
         </div>
-        <div class="about-grid">
+        <div class="about-grid about-grid--with-photo">
           <div class="about-content">
             <div class="about-body-copy">
               <p>
@@ -144,13 +149,13 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
           </div>
           <figure class="about-visual about-body-figure">
             <img
-              src={mediaUrl('Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-gutter-system-home.webp')}
-              alt="Seamless gutters and downspouts on a Brandon, FL home roofline"
-              width="640"
-              height="480"
+              src={mediaUrl(aboutSideImage)}
+              alt="Second-story gutter installation on a Brandon, FL home"
+              width="480"
+              height="720"
               loading="lazy"
               decoding="async"
-              class="about-img"
+              class="about-img about-img--portrait"
             />
           </figure>
         </div>
