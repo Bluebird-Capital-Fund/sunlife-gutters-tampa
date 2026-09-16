@@ -8,6 +8,7 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { mergeHeaderFromSettings, CANONICAL_FORM_INTRO } from '../lib/site-settings.js'
@@ -19,6 +20,7 @@ import {
   SERVICE_PAGE_SERVICE_AREA_INTRO,
   POPULAR_SERVICE_AREA_CITIES,
 } from '../lib/service-area-cities.js'
+import { serviceBreadcrumbItems, serviceLabelFromSlug } from '../lib/breadcrumbs.js'
 
 /**
  * City service page renderer used by the root `/{slug}/` route.
@@ -97,6 +99,9 @@ const estimateCtaText = 'Book a Consultation'
 const estimateCtaHref = '#contact'
 const pageH1 = asStr(_cityPage?.headline) || asStr(hero?.headline) || 'Gutter Services in Tampa, FL'
 const pageTitle = asStr(_cityPage?.title) || `${pageH1} | SunLife Gutters Tampa`
+const breadcrumbItems = serviceBreadcrumbItems(
+  serviceLabelFromSlug(slug, asStr(_cityPage?.eyebrow)),
+)
 
 const sectionShowsCtas = (sec) => sec?.showCtas !== false
 const sectionImageAfter = (sec) => asStr(sec?.imagePlacement).toLowerCase() === 'after'
@@ -233,6 +238,7 @@ const serviceHref = (svc) => {
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <section class="hero hero-split">
       <div class="hero-bg" style={heroBgStyle}></div>
       <div class="container hero-split-inner">

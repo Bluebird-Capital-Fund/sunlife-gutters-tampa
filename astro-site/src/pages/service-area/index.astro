@@ -7,12 +7,15 @@ import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItems } from '../../lib/breadcrumbs.js'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
 import { locationPageFallbacks } from '../../lib/location-page-fallbacks.js'
+import { locationLabelFromSlug } from '../../lib/breadcrumbs.js'
 
 const serviceAreaFigureSrc =
   'Media (SGT)/Images (SGT)/sunlife-gutters-valrico-fl-two-story-gutter-installation.webp'
@@ -120,28 +123,7 @@ const countyBySlug = {
 }
 
 function slugToCityName(slug) {
-  const raw = asStr(slug)
-  if (!raw) return ''
-  const overrides = {
-    'land-o-lakes-florida': "Land O' Lakes",
-    'gutters-saint-petersburg-fl': 'Saint Petersburg',
-    'gutters-sun-city-center-fl': 'Sun City Center',
-    'anna-maria-island-florida': 'Anna Maria Island',
-    'lakewood-ranch-florida': 'Lakewood Ranch',
-    'longboat-key-florida': 'Longboat Key',
-    'dade-city-florida': 'Dade City',
-    'apollo-beach-fl': 'Apollo Beach',
-    'wesley-chapel-florida': 'Wesley Chapel',
-  }
-  if (overrides[raw]) return overrides[raw]
-  return raw
-    .replace(/^gutters-/, '')
-    .replace(/-florida$/, '')
-    .replace(/-fl$/, '')
-    .split('-')
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
+  return locationLabelFromSlug(slug)
 }
 
 function countyForLocation(row) {
@@ -227,6 +209,7 @@ const counties = Array.from(
 ).sort((a, b) => a.localeCompare(b))
 
 const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
+const breadcrumbItems = simpleBreadcrumbItems('Service Area')
 ---
 
 <BaseLayout
@@ -306,6 +289,7 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <section class="section service-area service-area-page" id="service-area">
       <div class="container">
         <div class="why-eyebrow">{asStr(serviceArea?.eyebrow) || 'Service Area'}</div>

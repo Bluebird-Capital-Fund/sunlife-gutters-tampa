@@ -7,10 +7,12 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../lib/site-settings.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
+import { breadcrumbItemsFromPath } from '../lib/breadcrumbs.js'
 
 const {
   title,
@@ -18,6 +20,8 @@ const {
   navDdPrefix = 'page',
   /** When set, overrides Sanity `business.companyName` for visible branding on this page. */
   companyNameDisplay = '',
+  /** Optional override label for the current breadcrumb crumb. */
+  breadcrumbLabel = '',
 } = Astro.props
 
 let settings = {}
@@ -55,6 +59,10 @@ const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
+const breadcrumbItems = breadcrumbItemsFromPath(
+  Astro.url.pathname,
+  typeof breadcrumbLabel === 'string' ? breadcrumbLabel.trim() : '',
+)
 ---
 
 <BaseLayout
@@ -119,6 +127,8 @@ const pageIdPrefix = `std-${String(navDdPrefix).replace(/[^a-z0-9-]/gi, '_')}`
       </div>
     </div>
   </header>
+
+  <Breadcrumbs items={breadcrumbItems} />
 
   <slot />
 

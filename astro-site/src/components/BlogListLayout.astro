@@ -10,9 +10,11 @@ import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { asStr, mediaUrl } from '../lib/sanity-strings.js'
+import { breadcrumbItemsFromPath, simpleBreadcrumbItems } from '../lib/breadcrumbs.js'
 
 const {
   pageTitle,
@@ -44,7 +46,14 @@ const {
   universalRequiredIndicator,
   formIdPrefix,
   navDdPrefix = 'blog',
+  breadcrumbLabel = '',
+  breadcrumbPage = '',
 } = Astro.props
+
+const breadcrumbItems =
+  breadcrumbPage
+    ? simpleBreadcrumbItems(String(breadcrumbPage), { label: 'Blog', href: '/blog/' })
+    : breadcrumbItemsFromPath('/blog/', typeof breadcrumbLabel === 'string' ? breadcrumbLabel : 'Blog')
 ---
 
 <BaseLayout
@@ -128,6 +137,7 @@ const {
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <slot />
   </main>
 

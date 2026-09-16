@@ -9,6 +9,7 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings, CANONICAL_FORM_INTRO } from '../lib/site-settings.js'
@@ -27,6 +28,7 @@ import { gutterGuardsReviews, chunkReviews } from '../lib/lp-gutter-guards-revie
 import { gutterInstallationReviews } from '../lib/lp-gutter-installation-reviews.js'
 import { gutterRepairReviews } from '../lib/lp-gutter-repair-reviews.js'
 import { guttersReviews } from '../lib/lp-gutters-reviews.js'
+import { simpleBreadcrumbItems, titleCaseSlugPart } from '../lib/breadcrumbs.js'
 import {
   HOMEPAGE_SERVICE_AREA_INTRO,
   POPULAR_SERVICE_AREA_CITIES,
@@ -162,6 +164,9 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
 const lpKeyword = (lp?.keyword && String(lp.keyword).trim()) || ''
 const lpSlug = (lp?.slug && String(lp.slug).trim()) || ''
 const isLp = !!(lp && lpKeyword && lpSlug)
+const lpBreadcrumbItems = isLp
+  ? simpleBreadcrumbItems(titleCaseSlugPart(lpSlug) || asStr(lpKeyword))
+  : []
 const whyStampLine2 = isLp ? asStr(whyStamp?.line2) : 'Tampa Bay, Florida'
 const whyStampLine3 = isLp
   ? asStr(whyStamp?.line3)
@@ -772,6 +777,7 @@ const serviceHref = (svc) => {
   <div id="header-nav-spacer" class="header-nav-spacer" aria-hidden="true"></div>
 
   <main>
+    {isLp ? <Breadcrumbs items={lpBreadcrumbItems} /> : null}
     <section
       class:list={[
         'hero',

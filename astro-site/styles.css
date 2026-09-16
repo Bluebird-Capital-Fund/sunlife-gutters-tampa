@@ -1252,6 +1252,65 @@ a.btn-primary[href^="tel:"]:hover {
   margin: var(--space-xl) 0 0;
 }
 
+.breadcrumbs {
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, #fff);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.55rem 0;
+}
+
+.breadcrumbs-inner {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+
+.breadcrumbs-item {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbs-sep {
+  margin: 0 0.45rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.breadcrumbs-link {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumbs-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.breadcrumbs-current {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Hero pages: keep crumbs readable above the split hero */
+main > .breadcrumbs {
+  position: relative;
+  z-index: 2;
+}
+
 .services-hub-content .services-hub-category {
   margin-top: var(--space-lg);
 }

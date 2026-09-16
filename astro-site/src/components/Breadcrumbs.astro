@@ -1,0 +1,45 @@
+---
+import { externalLinkAttrs } from '../lib/external-link.js'
+import { asStr } from '../lib/sanity-strings.js'
+
+/**
+ * @typedef {{ label: string, href?: string }} BreadcrumbItem
+ * @type {{ items?: BreadcrumbItem[] }}
+ */
+const { items = [] } = Astro.props
+
+const crumbs = (Array.isArray(items) ? items : [])
+  .map((item) => ({
+    label: asStr(item?.label).trim(),
+    href: asStr(item?.href).trim(),
+  }))
+  .filter((item) => item.label)
+
+const lastIdx = crumbs.length - 1
+---
+
+{crumbs.length > 1 ? (
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container breadcrumbs-inner">
+      <ol class="breadcrumbs-list">
+        {crumbs.map((item, idx) => {
+          const isCurrent = idx === lastIdx || !item.href
+          return (
+            <li class="breadcrumbs-item">
+              {idx > 0 ? <span class="breadcrumbs-sep" aria-hidden="true">/</span> : null}
+              {isCurrent ? (
+                <span class="breadcrumbs-current" aria-current="page">
+                  {item.label}
+                </span>
+              ) : (
+                <a href={item.href} class="breadcrumbs-link" {...externalLinkAttrs(item.href)}>
+                  {item.label}
+                </a>
+              )}
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  </nav>
+) : null}

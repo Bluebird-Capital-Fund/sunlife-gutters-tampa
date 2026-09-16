@@ -12,6 +12,7 @@ import FooterSmsDisclosure from '../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../components/HeaderNavActions.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
 import { sanity } from '../lib/sanity.js'
@@ -20,6 +21,7 @@ import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { cityServicePageFallback, cityServicePageFallbacks } from '../lib/city-service-page-fallbacks.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../lib/sanity-strings.js'
+import { simpleBreadcrumbItems, titleCaseSlugPart } from '../lib/breadcrumbs.js'
 
 export async function getStaticPaths() {
   try {
@@ -132,6 +134,8 @@ const blogAuthorBio =
   `${asStr(business.companyNameShort) || companyName} is a family-owned Tampa gutter company with decades of experience in installation, repair, replacement, and gutter guards across Tampa Bay.`
 
 const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
+const blogCrumbLabel = asStr(post?.headline) || titleCaseSlugPart(slug)
+const breadcrumbItems = simpleBreadcrumbItems(blogCrumbLabel, { label: 'Blog', href: '/blog/' })
 ---
 
 {cityPage ? (
@@ -218,6 +222,7 @@ const idPrefix = `blog-${slug.replace(/[^a-z0-9-]/gi, '_')}`
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <section class="hero hero-split blog-post-hero" aria-label="Article">
       <div class="hero-bg" style={heroBgStyle} />
       <div class="container hero-split-inner">

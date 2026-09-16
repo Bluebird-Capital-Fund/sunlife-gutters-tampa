@@ -8,6 +8,7 @@ import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosur
 import FinancingBanner from '../../components/FinancingBanner.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import {
@@ -33,6 +34,7 @@ import {
   SERVICE_HUB_WHY_INTRO,
   SERVICE_HUB_WHY_POINTS,
 } from '../../lib/services-page-content.js'
+import { simpleBreadcrumbItems } from '../../lib/breadcrumbs.js'
 
 let settings = {}
 let homePage = {}
@@ -108,6 +110,7 @@ const serviceAreaCities = POPULAR_SERVICE_AREA_CITIES
 const estimateCtaText = 'Book a Consultation'
 const estimateCtaHref = '#contact'
 const categories = SERVICE_HUB_CATEGORIES
+const breadcrumbItems = simpleBreadcrumbItems('Services')
 ---
 
 <BaseLayout
@@ -195,6 +198,7 @@ const categories = SERVICE_HUB_CATEGORIES
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <section class="hero hero-split">
       <div class="hero-bg" style={heroBgStyle}></div>
       <div class="container hero-split-inner">

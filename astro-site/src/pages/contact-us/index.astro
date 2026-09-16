@@ -7,6 +7,8 @@ import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosur
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItems } from '../../lib/breadcrumbs.js'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { sanity } from '../../lib/sanity.js'
@@ -58,6 +60,7 @@ const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?
 const universalFormMethod = asStr(footerEstimate?.formMethod) || 'post'
 const universalFormAriaLabel = asStr(formsCfg?.formAriaLabel) || 'Contact lead form'
 const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
+const breadcrumbItems = simpleBreadcrumbItems('Contact Us')
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} theme={settings?.theme} forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}>
@@ -117,6 +120,7 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <h1 class="visually-hidden">Contact Us</h1>
   </main>
 

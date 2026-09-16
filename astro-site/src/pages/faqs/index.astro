@@ -7,6 +7,8 @@ import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItems } from '../../lib/breadcrumbs.js'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage, mergeHeaderFromSettings } from '../../lib/site-settings.js'
@@ -72,6 +74,7 @@ const faqSectionsWithIds = faqSections.map((section, sectionIdx) => {
     }),
   }
 })
+const breadcrumbItems = simpleBreadcrumbItems('FAQs')
 ---
 
 <BaseLayout
@@ -151,6 +154,7 @@ const faqSectionsWithIds = faqSections.map((section, sectionIdx) => {
   </header>
 
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <section class="section secondary-page-section faq-intro" aria-labelledby="faq-intro-heading">
       <div class="container page-split page-split--media-end faq-intro-split">
         <div class="secondary-prose">
