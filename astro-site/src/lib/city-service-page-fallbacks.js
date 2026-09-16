@@ -453,7 +453,7 @@ export const cityServicePageFallbacks = {
 <li>Custom drainage recommendations</li>
 <li>New construction gutter installation</li>
 </ul>
-<p>Many homeowners also choose to upgrade to <a href="/seamless-gutters-tampa-fl/">seamless gutters in Tampa</a> during installation to reduce potential leak points and create a cleaner appearance along the roofline.</p>
+<p>Many homeowners also choose to upgrade to <a href="/seamless-gutters-tampa-fl/">seamless gutters in Tampa</a> during installation to reduce potential leak points and create a cleaner appearance along the roofline. For a more distinctive look, timeless <a href="/copper-gutters-tampa-fl/">copper gutters in Tampa</a> provide lasting beauty that develops a natural patina over time. Elegant <a href="/half-round-gutters-tampa-fl/">half round gutters in Tampa</a> are another popular option, combining classic style with reliable performance.</p>
 <p>For homes with pool cages or <a href="/screen-rooms-lanais-tampa-fl/">screen enclosures in Tampa</a>, we also offer <a href="/super-gutters-tampa-fl/">Tampa super gutters</a>. These heavy-duty structural gutters provide support for the enclosure while helping manage Florida's heavy rainfall and roof runoff.</p>`,
       },
       {
