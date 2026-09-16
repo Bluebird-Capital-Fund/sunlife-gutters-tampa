@@ -748,7 +748,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>We also offer maintenance plans for homeowners who want help staying ahead of gutter buildup around their outdoor spaces. Plans include two professional gutter cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional <a href="/">gutter services in Tampa</a>.</p>`,
+<p>We also offer <a href="/gutter-maintenance-tampa-fl/">Tampa gutter maintenance plans</a> for homeowners who want help staying ahead of gutter buildup around their outdoor spaces. Plans include two professional gutter cleanings each year, an <a href="/gutter-inspection-tampa-fl/">annual gutter inspection in Tampa</a>, priority service, and discounts on additional <a href="/">gutter services in Tampa</a>.</p>`,
       },
     ],
     faq: {
