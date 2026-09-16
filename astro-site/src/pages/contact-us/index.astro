@@ -50,10 +50,8 @@ const callLabelNav = applyTemplate(asStr(header.callCtaTemplate), { phoneDisplay
 const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { companyName }) || companyName
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
 
-const pageTitle = asStr(contactPage?.headline) || 'Contact Us | SGT'
-const pageDescription = asStr(contactPage?.lead) || 'Contact SGT for estimates and service.'
-const pageHeading = asStr(contactPage?.headline) || 'Contact Us'
-const pageLead = asStr(contactPage?.lead) || 'Get in touch for a fast, free estimate.'
+const pageTitle = asStr(contactPage?.meta?.title) || asStr(contactPage?.headline) || 'Contact Us | SGT'
+const pageDescription = asStr(contactPage?.meta?.description) || asStr(contactPage?.lead) || 'Contact SGT for estimates and service.'
 
 const universalFormFields = footerEstimateFields
 const universalFormAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '#'
@@ -119,12 +117,7 @@ const universalRequiredIndicator = asStr(formsCfg?.requiredIndicator) || '*'
   </header>
 
   <main>
-    <section class="section secondary-page-section" aria-labelledby="contact-page-heading">
-      <div class="container">
-        <h1 class="section-title section-title-secondary" id="contact-page-heading">{pageHeading}</h1>
-        <p>{pageLead}</p>
-      </div>
-    </section>
+    <h1 class="visually-hidden">Contact Us</h1>
   </main>
 
   <footer class="footer">
