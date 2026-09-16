@@ -979,7 +979,7 @@ export const cityServicePageFallbacks = {
 <li>Residential gutter repairs</li>
 <li>Commercial gutter repairs</li>
 </ul>
-<p>Not every emergency means you need new gutters. If the damaged area can be repaired and the rest of the system is still doing its job, we'll tell you. When more extensive <a href="/gutter-repair-tampa-fl/">gutter repair in Tampa</a> is needed, we'll explain what we found and which areas should be addressed.</p>
+<p>Our emergency repair services are available for both residential and <a href="/commercial-gutters-tampa-fl/">commercial gutter systems in Tampa</a>. Not every emergency means you need <a href="/gutter-installation-tampa-fl/">new gutters in Tampa</a>. If the damaged area can be repaired and the rest of the system is still doing its job, we'll tell you. When more extensive <a href="/gutter-repair-tampa-fl/">gutter repair in Tampa</a> is needed, we'll explain what we found and which areas should be addressed.</p>
 <p>Keeping an eye on your gutters between storms can save you from an unexpected problem later. Our <a href="/gutter-inspection-tampa-fl/">Tampa gutter inspection</a> service checks drainage, attachment points, downspouts, and overall condition so you know what may need attention.</p>`,
       },
       {
