@@ -2286,8 +2286,8 @@ export const cityServicePageFallbacks = {
 <li>Downspout placement</li>
 <li>Solutions for complex rooflines</li>
 <li>Gutters for additions and covered areas</li>
-<li>Residential gutter systems</li>
-<li>Commercial gutter systems</li>
+<li><a href="/residential-gutters-tampa-fl/">Tampa residential gutter systems</a></li>
+<li><a href="/commercial-gutters-tampa-fl/">Tampa commercial gutter systems</a></li>
 <li>Architectural gutter applications</li>
 <li>Drainage improvements</li>
 <li>Custom downspout configurations</li>
