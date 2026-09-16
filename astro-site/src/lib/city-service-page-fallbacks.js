@@ -1109,9 +1109,10 @@ export const cityServicePageFallbacks = {
 <li>Debris and visible blockages</li>
 <li>Signs of standing water</li>
 <li>Overflow and drainage trouble</li>
-<li>Fascia areas affected by recurring moisture</li>
+<li><a href="/soffit-fascia-repair-tampa-fl/">Fascia and soffit repair recommendations in Tampa</a></li>
+<li><a href="/siding-tampa-fl/">Tampa siding condition</a></li>
 <li>Water discharge around the property</li>
-<li>Residential and commercial gutter systems</li>
+<li>Commercial and <a href="/residential-gutters-tampa-fl/">residential gutter systems in Tampa</a></li>
 </ul>
 <p>Once we've looked everything over, we'll explain what we found in plain language.</p>
 <p>Sometimes that means recommending a small adjustment or repair. Other times, the best advice may simply be to keep an eye on an area and continue routine maintenance. If an aging system has widespread deterioration, we'll explain when <a href="/gutter-replacement-tampa-fl/">gutter replacement in Tampa</a> may make more sense than continuing to repair it.</p>`,
