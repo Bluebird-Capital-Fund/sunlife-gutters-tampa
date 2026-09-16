@@ -2150,7 +2150,7 @@ export const cityServicePageFallbacks = {
       {
         heading: 'Custom Tampa Copper Gutter Installation',
         showCtas: true,
-        body: `<p>Copper deserves careful installation. Small details that might barely be noticeable on another gutter system can stand out when the gutters themselves are an architectural feature.</p>
+        body: `<p>Copper deserves <a href="/gutter-installation-tampa-fl/">careful gutter installation in Tampa</a>. Small details that might barely be noticeable on another gutter system can stand out when the gutters themselves are an architectural feature.</p>
 <p>We start by looking at the roofline, runoff patterns, visible elevations, downspout locations, and the exterior details you want the new system to complement.</p>
 <p>Our Tampa copper gutter work can include:</p>
 <ul>
@@ -2193,7 +2193,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>For customers who want help caring for the system after installation, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
+<p>For customers who want help caring for the system after installation, our maintenance plans include two <a href="/gutter-cleaning-tampa-fl/">professional gutter cleanings in Tampa</a> each year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
       },
     ],
     faq: {
