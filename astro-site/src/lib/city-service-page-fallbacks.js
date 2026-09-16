@@ -1640,7 +1640,7 @@ export const cityServicePageFallbacks = {
 <li>Residential gutter maintenance</li>
 <li>Commercial gutter maintenance</li>
 </ul>
-<p>For properties where debris is the main concern, <a href="/gutter-cleaning-tampa-fl/">Tampa gutter cleaning</a> can clear leaves, pine needles, palm debris, roof grit, and buildup that may be restricting water flow.</p>
+<p>For properties where debris is the main concern, <a href="/gutter-cleaning-tampa-fl/">Tampa gutter cleaning</a> can clear leaves, pine needles, palm debris, roof grit, and buildup that may be restricting water flow. If debris is a recurring problem, we can also discuss <a href="/gutter-guards-tampa-fl/">Tampa gutter guards to help reduce buildup</a> and make routine maintenance easier throughout the year.</p>
 <p>We also maintain <a href="/commercial-gutters-tampa-fl/">commercial gutters in Tampa</a>, where larger roof areas, difficult-to-access sections, and high volumes of runoff can make consistent upkeep especially important. Keeping those systems on a regular maintenance schedule can make it easier to spot developing drainage issues before they interfere with the property.</p>`,
       },
       {
@@ -1649,7 +1649,7 @@ export const cityServicePageFallbacks = {
         imagePlacement: 'after',
         imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-gutters-lp-difference.png',
         imageAlt: 'Gutter system on a Tampa Bay home ready for seasonal weather',
-        body: `<p>A lot can change between the day your gutters are installed and the next time you think about them. Fasteners can gradually loosen. Debris can settle around an outlet. A downspout can shift. A section that once drained normally can start holding a small amount of water. None of those issues may seem urgent on a dry day.</p>
+        body: `<p>A lot can change between the day your gutters are installed and the next time you think about them. Even <a href="/seamless-gutters-tampa-fl/">custom seamless gutters in Tampa</a> benefit from routine maintenance to keep them performing at their best year after year. Fasteners can gradually loosen. Debris can settle around an outlet. A downspout can shift. A section that once drained normally can start holding a small amount of water. None of those issues may seem urgent on a dry day.</p>
 <p>Then Tampa gets several inches of rain over a short period, and the weak spot becomes obvious.</p>
 <p>Routine maintenance gives you a chance to deal with those smaller changes before the system is under its heaviest workload. It also helps keep water moving toward the downspouts and away from areas where repeated overflow can affect fascia, siding, landscaping, walkways, or soil around the property.</p>`,
       },
