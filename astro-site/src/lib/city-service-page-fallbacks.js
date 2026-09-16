@@ -2045,7 +2045,7 @@ export const cityServicePageFallbacks = {
         body: `<p>A beautiful gutter doesn't help much if water keeps overshooting it.</p>
 <p>Tampa's summer storms can send roof runoff into the system quickly, so sizing and positioning matter. A steep roof, long roof section, or valley can concentrate water into areas that need additional attention when the system is planned.</p>
 <p>Downspouts are another part of the picture. Their locations should make sense for both drainage and appearance, especially on a home where the gutters were chosen partly for their architectural character.</p>
-<p>Installation details matter visually as well. Half round gutters have a more exposed profile, which means brackets, downspouts, alignment, and transitions can become noticeable parts of the exterior instead of fading into the background.</p>
+<p><a href="/gutter-installation-tampa-fl/">Expert Tampa gutter installation</a> details matter visually as well. Half round gutters have a more exposed profile, which means brackets, downspouts, alignment, and transitions can become noticeable parts of the exterior instead of fading into the background.</p>
 <p>We consider all of those details together. The idea is to end up with a gutter system that feels like it belongs on the property while still doing what Tampa weather requires it to do when the rain gets heavy.</p>`,
       },
       {
@@ -2066,7 +2066,7 @@ export const cityServicePageFallbacks = {
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
 </ul>
-<p>For homeowners who want ongoing help after installation, our maintenance plans include two professional cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
+<p>For homeowners who want ongoing help after installation, our <a href="/gutter-maintenance-tampa-fl/">routine maintenance plans in Tampa</a> include two professional cleanings each year, an annual inspection and tune-up, priority service, and discounts on additional services and extra cleanings.</p>`,
       },
     ],
     faq: {
