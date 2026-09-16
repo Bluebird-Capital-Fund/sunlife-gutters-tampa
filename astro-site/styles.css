@@ -1346,17 +1346,28 @@ a.btn-primary[href^="tel:"]:hover {
   color: #fff;
 }
 
-/* Dedicated Service Area page only (homepage .service-area keeps column nav) */
-.service-area-page .cities-nav {
+/* Dedicated Service Area page: horizontal counties above the map */
+.counties-nav {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: center;
+  gap: 0.4rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.service-area-page .cities-nav span {
+.counties-nav li {
   color: var(--color-text);
   font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.counties-nav li:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 /* FAQ */

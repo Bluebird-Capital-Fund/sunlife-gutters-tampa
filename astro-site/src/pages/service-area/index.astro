@@ -122,6 +122,18 @@ const countyBySlug = {
 function slugToCityName(slug) {
   const raw = asStr(slug)
   if (!raw) return ''
+  const overrides = {
+    'land-o-lakes-florida': "Land O' Lakes",
+    'gutters-saint-petersburg-fl': 'Saint Petersburg',
+    'gutters-sun-city-center-fl': 'Sun City Center',
+    'anna-maria-island-florida': 'Anna Maria Island',
+    'lakewood-ranch-florida': 'Lakewood Ranch',
+    'longboat-key-florida': 'Longboat Key',
+    'dade-city-florida': 'Dade City',
+    'apollo-beach-fl': 'Apollo Beach',
+    'wesley-chapel-florida': 'Wesley Chapel',
+  }
+  if (overrides[raw]) return overrides[raw]
   return raw
     .replace(/^gutters-/, '')
     .replace(/-florida$/, '')
@@ -326,37 +338,37 @@ const cityLinks = cityPages.length > 0 ? cityPages : serviceCities
 
     <section class="section service-area">
       <div class="container">
-        <div class="cities-list">
-          <p class="cities-label">{asStr(serviceArea?.citiesLabel) || 'Cities we serve'}</p>
-          <nav class="cities-nav" aria-label={asStr(serviceArea?.citiesNavAriaLabel) || 'Cities we serve'}>
-            {cityLinks.map((city, i) => (
-              <span>
-                {i > 0 ? <span aria-hidden="true">, </span> : null}
+        <div class="service-area-grid service-area-grid--stacked">
+          {counties.length > 0 ? (
+            <div class="cities-list cities-list--counties">
+              <p class="cities-label">Counties We Serve</p>
+              <ul class="counties-nav" aria-label="Counties We Serve">
+                {counties.map((county) => (
+                  <li>{county}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <div class="map-wrap">
+            <iframe
+              src={mapEmbedUrl}
+              width="600"
+              height="420"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={mapIframeTitle}
+            ></iframe>
+          </div>
+          <div class="cities-list cities-list--pills">
+            <p class="cities-label">Cities We Serve</p>
+            <nav class="cities-nav cities-nav--pills" aria-label="Cities We Serve">
+              {cityLinks.map((city) => (
                 <a href={asStr(city?.href)}>{asStr(city?.name)}</a>
-              </span>
-            ))}
-          </nav>
-          <p class="cities-label" style="margin-top:1rem;">Counties we cover</p>
-          <nav class="cities-nav" aria-label="Counties we serve">
-            {counties.map((county, i) => (
-              <span>
-                {i > 0 ? <span aria-hidden="true">, </span> : null}
-                <span>{county}</span>
-              </span>
-            ))}
-          </nav>
-        </div>
-        <div class="map-wrap" style="margin-top:1.5rem;">
-          <iframe
-            src={mapEmbedUrl}
-            width="600"
-            height="420"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={mapIframeTitle}
-          ></iframe>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </section>
