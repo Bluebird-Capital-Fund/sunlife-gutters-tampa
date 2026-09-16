@@ -458,9 +458,25 @@ export async function getSiteSettings() {
       ? singleton.mapEmbedUrl.trim()
       : '')
 
+  const reviewsMerged = singleton?.reviews ?? linksSource?.reviews
+  const reviewValuesMerged =
+    reviewsMerged?.reviewValues && typeof reviewsMerged.reviewValues === 'object'
+      ? reviewsMerged.reviewValues
+      : {}
+
   siteSettingsCache = {
     ...singleton,
-    reviews: singleton?.reviews ?? linksSource?.reviews,
+    reviews: reviewsMerged
+      ? {
+          ...reviewsMerged,
+          // Keep AggregateRating + on-page Google snapshot aligned (4.9 / 247).
+          reviewValues: {
+            ...reviewValuesMerged,
+            reviewsRating: '4.9',
+            reviewsCount: '247',
+          },
+        }
+      : reviewsMerged,
     header: normalizeHeader(mergedHeader ?? singleton?.header) ?? {},
     footerEstimate: normalizeFooterEstimate(linksSource?.footerEstimate ?? singleton?.footerEstimate),
     footerBrand: linksSource?.footerBrand ?? singleton?.footerBrand,

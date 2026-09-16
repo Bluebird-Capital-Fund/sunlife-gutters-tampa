@@ -83,7 +83,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial drainage experience</li>
 <li>Familiarity with Tampa's heavy rainfall</li>
@@ -215,7 +215,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial drainage experience</li>
 <li>Familiarity with Tampa rainfall and local property conditions</li>
@@ -347,7 +347,7 @@ export const cityServicePageFallbacks = {
         body: `<p>When you choose SunLife Gutters Tampa, you're choosing a team that values doing things the right way. We believe in honest recommendations, quality workmanship, and keeping you informed from your first consultation to the final walkthrough.</p>
 <ul>
 <li>Family-owned company based in Seffner</li>
-<li>4.9-star Google rating from more than 230 reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Serving Tampa Bay for over 7 years</li>
 <li>Honest recommendations without unnecessary upselling</li>
@@ -473,7 +473,7 @@ export const cityServicePageFallbacks = {
         body: `<p>When you choose SunLife Gutters Tampa, you're choosing a team that values doing things the right way. We believe every property deserves honest recommendations, quality workmanship, and a stress-free experience from your first consultation through the final walkthrough.</p>
 <ul>
 <li>Family-owned company based in Seffner</li>
-<li>4.9-star Google rating from more than 230 reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Serving Tampa Bay for over 7 years</li>
 <li>Honest recommendations without unnecessary upselling</li>
@@ -606,7 +606,7 @@ export const cityServicePageFallbacks = {
         body: `<p>Some companies may be quick to recommend replacement. At SunLife Gutters Tampa, we start by figuring out what your super gutter actually needs. If the existing system can reasonably be repaired, we'll tell you. If replacement makes more sense, we'll explain why.</p>
 <ul>
 <li>Family-owned company based in Seffner</li>
-<li>4.9-star Google rating from more than 230 reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Experience with Tampa Bay screen enclosures</li>
@@ -737,7 +737,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Friendly, knowledgeable local team</li>
 <li>Quick estimates and prompt callbacks</li>
@@ -869,7 +869,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Repairs recommended when repairs make sense</li>
 <li>No unnecessary upgrades or products</li>
@@ -1000,7 +1000,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Quick estimates and prompt callbacks</li>
 <li>Honest repair recommendations</li>
@@ -1134,7 +1134,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Honest assessments without unnecessary upselling</li>
 <li>Clear explanations of what we find</li>
@@ -1268,7 +1268,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Repair recommended when replacement isn't necessary</li>
 <li>No unnecessary products or upgrades</li>
@@ -1398,7 +1398,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Recommendations based on your actual property</li>
 <li>No unnecessary products or upgrades</li>
@@ -1527,7 +1527,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Honest recommendations without unnecessary upselling</li>
 <li>Residential and commercial service</li>
@@ -1657,7 +1657,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Honest recommendations without unnecessary upselling</li>
 <li>Residential and commercial service</li>
@@ -1790,7 +1790,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned <a href="/">gutter company in Tampa, FL</a></li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial experience</li>
 <li>Quick estimates and prompt callbacks</li>
@@ -1922,7 +1922,7 @@ export const cityServicePageFallbacks = {
         body: `<p>Having someone work on your home should feel straightforward. SunLife Gutters Tampa is a family-owned local company, and we put a lot of value on showing up, communicating clearly, and helping homeowners understand their options without making the process more complicated than it needs to be.</p>
 <ul>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Local experience with Tampa homes and weather</li>
 <li>Quick estimates and prompt callbacks</li>
@@ -2049,7 +2049,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li><a href="/">Tampa gutter contractor</a> based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Experience with Tampa homes and local rainfall</li>
 <li>Attention to both appearance and drainage</li>
@@ -2176,7 +2176,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Attention to architectural details</li>
 <li>Local experience with Tampa rainfall</li>
@@ -2308,7 +2308,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Experienced <a href="/">gutter contractor in Tampa</a></li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Experience with residential and commercial properties</li>
 <li>Solutions planned around the individual property</li>
@@ -2424,7 +2424,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Experience with residential and commercial properties</li>
 <li>Attention to exterior appearance and drainage</li>
@@ -2557,7 +2557,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Experienced <a href="/">gutter contractor in Tampa, FL</a></li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial experience</li>
 <li>Local knowledge of Tampa rainfall and drainage challenges</li>
@@ -2689,7 +2689,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial exterior experience</li>
 <li>Familiarity with Tampa weather conditions</li>
@@ -2822,7 +2822,7 @@ export const cityServicePageFallbacks = {
 <ul>
 <li>Family-owned company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
-<li>4.9-star Google rating from 230+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
 <li>Residential and commercial exterior experience</li>
 <li>Familiarity with Tampa rain, humidity, and storm conditions</li>

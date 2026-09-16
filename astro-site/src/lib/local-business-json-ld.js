@@ -1,11 +1,32 @@
 /**
  * JSON-LD for schema.org HomeAndConstructionBusiness (LocalBusiness).
- * Data from Site settings → Business + Business listings.
+ * Data from Site settings → Business + Business listings, plus canonical locals.
  */
+import { POPULAR_SERVICE_AREA_CITIES } from './service-area-cities.js'
 import { asStr, mediaUrl } from './sanity-strings.js'
 
 /** Matches astro.config.mjs `site` — absolute URLs for image / @id */
 export const CANONICAL_SITE_ORIGIN = 'https://sunlifegutters.com'
+
+/** Canonical NAP used in LocalBusiness JSON-LD (street + city + state + ZIP). */
+export const BUSINESS_SCHEMA_ADDRESS = {
+  streetAddress: '1502 Lenna Ave',
+  addressLocality: 'Seffner',
+  addressRegion: 'FL',
+  postalCode: '33584',
+  addressCountry: 'US',
+}
+
+/** Google rating snapshot for AggregateRating (keep in sync with on-page review UI). */
+export const BUSINESS_SCHEMA_RATING = {
+  ratingValue: '4.9',
+  reviewCount: '247',
+  bestRating: '5',
+  worstRating: '1',
+}
+
+/** Open 24/7 → schema.org openingHours */
+export const BUSINESS_SCHEMA_OPENING_HOURS = 'Mo-Su 00:00-23:59'
 
 /**
  * @param {string} raw
@@ -16,6 +37,21 @@ function normalizeSiteUrl(raw) {
   if (!s) return CANONICAL_SITE_ORIGIN
   if (/^https?:\/\//i.test(s)) return s.replace(/\/+$/, '') || CANONICAL_SITE_ORIGIN
   return `${CANONICAL_SITE_ORIGIN.replace(/\/+$/, '')}/${s.replace(/^\/+/, '')}`
+}
+
+/**
+ * @param {string} url
+ * @param {string} siteOrigin
+ * @returns {boolean}
+ */
+function isOwnSiteUrl(url, siteOrigin) {
+  try {
+    const u = new URL(url)
+    const origin = new URL(siteOrigin)
+    return u.origin === origin.origin
+  } catch {
+    return false
+  }
 }
 
 /**
@@ -34,31 +70,17 @@ export function buildHomeAndConstructionBusinessJsonLd(settings, nameOverride) {
   const url = normalizeSiteUrl(asStr(business.websiteUrl))
   const telephone = asStr(business.phoneDisplay).trim() || formatTelForSchema(asStr(business.phoneTel))
   const email = asStr(business.email).trim()
-  let description =
+  const description =
     asStr(business.descriptionShort).trim() || asStr(business.descriptionLong).trim()
-  const hours = asStr(business.hoursText).trim()
-  if (hours) {
-    description = description ? `${description} ${hours}` : hours
-  }
 
   const logoPath = asStr(business.logoHorizontalBlack) || asStr(business.logoHorizontalWhite)
   const image = logoPath
     ? `${CANONICAL_SITE_ORIGIN.replace(/\/+$/, '')}${mediaUrl(logoPath)}`
     : undefined
 
-  const addressLine = asStr(business.addressShort).trim()
-  /** @type {Record<string, unknown> | undefined} */
-  let address
-  if (addressLine) {
-    address = {
-      '@type': 'PostalAddress',
-      streetAddress: addressLine,
-      addressCountry: 'US',
-    }
-    const locality = asStr(business.addressMetro).trim()
-    if (locality) {
-      address.addressLocality = locality
-    }
+  const address = {
+    '@type': 'PostalAddress',
+    ...BUSINESS_SCHEMA_ADDRESS,
   }
 
   const sameAs = [
@@ -72,9 +94,15 @@ export function buildHomeAndConstructionBusinessJsonLd(settings, nameOverride) {
   ]
     .map((u) => u.trim())
     .filter((u) => /^https?:\/\//i.test(u))
+    .filter((u) => !isOwnSiteUrl(u, url))
+  const sameAsUnique = [...new Set(sameAs)]
 
   const hasMap = asStr(listings.googleMaps).trim()
-  const areaName = asStr(business.addressMetro).trim() || 'Tampa, FL'
+
+  const areaServed = POPULAR_SERVICE_AREA_CITIES.map((city) => ({
+    '@type': 'City',
+    name: city.name,
+  }))
 
   /** @type {Record<string, unknown>} */
   const data = {
@@ -87,13 +115,18 @@ export function buildHomeAndConstructionBusinessJsonLd(settings, nameOverride) {
     ...(email ? { email } : {}),
     ...(description ? { description } : {}),
     ...(image ? { image: { '@type': 'ImageObject', url: image } } : {}),
-    ...(address ? { address } : {}),
-    ...(hasMap ? { hasMap } : {}),
-    ...(sameAs.length ? { sameAs } : {}),
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: areaName,
+    address,
+    openingHours: BUSINESS_SCHEMA_OPENING_HOURS,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: BUSINESS_SCHEMA_RATING.ratingValue,
+      reviewCount: BUSINESS_SCHEMA_RATING.reviewCount,
+      bestRating: BUSINESS_SCHEMA_RATING.bestRating,
+      worstRating: BUSINESS_SCHEMA_RATING.worstRating,
     },
+    ...(hasMap ? { hasMap } : {}),
+    ...(sameAsUnique.length ? { sameAs: sameAsUnique } : {}),
+    areaServed,
   }
 
   const foundingDate = asStr(business.dateOpened).trim()
