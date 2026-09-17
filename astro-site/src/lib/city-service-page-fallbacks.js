@@ -1642,6 +1642,18 @@ export const cityServicePageFallbacks = {
 <p>If routine maintenance uncovers damage or wear, <a href="/gutter-repair-tampa-fl/">our Tampa gutter repair</a> team can make the necessary repairs to keep your system performing as it should.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Gutter Cleaning',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Book your cleaning:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll take a look:</strong> When capacity allows, we'll visit within a few business days to check the gutters, downspouts, debris buildup, and visible drainage concerns.</li>
+<li><strong>Know the cost upfront:</strong> You'll receive a clear written estimate with the scope and total cost before work begins.</li>
+<li><strong>Approve the service:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
+<li><strong>Clear the system:</strong> We'll remove accumulated debris, check the water path, protect your landscaping, and clean up around the work area.</li>
+<li><strong>Wrap things up:</strong> We'll complete a final check, let you know if we noticed anything that may need attention, and provide applicable warranty or follow-up information.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>SunLife Gutters Tampa keeps the process straightforward. We clear the buildup, pay attention to how the system is holding up, and let you know if we see something worth addressing.</p>
