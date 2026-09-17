@@ -77,6 +77,18 @@ export const cityServicePageFallbacks = {
 <p>The surrounding property matters too. Walkways, patios, landscaping, driveways, and low areas can all affect where a drainage line can reasonably travel and where the water should eventually exit. By following the runoff from the roof to the ground and across the property, we can plan a route that makes sense for the site instead of simply putting the visible portion of the problem underground.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Underground Drainage Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Trace the drainage problem:</strong> When capacity allows, we'll visit within a few business days to see where runoff collects, evaluate downspout locations, and identify areas affected by standing water, erosion, or poor drainage.</li>
+<li><strong>Plan the drainage route:</strong> We'll determine how water should move underground and where it can discharge more effectively, then provide a written estimate with the scope, materials, options, and total cost.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
+<li><strong>Install the system:</strong> Project timing depends on the drainage route, property layout, and scope of work. We'll protect your landscaping and surrounding areas and keep the job site as clean and organized as possible.</li>
+<li><strong>Review the completed drainage:</strong> We'll complete a final quality check, clean up project debris, walk through the finished system with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>Drainage can get complicated quickly when water is coming from several places. SunLife Gutters Tampa keeps the conversation practical. We'll look at where the water starts, where it's causing trouble, and what needs to happen between those two points.</p>
