@@ -1499,6 +1499,19 @@ export const cityServicePageFallbacks = {
 <p>No promises that you'll never clean your gutters again. Just a practical way to reduce buildup when the property is a good fit.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Gutter Guard Project',
+        showCtas: false,
+        body: `<p>Gutter guards can reduce the amount of leaves, pine needles, and other debris getting into your gutters, but the right setup depends on your roof, surrounding trees, and existing system.</p>
+<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll check your gutters:</strong> When capacity allows, we'll visit within a few business days to inspect the existing system, water flow, roofline, and the types of debris affecting your property.</li>
+<li><strong>Compare your options:</strong> We'll explain which gutter guard options make sense for your home and provide a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
+<li><strong>Install your gutter guards:</strong> We'll protect your home and landscaping throughout the work and keep the project area clean.</li>
+<li><strong>Check the finished system:</strong> We'll complete a quality check, clean up project debris, walk through the finished work with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>We'd rather set realistic expectations than tell you gutter guards will solve every maintenance problem. SunLife Gutters Tampa will look at your property first and explain whether guards are likely to make a noticeable difference for the debris you're dealing with.</p>
