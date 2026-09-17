@@ -2079,6 +2079,19 @@ export const cityServicePageFallbacks = {
 <p>Tampa's sudden downpours make getting those details right especially important.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Residential Gutter Project',
+        showCtas: false,
+        body: `<p>Your gutters should fit your home, handle the way rain comes off the roof, and direct water away from the areas you want to protect.</p>
+<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Walk your property with us:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and look at drainage around landscaping, patios, walkways, and entrances.</li>
+<li><strong>Choose what works for your home:</strong> We'll explain your options and provide a written estimate with the scope, materials, and total cost, with financing available when helpful.</li>
+<li><strong>Get your project started:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Install your gutters:</strong> Most standard homes can be completed in one day, while larger projects may take longer. We'll protect your home and landscaping and keep the work area clean.</li>
+<li><strong>Review the finished system:</strong> We'll complete a quality check, clean up project debris, walk through the work with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Homeowners Choose SunLife Gutters Tampa',
         showCtas: true,
         body: `<p>Having someone work on your home should feel straightforward. SunLife Gutters Tampa is a Family-founded local company, and we put a lot of value on showing up, communicating clearly, and helping homeowners understand their options without making the process more complicated than it needs to be.</p>
