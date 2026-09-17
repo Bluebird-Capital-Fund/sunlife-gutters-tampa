@@ -80,7 +80,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Underground Drainage Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Trace the drainage problem:</strong> When capacity allows, we'll visit within a few business days to see where runoff collects, evaluate downspout locations, and identify areas affected by standing water, erosion, or poor drainage.</li>
 <li><strong>Plan the drainage route:</strong> We'll determine how water should move underground and where it can discharge more effectively, then provide a written estimate with the scope, materials, options, and total cost.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
@@ -224,7 +224,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa French Drain Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Evaluate the problem areas:</strong> When capacity allows, we'll visit within a few business days to look at where water collects, how the property drains, and which areas are affected by standing water, erosion, or excess moisture.</li>
 <li><strong>Plan the drainage route:</strong> We'll determine where a French drain can collect and redirect water, then provide a written estimate with the scope, materials, options, and total cost.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
@@ -369,7 +369,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>We keep your seamless gutter project simple and well communicated from the first call through installation.</p>
 <ul>
-<li><strong>Free consultation:</strong> Contact us by phone, web, or text. We have a same-day callback culture and aim to arrange site visits within a few business days when capacity allows.</li>
+<li><strong>Free Consultation:</strong> Contact us by phone, web, or text. We have a same-day callback culture and aim to arrange site visits within a few business days when capacity allows.</li>
 <li><strong>Property walkthrough:</strong> We'll measure your roofline, follow the water path, and explain your options, including what works best for Tampa's heavy rain and storm season.</li>
 <li><strong>Written estimate:</strong> You'll receive a clear scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approval and installation:</strong> After authorization and a 25% deposit, we'll prepare your project for installation. Most standard homes can be completed in one day, while larger projects may take longer.</li>
@@ -509,7 +509,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Installing a new gutter system starts with understanding where the rain goes now and where it needs to go instead.</p>
 <ul>
-<li><strong>Tell us what's happening:</strong> Call, text, or send an online inquiry. We follow a same-day callback culture and, when capacity allows, can typically arrange an onsite visit within a few business days.</li>
+<li><strong>Free Consultation:</strong> Call, text, or send an online inquiry. We follow a same-day callback culture and, when capacity allows, can typically arrange an onsite visit within a few business days.</li>
 <li><strong>Plan the system:</strong> At your property, we'll measure the roofline, identify high-runoff areas, and determine gutter sizing, downspout locations, and drainage needs.</li>
 <li><strong>Review your estimate:</strong> We'll provide the proposed scope, materials, options, and total cost in writing, with financing available when helpful.</li>
 <li><strong>Get ready for installation:</strong> Once the project is authorized and the 25% deposit is received, we'll prepare for installation. Most standard homes are completed in one day, with additional time for larger or more involved properties.</li>
@@ -654,7 +654,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Because a Super Gutter helps manage roof runoff while also serving as an attachment point for a pool cage or screen enclosure, we take a close look at how the entire area works together.</p>
 <ul>
-<li><strong>Quick response:</strong> Reach us by phone, text, or web. We have a same-day callback culture and aim for an onsite visit within a few business days when capacity allows.</li>
+<li><strong>Free Consultation:</strong> Reach us by phone, text, or web. We have a same-day callback culture and aim for an onsite visit within a few business days when capacity allows.</li>
 <li><strong>Inspect the enclosure connection:</strong> We'll evaluate the existing Super Gutter, roof runoff, drainage, attachment areas, and how the pool cage or screen enclosure meets the home.</li>
 <li><strong>Go over the plan:</strong> You'll receive a written estimate covering the scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Complete the work:</strong> After authorization and a 25% deposit, we'll prepare the project for installation or replacement and protect the surrounding pool and outdoor areas during the work.</li>
@@ -798,7 +798,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Your outdoor space should work for the way you actually want to use it, so we start by looking at the property and talking through what you'd like to improve.</p>
 <ul>
-<li><strong>Share your ideas:</strong> Call, text, or contact us online to tell us about your patio, lanai, or enclosure project. We have a same-day callback culture and aim for a site visit within a few business days when capacity allows.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online to tell us about your patio, lanai, or enclosure project. We have a same-day callback culture and aim for a site visit within a few business days when capacity allows.</li>
 <li><strong>Walk the space together:</strong> We'll evaluate the project area, take measurements, discuss how you use the space, and identify any drainage or Super Gutter considerations.</li>
 <li><strong>Review your options:</strong> You'll receive a written estimate with the project scope, materials, available options, and total cost, with financing available when helpful.</li>
 <li><strong>Prepare for the project:</strong> After authorization and a 25% deposit, we'll coordinate the work and protect the surrounding patio, landscaping, and outdoor areas.</li>
@@ -943,7 +943,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>A leak or overflow doesn't always start where you see the water, so the first step is figuring out what is actually causing the problem.</p>
 <ul>
-<li><strong>Tell us what you've noticed:</strong> Call, text, or contact us online. Expect a same-day callback and a site visit within a few business days when capacity allows.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. Expect a same-day callback and a site visit within a few business days when capacity allows.</li>
 <li><strong>Find the source:</strong> We'll inspect the problem area, gutter slope, connections, downspouts, attachment points, and water path to identify what needs attention.</li>
 <li><strong>Review the repair:</strong> You'll receive a written estimate outlining the recommended work, materials, options, and total cost.</li>
 <li><strong>Complete the repair:</strong> After authorization and a 25% deposit, we'll complete the approved work while protecting your landscaping and surrounding property.</li>
@@ -1088,7 +1088,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>When a gutter suddenly comes loose, starts leaking heavily, or gets damaged during a Tampa storm, you want to know what happened and what can be done about it as soon as possible.</p>
 <ul>
-<li><strong>Get in touch:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll take a look:</strong> When scheduling allows, we'll arrange a visit as soon as possible to find the source of the problem, check how water is moving, and walk you through your options.</li>
 <li><strong>Know what to expect:</strong> You'll get a written estimate with the work, materials, options, and total cost clearly explained, plus financing options if needed.</li>
 <li><strong>Give us the go-ahead:</strong> Once you're ready to move forward, a 25% deposit secures the project, including jobs financed through GreenSky.</li>
@@ -1236,7 +1236,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>A professional inspection gives you a clearer picture of how the system is performing and what, if anything, should be addressed.</p>
 <ul>
-<li><strong>Book your inspection:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll check the system:</strong> When capacity allows, we'll visit within a few business days to inspect the gutters, hangers, downspouts, water path, and visible signs of wear or damage.</li>
 <li><strong>Understand what we find:</strong> We'll explain how your system is performing, including whether its capacity and attachment are ready for Florida's heavy rain and storm season.</li>
 <li><strong>Review your options:</strong> If work is recommended, you'll receive a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
@@ -1384,7 +1384,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Replacing an older gutter system is a chance to correct recurring drainage problems and plan a new setup around how your property handles Tampa's heavy rain.</p>
 <ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll evaluate your gutters:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, inspect the existing system, follow the water path, and discuss your replacement options.</li>
 <li><strong>Review your estimate:</strong> You'll receive a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
@@ -1527,7 +1527,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Gutter guards can reduce the amount of leaves, pine needles, and other debris getting into your gutters, but the right setup depends on your roof, surrounding trees, and existing system.</p>
 <ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll check your gutters:</strong> When capacity allows, we'll visit within a few business days to inspect the existing system, water flow, roofline, and the types of debris affecting your property.</li>
 <li><strong>Compare your options:</strong> We'll explain which gutter guard options make sense for your home and provide a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
@@ -1669,7 +1669,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Gutter Cleaning',
         showCtas: false,
         body: `<ul>
-<li><strong>Book your cleaning:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll take a look:</strong> When capacity allows, we'll visit within a few business days to check the gutters, downspouts, debris buildup, and visible drainage concerns.</li>
 <li><strong>Know the cost upfront:</strong> You'll receive a clear written estimate with the scope and total cost before work begins.</li>
 <li><strong>Approve the service:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
@@ -1812,7 +1812,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Regular maintenance helps catch small gutter problems early and keeps water moving where it should before Tampa's heavy rain puts the system to the test.</p>
 <ul>
-<li><strong>Plan your maintenance:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>We'll check the system:</strong> When capacity allows, we'll visit within a few business days to inspect buildup, water flow, downspouts, hangers, and visible signs of wear.</li>
 <li><strong>Review what your gutters need:</strong> We'll explain what we find and provide a written estimate with the scope, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approve the work:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
@@ -1959,7 +1959,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Commercial properties often have larger roof areas, more concentrated runoff, and busy spaces to work around, so good planning matters from the start.</p>
 <ul>
-<li><strong>Tell us about the property:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Walk the site with us:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, trace water flow, review access, and identify drainage concerns around entrances, walkways, and other active areas.</li>
 <li><strong>Review the project:</strong> You'll receive a written estimate with the scope, materials, options, and total cost, with financing options when applicable.</li>
 <li><strong>Authorize the work:</strong> A 25% deposit secures the approved project, including jobs financed through GreenSky.</li>
@@ -2107,7 +2107,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Your gutters should fit your home, handle the way rain comes off the roof, and direct water away from the areas you want to protect.</p>
 <ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Walk your property with us:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and look at drainage around landscaping, patios, walkways, and entrances.</li>
 <li><strong>Choose what works for your home:</strong> We'll explain your options and provide a written estimate with the scope, materials, and total cost, with financing available when helpful.</li>
 <li><strong>Get your project started:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
@@ -2246,7 +2246,7 @@ export const cityServicePageFallbacks = {
         showCtas: false,
         body: `<p>Half round gutters bring a distinctive look to the roofline, so we plan the system with both reliable drainage and your home's exterior in mind.</p>
 <ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Explore the right fit:</strong> When capacity allows, we'll visit within a few business days to measure your roofline, follow the water path, and discuss how the gutter profile will work with your home's architecture.</li>
 <li><strong>Review your options:</strong> We'll explain the available options and provide a clear written estimate with the project scope, materials, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
@@ -2385,7 +2385,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Copper Gutter Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Plan the right system:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and discuss how copper will complement your home's exterior.</li>
 <li><strong>Review your options:</strong> We'll explain the available options and provide a clear written estimate with the project scope, materials, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
@@ -2529,7 +2529,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Custom Gutter Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Plan around your property:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and identify areas that need a more customized approach.</li>
 <li><strong>Review your options:</strong> We'll explain the recommended layout and available options, then provide a written estimate with the scope, materials, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
@@ -2657,7 +2657,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect When Choosing Gutter Colors in Tampa',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Look at your home together:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, evaluate drainage needs, and consider the roof, fascia, trim, siding, and other exterior details.</li>
 <li><strong>Compare your color options:</strong> We'll help you review available colors and accessories so you can choose a combination that works naturally with your home's exterior.</li>
 <li><strong>Review your estimate:</strong> You'll receive a written estimate with the project scope, materials, options, and total cost, with financing available when helpful.</li>
@@ -2803,7 +2803,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Downspout Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Follow the water path:</strong> When capacity allows, we'll visit within a few business days to inspect your gutters and downspouts, identify where runoff collects, and look for drainage concerns around the foundation, landscaping, walkways, and other areas.</li>
 <li><strong>Plan the right setup:</strong> We'll recommend downspout locations and discharge options based on how water moves across your property, then provide a written estimate with the scope, materials, options, and total cost.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
@@ -2947,7 +2947,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Siding Project',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Inspect the exterior:</strong> When capacity allows, we'll visit within a few business days to evaluate the siding, identify damaged or deteriorated areas, and look for related concerns around trim, soffit, fascia, and other exterior details.</li>
 <li><strong>Review your options:</strong> We'll explain what we recommend and provide a written estimate with the project scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
@@ -3092,7 +3092,7 @@ export const cityServicePageFallbacks = {
         heading: 'What to Expect During Your Tampa Soffit and Fascia Repair',
         showCtas: false,
         body: `<ul>
-<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Free Consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
 <li><strong>Find the source of the damage:</strong> When capacity allows, we'll visit within a few business days to inspect the affected soffit and fascia and check for related concerns around the gutters, roofline, and water path.</li>
 <li><strong>Review the repair plan:</strong> We'll explain what we find and provide a written estimate with the project scope, materials, options, and total cost, with financing available when helpful.</li>
 <li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
