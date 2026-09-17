@@ -47,6 +47,7 @@ const logoAriaLabel = applyTemplate(asStr(header.logoAriaLabelTemplate), { compa
 const navItems = Array.isArray(header.navItems) ? header.navItems : []
 
 const about = homePage?.about ?? {}
+const aboutEyebrow = 'Family-founded since 2018'
 
 const pageTitle = 'About Us | SGT'
 const aboutHeadline = 'Built For Tampa Bay Homes and Weather'
@@ -130,7 +131,7 @@ const breadcrumbItems = simpleBreadcrumbItems('About Us')
     <section class="section about about-video">
       <div class="container">
         <div class="about-intro-full">
-          <div class="about-eyebrow">{asStr(about?.eyebrow)}</div>
+          <div class="about-eyebrow">{aboutEyebrow}</div>
           <h1 class="section-title">{aboutHeadline}</h1>
         </div>
         <div class="about-grid about-grid--with-photo">
