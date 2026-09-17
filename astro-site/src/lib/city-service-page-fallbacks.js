@@ -3089,6 +3089,18 @@ export const cityServicePageFallbacks = {
 <p>Careful installation matters too. Repaired fascia needs to provide a secure, finished roof edge, while soffit sections should fit properly with the surrounding exterior. Addressing both the visible damage and the conditions around it gives you a more complete repair than simply covering an area that looks worn.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Soffit and Fascia Repair',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Find the source of the damage:</strong> When capacity allows, we'll visit within a few business days to inspect the affected soffit and fascia and check for related concerns around the gutters, roofline, and water path.</li>
+<li><strong>Review the repair plan:</strong> We'll explain what we find and provide a written estimate with the project scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Complete the repairs:</strong> Timing depends on the extent of the damage and scope of work. We'll protect your home, landscaping, and surrounding areas and keep the job site clean throughout the repair.</li>
+<li><strong>Check the finished work:</strong> We'll complete a final quality check, clean up project debris, walk through the repaired areas with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>Roof-edge damage can involve several connected parts of the exterior, and SunLife Gutters Tampa understands how gutters, fascia, soffits, and surrounding drainage work together. We'll inspect the area, explain what we're seeing, and keep the process straightforward.</p>
