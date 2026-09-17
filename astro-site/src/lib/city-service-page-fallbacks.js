@@ -2944,6 +2944,18 @@ export const cityServicePageFallbacks = {
 <p>Good siding work should leave the building looking finished from across the street and well put together when you walk up close. That combination of appearance and careful installation is what helps an exterior update feel complete rather than simply cosmetic.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Siding Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Inspect the exterior:</strong> When capacity allows, we'll visit within a few business days to evaluate the siding, identify damaged or deteriorated areas, and look for related concerns around trim, soffit, fascia, and other exterior details.</li>
+<li><strong>Review your options:</strong> We'll explain what we recommend and provide a written estimate with the project scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Complete the siding work:</strong> We'll protect landscaping and surrounding areas and keep the job site clean and organized throughout the project.</li>
+<li><strong>Walk through the finished exterior:</strong> We'll complete a final quality check, clean up project debris, review the completed work with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>Exterior projects are easier when you can get clear answers and know what to expect next. SunLife Gutters Tampa brings the same responsive, straightforward approach to siding that we bring to the rest of our exterior work.</p>
