@@ -512,7 +512,7 @@ export const cityServicePageFallbacks = {
 <li><strong>Free Consultation:</strong> Call, text, or send an online inquiry. We follow a same-day callback culture and, when capacity allows, can typically arrange an onsite visit within a few business days.</li>
 <li><strong>Plan the system:</strong> At your property, we'll measure the roofline, identify high-runoff areas, and determine gutter sizing, downspout locations, and drainage needs.</li>
 <li><strong>Review your estimate:</strong> We'll provide the proposed scope, materials, options, and total cost in writing, with financing available when helpful.</li>
-<li><strong>Get ready for installation:</strong> Once the project is authorized and the 25% deposit is received, we'll prepare for installation. Most standard homes are completed in one day, with additional time for larger or more involved properties.</li>
+<li><strong>Get ready for installation:</strong> Once the project is authorized and the 25% deposit is received, we'll prepare for installation. Most standard homes are completed in one day, with additional time for larger or more involved properties. We custom-fabricate seamless gutters with aluminum formed for your property, corrosion-conscious hardware, and color-matched accessories.</li>
 <li><strong>Check the finished system:</strong> We protect landscaping during the work, remove project debris, inspect the installation, and walk the property with you before sign-off. You'll also receive applicable warranty paperwork.</li>
 </ul>`,
       },
