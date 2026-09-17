@@ -81,7 +81,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Drainage can get complicated quickly when water is coming from several places. SunLife Gutters Tampa keeps the conversation practical. We'll look at where the water starts, where it's causing trouble, and what needs to happen between those two points.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -213,7 +213,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Drainage problems can be frustrating because the water you see isn't always coming from the place you expect. SunLife Gutters Tampa takes the time to look at the property, talk through what you've been noticing, and follow the water before recommending a drainage approach.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -346,7 +346,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>When you choose SunLife Gutters Tampa, you're choosing a team that values doing things the right way. We believe in honest recommendations, quality workmanship, and keeping you informed from your first consultation to the final walkthrough.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Serving Tampa Bay for over 7 years</li>
@@ -472,7 +472,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>When you choose SunLife Gutters Tampa, you're choosing a team that values doing things the right way. We believe every property deserves honest recommendations, quality workmanship, and a stress-free experience from your first consultation through the final walkthrough.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Serving Tampa Bay for over 7 years</li>
@@ -605,7 +605,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Some companies may be quick to recommend replacement. At SunLife Gutters Tampa, we start by figuring out what your super gutter actually needs. If the existing system can reasonably be repaired, we'll tell you. If replacement makes more sense, we'll explain why.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>More than 10,000 completed projects</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -733,9 +733,9 @@ export const cityServicePageFallbacks = {
       {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
-        body: `<p>You shouldn't have to chase down a contractor just to find out what's happening with your project. SunLife Gutters Tampa is a family-owned local company built around clear communication, honest recommendations, and treating customers the way we'd want our own family to be treated.</p>
+        body: `<p>You shouldn't have to chase down a contractor just to find out what's happening with your project. SunLife Gutters Tampa is a Family-founded local company built around clear communication, honest recommendations, and treating customers the way we'd want our own family to be treated.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -867,7 +867,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>You called because something isn't working. Our job is to figure out why, explain it clearly, and recommend what makes sense for your property. That's how SunLife Gutters Tampa approaches repairs, without pressure to replace a system that still has useful life left.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -998,7 +998,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>An urgent repair is already stressful enough. You shouldn't also have to wonder whether you're being sold work you don't need. SunLife Gutters Tampa takes the same straightforward approach to emergency calls that we bring to every project: inspect the problem, explain what we see, and recommend the work that makes sense.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1133,7 +1133,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>SunLife Gutters Tampa takes a practical approach to inspections: check the system carefully, explain what we see, and give you an honest recommendation based on its actual condition.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1268,7 +1268,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Some gutter systems need replacement. Others still have plenty of useful life left. SunLife Gutters Tampa will tell you which situation you're dealing with and explain why, so you can make the decision without pressure.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1398,7 +1398,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>We'd rather set realistic expectations than tell you gutter guards will solve every maintenance problem. SunLife Gutters Tampa will look at your property first and explain whether guards are likely to make a noticeable difference for the debris you're dealing with.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1528,7 +1528,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>SunLife Gutters Tampa keeps the process straightforward. We clear the buildup, pay attention to how the system is holding up, and let you know if we see something worth addressing.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1658,7 +1658,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>We know most people would rather maintain the gutters they already have than replace them before it's necessary. That's how SunLife Gutters Tampa approaches the job. We'll take care of what needs attention and explain anything we notice.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1790,9 +1790,9 @@ export const cityServicePageFallbacks = {
       {
         heading: 'Why Tampa Businesses Choose SunLife Gutters Tampa',
         showCtas: true,
-        body: `<p>SunLife Gutters Tampa is a family-owned local company that puts a strong emphasis on communication, dependable workmanship, and making the process easy to follow. From the initial estimate through installation and the final walkthrough, you'll know what's happening with your project.</p>
+        body: `<p>SunLife Gutters Tampa is a Family-founded local company that puts a strong emphasis on communication, dependable workmanship, and making the process easy to follow. From the initial estimate through installation and the final walkthrough, you'll know what's happening with your project.</p>
 <ul>
-<li>Family-owned <a href="/">gutter company in Tampa, FL</a></li>
+<li>Family-founded <a href="/">gutter company in Tampa, FL</a></li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -1925,7 +1925,7 @@ export const cityServicePageFallbacks = {
       {
         heading: 'Why Homeowners Choose SunLife Gutters Tampa',
         showCtas: true,
-        body: `<p>Having someone work on your home should feel straightforward. SunLife Gutters Tampa is a family-owned local company, and we put a lot of value on showing up, communicating clearly, and helping homeowners understand their options without making the process more complicated than it needs to be.</p>
+        body: `<p>Having someone work on your home should feel straightforward. SunLife Gutters Tampa is a Family-founded local company, and we put a lot of value on showing up, communicating clearly, and helping homeowners understand their options without making the process more complicated than it needs to be.</p>
 <ul>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
@@ -2180,7 +2180,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>A copper gutter project deserves more than a one-size-fits-all approach. <a href="/">SunLife Gutters Tampa</a> takes time to understand what you want the finished property to look like while keeping the practical drainage details in the conversation from the beginning.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -2428,7 +2428,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p><a href="/">SunLife Gutters Tampa</a> makes the selection process straightforward. We'll listen to the look you're trying to achieve, walk through the available choices, and help you think about how the gutters and downspouts will work with the rest of the property.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -2694,7 +2694,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Exterior projects are easier when you can get clear answers and know what to expect next. SunLife Gutters Tampa brings the same responsive, straightforward approach to siding that we bring to the rest of our exterior work.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>
@@ -2827,7 +2827,7 @@ export const cityServicePageFallbacks = {
         showCtas: true,
         body: `<p>Roof-edge damage can involve several connected parts of the exterior, and SunLife Gutters Tampa understands how gutters, fascia, soffits, and surrounding drainage work together. We'll inspect the area, explain what we're seeing, and keep the process straightforward.</p>
 <ul>
-<li>Family-owned company based in Seffner</li>
+<li>Family-founded company based in Seffner</li>
 <li>More than 10,000 completed projects</li>
 <li>4.9-star Google rating from 247 reviews</li>
 <li>Over 7 years serving Tampa Bay</li>

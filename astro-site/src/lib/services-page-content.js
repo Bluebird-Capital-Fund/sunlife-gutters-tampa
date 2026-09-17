@@ -66,7 +66,7 @@ export const SERVICE_HUB_WHY_INTRO =
   "From your first consultation to the final walkthrough, we're committed to making every project straightforward, stress-free, and built around your home's needs."
 
 export const SERVICE_HUB_WHY_POINTS = [
-  'Family-owned and proudly serving Tampa Bay since 2018',
+  'Family-founded and proudly serving Tampa Bay since 2018',
   'Trusted by more than 10,000 homeowners and businesses',
   'Honest recommendations with no high-pressure sales',
   "Custom solutions designed for Florida's heavy rain and storms",
