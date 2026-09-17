@@ -486,6 +486,14 @@ const aboutEyebrow = (isLp ? asStr(about?.eyebrow) : 'Family-founded since 2018'
 const aboutLead = isLp
   ? asStr(about?.lead)
   : 'Founded in December 2018, SunLife began as the vision of husband-and-wife team Kevin and Jessica Stroh. What started with a single seamless gutter crew has grown into a full exterior team serving the greater Tampa Bay area, offering seamless gutters, Super Gutters, screen rooms, lanais, and roofline trim, while staying true to the honest estimates and attention to detail that have defined the company from the beginning.'
+const aboutBullets = isLp
+  ? asStrArray(about?.bullets)
+  : [
+      'Seamless aluminum fabricated on the truck for a perfect fit',
+      'Corrosion-resistant hangers spaced for wind off Old Tampa Bay',
+      'Color-matched accessories that blend with stucco, siding, or brick',
+      'Roofing services are available through our trusted local partners.',
+    ]
 const uniquePointsHeadline = isLp
   ? lpSlug === 'gutters'
     ? 'Reliable Gutter Company in the Greater Tampa Area'
@@ -1176,7 +1184,7 @@ const serviceHref = (svc) => {
           <h2 class="section-title">{aboutHeadline}</h2>
           <p class="about-lead">{aboutLead}</p>
           <ul class="about-list">
-            {asStrArray(about?.bullets).map((line) => (
+            {aboutBullets.map((line) => (
               <li>{line}</li>
             ))}
           </ul>
