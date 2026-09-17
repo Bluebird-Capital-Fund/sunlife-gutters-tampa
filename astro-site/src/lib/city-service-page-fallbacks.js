@@ -338,8 +338,19 @@ export const cityServicePageFallbacks = {
         body: `<p>Installing gutters involves much more than attaching metal along the edge of a roof.</p>
 <p>Every section must maintain the correct slope so water flows toward the downspouts without collecting in low spots. Fasteners need to support the weight of heavy rain, while downspouts must be positioned to move water away from foundations, landscaping, and high-traffic areas.</p>
 <p>Many DIY repairs only address visible leaks while leaving the underlying drainage problem untouched. Simply sealing a corner or replacing one section rarely fixes improper pitch or undersized drainage. Professional installation looks at the entire system.</p>
-<p>We evaluate roof runoff, gutter sizing, downspout locations, drainage paths, and attachment points together so the system performs properly during Tampa's strongest storms.</p>
-<p>That attention to detail helps reduce recurring leaks, overflowing gutters, premature wear, and unnecessary repairs in the future.</p>`,
+<p>We evaluate roof runoff, gutter sizing, downspout locations, drainage paths, and attachment points together so the system performs properly during Tampa's strongest storms. Our seamless gutters are custom-formed for your property with the capacity, secure hangers, corrosion-conscious hardware, and detailing needed for Florida weather. We keep clean job sites, protect your property, and treat your home like our own.</p>`,
+      },
+      {
+        heading: 'What to Expect During Your Tampa Seamless Gutter Project',
+        showCtas: false,
+        body: `<p>We keep your seamless gutter project simple and well communicated from the first call through installation.</p>
+<ul>
+<li><strong>Free consultation:</strong> Contact us by phone, web, or text. We have a same-day callback culture and aim to arrange site visits within a few business days when capacity allows.</li>
+<li><strong>Property walkthrough:</strong> We'll measure your roofline, follow the water path, and explain your options, including what works best for Tampa's heavy rain and storm season.</li>
+<li><strong>Written estimate:</strong> You'll receive a clear scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approval and installation:</strong> After authorization and a 25% deposit, we'll prepare your project for installation. Most standard homes can be completed in one day, while larger projects may take longer.</li>
+<li><strong>Final walkthrough:</strong> We'll protect your landscaping, clean up project debris, complete a quality check, walk through the finished work with you, and provide applicable warranty paperwork.</li>
+</ul>`,
       },
       {
         heading: 'Why Choose SunLife Gutters Tampa?',
@@ -353,6 +364,7 @@ export const cityServicePageFallbacks = {
 <li>Honest recommendations without unnecessary upselling</li>
 <li>Quick estimates and responsive communication</li>
 <li>Friendly, knowledgeable local team</li>
+<li>One trusted team for gutters, screen enclosures, and other exterior needs</li>
 <li>Fair and transparent pricing</li>
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
