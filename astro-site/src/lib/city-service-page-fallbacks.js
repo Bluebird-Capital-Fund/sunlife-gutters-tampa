@@ -1784,6 +1784,19 @@ export const cityServicePageFallbacks = {
 <p>Routine maintenance gives you a chance to deal with those smaller changes before the system is under its heaviest workload. It also helps keep water moving toward the downspouts and away from areas where repeated overflow can affect fascia, siding, landscaping, walkways, or soil around the property.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Gutter Maintenance',
+        showCtas: false,
+        body: `<p>Regular maintenance helps catch small gutter problems early and keeps water moving where it should before Tampa's heavy rain puts the system to the test.</p>
+<ul>
+<li><strong>Plan your maintenance:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll check the system:</strong> When capacity allows, we'll visit within a few business days to inspect buildup, water flow, downspouts, hangers, and visible signs of wear.</li>
+<li><strong>Review what your gutters need:</strong> We'll explain what we find and provide a written estimate with the scope, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approve the work:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
+<li><strong>Maintain and tune the system:</strong> We'll complete the approved cleaning and maintenance, make necessary adjustments, and protect your landscaping throughout the work.</li>
+<li><strong>Finish with a final check:</strong> We'll clean up project debris and review the system with you.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>We know most people would rather maintain the gutters they already have than replace them before it's necessary. That's how SunLife Gutters Tampa approaches the job. We'll take care of what needs attention and explain anything we notice.</p>
