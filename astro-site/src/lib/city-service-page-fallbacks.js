@@ -1208,6 +1208,19 @@ export const cityServicePageFallbacks = {
 <p>And if something does fail unexpectedly, <a href="/emergency-gutter-repair-tampa-fl/">Tampa emergency gutter repair</a> is available for problems such as detached sections, damaged downspouts, or other urgent gutter issues.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Gutter Inspection',
+        showCtas: false,
+        body: `<p>A professional inspection gives you a clearer picture of how the system is performing and what, if anything, should be addressed.</p>
+<ul>
+<li><strong>Book your inspection:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll check the system:</strong> When capacity allows, we'll visit within a few business days to inspect the gutters, hangers, downspouts, water path, and visible signs of wear or damage.</li>
+<li><strong>Understand what we find:</strong> We'll explain how your system is performing, including whether its capacity and attachment are ready for Florida's heavy rain and storm season.</li>
+<li><strong>Review your options:</strong> If work is recommended, you'll receive a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Move forward when you're ready:</strong> After authorization and a 25% deposit, we'll complete the approved work while protecting your landscaping and surrounding property.</li>
+<li><strong>Stay informed:</strong> If work is completed, we'll complete a final walkthrough and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>SunLife Gutters Tampa takes a practical approach to inspections: check the system carefully, explain what we see, and give you an honest recommendation based on its actual condition.</p>
