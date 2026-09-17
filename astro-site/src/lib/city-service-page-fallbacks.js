@@ -221,6 +221,18 @@ export const cityServicePageFallbacks = {
 <p>We look at how the whole area behaves instead of choosing a trench location based only on where the biggest puddle happens to appear. That gives the drainage system a better chance to address the reason the area stays wet.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa French Drain Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Evaluate the problem areas:</strong> When capacity allows, we'll visit within a few business days to look at where water collects, how the property drains, and which areas are affected by standing water, erosion, or excess moisture.</li>
+<li><strong>Plan the drainage route:</strong> We'll determine where a French drain can collect and redirect water, then provide a written estimate with the scope, materials, options, and total cost.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
+<li><strong>Install the French drain:</strong> We'll protect surrounding landscaping and keep the work area as clean and organized as possible.</li>
+<li><strong>Review the completed system:</strong> We'll complete a final quality check, clean up project debris, walk through the finished drainage with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>Drainage problems can be frustrating because the water you see isn't always coming from the place you expect. SunLife Gutters Tampa takes the time to look at the property, talk through what you've been noticing, and follow the water before recommending a drainage approach.</p>
