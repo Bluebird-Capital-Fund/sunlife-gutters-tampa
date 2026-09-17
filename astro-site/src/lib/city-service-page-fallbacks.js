@@ -1060,6 +1060,19 @@ export const cityServicePageFallbacks = {
 <p>The aim is to stabilize the problem, restore proper drainage where possible, and give you a clear understanding of anything else that needs attention.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Emergency Gutter Repair',
+        showCtas: false,
+        body: `<p>When a gutter suddenly comes loose, starts leaking heavily, or gets damaged during a Tampa storm, you want to know what happened and what can be done about it as soon as possible.</p>
+<ul>
+<li><strong>Get in touch:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll take a look:</strong> When scheduling allows, we'll arrange a visit as soon as possible to find the source of the problem, check how water is moving, and walk you through your options.</li>
+<li><strong>Know what to expect:</strong> You'll get a written estimate with the work, materials, options, and total cost clearly explained, plus financing options if needed.</li>
+<li><strong>Give us the go-ahead:</strong> Once you're ready to move forward, a 25% deposit secures the project, including jobs financed through GreenSky.</li>
+<li><strong>We'll handle the repair:</strong> We'll complete the approved work while taking care to protect your home and landscaping and keep the job site clean.</li>
+<li><strong>Walk through the finished work:</strong> We'll complete a final quality check with you, clean up any remaining debris, provide your warranty paperwork, and follow up after the project.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>An urgent repair is already stressful enough. You shouldn't also have to wonder whether you're being sold work you don't need. SunLife Gutters Tampa takes the same straightforward approach to emergency calls that we bring to every project: inspect the problem, explain what we see, and recommend the work that makes sense.</p>
