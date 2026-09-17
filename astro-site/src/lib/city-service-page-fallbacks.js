@@ -1353,7 +1353,20 @@ export const cityServicePageFallbacks = {
         body: `<p>Putting new gutters in the same position as a poorly performing old system can leave you with the same drainage headaches.</p>
 <p>Before replacement, we look at where the old gutters struggled. Water marks below a roof valley may point to concentrated runoff. Washed-out mulch can show where a downspout isn't carrying water far enough away. A section that always held water may have been pitched incorrectly from the beginning. Those clues help us plan the new system.</p>
 <p>The gutters need to sit correctly along the roofline, maintain the right slope, and send water toward downspouts that are positioned where they can actually do their job. Tampa's sudden downpours make that especially important because a large amount of roof runoff can reach the system in a short period.</p>
-<p>A replacement should solve the problems that made you call in the first place, not simply give you a newer version of the same setup.</p>`,
+<p>We custom-fabricate seamless gutters for your home with corrosion-conscious hardware and color-matched accessories.</p>`,
+      },
+      {
+        heading: 'What to Expect During Your Tampa Gutter Replacement',
+        showCtas: false,
+        body: `<p>Replacing an older gutter system is a chance to correct recurring drainage problems and plan a new setup around how your property handles Tampa's heavy rain.</p>
+<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to online inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>We'll evaluate your gutters:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, inspect the existing system, follow the water path, and discuss your replacement options.</li>
+<li><strong>Review your estimate:</strong> You'll receive a written estimate with the scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> Once you're ready to move forward, a 25% deposit secures the job, including projects financed through GreenSky.</li>
+<li><strong>Replace the system:</strong> Most standard homes can be completed in one day, while larger projects may take longer. We'll protect your home and landscaping and keep the work area clean throughout the project.</li>
+<li><strong>Walk through your new gutters:</strong> We'll complete a final quality check, clean up project debris, review the finished system with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
       },
       {
         heading: 'Why Choose SunLife Gutters Tampa?',
