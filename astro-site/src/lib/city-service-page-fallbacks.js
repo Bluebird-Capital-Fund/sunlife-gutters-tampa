@@ -2776,6 +2776,18 @@ export const cityServicePageFallbacks = {
 <p>We look at the complete route the water takes, from the roof into the gutter, through the downspout, and out onto the property.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Downspout Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Follow the water path:</strong> When capacity allows, we'll visit within a few business days to inspect your gutters and downspouts, identify where runoff collects, and look for drainage concerns around the foundation, landscaping, walkways, and other areas.</li>
+<li><strong>Plan the right setup:</strong> We'll recommend downspout locations and discharge options based on how water moves across your property, then provide a written estimate with the scope, materials, options, and total cost.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky, with financing available when helpful.</li>
+<li><strong>Complete the work:</strong> Most standard residential projects can be completed in one day, while larger or more involved drainage projects may take longer. We'll protect your property and keep the work area clean throughout the job.</li>
+<li><strong>Check the drainage path:</strong> We'll complete a final quality check, clean up project debris, review the finished setup with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>SunLife Gutters Tampa understands that the small details around a property can make a big difference once the rain starts. We take time to look at where water is currently going and plan downspout locations around the way you actually use the space.</p>
