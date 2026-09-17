@@ -1931,6 +1931,19 @@ export const cityServicePageFallbacks = {
 <p>For commercial properties, good drainage is about keeping that water controlled from the roofline all the way to the discharge point.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Commercial Gutter Project',
+        showCtas: false,
+        body: `<p>Commercial properties often have larger roof areas, more concentrated runoff, and busy spaces to work around, so good planning matters from the start.</p>
+<ul>
+<li><strong>Tell us about the property:</strong> Call, text, or contact us online for a free, no-obligation consultation. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Walk the site with us:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, trace water flow, review access, and identify drainage concerns around entrances, walkways, and other active areas.</li>
+<li><strong>Review the project:</strong> You'll receive a written estimate with the scope, materials, options, and total cost, with financing options when applicable.</li>
+<li><strong>Authorize the work:</strong> A 25% deposit secures the approved project, including jobs financed through GreenSky.</li>
+<li><strong>Complete the installation:</strong> We'll coordinate the work around the property, protect landscaping and surrounding areas, and keep the job site clean. Timing depends on the size and complexity of the building.</li>
+<li><strong>Complete the walkthrough:</strong> We'll perform a final quality check, review the finished system with you, clean up project debris, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Tampa Businesses Choose SunLife Gutters Tampa',
         showCtas: true,
         body: `<p>SunLife Gutters Tampa is a Family-founded local company that puts a strong emphasis on communication, dependable workmanship, and making the process easy to follow. From the initial estimate through installation and the final walkthrough, you'll know what's happening with your project.</p>
