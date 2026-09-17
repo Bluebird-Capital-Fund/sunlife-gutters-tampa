@@ -770,6 +770,18 @@ export const cityServicePageFallbacks = {
 <p>Our team looks at the enclosure and surrounding exterior together, then walks you through what we recommend and why. You'll know what we're doing before work starts, and we'll keep you updated as the project moves forward.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Screen Room or Lanai Project',
+        showCtas: false,
+        body: `<p>Your outdoor space should work for the way you actually want to use it, so we start by looking at the property and talking through what you'd like to improve.</p>
+<ul>
+<li><strong>Share your ideas:</strong> Call, text, or contact us online to tell us about your patio, lanai, or enclosure project. We have a same-day callback culture and aim for a site visit within a few business days when capacity allows.</li>
+<li><strong>Walk the space together:</strong> We'll evaluate the project area, take measurements, discuss how you use the space, and identify any drainage or Super Gutter considerations.</li>
+<li><strong>Review your options:</strong> You'll receive a written estimate with the project scope, materials, available options, and total cost, with financing available when helpful.</li>
+<li><strong>Prepare for the project:</strong> After authorization and a 25% deposit, we'll coordinate the work and protect the surrounding patio, landscaping, and outdoor areas.</li>
+<li><strong>Enjoy the finished space:</strong> We'll complete a quality check, clean up project debris, walk through the finished enclosure with you, and provide applicable warranty paperwork before sign-off.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>You shouldn't have to chase down a contractor just to find out what's happening with your project. SunLife Gutters Tampa is a Family-founded local company built around clear communication, honest recommendations, and treating customers the way we'd want our own family to be treated.</p>
@@ -781,6 +793,7 @@ export const cityServicePageFallbacks = {
 <li>Friendly, knowledgeable local team</li>
 <li>Quick estimates and prompt callbacks</li>
 <li>No unnecessary products or upgrades</li>
+<li>One trusted exterior team for screen enclosures, Super Gutters, and related exterior work</li>
 <li>Fair, transparent pricing</li>
 <li>Clear communication from estimate to walkthrough</li>
 <li>Responsive service after the job is finished</li>
