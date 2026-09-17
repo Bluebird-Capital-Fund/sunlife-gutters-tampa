@@ -477,7 +477,20 @@ export const cityServicePageFallbacks = {
         imageAlt: 'Professional gutter installation fastening hangers on a Tampa home',
         body: `<p>Proper gutter installation makes a big difference in how well water moves away from your property. Incorrect slope, poor downspout placement, or weak attachment points can cause overflow, standing water, and recurring drainage problems during Tampa's heavy rain.</p>
 <p>Professional installation helps ensure every part of the system works together.</p>
-<p>Instead of simply hanging <a href="/">Tampa gutters</a>, we evaluate how rainwater flows across your roof and away from your property. That approach helps reduce future maintenance, minimizes overflow during severe weather, and provides more reliable drainage throughout the year.</p>`,
+<p>Instead of simply hanging <a href="/">Tampa gutters</a>, we evaluate how rainwater flows across your roof and away from your property. That approach helps reduce future maintenance, minimizes overflow during severe weather, and provides more reliable drainage throughout the year.</p>
+<p>We plan for proper capacity, secure hangers, dependable drainage, and Florida's humid conditions while protecting your landscaping and keeping the job site clean.</p>`,
+      },
+      {
+        heading: 'What to Expect During Your Tampa Gutter Installation',
+        showCtas: false,
+        body: `<p>Installing a new gutter system starts with understanding where the rain goes now and where it needs to go instead.</p>
+<ul>
+<li><strong>Tell us what's happening:</strong> Call, text, or send an online inquiry. We follow a same-day callback culture and, when capacity allows, can typically arrange an onsite visit within a few business days.</li>
+<li><strong>Plan the system:</strong> At your property, we'll measure the roofline, identify high-runoff areas, and determine gutter sizing, downspout locations, and drainage needs.</li>
+<li><strong>Review your estimate:</strong> We'll provide the proposed scope, materials, options, and total cost in writing, with financing available when helpful.</li>
+<li><strong>Get ready for installation:</strong> Once the project is authorized and the 25% deposit is received, we'll prepare for installation. Most standard homes are completed in one day, with additional time for larger or more involved properties.</li>
+<li><strong>Check the finished system:</strong> We protect landscaping during the work, remove project debris, inspect the installation, and walk the property with you before sign-off. You'll also receive applicable warranty paperwork.</li>
+</ul>`,
       },
       {
         heading: 'Why Choose SunLife Gutters Tampa?',
