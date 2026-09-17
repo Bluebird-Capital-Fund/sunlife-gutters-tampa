@@ -2218,6 +2218,19 @@ export const cityServicePageFallbacks = {
 <p>We consider all of those details together. The idea is to end up with a gutter system that feels like it belongs on the property while still doing what Tampa weather requires it to do when the rain gets heavy.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Half Round Gutter Project',
+        showCtas: false,
+        body: `<p>Half round gutters bring a distinctive look to the roofline, so we plan the system with both reliable drainage and your home's exterior in mind.</p>
+<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Explore the right fit:</strong> When capacity allows, we'll visit within a few business days to measure your roofline, follow the water path, and discuss how the gutter profile will work with your home's architecture.</li>
+<li><strong>Review your options:</strong> We'll explain the available options and provide a clear written estimate with the project scope, materials, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Complete the installation:</strong> We'll carefully install the system while protecting your home, landscaping, and surrounding areas and keeping the job site clean.</li>
+<li><strong>See the finished result:</strong> We'll complete a quality check, clean up project debris, walk through the installation with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>If you're considering half round gutters, you probably care about more than getting water off the roof. You want the finished system to look right on the property too. SunLife Gutters Tampa takes the time to understand both sides of the project before making a recommendation.</p>
