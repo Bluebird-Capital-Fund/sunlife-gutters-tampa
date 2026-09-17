@@ -2358,6 +2358,18 @@ export const cityServicePageFallbacks = {
 <p>With copper, good craftsmanship should be visible when you look at the system and noticeable in how well it works when the rain starts.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Copper Gutter Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Plan the right system:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and discuss how copper will complement your home's exterior.</li>
+<li><strong>Review your options:</strong> We'll explain the available options and provide a clear written estimate with the project scope, materials, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Complete the installation:</strong> We'll install the system with careful attention to fit and finishing while protecting your home, landscaping, and surrounding areas.</li>
+<li><strong>Review the finished work:</strong> We'll complete a quality check, clean up project debris, walk through the installation with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>A copper gutter project deserves more than a one-size-fits-all approach. <a href="/">SunLife Gutters Tampa</a> takes time to understand what you want the finished property to look like while keeping the practical drainage details in the conversation from the beginning.</p>
