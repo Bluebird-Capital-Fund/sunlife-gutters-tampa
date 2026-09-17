@@ -14,7 +14,7 @@ export const FAQ_PAGE_SECTIONS = [
       {
         question: 'How much do gutters typically cost in Tampa, Florida?',
         answerHtml:
-          '<p>Gutter installation in Tampa is priced based on the specific property and scope of work rather than a one-size-fits-all package. Key factors include linear footage, gutter profile, guards, soffit and fascia needs, home height, access, removal, drainage, and color. We provide custom, itemized estimates so Tampa homeowners can clearly understand what their gutter project includes and what factors affect the final price.</p>',
+          '<p>Many Tampa gutter projects fall around $600 to $2,000, with installed costs often ranging from roughly $7 to $20 per linear foot. Full replacements are commonly cited around $1,000 to $3,000. These ranges are guides only. Final pricing depends on linear footage, gutter profile, guards, soffit and fascia work, height, access, removal, drainage, color, and project complexity. We provide custom, itemized estimates.</p>',
       },
       {
         question: 'Do I need a permit to install gutters in Tampa, Florida?',
