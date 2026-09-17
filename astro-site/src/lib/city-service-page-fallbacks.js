@@ -626,6 +626,18 @@ export const cityServicePageFallbacks = {
 <p>Getting the installation right from the beginning helps prevent recurring leaks, poor drainage, and avoidable problems around your pool cage or lanai.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Super Gutter Project',
+        showCtas: false,
+        body: `<p>Because a Super Gutter helps manage roof runoff while also serving as an attachment point for a pool cage or screen enclosure, we take a close look at how the entire area works together.</p>
+<ul>
+<li><strong>Quick response:</strong> Reach us by phone, text, or web. We have a same-day callback culture and aim for an onsite visit within a few business days when capacity allows.</li>
+<li><strong>Inspect the enclosure connection:</strong> We'll evaluate the existing Super Gutter, roof runoff, drainage, attachment areas, and how the pool cage or screen enclosure meets the home.</li>
+<li><strong>Go over the plan:</strong> You'll receive a written estimate covering the scope, materials, options, and total cost, with financing available when helpful.</li>
+<li><strong>Complete the work:</strong> After authorization and a 25% deposit, we'll prepare the project for installation or replacement and protect the surrounding pool and outdoor areas during the work.</li>
+<li><strong>Review everything together:</strong> We'll complete a quality check, clean up project debris, walk through the finished work with you, and provide applicable warranty paperwork before sign-off.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>Some companies may be quick to recommend replacement. At SunLife Gutters Tampa, we start by figuring out what your super gutter actually needs. If the existing system can reasonably be repaired, we'll tell you. If replacement makes more sense, we'll explain why.</p>
@@ -638,6 +650,8 @@ export const cityServicePageFallbacks = {
 <li>Honest recommendations without unnecessary upselling</li>
 <li>Quick estimates and prompt callbacks</li>
 <li>Clear communication throughout the project</li>
+<li>Clean job sites with careful property protection</li>
+<li>One trusted exterior team for gutters, screen enclosures, and more</li>
 <li>Fair, transparent pricing</li>
 <li>Lifetime warranty options available*</li>
 <li>Flexible financing available</li>
