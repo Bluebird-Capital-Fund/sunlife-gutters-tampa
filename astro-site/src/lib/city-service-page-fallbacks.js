@@ -915,6 +915,18 @@ export const cityServicePageFallbacks = {
 <p>This matters in Tampa because a minor drainage problem gets tested again and again throughout the rainy season. Fixing the cause helps keep the same leak or overflow from showing up every time another heavy storm rolls through.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Gutter Repair',
+        showCtas: false,
+        body: `<p>A leak or overflow doesn't always start where you see the water, so the first step is figuring out what is actually causing the problem.</p>
+<ul>
+<li><strong>Tell us what you've noticed:</strong> Call, text, or contact us online. Expect a same-day callback and a site visit within a few business days when capacity allows.</li>
+<li><strong>Find the source:</strong> We'll inspect the problem area, gutter slope, connections, downspouts, attachment points, and water path to identify what needs attention.</li>
+<li><strong>Review the repair:</strong> You'll receive a written estimate outlining the recommended work, materials, options, and total cost.</li>
+<li><strong>Complete the repair:</strong> After authorization and a 25% deposit, we'll complete the approved work while protecting your landscaping and surrounding property.</li>
+<li><strong>Check the system:</strong> We'll inspect the completed repair, clean up project debris, review the work with you, and provide applicable warranty paperwork before sign-off.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>You called because something isn't working. Our job is to figure out why, explain it clearly, and recommend what makes sense for your property. That's how SunLife Gutters Tampa approaches repairs, without pressure to replace a system that still has useful life left.</p>
@@ -927,6 +939,8 @@ export const cityServicePageFallbacks = {
 <li>No unnecessary upgrades or products</li>
 <li>Quick estimates and prompt callbacks</li>
 <li>Friendly, knowledgeable local team</li>
+<li>Florida weather experience for gutter problems</li>
+<li>Clean job sites with careful protection of your landscaping</li>
 <li>Fair, transparent pricing</li>
 <li>Clear communication throughout the job</li>
 <li>Lifetime warranty options available*</li>
