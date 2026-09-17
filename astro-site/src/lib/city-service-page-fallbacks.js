@@ -2502,6 +2502,18 @@ export const cityServicePageFallbacks = {
 <p>A custom system gives us room to account for those differences instead of forcing a standard configuration where it doesn't belong.</p>`,
       },
       {
+        heading: 'What to Expect During Your Tampa Custom Gutter Project',
+        showCtas: false,
+        body: `<ul>
+<li><strong>Start with a free consultation:</strong> Call, text, or contact us online. We aim to respond to digital inquiries within five minutes and follow a same-day callback culture.</li>
+<li><strong>Plan around your property:</strong> When capacity allows, we'll visit within a few business days to measure the roofline, follow the water path, and identify areas that need a more customized approach.</li>
+<li><strong>Review your options:</strong> We'll explain the recommended layout and available options, then provide a written estimate with the scope, materials, and total cost, with financing available when helpful.</li>
+<li><strong>Approve your project:</strong> A 25% deposit secures the approved job, including projects financed through GreenSky.</li>
+<li><strong>Build and install your system:</strong> We custom-fabricate seamless gutters with aluminum formed for your property, corrosion-conscious hardware, and color-matched accessories.</li>
+<li><strong>Review the finished work:</strong> We'll complete a quality check, clean up project debris, walk through the new system with you, and provide applicable warranty paperwork and follow-up.</li>
+</ul>`,
+      },
+      {
         heading: 'Why Choose SunLife Gutters Tampa?',
         showCtas: true,
         body: `<p>A custom project should start with someone listening to what isn't working and what you want to change. SunLife Gutters Tampa takes a practical, collaborative approach, with clear communication from the first estimate through the final walkthrough.</p>
