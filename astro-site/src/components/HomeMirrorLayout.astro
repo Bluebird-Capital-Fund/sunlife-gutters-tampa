@@ -249,6 +249,7 @@ const lpHeroHeadlinesBySlug = {
 const heroHeadlineDisplay = isLp
   ? lpHeroHeadlinesBySlug[lpSlug] || `Summer Special! Save Money Today On ${lpKeyword}.`
   : asStr(hero?.headline)
+const heroEyebrow = 'Book Your Free Consultation'
 
 const lpFormAriaLabel = isLp ? 'Book Your Free Consultation' : 'Tell us about your Tampa Bay project'
 
@@ -801,7 +802,7 @@ const serviceHref = (svc) => {
       <div class="hero-bg" style={heroBgStyle}></div>
       <div class="container hero-split-inner">
         <div class="hero-copy">
-          <div class="hero-eyebrow">{asStr(hero?.eyebrow)}</div>
+          <div class="hero-eyebrow">{heroEyebrow}</div>
           <h1>{heroHeadlineDisplay}</h1>
           <p class="hero-typed" aria-live="polite">
             <span id="hero-typed-text"></span><span class="hero-caret" aria-hidden="true">|</span>
