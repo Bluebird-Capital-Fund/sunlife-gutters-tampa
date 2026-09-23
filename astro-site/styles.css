@@ -305,13 +305,19 @@ a:hover {
   display: inline;
 }
 
-/* Sibling of .nav in .header-inner — keeps white bar, out of nav link flex */
+/* Sibling of .nav in .header-inner — Call + lang, out of nav link flex */
 .nav-call-row {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
   flex-shrink: 0;
   margin-left: var(--space-sm);
+}
+
+.nav-call-row .btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: max-content;
 }
 
 .nav-call-row .lang-switcher {
@@ -330,9 +336,12 @@ a:hover {
   color: var(--color-text);
 }
 
-/* Mobile-menu Call only — hidden on desktop (desktop uses .nav-call-row) */
-.nav-call-drawer {
-  display: none;
+/*
+ * Mobile-menu Call only. Must beat .btn { display: inline-flex } (same specificity,
+ * later in file) or both Calls render on desktop and crush the header.
+ */
+a.btn.nav-call-drawer {
+  display: none !important;
 }
 
 .header-nav-actions .lang-switcher {
@@ -371,6 +380,7 @@ a:hover {
   .nav-call-row .btn-lg {
     padding: 0.5rem 0.85rem;
     font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .nav-call-row .lang-switcher-full {
@@ -646,12 +656,8 @@ a:hover {
   }
 
   /* Compact Call in open hamburger menu (desktop Call+lang is .nav-call-row) */
-  .nav-call-drawer {
-    display: none;
-  }
-
-  .nav.is-open .nav-call-drawer {
-    display: inline-flex;
+  .nav.is-open a.btn.nav-call-drawer {
+    display: inline-flex !important;
     width: auto;
     max-width: 100%;
     align-self: flex-start;
@@ -659,26 +665,7 @@ a:hover {
     text-align: left;
     padding: 0.5rem 1rem;
     font-size: 0.9375rem;
-  }
-
-  .nav.is-open .nav-call-row {
-    width: auto;
-    max-width: 100%;
-    align-self: flex-start;
-  }
-
-  .nav.is-open .nav-call-row a.btn {
-    width: auto;
-    max-width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-    padding: 0.5rem 1rem;
-    font-size: 0.9375rem;
-  }
-
-  .nav.is-open .nav-call-row a.btn.btn-lg {
-    padding: 0.5rem 1rem;
-    font-size: 0.9375rem;
+    white-space: nowrap;
   }
 
   .nav.is-open a.btn {
