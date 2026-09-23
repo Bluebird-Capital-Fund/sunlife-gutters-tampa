@@ -5,6 +5,7 @@ import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
 import { asStr, mediaUrl } from '../../../lib/sanity-strings.js'
 import { getSiteSettings } from '../../../lib/site-settings.js'
 import { POPULAR_SERVICE_AREA_CITIES } from '../../../lib/service-area-cities.js'
+import { LOCALE_ES, localizeMapEmbedUrl } from '../../../lib/i18n.js'
 
 const serviceAreaFigureSrc =
   'Media (SGT)/Images (SGT)/sunlife-gutters-valrico-fl-two-story-gutter-installation.webp'
@@ -16,9 +17,11 @@ try {
   console.warn('[es/areas-de-servicio] Sanity fetch failed.', err)
 }
 
-const mapEmbedUrl =
+const mapEmbedUrl = localizeMapEmbedUrl(
   asStr(settings?.mapEmbedUrl) ||
-  'https://maps.google.com/maps?q=1502+Lenna+Ave,+Seffner,+FL+33584&t=&z=10&ie=UTF8&iwloc=&output=embed'
+    'https://maps.google.com/maps?q=1502+Lenna+Ave,+Seffner,+FL+33584&t=&z=10&ie=UTF8&iwloc=&output=embed',
+  LOCALE_ES,
+)
 
 const counties = [
   'Hillsborough County',

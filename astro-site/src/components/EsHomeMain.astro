@@ -17,7 +17,7 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import {
   POPULAR_SERVICE_AREA_CITIES,
 } from '../lib/service-area-cities.js'
-import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS } from '../lib/i18n.js'
+import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
 
 const [settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
 
@@ -27,7 +27,7 @@ const tel = asStr(business?.phoneTel) || '8135485310'
 const telLink = `tel:${tel}`
 const companyName = 'SunLife Gutters Tampa'
 const statsValues = settings?.statsValues
-const mapEmbedUrl = asStr(settings?.mapEmbedUrl)
+const mapEmbedUrl = localizeMapEmbedUrl(asStr(settings?.mapEmbedUrl), LOCALE_ES)
 
 const hp = homePage ?? {}
 const brandsMarquee = hp.brandsMarquee

@@ -109,6 +109,30 @@ export function absoluteUrl(path, origin = SITE_ORIGIN) {
   return `${base}${normalizePath(path)}`
 }
 
+/**
+ * Force Google Maps embed UI language (hl) for Spanish pages.
+ * Keeps US region (gl=us) so place names/address stay local.
+ */
+export function localizeMapEmbedUrl(url, locale = LOCALE_EN) {
+  const raw = String(url || '').trim()
+  if (!raw) return ''
+  const isEs = locale === LOCALE_ES || locale === 'es' || String(locale).toLowerCase().startsWith('es')
+  if (!isEs) return raw
+  try {
+    const u = new URL(raw)
+    if (!/google\.[^/]*\/maps/i.test(u.href) && !/maps\.google\./i.test(u.href)) return raw
+    u.searchParams.set('hl', 'es')
+    if (!u.searchParams.has('gl')) u.searchParams.set('gl', 'us')
+    return u.toString()
+  } catch {
+    // Fallback for non-standard embed strings
+    let out = raw.replace(/([?&])hl=[^&]*/gi, '$1').replace(/[?&]$/, '')
+    out += (out.includes('?') ? '&' : '?') + 'hl=es'
+    if (!/[?&]gl=/i.test(out)) out += '&gl=us'
+    return out
+  }
+}
+
 /** Shared Spanish form intro (hero + footer). */
 export const ES_FORM_INTRO =
   'Comience con una consulta gratuita y obtenga recomendaciones honestas y precios transparentes de un equipo en el que confían los propietarios de Tampa Bay.'
