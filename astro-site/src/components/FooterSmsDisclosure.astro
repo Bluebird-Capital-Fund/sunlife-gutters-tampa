@@ -2,15 +2,38 @@
 /**
  * A2P / TCPA-style footer notice, shown below business hours in the main footer.
  */
+interface Props {
+  locale?: string
+}
+
+const { locale = 'en' } = Astro.props
+const isEs = String(locale || '').toLowerCase().startsWith('es')
 ---
 
-<div class="footer-sms-disclosure">
-  <p class="footer-heading footer-sms-disclosure-heading">Text messaging (SMS)</p>
-  <p class="footer-sms-disclosure-text">
-    By providing your phone number, you agree to receive SMS messages from SunLife Gutters Tampa (Bluebird
-    Miami, LLC). Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out.
-  </p>
-  <p class="footer-sms-disclosure-text">
-    We do not sell or share your information with third parties for marketing purposes.
-  </p>
-</div>
+{
+  isEs ? (
+    <div class="footer-sms-disclosure">
+      <p class="footer-heading footer-sms-disclosure-heading">Mensajes de texto (SMS)</p>
+      <p class="footer-sms-disclosure-text">
+        Al proporcionar su número de teléfono, acepta recibir mensajes SMS de SunLife Gutters Tampa
+        (Bluebird Miami, LLC). La frecuencia de los mensajes varía. Pueden aplicar tarifas de mensajes
+        y datos. Responda STOP para cancelar.
+      </p>
+      <p class="footer-sms-disclosure-text">
+        No vendemos ni compartimos su información con terceros con fines de marketing.
+      </p>
+    </div>
+  ) : (
+    <div class="footer-sms-disclosure">
+      <p class="footer-heading footer-sms-disclosure-heading">Text messaging (SMS)</p>
+      <p class="footer-sms-disclosure-text">
+        By providing your phone number, you agree to receive SMS messages from SunLife Gutters Tampa
+        (Bluebird Miami, LLC). Message frequency varies. Msg &amp; data rates may apply. Reply STOP to
+        opt out.
+      </p>
+      <p class="footer-sms-disclosure-text">
+        We do not sell or share your information with third parties for marketing purposes.
+      </p>
+    </div>
+  )
+}

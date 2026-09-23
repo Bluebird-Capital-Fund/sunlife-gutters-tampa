@@ -1183,9 +1183,20 @@
   var recaptchaSiteKey = cfg.recaptchaSiteKey || '';
   var mapboxToken = cfg.mapboxToken || '';
 
+  function isEsLeadForm(form) {
+    try {
+      var localeField = form && form.querySelector('[name="pageLocale"], [name="language"]');
+      var localeVal = (localeField && localeField.value) || (form && form.getAttribute('data-page-locale')) || '';
+      if (/^es/i.test(String(localeVal))) return true;
+      if (typeof location !== 'undefined' && /^\/es(\/|$)/.test(location.pathname || '')) return true;
+    } catch (e) {}
+    return false;
+  }
+
   function bindLeadForm(form) {
     if (!form || form.getAttribute('data-sgt-lead-bound') === '1') return;
     form.setAttribute('data-sgt-lead-bound', '1');
+      var formIsEs = isEsLeadForm(form);
       var nameInput = form.querySelector('input[name="name"]');
       if (nameInput && !form.querySelector('input[name="firstName"]')) {
         var nameFieldWrap = nameInput.closest('.hero-form-field, .contact-form-field');
@@ -1221,9 +1232,13 @@
         lastInput.required = true;
         lastInput.autocomplete = 'family-name';
 
-        firstWrap.appendChild(buildFieldLabel(firstId, 'First name', requiredMarkText));
+        firstWrap.appendChild(
+          buildFieldLabel(firstId, formIsEs ? 'Nombre' : 'First name', requiredMarkText)
+        );
         firstWrap.appendChild(firstInput);
-        lastWrap.appendChild(buildFieldLabel(lastId, 'Last Name', requiredMarkText));
+        lastWrap.appendChild(
+          buildFieldLabel(lastId, formIsEs ? 'Apellido' : 'Last Name', requiredMarkText)
+        );
         lastWrap.appendChild(lastInput);
 
         var emailWrap = form.querySelector('input[name="email"]');
@@ -1251,7 +1266,7 @@
         locationInput.setAttribute('name', 'address');
         locationInput.setAttribute('id', locationInput.id || (form.getAttribute('data-lead-form') || 'lead') + '-address');
         locationInput.removeAttribute('required');
-        setFieldLabelText(locationInput, 'Address');
+        setFieldLabelText(locationInput, formIsEs ? 'Dirección' : 'Address');
         makeAddressFieldFullWidth(locationInput);
         setupMapboxAddressAutofill(locationInput, mapboxToken);
       }
@@ -1268,7 +1283,7 @@
         var submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) submitBtn.classList.add('is-busy');
 
-        setStatus(form, 'Sending…', null);
+        setStatus(form, formIsEs ? 'Enviando…' : 'Sending…', null);
 
         var attribution = captureAndGetAttribution();
         var fieldsPopulated = populateAttributionHiddenFields(form, attribution);
@@ -1386,7 +1401,13 @@
             .then(function (result) {
               if (submitBtn) submitBtn.classList.remove('is-busy');
               if (result.ok && result.data && result.data.ok) {
-                setStatus(form, 'Thanks — we received your message and will be in touch soon.', 'success');
+                setStatus(
+                  form,
+                  formIsEs
+                    ? 'Gracias — recibimos su mensaje y nos pondremos en contacto pronto.'
+                    : 'Thanks — we received your message and will be in touch soon.',
+                  'success'
+                );
                 form.reset();
                 var thankYouPath = '/thank-you/';
                 try {

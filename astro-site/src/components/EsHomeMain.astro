@@ -1,6 +1,7 @@
 ---
 /**
  * Spanish homepage main sections (chrome provided by EsSiteChrome).
+ * Content mirrors the English homepage (HomeMirrorLayout homepage branch).
  */
 import UniquePointIcon from './UniquePointIcon.astro'
 import FinancingBanner from './FinancingBanner.astro'
@@ -14,10 +15,9 @@ import {
 } from '../lib/sanity-strings.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import {
-  HOMEPAGE_SERVICE_AREA_HEADLINE,
   POPULAR_SERVICE_AREA_CITIES,
 } from '../lib/service-area-cities.js'
-import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV } from '../lib/i18n.js'
+import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS } from '../lib/i18n.js'
 
 const [settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
 
@@ -35,19 +35,15 @@ const projects = hp.projects
 const projectSlides = Array.isArray(projects?.slides) ? projects.slides : []
 const whyChoose = hp.whyChoose
 const whyStamp = whyChoose?.stamp
-const services = hp.services
-const servicesItems = Array.isArray(services?.items) ? services.items : []
 const about = hp.about
 const aboutVideo = about?.video
-const uniquePoints = hp.uniquePoints
-const uniquePointsItems = Array.isArray(uniquePoints?.items) ? uniquePoints.items : []
 const statsBar = hp.statsBar
 const reviews = settings?.reviews ?? hp.reviews
 const reviewsSummary = reviews?.summary
 const reviewValues = reviews?.reviewValues
-const faq = hp.faq
 const formsCfg = settings?.forms ?? {}
 const footerEstimate = settings?.footerEstimate ?? hp.footerEstimate
+const contactBanner = hp.contactBanner
 
 const reviewRating = statLookup(reviewValues, reviewsSummary?.ratingValueKey)
 const reviewCount = statLookup(reviewValues, reviewsSummary?.reviewCountKey)
@@ -58,8 +54,9 @@ const heroBgSrc = asStr(layoutBg?.hero?.imageSrc)
 const servicesBgSrc = asStr(layoutBg?.services?.imageSrc)
 const uniquePointsBgSrc = asStr(layoutBg?.uniquePoints?.imageSrc)
 const whyChooseImageSrc = asStr(whyChoose?.imageSrc)
-const heroBgStyle = heroBgSrc
-  ? `background-image: url('${mediaUrl(heroBgSrc)}')`
+const heroPhotoUrl = heroBgSrc ? mediaUrl(heroBgSrc) : ''
+const heroBgStyle = heroPhotoUrl
+  ? `--hero-photo: url('${heroPhotoUrl}'); background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), var(--hero-photo); background-size: cover; background-position: center; background-repeat: no-repeat;`
   : undefined
 const servicesBgStyle = servicesBgSrc
   ? `background-image: linear-gradient(rgba(12, 28, 46, 0.82), rgba(12, 28, 46, 0.82)), url('${mediaUrl(servicesBgSrc)}')`
@@ -83,49 +80,146 @@ const homepageTestimonials = Array.isArray(reviews?.testimonials)
   ? reviews.testimonials.slice(0, 6)
   : []
 
-const homesCountDisplay =
+const homesCountRaw =
   asStr(whyStamp?.homesCountTemplate)?.replace(
     /\{\{\s*count\s*\}\}/gi,
     statLookup(statsValues, whyStamp?.homesCountKey) || '10,000+',
-  ) || '10,000+'
+  ) || 'Over 10,000+'
+const homesCountDisplay = homesCountRaw.replace(/^Over\s+/i, 'Más de ')
 
-function serviceHref(svc) {
-  const title = asStr(svc?.title).toLowerCase()
-  const known = {
-    'gutter repair': '/gutter-repair-tampa-fl/',
-    'gutter installation': '/gutter-installation-tampa-fl/',
-    'seamless gutters': '/seamless-gutters-tampa-fl/',
-    'super gutters': '/super-gutters-tampa-fl/',
-    'gutter guards': '/gutter-guards-tampa-fl/',
-    'gutter cleaning': '/gutter-cleaning-tampa-fl/',
-    'screen rooms & lanais': '/screen-rooms-lanais-tampa-fl/',
-    'screen rooms and lanais': '/screen-rooms-lanais-tampa-fl/',
-    siding: '/siding-tampa-fl/',
-    'underground drainage': '/underground-drainage-tampa-fl/',
-    'french drains': '/french-drains-tampa-fl/',
-  }
-  const en = known[title] || asStr(svc?.href) || '#'
-  return EN_TO_ES_PATH[en] || en
+function serviceHref(enPath) {
+  const es = EN_TO_ES_PATH[enPath]
+  if (es && LIVE_ES_PATHS.has(es)) return es
+  return enPath
 }
 
-const serviceTitleEs = {
-  'gutter repair': 'Reparación de canaletas',
-  'gutter installation': 'Instalación de canaletas',
-  'seamless gutters': 'Canaletas seamless',
-  'super gutters': 'Super Gutters',
-  'gutter guards': 'Protectores de canaletas',
-  'gutter cleaning': 'Limpieza de canaletas',
-  'screen rooms & lanais': 'Screen Rooms & Lanais',
-  'screen rooms and lanais': 'Screen Rooms & Lanais',
-  siding: 'Siding',
-  'underground drainage': 'Drenaje subterráneo',
-  'french drains': 'Drenaje Francés',
-}
+const servicesItems = [
+  {
+    number: '01',
+    title: 'Canaletas comerciales',
+    description:
+      'Proteja su propiedad comercial con sistemas de canaletas a medida, hechos para la lluvia intensa de Florida y para dirigir el agua donde corresponde.',
+    href: serviceHref('/commercial-gutters-tampa-fl/'),
+  },
+  {
+    number: '02',
+    title: 'Canaletas seamless',
+    description:
+      'Mejore su hogar con canaletas seamless a medida que ofrecen protección duradera, menos fugas y un acabado limpio.',
+    href: serviceHref('/seamless-gutters-tampa-fl/'),
+  },
+  {
+    number: '03',
+    title: 'Super Gutters',
+    description:
+      'Diseñados para enclosures de piscina y techos grandes, los Super Gutters aportan la fuerza y capacidad que exigen las tormentas de Florida.',
+    href: serviceHref('/super-gutters-tampa-fl/'),
+  },
+  {
+    number: '04',
+    title: 'Screen Rooms & Lanais',
+    description:
+      'Disfrute más del estilo de vida de Florida con screen rooms y lanais a medida, pensados para comodidad y vida al aire libre todo el año.',
+    href: serviceHref('/screen-rooms-lanais-tampa-fl/'),
+  },
+  {
+    number: '05',
+    title: 'Reparación de soffit y fascia',
+    description:
+      'Proteja la línea del techo y renueve el exterior con reparación experta de soffit y fascia que restaura función y atractivo.',
+    href: serviceHref('/soffit-fascia-repair-tampa-fl/'),
+  },
+  {
+    number: '06',
+    title: 'Siding',
+    description:
+      'Dé a su hogar un look renovado con siding duradero que mejora el atractivo y resiste el calor, la humedad y el clima de Florida.',
+    href: serviceHref('/siding-tampa-fl/'),
+  },
+]
 
-const faqItems = Array.isArray(faq?.items) ? faq.items.slice(0, 6) : []
+const uniquePointsItems = [
+  {
+    iconId: 'clipboard',
+    title: 'Estimados honestos',
+    description:
+      'Ofrecemos estimados claros y directos, con precios transparentes y recomendaciones en las que puede confiar. Sin sorpresas ni ventas innecesarias.',
+  },
+  {
+    iconId: 'package',
+    title: 'Hechas para el clima de Florida',
+    description:
+      'Cada sistema de canaletas está diseñado para la lluvia intensa, las tormentas de verano y la humedad de Tampa Bay, ayudando a proteger su hogar del daño por agua.',
+  },
+  {
+    iconId: 'shield-check',
+    title: 'Empresa familiar, experiencia local',
+    description:
+      'Como empresa familiar que sirve a Tampa Bay desde 2018, conocemos las casas, los vecindarios y el clima que definen cada instalación.',
+  },
+  {
+    iconId: 'sparkle',
+    title: 'Mano de obra de calidad',
+    description:
+      'Desde canaletas seamless a medida hasta mejoras exteriores, cada proyecto se completa con atención al detalle y para durar.',
+  },
+  {
+    iconId: 'clock',
+    title: 'Respeto por su hogar',
+    description:
+      'Tratamos su propiedad como la nuestra: protegemos el paisaje, mantenemos el sitio limpio y hacemos un recorrido final antes de irnos.',
+  },
+  {
+    iconId: 'message',
+    title: 'Comunicación clara',
+    description:
+      'Desde el primer estimado hasta el recorrido final, siempre sabrá qué esperar con un servicio receptivo y comunicación constante en cada paso.',
+  },
+]
+
+const faqItems = [
+  {
+    question: '¿Qué tamaño de canaletas es mejor para casas en Tampa?',
+    answerHtml:
+      'Para muchas casas en Tampa, las canaletas de 6 pulgadas son una buena opción porque su mayor capacidad ayuda a manejar la lluvia intensa común en la zona. Las de 5 pulgadas pueden funcionar bien en techos más pequeños o sencillos. El mejor tamaño depende del área del techo, la pendiente, los valles, la capacidad de bajantes y el diseño del drenaje. Consideramos estos factores para que el sistema maneje bien el escurrimiento.',
+  },
+  {
+    question: '¿Son mejores las canaletas seamless para casas en Tampa?',
+    answerHtml:
+      'Las canaletas seamless son una buena opción para casas en Tampa porque tienen menos uniones a lo largo de cada tramo, lo que reduce puntos donde pueden surgir fugas. Se fabrican a la medida de la línea del techo y pueden ofrecer drenaje consistente durante las lluvias fuertes frecuentes de Tampa. Aún se necesitan uniones en esquinas y ciertas conexiones, pero menos juntas suelen significar menos puntos débiles en el sistema.',
+  },
+  {
+    question: '¿Pueden instalar canaletas en una casa en Tampa que nunca las ha tenido?',
+    answerHtml:
+      'Sí. Se pueden agregar canaletas a la mayoría de las casas en Tampa aunque se hayan construido sin ellas. Revisamos la línea del techo, el estado de la fascia, los patrones de escurrimiento y ubicaciones adecuadas de bajantes para diseñar un sistema efectivo. Esto es especialmente importante en Tampa, donde la lluvia intensa puede enviar mucha agua del techo hacia cimientos, jardines, patios, pasillos y otras áreas de la propiedad.',
+  },
+  {
+    question: '¿Cómo sé si mis canaletas necesitan reparación o reemplazo en Tampa?',
+    answerHtml:
+      'Las canaletas en Tampa a menudo se pueden reparar cuando el problema es una fuga pequeña, un sujetador suelto, una unión separada o daño aislado. El reemplazo puede ser mejor ante corrosión generalizada, hundimiento, fugas recurrentes o canaletas que se desprenden de la fascia. Durante una inspección evaluamos todo el sistema, incluido el drenaje y los bajantes, para determinar si conviene reparar o reemplazar en su casa en Tampa.',
+  },
+  {
+    question: '¿Valen la pena los protectores de canaletas para casas en Tampa?',
+    answerHtml:
+      'Los protectores de canaletas pueden valer la pena en casas de Tampa, especialmente con árboles cercanos que sueltan hojas, agujas de pino, semillas y otros escombros. Ayudan a reducir la acumulación para que el agua fluya mejor durante lluvias fuertes. No eliminan por completo el mantenimiento. Seguimos recomendando inspecciones y limpieza periódicas para que canaletas y bajantes funcionen bien en el clima lluvioso de Tampa.',
+  },
+]
+
+const statsLabelMap = {
+  statsYearsExperience: 'opciones de garantía*',
+  statsJobsCompleted: 'Proyectos completados',
+  statsAvgRating: 'Calificación promedio en Google',
+}
 
 const esServiceIntro =
   'Estamos orgullosos de ofrecer servicios de canaletas y exteriores en todo Tampa Bay, incluyendo Clearwater, Tampa, St. Petersburg, Wesley Chapel, Plant City y comunidades cercanas. Con base en Seffner, nuestro equipo local ayuda cada día a propietarios y negocios a proteger sus propiedades con trabajo de calidad y servicio honesto. ¿No ve su ciudad? Contáctenos; es posible que aún podamos ayudar.'
+
+function translateStatValue(value) {
+  const v = asStr(value)
+  if (/^lifetime$/i.test(v)) return 'De por vida'
+  if (/^over\s+/i.test(v)) return v.replace(/^over\s+/i, 'Más de ')
+  return v
+}
 ---
 
 <main>
@@ -134,7 +228,7 @@ const esServiceIntro =
     <div class="container hero-split-inner">
       <div class="hero-copy">
         <div class="hero-eyebrow">Empresa familiar de canaletas en Tampa Bay</div>
-        <h1>Proteja su hogar con canaletas hechas para el clima de Florida</h1>
+        <h1>La Mejor Empresa de Canaletas en Tampa</h1>
         <p class="hero-typed" aria-live="polite">
           <span id="hero-typed-text"></span><span class="hero-caret" aria-hidden="true">|</span>
         </p>
@@ -222,7 +316,7 @@ const esServiceIntro =
     </section>
   </section>
 
-  <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={tel} />
+  <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={tel} locale="es" />
 
   <section id="reviews" class="section google-reviews">
     <div class="container">
@@ -308,7 +402,9 @@ const esServiceIntro =
   {projectSlides.length > 0 ? (
     <section id="process" class="image-scroller" aria-label="Proyectos recientes">
       <div class="container projects-head">
-        <h2 class="section-title projects-title">Proyectos recientes en Tampa Bay</h2>
+        <h2 class="section-title projects-title">
+          Trabajo reciente de canaletas en Tampa y alrededores
+        </h2>
       </div>
       <div class="projects-carousel" id="projects-carousel">
         {projectSlides.map((slide, slideIndex) => {
@@ -375,26 +471,38 @@ const esServiceIntro =
       <div class="why-choose-content">
         <div class="why-eyebrow">Por qué SunLife</div>
         <h2 class="section-title section-title-secondary">
-          Canaletas y exteriores en los que puede confiar
+          La opción local de confianza para canaletas en Tampa Bay
         </h2>
         <p class="section-lead">
-          Somos una empresa familiar con sede en Seffner que sirve a propietarios de Tampa Bay con
-          recomendaciones honestas, comunicación clara y trabajo hecho bien desde la primera visita.
+          Desde casas frente al agua y vecindarios consolidados hasta comunidades en crecimiento en
+          todo Tampa Bay, ofrecemos soluciones de canaletas y exteriores a medida, respaldadas por
+          recomendaciones honestas, buena mano de obra y comunicación clara desde el estimado hasta
+          el recorrido final.
         </p>
         <ul class="why-choose-list">
           <li>
-            <strong>Hechas a la medida en el camión.</strong>{' '}
-            Fabricamos canaletas seamless en el sitio para un ajuste preciso.
+            <strong>Hechas para el clima de Florida:</strong>{' '}
+            Cada sistema está diseñado para manejar lluvia intensa, tormentas fuertes y humedad todo
+            el año, ayudando a proteger cimientos, línea del techo y jardines.
           </li>
           <li>
-            <strong>Preparadas para el clima de Florida.</strong>{' '}
-            Instalación pensada para lluvia intensa, humedad y viento.
+            <strong>Soluciones exteriores completas:</strong>{' '}
+            Desde canaletas seamless y Super Gutters hasta protectores, screen rooms, lanais, trim
+            de techo,{' '}
+            <a href={serviceHref('/gutter-repair-tampa-fl/')}>reparaciones de canaletas en Tampa</a>
+            {' '}y mantenimiento, un solo equipo local con experiencia lo maneja todo.
           </li>
           <li>
-            <strong>Opciones claras, sin presión.</strong>{' '}
-            Explicamos opciones y precios antes de que usted decida.
+            <strong>De la confianza de propietarios de Tampa Bay:</strong>{' '}
+            Desde 2018 hemos servido a más de 10,000 clientes con trabajo confiable, precios justos
+            y una experiencia sin estrés respaldada por un servicio receptivo.
           </li>
         </ul>
+        <p class="why-choose-note">
+          Pregunte por mejoras listas para tormentas, incluyendo protectores de canaletas,
+          extensiones de bajantes y mantenimiento preventivo para ayudar a proteger su hogar todo el
+          año.
+        </p>
         <div class="why-choose-actions">
           <a href={telLink} class="btn btn-primary btn-lg">
             {ES_NAV.callPrefix} {phoneDisplay}
@@ -409,25 +517,21 @@ const esServiceIntro =
 
   <section id="services" class="section services" style={servicesBgStyle}>
     <div class="container">
-      <h2 class="section-title">Servicios de canaletas y exteriores</h2>
+      <h2 class="section-title">Servicios de canaletas en Tampa hechos para el clima de Florida</h2>
       <div class="services-grid">
-        {servicesItems.map((svc) => {
-          const enTitle = asStr(svc.title)
-          const esTitle = serviceTitleEs[enTitle.toLowerCase()] || enTitle
-          return (
-            <article class="service-card">
-              <a
-                href={serviceHref(svc)}
-                class="service-image-wrap"
-                style="display:block; color:inherit; text-decoration:none;"
-              >
-                <span class="service-number">{asStr(svc.number)}</span>
-                <h3 class="service-title">{esTitle}</h3>
-                <p class="service-desc">{asStr(svc.description)}</p>
-              </a>
-            </article>
-          )
-        })}
+        {servicesItems.map((svc) => (
+          <article class="service-card">
+            <a
+              href={svc.href}
+              class="service-image-wrap"
+              style="display:block; color:inherit; text-decoration:none;"
+            >
+              <span class="service-number">{svc.number}</span>
+              <h3 class="service-title">{svc.title}</h3>
+              <p class="service-desc">{svc.description}</p>
+            </a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -436,23 +540,26 @@ const esServiceIntro =
     <div class="container about-grid">
       <div class="about-content">
         <div class="about-eyebrow">Fundada en familia desde 2018</div>
-        <h2 class="section-title">Hechos para casas y clima de Tampa Bay</h2>
+        <h2 class="section-title">Contratistas de canaletas con experiencia en Tampa</h2>
         <p class="about-lead">
-          Fundada en diciembre de 2018, SunLife nació con una meta sencilla: ofrecer recomendaciones
-          honestas, buena mano de obra y una experiencia clara. Lo que empezó con un equipo de
-          canaletas seamless creció hasta ser una empresa de exteriores de confianza en todo Tampa Bay.
+          Fundada en diciembre de 2018, SunLife nació de la visión de Kevin y Jessica Stroh. Lo que
+          empezó con un equipo de canaletas seamless creció hasta ser un equipo completo de
+          exteriores que sirve al área de Tampa Bay, ofreciendo canaletas seamless, Super Gutters,
+          screen rooms, lanais y trim de techo, manteniendo los estimados honestos y la atención al
+          detalle que han definido a la empresa desde el inicio.
         </p>
         <ul class="about-list">
           <li>Aluminio seamless fabricado en el camión para un ajuste perfecto</li>
           <li>Soportes resistentes a la corrosión espaciados para el viento de Old Tampa Bay</li>
           <li>Accesorios a color que combinan con stucco, siding o ladrillo</li>
+          <li>Servicios de techo disponibles a través de socios locales de confianza</li>
         </ul>
         <div class="about-video-actions">
           <a href={telLink} class="btn btn-primary btn-lg">
             {ES_NAV.callPrefix} {phoneDisplay}
           </a>
-          <a href="/es/sobre-nosotros/" class="btn btn-outline btn-lg request-estimate">
-            Sobre Nosotros
+          <a href="/es/contacto/#contact" class="btn btn-outline btn-lg request-estimate">
+            {ES_NAV.bookConsultation}
           </a>
         </div>
       </div>
@@ -471,41 +578,36 @@ const esServiceIntro =
     </div>
   </section>
 
-  {uniquePointsItems.length > 0 ? (
-    <section class="section unique-points" style={uniquePointsBgStyle}>
-      <div class="container">
-        <div class="why-eyebrow">La diferencia SunLife</div>
-        <h2 class="section-title section-title-secondary">Lo que nota en cada visita</h2>
-        <div class="unique-grid">
-          {uniquePointsItems.map((pt) => (
-            <article class="result-item">
-              <span class="result-value">
-                <span class="result-icon" aria-hidden="true">
-                  <UniquePointIcon iconId={asStr(pt.iconId)} />
-                </span>
-                {asStr(pt.title)}
+  <section class="section unique-points" style={uniquePointsBgStyle}>
+    <div class="container">
+      <div class="why-eyebrow">La diferencia SunLife</div>
+      <h2 class="section-title section-title-secondary">
+        ¿Por qué elegir nuestra empresa de canaletas en Tampa?
+      </h2>
+      <div class="unique-grid">
+        {uniquePointsItems.map((pt) => (
+          <article class="result-item">
+            <span class="result-value">
+              <span class="result-icon" aria-hidden="true">
+                <UniquePointIcon iconId={pt.iconId} />
               </span>
-              <p>{asStr(pt.description)}</p>
-            </article>
-          ))}
-        </div>
+              {pt.title}
+            </span>
+            <p>{pt.description}</p>
+          </article>
+        ))}
       </div>
-    </section>
-  ) : null}
+    </div>
+  </section>
 
   <section class="stats-thin" aria-label="Estadísticas">
     <div class="container stats-thin-grid">
       {(Array.isArray(statsBar?.items) ? statsBar.items : []).map((row) => {
         const valueKey = asStr(row.valueKey)
-        const labelMap = {
-          statsYearsExperience: 'opciones de garantía*',
-          statsJobsCompleted: 'Proyectos completados',
-          statsAvgRating: 'Calificación promedio en Google',
-        }
-        const label = labelMap[valueKey] || asStr(row.label)
+        const label = statsLabelMap[valueKey] || asStr(row.label)
         return (
           <div>
-            <strong>{statLookup(statsValues, row.valueKey)}</strong>
+            <strong>{translateStatValue(statLookup(statsValues, row.valueKey))}</strong>
             {label ? <span>{label}</span> : null}
           </div>
         )
@@ -516,17 +618,29 @@ const esServiceIntro =
   <section class="section contact-banner-split">
     <div class="container contact-banner-grid">
       <div class="contact-banner-copy">
-        <h2 class="section-title">¿Listo para proteger su hogar?</h2>
+        <h2 class="section-title">¿Listo para la próxima tormenta de Florida?</h2>
         <p class="section-lead">
-          Solicite una consulta gratuita. Revisamos su propiedad, explicamos opciones y le damos un
-          plan claro — sin presión.
+          Ya sea que necesite canaletas nuevas, mejoras exteriores o reparaciones, nuestro equipo
+          hace el proceso sencillo con recomendaciones honestas y comunicación clara de principio a
+          fin.
+        </p>
+        <p class="section-lead">
+          Llámenos cuando quiera o reserve su consulta gratuita en línea.
         </p>
         <div class="contact-banner-actions">
           <a href={telLink} class="contact-banner-phone">
-            {ES_NAV.callPrefix} {phoneDisplay}
-          </a>
-          <a href="/es/contacto/#contact" class="btn btn-primary btn-lg">
-            {ES_NAV.bookConsultation}
+            {asStr(contactBanner?.phoneIconSrc) ? (
+              <img
+                src={mediaUrl(asStr(contactBanner?.phoneIconSrc))}
+                alt=""
+                aria-hidden="true"
+                width="20"
+                height="20"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
+            <span class="contact-banner-phone-number">{phoneDisplay}</span>
           </a>
         </div>
       </div>
@@ -536,37 +650,39 @@ const esServiceIntro =
   <section id="service-area" class="section service-area">
     <div class="container">
       <div class="why-eyebrow">Área de servicio</div>
-      <h2 class="section-title">{HOMEPAGE_SERVICE_AREA_HEADLINE.replace('Rain Gutters', 'Canaletas')}</h2>
-      <p class="section-lead" set:html={esServiceIntro} />
-      <div class="cities-list cities-list--pills">
-        <p class="cities-label">Ciudades que servimos</p>
-        <nav class="cities-nav cities-nav--pills" aria-label="Ciudades que servimos">
-          {POPULAR_SERVICE_AREA_CITIES.map((city) => (
-            <a href={asStr(city.href)}>{asStr(city.name)}</a>
-          ))}
-        </nav>
-      </div>
-      {mapEmbedUrl ? (
-        <div class="service-area-map">
-          <iframe
-            title={`Mapa de servicio de ${companyName}`}
-            src={mapEmbedUrl}
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          />
+      <h2 class="section-title">Canaletas en Tampa y comunidades cercanas</h2>
+      <p class="section-lead service-area-intro">{esServiceIntro}</p>
+      <div class="service-area-grid service-area-grid--stacked">
+        {mapEmbedUrl ? (
+          <div class="map-wrap">
+            <iframe
+              title={`Mapa de servicio de ${companyName}`}
+              src={mapEmbedUrl}
+              width="600"
+              height="400"
+              style="border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            />
+          </div>
+        ) : null}
+        <div class="cities-list cities-list--pills">
+          <p class="cities-label">Áreas de servicio populares</p>
+          <nav class="cities-nav cities-nav--pills" aria-label="Ciudades que servimos">
+            {POPULAR_SERVICE_AREA_CITIES.map((city) => (
+              <a href={asStr(city.href)}>{asStr(city.name)}</a>
+            ))}
+          </nav>
         </div>
-      ) : null}
-      <p class="section-lead" style="margin-top: 1.5rem;">
-        <a href="/es/areas-de-servicio/">Ver todas las áreas de servicio →</a>
-      </p>
+      </div>
     </div>
   </section>
 
-  {faqItems.length > 0 ? (
-    <section class="section faq-section" id="faq">
-      <div class="container">
-        <h2 class="section-title section-title-secondary">Preguntas frecuentes</h2>
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="faq-panel">
+        <h2 class="section-title section-title-secondary">Preguntas frecuentes sobre canaletas en Tampa</h2>
         <div class="faq-list" data-faq-accordion>
           {faqItems.map((item, i) => {
             const btnId = `es-home-faq-btn-${i + 1}`
@@ -580,7 +696,7 @@ const esServiceIntro =
                   aria-expanded="false"
                   aria-controls={panelId}
                 >
-                  <span class="faq-question">{asStr(item.question)}</span>
+                  <span class="faq-question">{item.question}</span>
                   <span class="faq-chevron" aria-hidden="true"></span>
                 </button>
                 <div
@@ -590,18 +706,15 @@ const esServiceIntro =
                   aria-labelledby={btnId}
                   aria-hidden="true"
                 >
-                  <div class="faq-answer" set:html={sanitizeCmsHtml(asStr(item.answerHtml))} />
+                  <div class="faq-answer" set:html={sanitizeCmsHtml(item.answerHtml)} />
                 </div>
               </div>
             )
           })}
         </div>
-        <p style="margin-top: 1.25rem;">
-          <a href="/es/preguntas-frecuentes/">Ver todas las preguntas frecuentes →</a>
-        </p>
       </div>
-    </section>
-  ) : null}
+    </div>
+  </section>
 </main>
 
 <script define:vars={{ typedPhrases }}>

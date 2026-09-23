@@ -4,23 +4,34 @@
  */
 import {
   GREENSKY_FINANCING,
+  GREENSKY_FINANCING_ES,
   GREENSKY_MAIN_DISCLOSURE,
+  GREENSKY_MAIN_DISCLOSURE_ES,
+  GREENSKY_WARRANTY_NOTE_ES,
   getAdvertisedPlans,
+  isGreenskyEsLocale,
   linkifyMainDisclosure,
 } from '../lib/greensky-financing.js'
 
-const cfg = GREENSKY_FINANCING
+interface Props {
+  locale?: string
+}
+
+const { locale = 'en' } = Astro.props
+const isEs = isGreenskyEsLocale(locale)
+const cfg = isEs ? { ...GREENSKY_FINANCING, ...GREENSKY_FINANCING_ES } : GREENSKY_FINANCING
 const plans = getAdvertisedPlans()
-const mainDisclosureHtml = linkifyMainDisclosure(GREENSKY_MAIN_DISCLOSURE)
+const mainDisclosureHtml = linkifyMainDisclosure(
+  isEs ? GREENSKY_MAIN_DISCLOSURE_ES : GREENSKY_MAIN_DISCLOSURE,
+)
+const warrantyNote = isEs
+  ? GREENSKY_WARRANTY_NOTE_ES
+  : '*The cost of lifetime warranty options varies based on the project, home size, and other important factors. SunLife Gutters Tampa offers lifetime warranty options and other warranties. Talk to your sales representative or contact us for more information.'
 ---
 
 <div class="footer-financing">
   <div class="container">
-    <p class="footer-financing-text">
-      *The cost of lifetime warranty options varies based on the project, home size, and other
-      important factors. SunLife Gutters Tampa offers lifetime warranty options and other
-      warranties. Talk to your sales representative or contact us for more information.
-    </p>
+    <p class="footer-financing-text">{warrantyNote}</p>
     <div class="footer-financing-terms" id="financing-terms">
       <h2 class="footer-financing-heading">{cfg.termsHeading}</h2>
       {

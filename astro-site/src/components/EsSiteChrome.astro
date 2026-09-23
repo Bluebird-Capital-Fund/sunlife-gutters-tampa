@@ -60,7 +60,8 @@ const phoneTel = asStr(business.phoneTel) || '8135485310'
 const email = asStr(business.email) || ''
 const address = asStr(business.addressShort) || 'Seffner, FL'
 const addressHref = googleBusinessProfileUrl(settings)
-const descriptionShort = asStr(business.descriptionShort)
+const descriptionShort =
+  'Especialistas en canaletas con sede en Seffner que ofrecen instalación, reparación, limpieza y protección de canaletas seamless en Tampa, St. Pete, Clearwater, Brandon y las áreas circundantes de Hillsborough y Pinellas. Operado por Bluebird Miami, LLC.'
 const logoWhite = asStr(business.logoHorizontalWhite)
 const logoBlack = asStr(business.logoHorizontalBlack)
 const copyrightHref = asStr(business.copyrightSiteUrl) || '/'
@@ -301,14 +302,14 @@ const esFooterColumns = [
             ) : null}
             {col.hoursHeading ? <p class="footer-heading footer-hours-heading">{col.hoursHeading}</p> : null}
             {col.hoursText ? <FooterHoursRow hoursText={col.hoursText} /> : null}
-            {col.hoursHeading || col.hoursText ? <FooterSmsDisclosure /> : null}
+            {col.hoursHeading || col.hoursText ? <FooterSmsDisclosure locale="es" /> : null}
           </div>
         ))}
       </div>
     </div>
   </footer>
 
-  <FooterFinancingDisclosure />
+  <FooterFinancingDisclosure locale="es" />
 
   <div class="footer-support">
     <div class="container footer-support-inner">
