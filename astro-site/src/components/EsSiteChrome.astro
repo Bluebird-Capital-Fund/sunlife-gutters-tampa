@@ -116,7 +116,6 @@ const esFooterColumns = [
             <strong>Reserve su consulta gratuita hoy.</strong>
           </a>
         </p>
-        <LanguageSwitcher />
       </div>
     </div>
     <div class="header-nav">
@@ -198,7 +197,10 @@ const esFooterColumns = [
               ))}
             </ul>
           </div>
-          <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <div class="nav-cta-group">
+            <LanguageSwitcher />
+            <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          </div>
         </nav>
       </div>
     </div>

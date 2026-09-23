@@ -78,7 +78,6 @@ const breadcrumbItems =
             <strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong>
           </a>
         </p>
-        <LanguageSwitcher />
       </div>
     </div>
     <div class="header-nav">
@@ -132,7 +131,10 @@ const breadcrumbItems =
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
-          <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <div class="nav-cta-group">
+            <LanguageSwitcher />
+            <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
+        </div>
         </nav>
       </div>
     </div>

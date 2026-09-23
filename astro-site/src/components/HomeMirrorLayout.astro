@@ -737,7 +737,6 @@ const serviceHref = (svc) => {
             <strong>{offerBarCtaText}</strong>
           </a>
         </p>
-        <LanguageSwitcher />
       </div>
     </div>
 
@@ -753,7 +752,8 @@ const serviceHref = (svc) => {
             const href = asStr(item.href)
             const dropdown = item.dropdown
             if (Array.isArray(dropdown) && dropdown.length > 0) {
-              const ddId = `nav-dd-${i}`
+              const ddId = 
+av-dd-${i}`
               return (
                 <div class="nav-dropdown" data-nav-dropdown>
                   <button
@@ -785,7 +785,10 @@ const serviceHref = (svc) => {
               </a>
             )
           })}
-          <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <div class="nav-cta-group">
+            <LanguageSwitcher />
+            <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          </div>
         </nav>
       </div>
     </div>

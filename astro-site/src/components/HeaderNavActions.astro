@@ -1,8 +1,10 @@
 ---
 /**
- * Mobile header actions: call CTA + hamburger.
+ * Mobile header actions: language switcher + call CTA + hamburger.
  * Hidden on desktop; shown beside the logo under the mobile nav breakpoint.
  */
+import LanguageSwitcher from './LanguageSwitcher.astro'
+
 interface Props {
   telHref: string
   phoneDisplay: string
@@ -14,6 +16,7 @@ const label = String(phoneDisplay || 'us').trim() || 'us'
 ---
 
 <div class="header-nav-actions">
+  <LanguageSwitcher />
   <a href={href} class="header-mobile-call" aria-label={`Call ${label}`}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
