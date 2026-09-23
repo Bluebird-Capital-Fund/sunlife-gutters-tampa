@@ -163,6 +163,7 @@ const breadcrumbItems = simpleBreadcrumbItems(blogCrumbLabel, { label: 'Blog', h
             <strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong>
           </a>
         </p>
+        <LanguageSwitcher />
       </div>
     </div>
     <div class="header-nav">
@@ -216,7 +217,6 @@ const breadcrumbItems = simpleBreadcrumbItems(blogCrumbLabel, { label: 'Blog', h
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
-          <LanguageSwitcher />
           <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
         </nav>
       </div>
