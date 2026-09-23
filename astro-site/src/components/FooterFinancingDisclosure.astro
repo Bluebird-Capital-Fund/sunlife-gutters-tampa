@@ -8,7 +8,7 @@ import {
   GREENSKY_MAIN_DISCLOSURE,
   GREENSKY_MAIN_DISCLOSURE_ES,
   GREENSKY_WARRANTY_NOTE_ES,
-  getAdvertisedPlans,
+  getAdvertisedPlansForLocale,
   isGreenskyEsLocale,
   linkifyMainDisclosure,
 } from '../lib/greensky-financing.js'
@@ -20,7 +20,7 @@ interface Props {
 const { locale = 'en' } = Astro.props
 const isEs = isGreenskyEsLocale(locale)
 const cfg = isEs ? { ...GREENSKY_FINANCING, ...GREENSKY_FINANCING_ES } : GREENSKY_FINANCING
-const plans = getAdvertisedPlans()
+const plans = getAdvertisedPlansForLocale(locale)
 const mainDisclosureHtml = linkifyMainDisclosure(
   isEs ? GREENSKY_MAIN_DISCLOSURE_ES : GREENSKY_MAIN_DISCLOSURE,
 )

@@ -147,7 +147,7 @@ export const GREENSKY_WARRANTY_NOTE_ES =
 export const GREENSKY_MAIN_DISCLOSURE_ES =
   'Los préstamos del programa de préstamos al consumidor GreenSky® son ofrecidos y otorgados por instituciones financieras aseguradas a nivel federal, de estatuto federal o estatal, que otorgan crédito sin consideración de edad, raza, color, religión, origen nacional, género, discapacidad o estado familiar. Una lista de las instituciones financieras que actualmente otorgan préstamos a través del Programa GreenSky® está disponible en www.greensky.com/bank-partners. GreenSky Servicing, LLC administra los préstamos en nombre de su prestamista, NMLS #1416362. www.nmlsconsumeraccess.org/. GreenSky® es una marca registrada de GreenSky, LLC y está licenciada a bancos y otras instituciones financieras para su uso en conexión con ese programa de préstamos al consumidor. GreenSky Servicing, LLC es una empresa de tecnología financiera que administra el programa de préstamos al consumidor GreenSky® proporcionando apoyo de originación y servicio a bancos y otras instituciones financieras que otorgan o mantienen préstamos del programa. GreenSky, LLC y GreenSky Servicing, LLC no son prestamistas. Todas las decisiones de crédito y los términos del préstamo son determinados por los prestamistas del programa.'
 
-/** Banner-facing Spanish strings keyed by plan id (disclosures stay English for legal accuracy). */
+/** Banner-facing Spanish strings keyed by plan id. */
 export const GREENSKY_PLAN_BANNER_ES = {
   '2613': {
     bannerHeadline: 'SIN INTERESES SI SE PAGA POR COMPLETO',
@@ -167,6 +167,16 @@ export const GREENSKY_PLAN_BANNER_ES = {
   },
 }
 
+/** Spanish footer plan disclosures (same numbers/APRs as English; ES pages only). */
+export const GREENSKY_PLAN_DISCLOSURE_ES = {
+  '2613':
+    'Plan 2613. Sujeto a aprobación crediticia. Las tasas APR oscilan entre 17.99% y 29.99% (las tasas de interés periódicas fijas oscilan entre 17.99% y 29.99%). Solo los solicitantes muy bien calificados recibirán una APR de 17.99%; algunos solicitantes podrían no calificar. El monto del préstamo y la tasa variarán según sus ingresos y solvencia crediticia. Período promocional de 12 meses (Período Promo) durante el cual se facturan intereses, pero se condonan si el monto financiado se paga por completo antes de que expire el Período Promo. Se requieren pagos mensuales durante el Período Promo, pero realizar solo los pagos mensuales requeridos no liquidará el monto financiado para la fecha de vencimiento del Período Promo. Cualquier saldo no pagado y montos adeudados después del Período Promo se pagarán en 72 pagos mensuales. Ejemplo para un préstamo de $10,000: APR 29.99%, 84 pagos mensuales de $285.87. Los pagos reales dependen de los montos y el momento de las compras. Llame al 866-936-0602 para más detalles.',
+  '2717':
+    'Plan 2717. Sujeto a aprobación crediticia. El plazo del préstamo es de 60 meses. APR fija de 8.37% (tasa de interés periódica fija de 7.99%). La APR asume una comisión de originación de $89 para un préstamo de $10,000; la comisión de originación se agrega al pago mínimo adeudado en el primer pago. No todos los préstamos incluyen una comisión de originación. Ejemplo para un préstamo de $10,000 con comisión de originación de $89: APR 8.37%, tasa de interés periódica fija de 7.99%, 1 pago de $291.72 seguido de 59 pagos mensuales de $202.72. Los montos de pago reales y la APR pueden variar. Llame al 866-936-0602 para más detalles.',
+  '2602':
+    'Plan 2602. Sujeto a aprobación crediticia. Las tasas APR oscilan entre 17.99% y 29.99% (las tasas de interés periódicas fijas oscilan entre 17.99% y 29.99%). Solo los solicitantes muy bien calificados recibirán una APR de 17.99%; algunos solicitantes podrían no calificar. El monto del préstamo y la tasa variarán según sus ingresos y solvencia crediticia. Período promocional de 6 meses (Período Promo) durante el cual se facturan intereses, pero se condonan si el monto financiado se paga por completo antes de que expire el Período Promo. Se requieren pagos mensuales durante el Período Promo, pero realizar solo los pagos mensuales requeridos no liquidará el monto financiado para la fecha de vencimiento del Período Promo. Cualquier saldo no pagado y montos adeudados después del Período Promo se pagarán en 78 pagos mensuales. Ejemplo para un préstamo de $10,000: APR 29.99%, 84 pagos mensuales de $285.87. Los pagos reales dependen de los montos y el momento de las compras. Llame al 866-936-0602 para más detalles.',
+}
+
 export function isGreenskyEsLocale(locale) {
   const v = String(locale || '').toLowerCase()
   return v === 'es' || v === 'es-us' || v.startsWith('es')
@@ -183,5 +193,19 @@ export function getPrimaryPlansForLocale(locale) {
   return plans.map((plan) => {
     const es = GREENSKY_PLAN_BANNER_ES[plan.id]
     return es ? { ...plan, ...es } : plan
+  })
+}
+
+export function getAdvertisedPlansForLocale(locale) {
+  const plans = getAdvertisedPlans()
+  if (!isGreenskyEsLocale(locale)) return plans
+  return plans.map((plan) => {
+    const disclosureEs = GREENSKY_PLAN_DISCLOSURE_ES[plan.id]
+    const bannerEs = GREENSKY_PLAN_BANNER_ES[plan.id] || {}
+    return {
+      ...plan,
+      ...bannerEs,
+      disclosure: disclosureEs || plan.disclosure,
+    }
   })
 }

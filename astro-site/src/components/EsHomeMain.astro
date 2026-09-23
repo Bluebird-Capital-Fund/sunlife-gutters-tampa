@@ -209,6 +209,8 @@ const statsLabelMap = {
   statsYearsExperience: 'opciones de garantía*',
   statsJobsCompleted: 'Proyectos completados',
   statsAvgRating: 'Calificación promedio en Google',
+  statsCallbackTime: 'Tiempo típico de respuesta',
+  statsTypicalCallback: 'Tiempo típico de respuesta',
 }
 
 const esServiceIntro =
@@ -219,6 +221,17 @@ function translateStatValue(value) {
   if (/^lifetime$/i.test(v)) return 'De por vida'
   if (/^over\s+/i.test(v)) return v.replace(/^over\s+/i, 'Más de ')
   return v
+}
+
+function translateStatLabel(valueKey, label) {
+  if (valueKey && statsLabelMap[valueKey]) return statsLabelMap[valueKey]
+  const l = asStr(label)
+  const lower = l.toLowerCase()
+  if (/typical callback/i.test(lower)) return 'Tiempo típico de respuesta'
+  if (/warranty options/i.test(lower)) return 'opciones de garantía*'
+  if (/projects completed/i.test(lower)) return 'Proyectos completados'
+  if (/average google/i.test(lower)) return 'Calificación promedio en Google'
+  return l
 }
 ---
 
@@ -604,7 +617,7 @@ function translateStatValue(value) {
     <div class="container stats-thin-grid">
       {(Array.isArray(statsBar?.items) ? statsBar.items : []).map((row) => {
         const valueKey = asStr(row.valueKey)
-        const label = statsLabelMap[valueKey] || asStr(row.label)
+        const label = translateStatLabel(valueKey, row.label)
         return (
           <div>
             <strong>{translateStatValue(statLookup(statsValues, row.valueKey))}</strong>

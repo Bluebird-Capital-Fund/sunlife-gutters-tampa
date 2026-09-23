@@ -9,6 +9,7 @@ import FinancingBanner from '../../components/FinancingBanner.astro'
 import SmsMarketingConsent from '../../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../../components/HeaderNavActions.astro'
 import NavCallRow from '../../components/NavCallRow.astro'
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro'
 import Breadcrumbs from '../../components/Breadcrumbs.astro'
 import { externalLinkAttrs } from '../../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../../lib/footer-contact-heading.js'
@@ -135,7 +136,7 @@ const breadcrumbItems = simpleBreadcrumbItems('Services')
             <strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong>
           </a>
         </p>
-        
+        <LanguageSwitcher />
       </div>
     </div>
     <div class="header-nav">
@@ -193,9 +194,8 @@ const breadcrumbItems = simpleBreadcrumbItems('Services')
               <a href="/services/">Services</a>
             </>
           )}
-          <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg nav-call-drawer">{callLabelNav}</a>
+          <NavCallRow telHref={`tel:${phoneTel}`} callLabel={callLabelNav} />
         </nav>
-        <NavCallRow telHref={`tel:${phoneTel}`} callLabel={callLabelNav} />
       </div>
     </div>
   </header>

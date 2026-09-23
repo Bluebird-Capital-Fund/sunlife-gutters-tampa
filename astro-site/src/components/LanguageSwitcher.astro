@@ -1,7 +1,7 @@
 ---
 /**
  * Crawlable English | Español switcher.
- * Desktop: full labels. Mobile compact: EN | ES (via CSS).
+ * Offer-bar: pill buttons. Mobile header: compact EN | ES.
  */
 import { getAlternatePath, getLocaleFromPath, LOCALE_EN, LOCALE_ES, normalizePath } from '../lib/i18n.js'
 
@@ -24,7 +24,6 @@ const compact = Astro.props.compact === true
     <span class="lang-switcher-full">English</span>
     <span class="lang-switcher-short" aria-hidden="true">EN</span>
   </a>
-  <span class="lang-switcher-sep" aria-hidden="true">|</span>
   <a
     href={esHref}
     class:list={['lang-switcher-link', locale === LOCALE_ES ? 'is-active' : null]}

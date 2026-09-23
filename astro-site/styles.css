@@ -262,11 +262,11 @@ a:hover {
   min-width: auto;
 }
 
-/* Language switcher — white-bar Call+lang group (sibling of .nav) + mobile header actions */
+/* Language switcher — offer-bar corner (pill buttons) + mobile header actions */
 .lang-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
   flex-shrink: 0;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -275,10 +275,16 @@ a:hover {
 }
 
 .lang-switcher-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
   color: inherit;
   text-decoration: none;
-  opacity: 0.75;
-  transition: color var(--transition), opacity var(--transition);
+  opacity: 0.9;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), opacity var(--transition);
 }
 
 .lang-switcher-link:hover {
@@ -287,14 +293,7 @@ a:hover {
 
 .lang-switcher-link.is-active {
   opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
   font-weight: 700;
-}
-
-.lang-switcher-sep {
-  opacity: 0.45;
-  user-select: none;
 }
 
 .lang-switcher-short {
@@ -305,63 +304,67 @@ a:hover {
   display: inline;
 }
 
-/* Sibling of .nav in .header-inner — Call + lang, out of nav link flex */
-.nav-call-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex-shrink: 0;
-  margin-left: var(--space-sm);
+/* Brown offer bar — right corner, high-contrast pill buttons */
+.offer-bar-inner .lang-switcher {
+  position: absolute;
+  right: var(--space-xl);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  gap: 0.4rem;
 }
 
-.nav-call-row .btn {
-  flex-shrink: 0;
-  white-space: nowrap;
-  min-width: max-content;
+.offer-bar-inner .lang-switcher-link {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  opacity: 1;
+  font-size: 0.75rem;
+  padding: 0.28rem 0.75rem;
+  min-height: 1.85rem;
 }
 
-.nav-call-row .lang-switcher {
-  color: var(--color-text);
+.offer-bar-inner .lang-switcher-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+  color: #fff;
 }
 
-.nav-call-row .lang-switcher-link {
-  color: var(--color-text);
-}
-
-.nav-call-row .lang-switcher-link:hover {
-  color: var(--color-accent);
-}
-
-.nav-call-row .lang-switcher-sep {
-  color: var(--color-text);
-}
-
-/*
- * Mobile-menu Call only. Must beat .btn { display: inline-flex } (same specificity,
- * later in file) or both Calls render on desktop and crush the header.
- */
-a.btn.nav-call-drawer {
-  display: none !important;
+.offer-bar-inner .lang-switcher-link.is-active {
+  background: #fff;
+  border-color: #fff;
+  color: var(--color-dark);
+  text-decoration: none;
 }
 
 .header-nav-actions .lang-switcher {
   margin-right: 0.15rem;
-  color: var(--color-text);
+  gap: 0.3rem;
 }
 
 .header-nav-actions .lang-switcher-link {
+  border-color: var(--color-border);
+  background: var(--color-bg);
   color: var(--color-text);
+  opacity: 1;
+  font-size: 0.7rem;
+  padding: 0.22rem 0.5rem;
+  min-height: 1.75rem;
 }
 
 .header-nav-actions .lang-switcher-link:hover {
+  border-color: var(--color-accent);
   color: var(--color-accent);
 }
 
-.header-nav-actions .lang-switcher-sep {
-  color: var(--color-text);
+.header-nav-actions .lang-switcher-link.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary-cta-text);
+  text-decoration: none;
 }
 
-/* Mid desktop: Spanish labels are longer — tighten so one row holds */
+/* Mid desktop: Spanish labels are longer — tighten nav so Call fits */
 @media (max-width: 1280px) and (min-width: 1121px) {
   .nav {
     gap: 0.75rem;
@@ -372,28 +375,25 @@ a.btn.nav-call-drawer {
     font-size: 0.9rem;
   }
 
-  .nav-call-row {
-    gap: 0.5rem;
-    margin-left: 0.35rem;
-  }
-
-  .nav-call-row .btn-lg {
+  .nav .btn-lg {
     padding: 0.5rem 0.85rem;
     font-size: 0.85rem;
     white-space: nowrap;
   }
 
-  .nav-call-row .lang-switcher-full {
-    display: none;
-  }
-
-  .nav-call-row .lang-switcher-short {
-    display: inline;
-  }
-
   .logo-img {
     height: 72px;
     max-width: 260px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .offer-bar-inner .lang-switcher {
+    display: none;
+  }
+
+  .offer-bar-inner {
+    padding: 0 var(--space-xl);
   }
 }
 
@@ -409,7 +409,7 @@ a.btn.nav-call-drawer {
 
 @media (max-width: 640px) {
   .offer-bar-inner {
-    padding-right: 0;
+    padding: 0 var(--space-lg);
   }
 }
 
@@ -608,11 +608,6 @@ a.btn.nav-call-drawer {
     display: none !important;
   }
 
-  /* Desktop Call+lang sibling — hide when hamburger header is active */
-  .nav-call-row {
-    display: none !important;
-  }
-
   .header-nav-actions {
     display: flex;
   }
@@ -655,19 +650,6 @@ a.btn.nav-call-drawer {
     font-size: 1rem;
   }
 
-  /* Compact Call in open hamburger menu (desktop Call+lang is .nav-call-row) */
-  .nav.is-open a.btn.nav-call-drawer {
-    display: inline-flex !important;
-    width: auto;
-    max-width: 100%;
-    align-self: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    padding: 0.5rem 1rem;
-    font-size: 0.9375rem;
-    white-space: nowrap;
-  }
-
   .nav.is-open a.btn {
     width: auto;
     max-width: 100%;
@@ -676,6 +658,7 @@ a.btn.nav-call-drawer {
     text-align: left;
     padding: 0.5rem 1rem;
     font-size: 0.9375rem;
+    white-space: nowrap;
   }
 
   .nav.is-open a.btn.btn-lg {
@@ -3201,7 +3184,7 @@ form[data-lead-form] button[type="submit"].is-busy {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 11rem 0 var(--space-xl);
   display: flex;
   align-items: center;
   justify-content: center;
