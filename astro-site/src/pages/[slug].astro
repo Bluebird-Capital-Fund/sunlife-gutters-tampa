@@ -12,7 +12,7 @@ import FooterSmsDisclosure from '../components/FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from '../components/FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from '../components/SmsMarketingConsent.astro'
 import HeaderNavActions from '../components/HeaderNavActions.astro'
-import LanguageSwitcher from '../components/LanguageSwitcher.astro'
+import NavCallRow from '../components/NavCallRow.astro'
 import Breadcrumbs from '../components/Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -163,7 +163,7 @@ const breadcrumbItems = simpleBreadcrumbItems(blogCrumbLabel, { label: 'Blog', h
             <strong>{asStr(header?.offerBar?.ctaText) || 'Get a Quote Now!'}</strong>
           </a>
         </p>
-        <LanguageSwitcher />
+        
       </div>
     </div>
     <div class="header-nav">
@@ -217,7 +217,7 @@ const breadcrumbItems = simpleBreadcrumbItems(blogCrumbLabel, { label: 'Blog', h
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
-          <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <NavCallRow telHref={`tel:${phoneTel}`} callLabel={callLabelNav} />
         </nav>
       </div>
     </div>

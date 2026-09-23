@@ -1,0 +1,19 @@
+---
+/**
+ * Nav call CTA + language switcher (sits in the blank space after Call).
+ */
+import LanguageSwitcher from './LanguageSwitcher.astro'
+
+interface Props {
+  telHref: string
+  callLabel: string
+}
+
+const { telHref, callLabel } = Astro.props
+const href = String(telHref || '').trim() || '#'
+---
+
+<div class="nav-call-row">
+  <a href={href} class="btn btn-primary btn-lg">{callLabel}</a>
+  <LanguageSwitcher />
+</div>

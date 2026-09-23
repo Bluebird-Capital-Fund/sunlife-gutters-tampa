@@ -11,7 +11,7 @@ import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
-import LanguageSwitcher from './LanguageSwitcher.astro'
+import NavCallRow from './NavCallRow.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage } from '../lib/site-settings.js'
@@ -117,7 +117,6 @@ const esFooterColumns = [
             <strong>Reserve su consulta gratuita hoy.</strong>
           </a>
         </p>
-        <LanguageSwitcher />
       </div>
     </div>
     <div class="header-nav">
@@ -199,7 +198,7 @@ const esFooterColumns = [
               ))}
             </ul>
           </div>
-          <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <NavCallRow telHref={telLink} callLabel={callLabelNav} />
         </nav>
       </div>
     </div>

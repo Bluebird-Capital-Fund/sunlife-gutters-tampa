@@ -256,7 +256,7 @@ a:hover {
   min-width: auto;
 }
 
-/* Language switcher — top-right corner of offer bar (out of nav flow) */
+/* Language switcher — beside Call CTA (nav-call-row) + mobile header actions */
 .lang-switcher {
   display: inline-flex;
   align-items: center;
@@ -299,18 +299,28 @@ a:hover {
   display: inline;
 }
 
-.offer-bar-inner .lang-switcher {
-  position: absolute;
-  right: var(--space-xl);
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  z-index: 2;
+.nav-call-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
 }
 
-.offer-bar-inner .lang-switcher-link:hover {
-  color: #fff;
-  opacity: 1;
+.nav-call-row .lang-switcher {
+  color: var(--color-text);
+}
+
+.nav-call-row .lang-switcher-link {
+  color: var(--color-text);
+}
+
+.nav-call-row .lang-switcher-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-call-row .lang-switcher-sep {
+  color: var(--color-text);
 }
 
 .header-nav-actions .lang-switcher {
@@ -339,7 +349,20 @@ a:hover {
     display: inline;
   }
 
-  .offer-bar-inner .lang-switcher {
+  .nav-call-row {
+    margin-left: 0;
+    width: auto;
+    max-width: 100%;
+    align-self: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav.is-open .nav-call-row .lang-switcher {
+    display: inline-flex;
+  }
+
+  /* Closed mobile header already has the switcher in .header-nav-actions */
+  .nav:not(.is-open) .nav-call-row .lang-switcher {
     display: none;
   }
 }
@@ -587,7 +610,27 @@ a:hover {
     font-size: 1rem;
   }
 
-  /* Compact pill ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ full-width bar felt awkward on tablet / wide phones */
+  /* Compact pill — Call + language sit in a row beside the blank space */
+  .nav.is-open .nav-call-row {
+    width: auto;
+    max-width: 100%;
+    align-self: flex-start;
+  }
+
+  .nav.is-open .nav-call-row a.btn {
+    width: auto;
+    max-width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .nav.is-open .nav-call-row a.btn.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+  }
+
   .nav.is-open a.btn {
     width: auto;
     max-width: 100%;

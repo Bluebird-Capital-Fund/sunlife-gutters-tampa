@@ -9,7 +9,7 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
-import LanguageSwitcher from './LanguageSwitcher.astro'
+import NavCallRow from './NavCallRow.astro'
 import LanguageSuggestBanner from './LanguageSuggestBanner.astro'
 import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
@@ -737,7 +737,6 @@ const serviceHref = (svc) => {
             <strong>{offerBarCtaText}</strong>
           </a>
         </p>
-        <LanguageSwitcher />
       </div>
     </div>
 
@@ -785,7 +784,7 @@ const serviceHref = (svc) => {
               </a>
             )
           })}
-          <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+          <NavCallRow telHref={telLink} callLabel={callLabelNav} />
         </nav>
       </div>
     </div>
