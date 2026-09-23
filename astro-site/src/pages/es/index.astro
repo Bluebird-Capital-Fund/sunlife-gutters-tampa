@@ -1,0 +1,25 @@
+---
+import EsSiteChrome from '../../components/EsSiteChrome.astro'
+import EsHomeMain from '../../components/EsHomeMain.astro'
+import { getHomePage } from '../../lib/site-settings.js'
+import { asStr, mediaUrl } from '../../lib/sanity-strings.js'
+
+let preloadImageHref = ''
+try {
+  const homePage = await getHomePage()
+  const heroSrc = asStr(homePage?.layoutBackgrounds?.hero?.imageSrc)
+  if (heroSrc) preloadImageHref = mediaUrl(heroSrc)
+} catch {
+  /* ignore */
+}
+---
+
+<EsSiteChrome
+  title="Mejor Empresa de Canaletas en Tampa | Consulta Gratis | SunLife"
+  description="Instalación, reparación y protectores de canaletas en Tampa Bay. Empresa familiar desde 2018. Solicite su consulta gratuita."
+  formIdPrefix="es-home"
+  homeRevealAnimations
+  preloadImageHref={preloadImageHref}
+>
+  <EsHomeMain />
+</EsSiteChrome>

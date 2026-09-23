@@ -1,0 +1,23 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+
+const breadcrumbItems = simpleBreadcrumbItemsEs('Gracias')
+---
+
+<EsSiteChrome
+  title="Gracias | SunLife Gutters Tampa"
+  description="Gracias por contactar a SunLife Gutters Tampa."
+  formIdPrefix="es-thank-you"
+>
+  <main class="section">
+    <Breadcrumbs items={breadcrumbItems} />
+    <div class="container" style="max-width: 70ch;">
+      <h1 class="section-title section-title-secondary">Gracias</h1>
+      <p class="section-lead">
+        ¡Gracias! Estamos listos para ayudarle. Nos pondremos en contacto lo antes posible.
+      </p>
+    </div>
+  </main>
+</EsSiteChrome>

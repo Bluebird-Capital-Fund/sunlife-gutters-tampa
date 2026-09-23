@@ -1,0 +1,110 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+import { asStr, mediaUrl } from '../../../lib/sanity-strings.js'
+import { getSiteSettings } from '../../../lib/site-settings.js'
+import { POPULAR_SERVICE_AREA_CITIES } from '../../../lib/service-area-cities.js'
+
+const serviceAreaFigureSrc =
+  'Media (SGT)/Images (SGT)/sunlife-gutters-valrico-fl-two-story-gutter-installation.webp'
+
+let settings = {}
+try {
+  settings = await getSiteSettings()
+} catch (err) {
+  console.warn('[es/areas-de-servicio] Sanity fetch failed.', err)
+}
+
+const mapEmbedUrl =
+  asStr(settings?.mapEmbedUrl) ||
+  'https://maps.google.com/maps?q=1502+Lenna+Ave,+Seffner,+FL+33584&t=&z=10&ie=UTF8&iwloc=&output=embed'
+
+const counties = [
+  'Hillsborough County',
+  'Manatee County',
+  'Pasco County',
+  'Pinellas County',
+  'Polk County',
+  'Sarasota County',
+]
+
+const cityLinks = [...POPULAR_SERVICE_AREA_CITIES].sort((a, b) =>
+  asStr(a.name).localeCompare(asStr(b.name)),
+)
+const breadcrumbItems = simpleBreadcrumbItemsEs('Áreas de Servicio')
+---
+
+<EsSiteChrome
+  title="Áreas de Servicio | SunLife Gutters Tampa"
+  description="Servimos a propietarios y negocios en todo Tampa Bay: Tampa, Clearwater, Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City y más."
+  formIdPrefix="es-service-area"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section service-area service-area-page" id="service-area">
+      <div class="container">
+        <div class="page-split page-split--media-end service-area-page-split">
+          <div class="service-area-page-copy">
+            <div class="why-eyebrow">Área de servicio</div>
+            <h1 class="section-title">Áreas que servimos</h1>
+            <div class="secondary-prose">
+              <p>
+                Estamos orgullosos de servir a propietarios y negocios en todo Tampa Bay, incluyendo
+                Tampa, Clearwater, Brandon, Riverview, St. Petersburg, Wesley Chapel, Plant City y
+                comunidades cercanas. Con base en Seffner, nuestro equipo local entiende los
+                desafíos del clima de Florida y ofrece soluciones de canaletas y exteriores hechas
+                para proteger su propiedad y mejorar su apariencia.
+              </p>
+              <p>
+                ¿No ve su ciudad? Contáctenos para ver si servimos su área. Si está cerca, haremos
+                todo lo posible por ayudar.
+              </p>
+            </div>
+          </div>
+          <figure class="page-split__media service-area-page-media">
+            <img
+              src={mediaUrl(serviceAreaFigureSrc)}
+              alt="Casa de dos pisos con canaletas nuevas instaladas en Valrico, Florida"
+              width="640"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+
+        <div class="service-area-grid service-area-grid--stacked service-area-page-locations">
+          <div class="cities-list cities-list--counties">
+            <p class="cities-label">Condados que servimos</p>
+            <ul class="counties-nav" aria-label="Condados que servimos">
+              {counties.map((county) => (
+                <li>{county}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="cities-list cities-list--pills">
+            <p class="cities-label">Ciudades que servimos</p>
+            <nav class="cities-nav cities-nav--pills" aria-label="Ciudades que servimos">
+              {cityLinks.map((city) => (
+                <a href={asStr(city?.href)}>{asStr(city?.name)}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        {mapEmbedUrl ? (
+          <div class="service-area-map" style="margin-top: 2rem;">
+            <iframe
+              title="Mapa del área de servicio de SunLife Gutters Tampa"
+              src={mapEmbedUrl}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            />
+          </div>
+        ) : null}
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>

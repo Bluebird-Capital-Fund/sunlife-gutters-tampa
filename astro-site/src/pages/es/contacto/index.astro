@@ -1,0 +1,18 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+
+const breadcrumbItems = simpleBreadcrumbItemsEs('Contacto')
+---
+
+<EsSiteChrome
+  title="Contacto | SunLife Gutters Tampa"
+  description="Contacte a SunLife Gutters Tampa para una consulta gratuita sobre canaletas, reparación, protectores y más en Tampa Bay."
+  formIdPrefix="es-contact"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <h1 class="visually-hidden">Contacto</h1>
+  </main>
+</EsSiteChrome>

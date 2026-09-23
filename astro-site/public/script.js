@@ -1388,7 +1388,16 @@
               if (result.ok && result.data && result.data.ok) {
                 setStatus(form, 'Thanks — we received your message and will be in touch soon.', 'success');
                 form.reset();
-                window.location.assign('/thank-you/');
+                var thankYouPath = '/thank-you/';
+                try {
+                  var localeField = form.querySelector('[name="pageLocale"], [name="language"]');
+                  var localeVal = (localeField && localeField.value) || form.getAttribute('data-page-locale') || '';
+                  if (/^es/i.test(String(localeVal))) thankYouPath = '/es/thank-you/';
+                  else if (typeof location !== 'undefined' && /^\/es(\/|$)/.test(location.pathname || '')) {
+                    thankYouPath = '/es/thank-you/';
+                  }
+                } catch (e) {}
+                window.location.assign(thankYouPath);
                 return;
               }
               var err = (result.data && result.data.error) || 'submit_failed';

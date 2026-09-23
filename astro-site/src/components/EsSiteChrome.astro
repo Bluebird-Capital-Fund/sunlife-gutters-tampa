@@ -1,0 +1,327 @@
+---
+/**
+ * Shared Spanish site chrome: offer bar, nav, footer estimate form, footer columns.
+ * Used by all /es/ pages.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro'
+import FooterSocialIcon from './FooterSocialIcon.astro'
+import FooterContactInfo from './FooterContactInfo.astro'
+import FooterHoursRow from './FooterHoursRow.astro'
+import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
+import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
+import HeaderNavActions from './HeaderNavActions.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
+import { externalLinkAttrs } from '../lib/external-link.js'
+import { googleBusinessProfileUrl } from '../lib/footer-contact-heading.js'
+import { getSiteSettings, getHomePage } from '../lib/site-settings.js'
+import { asStr, mediaUrl } from '../lib/sanity-strings.js'
+import {
+  ES_ABOUT_LINKS,
+  ES_FORM_INTRO,
+  ES_GUTTERS_LINKS,
+  ES_MORE_SERVICES_LINKS,
+  ES_NAV,
+  LOCALE_ES,
+} from '../lib/i18n.js'
+
+interface Props {
+  title: string
+  description: string
+  formIdPrefix?: string
+  homeRevealAnimations?: boolean
+  preloadImageHref?: string
+}
+
+const {
+  title,
+  description,
+  formIdPrefix = 'es',
+  homeRevealAnimations = false,
+  preloadImageHref = '',
+} = Astro.props
+
+let settings = {}
+let homePage = {}
+try {
+  ;[settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
+} catch (err) {
+  console.warn('[EsSiteChrome] Sanity fetch failed; using fallbacks.', err)
+}
+
+const business = settings?.business ?? {}
+const formsCfg = settings?.forms ?? {}
+const footerBrand = settings?.footerBrand ?? homePage?.footerBrand ?? {}
+const footerEstimate = settings?.footerEstimate ?? homePage?.footerEstimate ?? {}
+
+const companyName = asStr(business.companyName) || 'SunLife Gutters'
+const phoneDisplay = asStr(business.phoneDisplay) || '(813) 548-5310'
+const phoneTel = asStr(business.phoneTel) || '8135485310'
+const email = asStr(business.email) || ''
+const address = asStr(business.addressShort) || 'Seffner, FL'
+const addressHref = googleBusinessProfileUrl(settings)
+const descriptionShort = asStr(business.descriptionShort)
+const logoWhite = asStr(business.logoHorizontalWhite)
+const logoBlack = asStr(business.logoHorizontalBlack)
+const copyrightHref = asStr(business.copyrightSiteUrl) || '/'
+const telLink = `tel:${phoneTel}`
+const callLabelNav = `${ES_NAV.callPrefix} ${phoneDisplay}`
+const logoAriaLabel = companyName
+
+const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
+const formMethod = asStr(footerEstimate?.formMethod) || 'post'
+const formIntro = ES_FORM_INTRO
+
+const esFooterColumns = [
+  {
+    heading: 'Canaletas',
+    ariaLabel: 'Servicios de canaletas',
+    links: ES_GUTTERS_LINKS,
+  },
+  {
+    heading: 'Empresa',
+    ariaLabel: 'Enlaces de la empresa',
+    links: [
+      { label: ES_NAV.gallery, href: '/es/galeria/' },
+      { label: ES_NAV.reviews, href: '/es/testimonios/' },
+      { label: ES_NAV.serviceArea, href: '/es/areas-de-servicio/' },
+      { label: ES_NAV.faqs, href: '/es/preguntas-frecuentes/' },
+      { label: ES_NAV.contact, href: '/es/contacto/' },
+    ],
+  },
+  {
+    heading: 'Contacto',
+    hoursHeading: 'Horario',
+    hoursText: '24/7',
+  },
+]
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  theme={settings?.theme}
+  forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
+  htmlLang={LOCALE_ES}
+  localBusinessName={companyName}
+  homeRevealAnimations={homeRevealAnimations}
+  preloadImageHref={preloadImageHref}
+>
+  <header class="header">
+    <div class="offer-bar">
+      <div class="offer-bar-inner">
+        <p class="offer-message">
+          Servicio rápido y amable en el que puede confiar.{' '}
+          <a href="/es/contacto/#contact" class="offer-link">
+            <strong>Reserve su consulta gratuita hoy.</strong>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="header-inner">
+        <a href="/es/" class="logo" aria-label={logoAriaLabel}>
+          {logoBlack ? (
+            <img src={mediaUrl(logoBlack)} alt={companyName} class="logo-img" width="300" height="72" />
+          ) : (
+            <span class="section-title" style="margin:0; font-size: 1.25rem;">{companyName}</span>
+          )}
+        </a>
+        <HeaderNavActions telHref={telLink} phoneDisplay={phoneDisplay} />
+        <nav class="nav">
+          <div class="nav-dropdown" data-nav-dropdown>
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls={`${formIdPrefix}-gutters-dd`}
+              id={`${formIdPrefix}-gutters-dd-btn`}
+            >
+              {ES_NAV.gutters}
+              <span class="nav-dropdown-chevron" aria-hidden="true" />
+            </button>
+            <ul class="nav-dropdown-menu" id={`${formIdPrefix}-gutters-dd`} role="menu">
+              {ES_GUTTERS_LINKS.map((link) => (
+                <li role="none">
+                  <a href={link.href} role="menuitem">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="nav-dropdown" data-nav-dropdown>
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls={`${formIdPrefix}-more-dd`}
+              id={`${formIdPrefix}-more-dd-btn`}
+            >
+              {ES_NAV.moreServices}
+              <span class="nav-dropdown-chevron" aria-hidden="true" />
+            </button>
+            <ul class="nav-dropdown-menu" id={`${formIdPrefix}-more-dd`} role="menu">
+              {ES_MORE_SERVICES_LINKS.map((link) => (
+                <li role="none">
+                  <a href={link.href} role="menuitem">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a href="/es/galeria/">{ES_NAV.gallery}</a>
+          <a href="/es/testimonios/">{ES_NAV.reviews}</a>
+          <div class="nav-dropdown" data-nav-dropdown>
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls={`${formIdPrefix}-about-dd`}
+              id={`${formIdPrefix}-about-dd-btn`}
+            >
+              {ES_NAV.about}
+              <span class="nav-dropdown-chevron" aria-hidden="true" />
+            </button>
+            <ul class="nav-dropdown-menu" id={`${formIdPrefix}-about-dd`} role="menu">
+              {ES_ABOUT_LINKS.map((link) => (
+                <li role="none">
+                  <a href={link.href} role="menuitem">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <LanguageSwitcher />
+          <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="header-nav-spacer" class="header-nav-spacer" aria-hidden="true" />
+
+  <slot />
+
+  <footer class="footer">
+    <section id="contact" class="section contact footer-estimate">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h2 class="section-title">¿Necesita ayuda con canaletas en Tampa?</h2>
+            <p>{formIntro}</p>
+            <FooterContactInfo
+              variant="estimate"
+              phoneTel={phoneTel}
+              phoneDisplay={phoneDisplay}
+              email={email}
+              address={address}
+              addressHref={addressHref}
+            />
+          </div>
+          <form
+            class="contact-form"
+            data-lead-form={`${formIdPrefix}-footer`}
+            data-page-locale="es-US"
+            action={formAction}
+            method={formMethod}
+          >
+            <input type="hidden" name="pageLocale" value="es-US" />
+            <input type="hidden" name="language" value="es-US" />
+            <div class="contact-form-grid">
+              <div class="contact-form-field">
+                <label for={`${formIdPrefix}-footer-name`}>
+                  {ES_NAV.name} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+                </label>
+                <input id={`${formIdPrefix}-footer-name`} name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="contact-form-field">
+                <label for={`${formIdPrefix}-footer-email`}>
+                  {ES_NAV.email} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+                </label>
+                <input id={`${formIdPrefix}-footer-email`} name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="contact-form-field">
+                <label for={`${formIdPrefix}-footer-phone`}>
+                  {ES_NAV.phone} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+                </label>
+                <input id={`${formIdPrefix}-footer-phone`} name="phone" type="tel" required autocomplete="tel" />
+              </div>
+              <div class="contact-form-field">
+                <label for={`${formIdPrefix}-footer-location`}>{ES_NAV.city}</label>
+                <input id={`${formIdPrefix}-footer-location`} name="location" type="text" autocomplete="address-level2" />
+              </div>
+              <div class="contact-form-field contact-form-field-full">
+                <label for={`${formIdPrefix}-footer-message`}>{ES_NAV.projectDetails}</label>
+                <textarea id={`${formIdPrefix}-footer-message`} name="message" rows="4" />
+              </div>
+            </div>
+            <SmsMarketingConsent checkboxId={`${formIdPrefix}-footer-sms-consent`} locale="es" />
+            <button type="submit" class="btn btn-primary btn-lg">{ES_NAV.submit}</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand-block footer-col">
+          {logoWhite ? <img src={mediaUrl(logoWhite)} alt={companyName} class="footer-logo" /> : null}
+          <p class="footer-address">{descriptionShort}</p>
+          <div class="footer-social" aria-label={asStr(footerBrand?.socialAriaLabel)}>
+            {footerBrand?.socialLinks?.map((s) => (
+              <a href={asStr(s.href)} aria-label={asStr(s.ariaLabel)} {...externalLinkAttrs(asStr(s.href))}>
+                <FooterSocialIcon platform={asStr(s.platform)} />
+              </a>
+            ))}
+          </div>
+        </div>
+        {esFooterColumns.map((col) => (
+          <div class="footer-col">
+            <p class="footer-heading">{col.heading}</p>
+            {col.links?.length ? (
+              <nav class="footer-links" aria-label={col.ariaLabel}>
+                {col.links.map((link) => (
+                  <a href={link.href}>{link.label}</a>
+                ))}
+              </nav>
+            ) : null}
+            {col.heading === 'Contacto' ? (
+              <FooterContactInfo
+                variant="footer-column"
+                phoneTel={phoneTel}
+                phoneDisplay={phoneDisplay}
+                email={email}
+                address={address}
+                addressHref={addressHref}
+              />
+            ) : null}
+            {col.hoursHeading ? <p class="footer-heading footer-hours-heading">{col.hoursHeading}</p> : null}
+            {col.hoursText ? <FooterHoursRow hoursText={col.hoursText} /> : null}
+            {col.hoursHeading || col.hoursText ? <FooterSmsDisclosure /> : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  </footer>
+
+  <FooterFinancingDisclosure />
+
+  <div class="footer-support">
+    <div class="container footer-support-inner">
+      <p>
+        © <span id="year" /> —{' '}
+        <a href={copyrightHref} {...externalLinkAttrs(copyrightHref)}>
+          {companyName}
+        </a>
+      </p>
+      <nav aria-label="Enlaces legales">
+        <a href="/privacy-policy/">Política de privacidad</a>
+        <a href="/terms-of-service/">Términos del servicio</a>
+      </nav>
+    </div>
+  </div>
+</BaseLayout>

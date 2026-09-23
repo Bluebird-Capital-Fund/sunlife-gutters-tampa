@@ -163,6 +163,20 @@ export function simpleBreadcrumbItems(label, parent = null) {
 }
 
 /**
+ * Spanish breadcrumb trail (Home → Inicio under /es/).
+ * @param {string} label
+ * @param {{ label: string, href: string } | null} [parent]
+ * @returns {BreadcrumbItem[]}
+ */
+export function simpleBreadcrumbItemsEs(label, parent = null) {
+  /** @type {BreadcrumbItem[]} */
+  const items = [{ label: 'Inicio', href: '/es/' }]
+  if (parent?.label && parent?.href) items.push({ label: parent.label, href: parent.href })
+  items.push({ label })
+  return items
+}
+
+/**
  * Build a trail from a pathname for generic/static pages.
  * @param {string} pathname
  * @param {string} [currentLabel]

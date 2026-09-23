@@ -1,0 +1,330 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+import { sanity } from '../../../lib/sanity.js'
+import { getHomePage } from '../../../lib/site-settings.js'
+import { projectImagePool } from '../../../lib/hero-backgrounds.js'
+import { asStr, mediaUrl } from '../../../lib/sanity-strings.js'
+import { POPULAR_SERVICE_AREA_CITIES } from '../../../lib/service-area-cities.js'
+
+let homePage = {}
+let galleryPages = []
+try {
+  ;[homePage, galleryPages] = await Promise.all([
+    getHomePage(),
+    sanity.fetch(
+      `*[_type == "galleryPage"]{
+        headline,
+        lead,
+        "slug": slug.current,
+        images
+      }`,
+    ),
+  ])
+} catch (err) {
+  console.warn('[es/galeria] Sanity fetch failed.', err)
+}
+
+const looksLegacyColorado = (value) => {
+  const text = asStr(value).toLowerCase()
+  if (!text) return false
+  return (
+    text.includes('mile high') ||
+    text.includes('denver') ||
+    text.includes('colorado') ||
+    text.includes(', co') ||
+    text.includes('-co-') ||
+    text.includes('/images (mile high)/')
+  )
+}
+
+const isSunLifeProjectImage = (src) => {
+  const value = asStr(src).toLowerCase()
+  if (!value) return false
+  return (
+    value.includes('/images (sgt)/') ||
+    value.includes('media (sgt)/images (sgt)/') ||
+    value.includes('sunlife-')
+  )
+}
+
+const CITY_FL_SPECIAL = {
+  'saint-petersburg': 'Saint Petersburg',
+  'sun-city-center': 'Sun City Center',
+  'anna-maria-island': 'Anna Maria Island',
+  'lakewood-ranch': 'Lakewood Ranch',
+  'longboat-key': 'Longboat Key',
+  'land-o-lakes': "Land O' Lakes",
+  'dade-city': 'Dade City',
+  'apollo-beach': 'Apollo Beach',
+  'wesley-chapel': 'Wesley Chapel',
+}
+
+const CITY_FL_SLUGS = POPULAR_SERVICE_AREA_CITIES.map((c) =>
+  asStr(c.name)
+    .toLowerCase()
+    .replace(/'/g, '')
+    .replace(/\s+/g, '-'),
+).concat([
+  'bradenton',
+  'gibsonton',
+  'ellenton',
+  'zephyrhills',
+  'thonotosassa',
+  'lakeland',
+  'valrico',
+  'riverview',
+  'brandon',
+  'seffner',
+  'wimauma',
+  'lithia',
+  'cortez',
+  'odessa',
+  'ruskin',
+  'dover',
+  'largo',
+  'lutz',
+  'tampa',
+  'clearwater',
+  'mulberry',
+  'parrish',
+  'sarasota',
+  'plant-city',
+])
+
+const titleCaseCitySlug = (slug) => {
+  if (CITY_FL_SPECIAL[slug]) return CITY_FL_SPECIAL[slug]
+  return String(slug || '')
+    .split('-')
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ')
+}
+
+const cityFlCaption = (...candidates) => {
+  for (const raw of candidates) {
+    const text = asStr(raw).trim()
+    if (!text) continue
+    const already = text.match(/^(.+?),\s*FL\s*$/i)
+    if (already && !/\s[-–—]/.test(already[1]) && already[1].split(/\s+/).length <= 4) {
+      const city = already[1].trim()
+      if (city && !/tampa bay|metro|area|project/i.test(city)) return `${city}, FL`
+    }
+  }
+  const haystack = candidates.map((v) => asStr(v).toLowerCase()).join(' ')
+  const file = asStr(candidates[0] || '')
+    .split('/')
+    .pop()
+    .toLowerCase()
+  const searchIn = `${file} ${haystack}`
+  for (const slug of CITY_FL_SLUGS) {
+    const spaced = slug.replace(/-/g, ' ')
+    if (
+      searchIn.includes(`-${slug}-`) ||
+      searchIn.includes(`-${slug}.`) ||
+      searchIn.includes(`${slug}-fl`) ||
+      searchIn.includes(` ${spaced} `) ||
+      searchIn.includes(` ${spaced},`) ||
+      searchIn.startsWith(`${slug}-`) ||
+      searchIn.includes(`gutters-${slug}`)
+    ) {
+      return `${titleCaseCitySlug(slug)}, FL`
+    }
+  }
+  return 'Tampa, FL'
+}
+
+const allGalleryPages = Array.isArray(galleryPages) ? galleryPages : []
+const galleryImages = allGalleryPages.flatMap((p) => (Array.isArray(p?.images) ? p.images : []))
+const homeProjectSlides = Array.isArray(homePage?.projects?.slides) ? homePage.projects.slides : []
+const folderProjectImages = projectImagePool.map((src) => {
+  const location = cityFlCaption(src)
+  return { imageSrc: src, imageAlt: `${location} gutter project`, location }
+})
+const seenImageSrc = new Set()
+const images = [...galleryImages, ...homeProjectSlides, ...folderProjectImages]
+  .filter((img) => {
+    const src = asStr(img?.imageSrc)
+    const alt = asStr(img?.imageAlt)
+    const location = asStr(img?.location)
+    if (!src || seenImageSrc.has(src)) return false
+    if (!isSunLifeProjectImage(src)) return false
+    if (looksLegacyColorado(src) || looksLegacyColorado(alt) || looksLegacyColorado(location)) return false
+    seenImageSrc.add(src)
+    return true
+  })
+  .map((img) => {
+    const location = cityFlCaption(img.imageSrc, img.location, img.imageAlt)
+    return { ...img, location, imageAlt: `${location} gutter project` }
+  })
+
+const galleryItems = images.map((img) => ({
+  src: mediaUrl(asStr(img.imageSrc)),
+  alt: asStr(img.imageAlt) || 'Foto de proyecto de canaletas',
+  caption: asStr(img.location) || 'Tampa, FL',
+}))
+
+const breadcrumbItems = simpleBreadcrumbItemsEs('Galería')
+---
+
+<EsSiteChrome
+  title="Galería | SunLife Gutters Tampa"
+  description="Galería de proyectos de canaletas completados en Tampa Bay: seamless, Super Gutters y mejoras exteriores."
+  formIdPrefix="es-gallery"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section secondary-page-section" aria-labelledby="gallery-intro-heading">
+      <div class="container page-split page-split--media-end">
+        <div class="secondary-prose">
+          <h1 class="section-title section-title-secondary" id="gallery-intro-heading">
+            Galería en todo Tampa Bay
+          </h1>
+          <p>
+            Vea algunos de los proyectos que hemos completado para propietarios y negocios en Tampa
+            Bay. Desde canaletas seamless y Super Gutters hasta mejoras exteriores, cada proyecto
+            refleja la calidad, el detalle y el cuidado que nos caracterizan. Cada foto se toma
+            después de la revisión final, cuando el trabajo está terminado y el área limpia.
+          </p>
+          <p>
+            Haga clic en cualquier foto para verla en pantalla completa y recorrer proyectos
+            recientes. En el celular, deslice para explorar la galería.
+          </p>
+          <p>
+            ¿Tiene un proyecto en mente? Durante su consulta gratuita responderemos sus preguntas,
+            explicaremos opciones y recomendaremos la solución correcta para su hogar.
+          </p>
+        </div>
+        <figure class="page-split__media">
+          <img
+            src={mediaUrl('Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-front-entry-gutters.webp')}
+            alt="Canaletas y bajantes en la entrada de una casa en Brandon, FL"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section projects-gallery-section">
+      <div class="container">
+        {images.length > 0 ? (
+          <>
+            <p class="projects-gallery-hint">
+              Haga clic en una foto para verla más grande. Use las flechas o el teclado para navegar.
+            </p>
+            <div class="projects-gallery-grid">
+              {images.map((img, i) => (
+                <button
+                  type="button"
+                  class="projects-gallery-thumb"
+                  data-photo-index={i}
+                  aria-label={`Abrir foto del proyecto ${i + 1} de ${images.length}`}
+                >
+                  <span class="projects-gallery-thumb-img-wrap">
+                    <img
+                      src={mediaUrl(asStr(img.imageSrc))}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="640"
+                      height="480"
+                    />
+                  </span>
+                  <span class="projects-gallery-thumb-caption">{asStr(img.location) || 'Tampa, FL'}</span>
+                </button>
+              ))}
+            </div>
+
+            <div
+              id="projects-lightbox"
+              class="projects-lightbox"
+              hidden
+              role="dialog"
+              aria-modal="true"
+              aria-label="Galería de fotos del proyecto"
+            >
+              <button
+                type="button"
+                class="projects-lightbox-backdrop"
+                data-lightbox-close
+                tabindex="-1"
+                aria-label="Cerrar galería"
+              />
+              <div class="projects-lightbox-panel">
+                <button type="button" class="projects-lightbox-close" data-lightbox-close aria-label="Cerrar galería">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <p class="projects-lightbox-index" aria-live="polite" />
+                <button type="button" class="projects-lightbox-nav projects-lightbox-prev" aria-label="Foto anterior">
+                  <span aria-hidden="true">‹</span>
+                </button>
+                <figure class="projects-lightbox-figure">
+                  <img class="projects-lightbox-img" src="" alt="" />
+                  <figcaption class="projects-lightbox-caption" />
+                </figure>
+                <button type="button" class="projects-lightbox-nav projects-lightbox-next" aria-label="Foto siguiente">
+                  <span aria-hidden="true">›</span>
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <p>Aún no hay imágenes de proyectos.</p>
+        )}
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>
+
+<script define:vars={{ galleryItems }}>
+  ;(function () {
+    var items = galleryItems || []
+    if (!items.length) return
+    var root = document.getElementById('projects-lightbox')
+    if (!root) return
+    var imgEl = root.querySelector('.projects-lightbox-img')
+    var capEl = root.querySelector('.projects-lightbox-caption')
+    var idxEl = root.querySelector('.projects-lightbox-index')
+    var index = 0
+    function show(i) {
+      index = (i + items.length) % items.length
+      var item = items[index]
+      if (!item) return
+      imgEl.src = item.src
+      imgEl.alt = item.alt || ''
+      capEl.textContent = item.caption || ''
+      idxEl.textContent = index + 1 + ' / ' + items.length
+    }
+    function open(i) {
+      show(i)
+      root.hidden = false
+      document.documentElement.classList.add('lightbox-open')
+    }
+    function close() {
+      root.hidden = true
+      document.documentElement.classList.remove('lightbox-open')
+    }
+    document.querySelectorAll('[data-photo-index]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        open(Number(btn.getAttribute('data-photo-index')) || 0)
+      })
+    })
+    root.querySelectorAll('[data-lightbox-close]').forEach(function (btn) {
+      btn.addEventListener('click', close)
+    })
+    var prev = root.querySelector('.projects-lightbox-prev')
+    var next = root.querySelector('.projects-lightbox-next')
+    if (prev) prev.addEventListener('click', function () { show(index - 1) })
+    if (next) next.addEventListener('click', function () { show(index + 1) })
+    document.addEventListener('keydown', function (e) {
+      if (root.hidden) return
+      if (e.key === 'Escape') close()
+      if (e.key === 'ArrowLeft') show(index - 1)
+      if (e.key === 'ArrowRight') show(index + 1)
+    })
+  })()
+</script>

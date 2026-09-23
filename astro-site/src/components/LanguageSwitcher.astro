@@ -1,0 +1,54 @@
+---
+/**
+ * Crawlable English | Español switcher.
+ * Desktop: full labels. Mobile compact: EN | ES (via CSS).
+ */
+import { getAlternatePath, getLocaleFromPath, LOCALE_EN, LOCALE_ES, normalizePath } from '../lib/i18n.js'
+
+const pathname = normalizePath(Astro.url.pathname)
+const locale = getLocaleFromPath(pathname)
+const enHref = locale === LOCALE_EN ? pathname : getAlternatePath(pathname, LOCALE_EN)
+const esHref = locale === LOCALE_ES ? pathname : getAlternatePath(pathname, LOCALE_ES)
+const compact = Astro.props.compact === true
+---
+
+<nav class:list={['lang-switcher', compact ? 'lang-switcher--compact' : null]} aria-label="Language">
+  <a
+    href={enHref}
+    class:list={['lang-switcher-link', locale === LOCALE_EN ? 'is-active' : null]}
+    lang="en"
+    hreflang="en-US"
+    aria-current={locale === LOCALE_EN ? 'page' : undefined}
+    data-lang-switch="en"
+  >
+    <span class="lang-switcher-full">English</span>
+    <span class="lang-switcher-short" aria-hidden="true">EN</span>
+  </a>
+  <span class="lang-switcher-sep" aria-hidden="true">|</span>
+  <a
+    href={esHref}
+    class:list={['lang-switcher-link', locale === LOCALE_ES ? 'is-active' : null]}
+    lang="es"
+    hreflang="es-US"
+    aria-current={locale === LOCALE_ES ? 'page' : undefined}
+    data-lang-switch="es"
+  >
+    <span class="lang-switcher-full">Español</span>
+    <span class="lang-switcher-short" aria-hidden="true">ES</span>
+  </a>
+</nav>
+
+<script is:inline>
+  document.querySelectorAll('[data-lang-switch]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      try {
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'language_switch',
+            language_target: el.getAttribute('data-lang-switch'),
+          })
+        }
+      } catch (e) {}
+    })
+  })
+</script>

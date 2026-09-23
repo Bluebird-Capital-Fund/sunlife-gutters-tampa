@@ -8,6 +8,7 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
 import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -231,6 +232,7 @@ const serviceHref = (svc) => {
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
+          <LanguageSwitcher />
           <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
         </nav>
       </div>

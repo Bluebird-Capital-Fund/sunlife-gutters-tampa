@@ -8,6 +8,14 @@ import {
 } from '../lib/local-business-json-ld.js'
 import { getSiteSettings } from '../lib/site-settings.js'
 import { buildThemeCss } from '../lib/theme-css.js'
+import {
+  absoluteUrl,
+  getLiveHreflangPair,
+  getLocaleFromPath,
+  LOCALE_EN,
+  LOCALE_ES,
+  normalizePath,
+} from '../lib/i18n.js'
 
 const {
   title,
@@ -22,6 +30,8 @@ const {
   robotsNoindex = false,
   /** Optional absolute canonical URL; defaults to this page’s production URL. */
   canonical = '',
+  /** Optional html lang override (en-US | es-US). */
+  htmlLang = '',
 } = Astro.props
 
 const settings = await getSiteSettings()
@@ -48,9 +58,16 @@ const canonicalOrigin = (Astro.site?.origin || CANONICAL_SITE_ORIGIN).replace(/\
 let canonicalPath = Astro.url.pathname || '/'
 if (!canonicalPath.endsWith('/')) canonicalPath = `${canonicalPath}/`
 const canonicalUrl = canonicalOverride || `${canonicalOrigin}${canonicalPath}`
+
+const pathNorm = normalizePath(Astro.url.pathname)
+const resolvedLang =
+  typeof htmlLang === 'string' && htmlLang.trim()
+    ? htmlLang.trim()
+    : getLocaleFromPath(pathNorm)
+const hreflangPair = getLiveHreflangPair(pathNorm)
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={resolvedLang}>
   <head>
     <!-- CallRail dynamic number swap (load early so tracking numbers replace promptly) -->
     <script
@@ -90,6 +107,13 @@ const canonicalUrl = canonicalOverride || `${canonicalOrigin}${canonicalPath}`
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    {hreflangPair ? (
+      <>
+        <link rel="alternate" hreflang={LOCALE_EN} href={absoluteUrl(hreflangPair.en, canonicalOrigin)} />
+        <link rel="alternate" hreflang={LOCALE_ES} href={absoluteUrl(hreflangPair.es, canonicalOrigin)} />
+        <link rel="alternate" hreflang="x-default" href={absoluteUrl(hreflangPair.en, canonicalOrigin)} />
+      </>
+    ) : null}
     {preloadImageHref ? <link rel="preload" as="image" href={preloadImageHref} /> : null}
     {localBusinessJsonLd ? (
       <script type="application/ld+json" set:html={localBusinessJsonLd} />

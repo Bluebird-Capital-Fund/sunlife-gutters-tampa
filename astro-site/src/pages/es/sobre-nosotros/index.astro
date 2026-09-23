@@ -1,0 +1,73 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+import { mediaUrl } from '../../../lib/sanity-strings.js'
+
+const breadcrumbItems = simpleBreadcrumbItemsEs('Sobre Nosotros')
+const aboutSideImage =
+  'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-black-super-gutter-blue-coastal-house.jpg'
+---
+
+<EsSiteChrome
+  title="Sobre Nosotros | SunLife Gutters Tampa"
+  description="Fundada en 2018 por Kevin y Jessica Stroh, SunLife Gutters sirve a propietarios de Tampa Bay con canaletas, screen rooms y soluciones de drenaje."
+  formIdPrefix="es-about"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section about about-video">
+      <div class="container">
+        <div class="about-intro-full">
+          <div class="about-eyebrow">Empresa familiar desde 2018</div>
+          <h1 class="section-title">Hechos para casas y clima de Tampa Bay</h1>
+        </div>
+        <div class="about-grid about-grid--with-photo">
+          <div class="about-content">
+            <div class="about-lead-block">
+              <p class="about-lead">
+                Fundada en diciembre de 2018, SunLife nació con una meta sencilla. La pareja Kevin y
+                Jessica Stroh quería construir una empresa en la que los propietarios pudieran confiar
+                por recomendaciones honestas, buena mano de obra y una experiencia clara. Lo que
+                empezó con un equipo de canaletas seamless creció hasta ser una empresa de exteriores
+                de confianza que sirve a dueños de casa y negocios en todo Tampa Bay con canaletas
+                seamless y Super Gutters, screen rooms, lanais, soffit y fascia, y soluciones de
+                drenaje.
+              </p>
+            </div>
+            <div class="about-body-copy">
+              <p>
+                Como empresa familiar, creemos que un gran servicio empieza con comunicación clara.
+                Nos tomamos el tiempo de entender su proyecto, explicar opciones y recomendar la
+                solución correcta para su hogar — nunca más de lo que necesita. Desde la consulta
+                gratuita hasta la revisión final, sabrá qué esperar en cada paso.
+              </p>
+              <p>
+                Ya sea que esté reemplazando un sistema de canaletas viejo, construyendo un screen
+                room nuevo o preparando su casa para la temporada de lluvias de Florida, nuestro
+                equipo se compromete con calidad, atención al detalle y un proceso lo más simple y
+                sin estrés posible.
+              </p>
+            </div>
+            <ul class="about-list">
+              <li>Aluminio seamless fabricado en el camión para un ajuste perfecto</li>
+              <li>Soportes resistentes a la corrosión espaciados para el viento de Old Tampa Bay</li>
+              <li>Accesorios a color que combinan con stucco, siding o ladrillo</li>
+            </ul>
+          </div>
+          <figure class="about-visual about-body-figure">
+            <img
+              src={mediaUrl(aboutSideImage)}
+              alt="Super Gutter negra en una casa costera azul con screen enclosure en Tampa Bay"
+              width="480"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              class="about-img about-img--match-text"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>

@@ -1,0 +1,636 @@
+---
+/**
+ * Spanish homepage main sections (chrome provided by EsSiteChrome).
+ */
+import UniquePointIcon from './UniquePointIcon.astro'
+import FinancingBanner from './FinancingBanner.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
+import { getSiteSettings, getHomePage } from '../lib/site-settings.js'
+import {
+  asStr,
+  asStrArray,
+  mediaUrl,
+  statLookup,
+} from '../lib/sanity-strings.js'
+import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
+import {
+  HOMEPAGE_SERVICE_AREA_HEADLINE,
+  POPULAR_SERVICE_AREA_CITIES,
+} from '../lib/service-area-cities.js'
+import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV } from '../lib/i18n.js'
+
+const [settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
+
+const business = settings?.business ?? {}
+const phoneDisplay = asStr(business?.phoneDisplay) || '(813) 548-5310'
+const tel = asStr(business?.phoneTel) || '8135485310'
+const telLink = `tel:${tel}`
+const companyName = 'SunLife Gutters Tampa'
+const statsValues = settings?.statsValues
+const mapEmbedUrl = asStr(settings?.mapEmbedUrl)
+
+const hp = homePage ?? {}
+const brandsMarquee = hp.brandsMarquee
+const projects = hp.projects
+const projectSlides = Array.isArray(projects?.slides) ? projects.slides : []
+const whyChoose = hp.whyChoose
+const whyStamp = whyChoose?.stamp
+const services = hp.services
+const servicesItems = Array.isArray(services?.items) ? services.items : []
+const about = hp.about
+const aboutVideo = about?.video
+const uniquePoints = hp.uniquePoints
+const uniquePointsItems = Array.isArray(uniquePoints?.items) ? uniquePoints.items : []
+const statsBar = hp.statsBar
+const reviews = settings?.reviews ?? hp.reviews
+const reviewsSummary = reviews?.summary
+const reviewValues = reviews?.reviewValues
+const faq = hp.faq
+const formsCfg = settings?.forms ?? {}
+const footerEstimate = settings?.footerEstimate ?? hp.footerEstimate
+
+const reviewRating = statLookup(reviewValues, reviewsSummary?.ratingValueKey)
+const reviewCount = statLookup(reviewValues, reviewsSummary?.reviewCountKey)
+const reviewCountDisplay = `${asStr(reviewsSummary?.reviewCountPrefix)}${reviewCount}${asStr(reviewsSummary?.reviewCountSuffix)}`
+
+const layoutBg = hp.layoutBackgrounds
+const heroBgSrc = asStr(layoutBg?.hero?.imageSrc)
+const servicesBgSrc = asStr(layoutBg?.services?.imageSrc)
+const uniquePointsBgSrc = asStr(layoutBg?.uniquePoints?.imageSrc)
+const whyChooseImageSrc = asStr(whyChoose?.imageSrc)
+const heroBgStyle = heroBgSrc
+  ? `background-image: url('${mediaUrl(heroBgSrc)}')`
+  : undefined
+const servicesBgStyle = servicesBgSrc
+  ? `background-image: linear-gradient(rgba(12, 28, 46, 0.82), rgba(12, 28, 46, 0.82)), url('${mediaUrl(servicesBgSrc)}')`
+  : undefined
+const uniquePointsBgStyle = uniquePointsBgSrc
+  ? `background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('${mediaUrl(uniquePointsBgSrc)}')`
+  : undefined
+
+const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
+const formMethod = asStr(footerEstimate?.formMethod) || 'post'
+
+const typedPhrases = [
+  'Instalación de canaletas',
+  'Canaletas seamless',
+  'Reparación de canaletas',
+  'Super Gutters',
+  'Protectores de canaletas',
+]
+
+const homepageTestimonials = Array.isArray(reviews?.testimonials)
+  ? reviews.testimonials.slice(0, 6)
+  : []
+
+const homesCountDisplay =
+  asStr(whyStamp?.homesCountTemplate)?.replace(
+    /\{\{\s*count\s*\}\}/gi,
+    statLookup(statsValues, whyStamp?.homesCountKey) || '10,000+',
+  ) || '10,000+'
+
+function serviceHref(svc) {
+  const title = asStr(svc?.title).toLowerCase()
+  const known = {
+    'gutter repair': '/gutter-repair-tampa-fl/',
+    'gutter installation': '/gutter-installation-tampa-fl/',
+    'seamless gutters': '/seamless-gutters-tampa-fl/',
+    'super gutters': '/super-gutters-tampa-fl/',
+    'gutter guards': '/gutter-guards-tampa-fl/',
+    'gutter cleaning': '/gutter-cleaning-tampa-fl/',
+    'screen rooms & lanais': '/screen-rooms-lanais-tampa-fl/',
+    'screen rooms and lanais': '/screen-rooms-lanais-tampa-fl/',
+    siding: '/siding-tampa-fl/',
+    'underground drainage': '/underground-drainage-tampa-fl/',
+    'french drains': '/french-drains-tampa-fl/',
+  }
+  const en = known[title] || asStr(svc?.href) || '#'
+  return EN_TO_ES_PATH[en] || en
+}
+
+const serviceTitleEs = {
+  'gutter repair': 'Reparación de canaletas',
+  'gutter installation': 'Instalación de canaletas',
+  'seamless gutters': 'Canaletas seamless',
+  'super gutters': 'Super Gutters',
+  'gutter guards': 'Protectores de canaletas',
+  'gutter cleaning': 'Limpieza de canaletas',
+  'screen rooms & lanais': 'Screen Rooms & Lanais',
+  'screen rooms and lanais': 'Screen Rooms & Lanais',
+  siding: 'Siding',
+  'underground drainage': 'Drenaje subterráneo',
+  'french drains': 'Drenaje Francés',
+}
+
+const faqItems = Array.isArray(faq?.items) ? faq.items.slice(0, 6) : []
+
+const esServiceIntro =
+  'Estamos orgullosos de ofrecer servicios de canaletas y exteriores en todo Tampa Bay, incluyendo Clearwater, Tampa, St. Petersburg, Wesley Chapel, Plant City y comunidades cercanas. Con base en Seffner, nuestro equipo local ayuda cada día a propietarios y negocios a proteger sus propiedades con trabajo de calidad y servicio honesto. ¿No ve su ciudad? Contáctenos; es posible que aún podamos ayudar.'
+---
+
+<main>
+  <section class="hero hero-split">
+    <div class="hero-bg" style={heroBgStyle}></div>
+    <div class="container hero-split-inner">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Empresa familiar de canaletas en Tampa Bay</div>
+        <h1>Proteja su hogar con canaletas hechas para el clima de Florida</h1>
+        <p class="hero-typed" aria-live="polite">
+          <span id="hero-typed-text"></span><span class="hero-caret" aria-hidden="true">|</span>
+        </p>
+        <ul class="hero-lead hero-lead-list">
+          <li><strong>Más de 10,000</strong> proyectos completados</li>
+          <li><strong>Más de 7 años</strong> sirviendo Tampa Bay</li>
+          <li>
+            <strong>Calificación 4.9 en Google</strong> de <strong>247 reseñas</strong>
+          </li>
+          <li><strong>Empresa familiar</strong> con sede en Seffner</li>
+          <li><strong>Opciones de garantía de por vida</strong> disponibles*</li>
+          <li><strong>Financiamiento flexible</strong> disponible</li>
+          <li><strong>Comunicación clara</strong> desde el estimado hasta la instalación</li>
+        </ul>
+        <div class="hero-actions">
+          <a href={telLink} class="btn btn-primary btn-lg cta1-primary-call">
+            {ES_NAV.callPrefix} {phoneDisplay}
+          </a>
+        </div>
+      </div>
+      <form
+        class="hero-form"
+        data-lead-form="es-home-hero"
+        data-page-locale="es-US"
+        action={formAction}
+        method={formMethod}
+        aria-label="Formulario de consulta"
+      >
+        <input type="hidden" name="pageLocale" value="es-US" />
+        <input type="hidden" name="language" value="es-US" />
+        <div class="hero-form-heading">
+          <div class="hero-form-kicker">{ES_NAV.freeEstimate}</div>
+          <h2>{ES_NAV.bookConsultation}</h2>
+        </div>
+        <p class="hero-form-sub">{ES_FORM_INTRO}</p>
+        <div class="hero-form-grid">
+          <div class="hero-form-field">
+            <label for="es-hero-name">
+              {ES_NAV.name} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id="es-hero-name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="hero-form-field">
+            <label for="es-hero-email">
+              {ES_NAV.email} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id="es-hero-email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="hero-form-field">
+            <label for="es-hero-phone">
+              {ES_NAV.phone} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id="es-hero-phone" name="phone" type="tel" required autocomplete="tel" />
+          </div>
+          <div class="hero-form-field">
+            <label for="es-hero-location">{ES_NAV.city}</label>
+            <input id="es-hero-location" name="location" type="text" autocomplete="address-level2" />
+          </div>
+          <div class="hero-form-field hero-form-field-full">
+            <label for="es-hero-message">{ES_NAV.projectDetails}</label>
+            <textarea id="es-hero-message" name="message" rows="3"></textarea>
+          </div>
+        </div>
+        <SmsMarketingConsent checkboxId="es-hero-sms-consent" locale="es" />
+        <div class="lead-form-honeypot-wrap" aria-hidden="true">
+          <label for="es-hero-website">Leave blank</label>
+          <input type="text" id="es-hero-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <p class="lead-form-status" data-lead-form-status role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-lg">{ES_NAV.submit}</button>
+      </form>
+    </div>
+    <section class="brands-marquee" aria-label={asStr(brandsMarquee?.ariaLabel) || 'Marcas'}>
+      <div class="brands-track">
+        <div class="brands-inner">
+          {[0, 1, 2].map((idx) => (
+            <div class="brands-group" aria-hidden={idx > 0 ? 'true' : undefined}>
+              {asStrArray(brandsMarquee?.brands).map((b) => (
+                <span class="brand-pill">{b}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={tel} />
+
+  <section id="reviews" class="section google-reviews">
+    <div class="container">
+      <h2 class="section-title reviews-title">Lo que dicen los vecinos de Tampa Bay</h2>
+      <div class="reviews-summary">
+        <div class="reviews-summary-left">
+          <p class="reviews-summary-brand">
+            <img
+              src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
+              alt={asStr(reviewsSummary?.brandLabel) || 'Google'}
+              class="google-logo"
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{asStr(reviewsSummary?.brandLabel) || 'Google'}</span>
+          </p>
+          <p class="reviews-summary-rating">
+            <strong>{reviewRating}</strong>
+            <img
+              src={mediaUrl(asStr(reviewsSummary?.starsImageSrc))}
+              alt={asStr(reviewsSummary?.starsImageAlt)}
+              class="review-stars review-stars-inline"
+              width="96"
+              height="18"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{reviewCountDisplay}</span>
+          </p>
+        </div>
+        <a href="/es/testimonios/" class="btn btn-outline btn-lg request-estimate reviews-summary-cta">
+          Solicitar consulta
+        </a>
+      </div>
+      <div class="testimonials-grid">
+        {homepageTestimonials.map((t) => (
+          <blockquote class="testimonial">
+            <div class="review-brand review-brand-top">
+              <img
+                src={mediaUrl(asStr(t.avatarSrc))}
+                alt={asStr(t.author)}
+                class="review-avatar"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="review-meta">
+                <strong>{asStr(t.author)}</strong>
+                <span class="review-time">{asStr(t.timeAgo)}</span>
+              </div>
+            </div>
+            <img
+              src={mediaUrl(asStr(reviewsSummary?.starsImageSrc))}
+              alt={asStr(reviewsSummary?.starsImageAlt)}
+              class="review-stars"
+              width="96"
+              height="18"
+              loading="lazy"
+              decoding="async"
+            />
+            <p>&quot;{asStr(t.quote)}&quot;</p>
+            <div class="review-posted-on">
+              <img
+                src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
+                alt={asStr(reviewsSummary?.brandLabel)}
+                class="google-logo"
+                width="20"
+                height="20"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>{asStr(reviews?.postedOnLabel) || 'Publicado en Google'}</span>
+            </div>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {projectSlides.length > 0 ? (
+    <section id="process" class="image-scroller" aria-label="Proyectos recientes">
+      <div class="container projects-head">
+        <h2 class="section-title projects-title">Proyectos recientes en Tampa Bay</h2>
+      </div>
+      <div class="projects-carousel" id="projects-carousel">
+        {projectSlides.map((slide, slideIndex) => {
+          const loc = asStr(slide.location)
+          const label = `${asStr(slide.imageAlt)} — ${loc}`
+          const slideCount = projectSlides.length
+          const slideClass =
+            slideIndex === 0
+              ? 'project-slide project-active'
+              : slideIndex === 1
+                ? 'project-slide project-next'
+                : slideIndex === slideCount - 1
+                  ? 'project-slide project-prev'
+                  : 'project-slide'
+          return (
+            <article class={slideClass} data-location={loc} aria-label={label}>
+              <img
+                src={mediaUrl(asStr(slide.imageSrc))}
+                alt={asStr(slide.imageAlt)}
+                width="1200"
+                height="800"
+                loading={slideIndex === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+              <div class="project-meta">
+                <span class="project-pin" aria-hidden="true">📍</span>{' '}
+                <span class="project-location-label">{loc}</span>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+      <div class="projects-controls projects-controls-bottom" aria-label="Controles del carrusel">
+        <button type="button" class="project-nav" id="projects-prev" aria-label="Anterior">
+          ←
+        </button>
+        <button type="button" class="project-nav" id="projects-next" aria-label="Siguiente">
+          →
+        </button>
+      </div>
+    </section>
+  ) : null}
+
+  <section id="why-us" class="section why-simple">
+    <div class="container why-choose-layout">
+      <div class="why-choose-image-wrap">
+        {whyChooseImageSrc ? (
+          <img
+            src={mediaUrl(whyChooseImageSrc)}
+            alt={asStr(whyChoose?.imageAlt) || 'Equipo de SunLife Gutters en Tampa'}
+            class="why-choose-image"
+            width="1200"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : null}
+        <div class="why-choose-stamp">
+          <strong>{homesCountDisplay}</strong>
+          <span>Tampa Bay, Florida</span>
+          <span>Proyectos completados de techo a terreno.</span>
+        </div>
+      </div>
+      <div class="why-choose-content">
+        <div class="why-eyebrow">Por qué SunLife</div>
+        <h2 class="section-title section-title-secondary">
+          Canaletas y exteriores en los que puede confiar
+        </h2>
+        <p class="section-lead">
+          Somos una empresa familiar con sede en Seffner que sirve a propietarios de Tampa Bay con
+          recomendaciones honestas, comunicación clara y trabajo hecho bien desde la primera visita.
+        </p>
+        <ul class="why-choose-list">
+          <li>
+            <strong>Hechas a la medida en el camión.</strong>{' '}
+            Fabricamos canaletas seamless en el sitio para un ajuste preciso.
+          </li>
+          <li>
+            <strong>Preparadas para el clima de Florida.</strong>{' '}
+            Instalación pensada para lluvia intensa, humedad y viento.
+          </li>
+          <li>
+            <strong>Opciones claras, sin presión.</strong>{' '}
+            Explicamos opciones y precios antes de que usted decida.
+          </li>
+        </ul>
+        <div class="why-choose-actions">
+          <a href={telLink} class="btn btn-primary btn-lg">
+            {ES_NAV.callPrefix} {phoneDisplay}
+          </a>
+          <a href="/es/contacto/#contact" class="btn btn-outline btn-lg request-estimate">
+            {ES_NAV.bookConsultation}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section services" style={servicesBgStyle}>
+    <div class="container">
+      <h2 class="section-title">Servicios de canaletas y exteriores</h2>
+      <div class="services-grid">
+        {servicesItems.map((svc) => {
+          const enTitle = asStr(svc.title)
+          const esTitle = serviceTitleEs[enTitle.toLowerCase()] || enTitle
+          return (
+            <article class="service-card">
+              <a
+                href={serviceHref(svc)}
+                class="service-image-wrap"
+                style="display:block; color:inherit; text-decoration:none;"
+              >
+                <span class="service-number">{asStr(svc.number)}</span>
+                <h3 class="service-title">{esTitle}</h3>
+                <p class="service-desc">{asStr(svc.description)}</p>
+              </a>
+            </article>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section about about-video">
+    <div class="container about-grid">
+      <div class="about-content">
+        <div class="about-eyebrow">Fundada en familia desde 2018</div>
+        <h2 class="section-title">Hechos para casas y clima de Tampa Bay</h2>
+        <p class="about-lead">
+          Fundada en diciembre de 2018, SunLife nació con una meta sencilla: ofrecer recomendaciones
+          honestas, buena mano de obra y una experiencia clara. Lo que empezó con un equipo de
+          canaletas seamless creció hasta ser una empresa de exteriores de confianza en todo Tampa Bay.
+        </p>
+        <ul class="about-list">
+          <li>Aluminio seamless fabricado en el camión para un ajuste perfecto</li>
+          <li>Soportes resistentes a la corrosión espaciados para el viento de Old Tampa Bay</li>
+          <li>Accesorios a color que combinan con stucco, siding o ladrillo</li>
+        </ul>
+        <div class="about-video-actions">
+          <a href={telLink} class="btn btn-primary btn-lg">
+            {ES_NAV.callPrefix} {phoneDisplay}
+          </a>
+          <a href="/es/sobre-nosotros/" class="btn btn-outline btn-lg request-estimate">
+            Sobre Nosotros
+          </a>
+        </div>
+      </div>
+      <div class="about-visual">
+        {aboutVideo?.sourceSrc ? (
+          <div class="media-card media-video">
+            <video controls playsinline preload="metadata" poster={mediaUrl(asStr(aboutVideo?.posterSrc))}>
+              <source
+                src={mediaUrl(asStr(aboutVideo?.sourceSrc))}
+                type={asStr(aboutVideo?.sourceType).trim() || 'video/mp4'}
+              />
+            </video>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  </section>
+
+  {uniquePointsItems.length > 0 ? (
+    <section class="section unique-points" style={uniquePointsBgStyle}>
+      <div class="container">
+        <div class="why-eyebrow">La diferencia SunLife</div>
+        <h2 class="section-title section-title-secondary">Lo que nota en cada visita</h2>
+        <div class="unique-grid">
+          {uniquePointsItems.map((pt) => (
+            <article class="result-item">
+              <span class="result-value">
+                <span class="result-icon" aria-hidden="true">
+                  <UniquePointIcon iconId={asStr(pt.iconId)} />
+                </span>
+                {asStr(pt.title)}
+              </span>
+              <p>{asStr(pt.description)}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="stats-thin" aria-label="Estadísticas">
+    <div class="container stats-thin-grid">
+      {(Array.isArray(statsBar?.items) ? statsBar.items : []).map((row) => {
+        const valueKey = asStr(row.valueKey)
+        const labelMap = {
+          statsYearsExperience: 'opciones de garantía*',
+          statsJobsCompleted: 'Proyectos completados',
+          statsAvgRating: 'Calificación promedio en Google',
+        }
+        const label = labelMap[valueKey] || asStr(row.label)
+        return (
+          <div>
+            <strong>{statLookup(statsValues, row.valueKey)}</strong>
+            {label ? <span>{label}</span> : null}
+          </div>
+        )
+      })}
+    </div>
+  </section>
+
+  <section class="section contact-banner-split">
+    <div class="container contact-banner-grid">
+      <div class="contact-banner-copy">
+        <h2 class="section-title">¿Listo para proteger su hogar?</h2>
+        <p class="section-lead">
+          Solicite una consulta gratuita. Revisamos su propiedad, explicamos opciones y le damos un
+          plan claro — sin presión.
+        </p>
+        <div class="contact-banner-actions">
+          <a href={telLink} class="contact-banner-phone">
+            {ES_NAV.callPrefix} {phoneDisplay}
+          </a>
+          <a href="/es/contacto/#contact" class="btn btn-primary btn-lg">
+            {ES_NAV.bookConsultation}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="service-area" class="section service-area">
+    <div class="container">
+      <div class="why-eyebrow">Área de servicio</div>
+      <h2 class="section-title">{HOMEPAGE_SERVICE_AREA_HEADLINE.replace('Rain Gutters', 'Canaletas')}</h2>
+      <p class="section-lead" set:html={esServiceIntro} />
+      <div class="cities-list cities-list--pills">
+        <p class="cities-label">Ciudades que servimos</p>
+        <nav class="cities-nav cities-nav--pills" aria-label="Ciudades que servimos">
+          {POPULAR_SERVICE_AREA_CITIES.map((city) => (
+            <a href={asStr(city.href)}>{asStr(city.name)}</a>
+          ))}
+        </nav>
+      </div>
+      {mapEmbedUrl ? (
+        <div class="service-area-map">
+          <iframe
+            title={`Mapa de servicio de ${companyName}`}
+            src={mapEmbedUrl}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          />
+        </div>
+      ) : null}
+      <p class="section-lead" style="margin-top: 1.5rem;">
+        <a href="/es/areas-de-servicio/">Ver todas las áreas de servicio →</a>
+      </p>
+    </div>
+  </section>
+
+  {faqItems.length > 0 ? (
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <h2 class="section-title section-title-secondary">Preguntas frecuentes</h2>
+        <div class="faq-list" data-faq-accordion>
+          {faqItems.map((item, i) => {
+            const btnId = `es-home-faq-btn-${i + 1}`
+            const panelId = `es-home-faq-panel-${i + 1}`
+            return (
+              <div class="faq-item">
+                <button
+                  type="button"
+                  class="faq-summary"
+                  id={btnId}
+                  aria-expanded="false"
+                  aria-controls={panelId}
+                >
+                  <span class="faq-question">{asStr(item.question)}</span>
+                  <span class="faq-chevron" aria-hidden="true"></span>
+                </button>
+                <div
+                  class="faq-answer-outer"
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={btnId}
+                  aria-hidden="true"
+                >
+                  <div class="faq-answer" set:html={sanitizeCmsHtml(asStr(item.answerHtml))} />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        <p style="margin-top: 1.25rem;">
+          <a href="/es/preguntas-frecuentes/">Ver todas las preguntas frecuentes →</a>
+        </p>
+      </div>
+    </section>
+  ) : null}
+</main>
+
+<script define:vars={{ typedPhrases }}>
+  (function () {
+    var el = document.getElementById('hero-typed-text')
+    if (!el || !typedPhrases || !typedPhrases.length) return
+    var i = 0
+    var char = 0
+    var deleting = false
+    function tick() {
+      var word = typedPhrases[i] || ''
+      if (!deleting) {
+        char += 1
+        el.textContent = word.slice(0, char)
+        if (char >= word.length) {
+          deleting = true
+          setTimeout(tick, 1600)
+          return
+        }
+      } else {
+        char -= 1
+        el.textContent = word.slice(0, char)
+        if (char <= 0) {
+          deleting = false
+          i = (i + 1) % typedPhrases.length
+        }
+      }
+      setTimeout(tick, deleting ? 40 : 70)
+    }
+    tick()
+  })()
+</script>

@@ -2,9 +2,12 @@
 interface Props {
   /** Unique id for the checkbox (and label association). */
   checkboxId: string
+  /** Optional locale for consent copy (en | es). */
+  locale?: string
 }
 
-const { checkboxId } = Astro.props
+const { checkboxId, locale = 'en' } = Astro.props
+const isEs = locale === 'es' || locale === 'es-US'
 ---
 
 <div class="lead-form-sms-consent">
@@ -18,11 +21,23 @@ const { checkboxId } = Astro.props
     />
     <span class="lead-form-sms-consent-text">
       <span class="required-mark" aria-hidden="true">*</span>
-      I consent to SMS from SunLife Gutters Tampa (Bluebird Miami, LLC) at my number. See our
-      <a class="lead-form-sms-consent-link" href="/privacy-policy/">Privacy Policy</a>
-      and
-      <a class="lead-form-sms-consent-link" href="/terms-of-service/">Terms of Service</a>. Msg/data rates may apply. Reply
-      STOP to opt out.
+      {isEs ? (
+        <>
+          Consiento recibir SMS de SunLife Gutters Tampa (Bluebird Miami, LLC) en mi número. Consulte nuestra
+          <a class="lead-form-sms-consent-link" href="/privacy-policy/">Política de privacidad</a>
+          y los
+          <a class="lead-form-sms-consent-link" href="/terms-of-service/">Términos del servicio</a>. Pueden aplicar
+          tarifas de mensajes/datos. Responda STOP para cancelar.
+        </>
+      ) : (
+        <>
+          I consent to SMS from SunLife Gutters Tampa (Bluebird Miami, LLC) at my number. See our
+          <a class="lead-form-sms-consent-link" href="/privacy-policy/">Privacy Policy</a>
+          and
+          <a class="lead-form-sms-consent-link" href="/terms-of-service/">Terms of Service</a>. Msg/data rates may
+          apply. Reply STOP to opt out.
+        </>
+      )}
     </span>
   </label>
 </div>

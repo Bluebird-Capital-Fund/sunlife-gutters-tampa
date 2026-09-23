@@ -256,7 +256,106 @@ a:hover {
   min-width: auto;
 }
 
-/* Nav dropdowns (Services, About Us ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ parent is a button, not a page link) */
+/* Language switcher (English | Español) */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.lang-switcher-link {
+  color: var(--color-text);
+  text-decoration: none;
+  opacity: 0.72;
+  transition: color var(--transition), opacity var(--transition);
+}
+
+.lang-switcher-link:hover {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+.lang-switcher-link.is-active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  font-weight: 600;
+}
+
+.lang-switcher-sep {
+  color: var(--color-text);
+  opacity: 0.45;
+  user-select: none;
+}
+
+.lang-switcher-short {
+  display: none;
+}
+
+.lang-switcher-full {
+  display: inline;
+}
+
+@media (max-width: 1100px) {
+  .lang-switcher-full {
+    display: none;
+  }
+
+  .lang-switcher-short {
+    display: inline;
+  }
+}
+
+/* Soft EN-homepage language suggestion banner */
+.lang-suggest-banner {
+  background: var(--color-surface, #f7f5f2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.lang-suggest-banner[hidden] {
+  display: none !important;
+}
+
+.lang-suggest-banner-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+}
+
+.lang-suggest-banner-text {
+  margin: 0;
+  font-size: 0.975rem;
+  font-weight: 500;
+}
+
+.lang-suggest-banner-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-suggest-dismiss {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  color: var(--color-text);
+}
+
+.lang-suggest-dismiss:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Nav dropdowns (Services, About Us — parent is a button, not a page link) */
 .nav-dropdown {
   position: relative;
 }

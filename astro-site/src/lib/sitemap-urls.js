@@ -4,6 +4,8 @@
  * not /locations/... — include those public paths and drop redirect stubs.
  */
 
+import { getLiveHreflangPair, LIVE_ES_PATHS, normalizePath, SITE_ORIGIN } from './i18n.js'
+
 /** @type {string[]} Public location URLs (trailing slash). */
 export const SERVICE_AREA_LOCATION_PATHS = [
   '/service-area/gutters-anna-maria-island-fl/',
@@ -59,6 +61,7 @@ export const SITEMAP_REDIRECT_STUB_PATHS = new Set([
   '/super-gutters/',
   '/tampa-florida/',
   '/thank-you/',
+  '/es/thank-you/',
 ])
 
 /**
@@ -86,5 +89,33 @@ export function sitemapIncludePage(page) {
   if (pathname.includes('/lp/')) return false
   if (pathname.startsWith('/locations/')) return false
   if (SITEMAP_REDIRECT_STUB_PATHS.has(pathname)) return false
+
+  // Only include live Spanish paths under /es/
+  if (pathname === '/es/' || pathname.startsWith('/es/')) {
+    return LIVE_ES_PATHS.has(pathname)
+  }
   return true
+}
+
+/**
+ * Add reciprocal hreflang links only for live EN↔ES pairs.
+ * @param {import('@astrojs/sitemap').SitemapItem} item
+ */
+export function sitemapSerialize(item) {
+  if (!item?.url) return item
+  let pathname = '/'
+  try {
+    pathname = new URL(item.url).pathname
+  } catch {
+    return item
+  }
+  const pair = getLiveHreflangPair(pathname)
+  if (!pair) return item
+  const origin = SITE_ORIGIN.replace(/\/+$/, '')
+  item.links = [
+    { url: `${origin}${normalizePath(pair.en)}`, lang: 'en-US' },
+    { url: `${origin}${normalizePath(pair.es)}`, lang: 'es-US' },
+    { url: `${origin}${normalizePath(pair.en)}`, lang: 'x-default' },
+  ]
+  return item
 }

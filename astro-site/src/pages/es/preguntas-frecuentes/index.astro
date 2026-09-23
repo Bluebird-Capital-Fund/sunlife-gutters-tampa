@@ -1,0 +1,110 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+import { sanitizeCmsHtml } from '../../../lib/sanitize-cms-html.js'
+import { mediaUrl } from '../../../lib/sanity-strings.js'
+import { FAQ_PAGE_SECTIONS_ES } from '../../../lib/faq-page-content-es.js'
+
+const faqSectionsWithIds = FAQ_PAGE_SECTIONS_ES.map((section, sectionIdx) => {
+  let start = 0
+  for (let i = 0; i < sectionIdx; i += 1) start += FAQ_PAGE_SECTIONS_ES[i].items.length
+  return {
+    heading: section.heading,
+    headingId: `faq-es-section-${sectionIdx + 1}`,
+    items: section.items.map((item, itemIdx) => {
+      const n = start + itemIdx + 1
+      return {
+        ...item,
+        btnId: `faq-es-btn-${n}`,
+        panelId: `faq-es-panel-${n}`,
+      }
+    }),
+  }
+})
+const breadcrumbItems = simpleBreadcrumbItemsEs('Preguntas frecuentes')
+---
+
+<EsSiteChrome
+  title="Preguntas frecuentes sobre canaletas en Tampa | SunLife"
+  description="Respuestas a preguntas comunes sobre costos, permisos, garantías, limpieza, drenaje, soffit y fascia, y daños por tormentas en Tampa."
+  formIdPrefix="es-faqs"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section secondary-page-section faq-intro" aria-labelledby="faq-intro-heading">
+      <div class="container page-split page-split--media-end faq-intro-split">
+        <div class="secondary-prose">
+          <h1 class="section-title section-title-secondary" id="faq-intro-heading">
+            Respuestas claras antes de subir la escalera
+          </h1>
+          <p>
+            Elegir el sistema de canaletas correcto trae muchas preguntas, especialmente en Florida,
+            donde la lluvia intensa, las tormentas de verano y la humedad todo el año ponen a prueba
+            el drenaje de su casa. Abajo respondemos algunas de las preguntas que más nos hacen los
+            propietarios de Tampa Bay sobre sistemas de canaletas, reparaciones, protectores, screen
+            rooms y protección contra daños por agua.
+          </p>
+          <p>
+            Cada casa es distinta, así que la solución correcta depende de su línea de techo,
+            necesidades de drenaje y metas a largo plazo. Durante su consulta gratuita evaluamos su
+            propiedad, explicamos opciones y recomendamos lo adecuado para su hogar y presupuesto.
+          </p>
+          <p>
+            ¿No ve su pregunta aquí? Llámenos o reserve una consulta gratuita. Con gusto respondemos
+            y le ayudamos a decidir con información.
+          </p>
+        </div>
+        <figure class="page-split__media page-split__media--portrait">
+          <img
+            src={mediaUrl(
+              'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-black-super-gutter-blue-coastal-house.jpg',
+            )}
+            alt="Super Gutter negra en una casa costera azul con screen enclosure en Tampa Bay"
+            width="480"
+            height="640"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        {faqSectionsWithIds.map((section, sectionIdx) => (
+          <div class="faq-panel" style={sectionIdx > 0 ? 'margin-top: 2rem;' : undefined}>
+            <h2 class="section-title section-title-secondary" id={section.headingId}>
+              {section.heading}
+            </h2>
+            <div class="faq-list" data-faq-accordion>
+              {section.items.map((item) => (
+                <div class="faq-item">
+                  <button
+                    type="button"
+                    class="faq-summary"
+                    id={item.btnId}
+                    aria-expanded="false"
+                    aria-controls={item.panelId}
+                  >
+                    <span class="faq-question">{item.question}</span>
+                    <span class="faq-chevron" aria-hidden="true"></span>
+                  </button>
+                  <div
+                    class="faq-answer-outer"
+                    id={item.panelId}
+                    role="region"
+                    aria-labelledby={item.btnId}
+                    aria-hidden="true"
+                  >
+                    <div class="faq-answer" set:html={sanitizeCmsHtml(item.answerHtml)} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>

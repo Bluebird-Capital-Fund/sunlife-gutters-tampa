@@ -9,6 +9,8 @@ import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
+import LanguageSuggestBanner from './LanguageSuggestBanner.astro'
 import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl, isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -782,11 +784,13 @@ const serviceHref = (svc) => {
               </a>
             )
           })}
+          <LanguageSwitcher />
           <a href={telLink} class="btn btn-primary btn-lg">{callLabelNav}</a>
         </nav>
       </div>
     </div>
   </header>
+  {!isLp ? <LanguageSuggestBanner /> : null}
   <div id="header-nav-spacer" class="header-nav-spacer" aria-hidden="true"></div>
 
   <main>

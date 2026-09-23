@@ -10,6 +10,7 @@ import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
 import FooterFinancingDisclosure from './FooterFinancingDisclosure.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
 import Breadcrumbs from './Breadcrumbs.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { isContactFooterColumnHeading } from '../lib/footer-contact-heading.js'
@@ -130,6 +131,7 @@ const breadcrumbItems =
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
+          <LanguageSwitcher />
           <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg">{callLabelNav}</a>
         </nav>
       </div>
