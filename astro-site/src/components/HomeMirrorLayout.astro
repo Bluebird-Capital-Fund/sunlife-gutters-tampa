@@ -784,8 +784,9 @@ const serviceHref = (svc) => {
               </a>
             )
           })}
-          <NavCallRow telHref={telLink} callLabel={callLabelNav} />
+          <a href={telLink} class="btn btn-primary btn-lg nav-call-drawer">{callLabelNav}</a>
         </nav>
+        <NavCallRow telHref={telLink} callLabel={callLabelNav} />
       </div>
     </div>
   </header>

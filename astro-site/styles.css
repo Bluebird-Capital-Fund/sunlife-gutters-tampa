@@ -196,11 +196,14 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: var(--space-md);
 }
 
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo-img {
@@ -224,6 +227,9 @@ a:hover {
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
   gap: var(--space-xl);
 }
 
@@ -256,7 +262,7 @@ a:hover {
   min-width: auto;
 }
 
-/* Language switcher — beside Call CTA (nav-call-row) + mobile header actions */
+/* Language switcher — white-bar Call+lang group (sibling of .nav) + mobile header actions */
 .lang-switcher {
   display: inline-flex;
   align-items: center;
@@ -299,10 +305,11 @@ a:hover {
   display: inline;
 }
 
+/* Sibling of .nav in .header-inner — keeps white bar, out of nav link flex */
 .nav-call-row {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   flex-shrink: 0;
   margin-left: var(--space-sm);
 }
@@ -323,6 +330,11 @@ a:hover {
   color: var(--color-text);
 }
 
+/* Mobile-menu Call only — hidden on desktop (desktop uses .nav-call-row) */
+.nav-call-drawer {
+  display: none;
+}
+
 .header-nav-actions .lang-switcher {
   margin-right: 0.15rem;
   color: var(--color-text);
@@ -340,6 +352,41 @@ a:hover {
   color: var(--color-text);
 }
 
+/* Mid desktop: Spanish labels are longer — tighten so one row holds */
+@media (max-width: 1280px) and (min-width: 1121px) {
+  .nav {
+    gap: 0.75rem;
+  }
+
+  .nav a:not(.btn),
+  .nav .nav-dropdown-toggle {
+    font-size: 0.9rem;
+  }
+
+  .nav-call-row {
+    gap: 0.5rem;
+    margin-left: 0.35rem;
+  }
+
+  .nav-call-row .btn-lg {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-call-row .lang-switcher-full {
+    display: none;
+  }
+
+  .nav-call-row .lang-switcher-short {
+    display: inline;
+  }
+
+  .logo-img {
+    height: 72px;
+    max-width: 260px;
+  }
+}
+
 @media (max-width: 900px) {
   .lang-switcher-full {
     display: none;
@@ -347,23 +394,6 @@ a:hover {
 
   .lang-switcher-short {
     display: inline;
-  }
-
-  .nav-call-row {
-    margin-left: 0;
-    width: auto;
-    max-width: 100%;
-    align-self: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .nav.is-open .nav-call-row .lang-switcher {
-    display: inline-flex;
-  }
-
-  /* Closed mobile header already has the switcher in .header-nav-actions */
-  .nav:not(.is-open) .nav-call-row .lang-switcher {
-    display: none;
   }
 }
 
@@ -568,6 +598,11 @@ a:hover {
     display: none !important;
   }
 
+  /* Desktop Call+lang sibling — hide when hamburger header is active */
+  .nav-call-row {
+    display: none !important;
+  }
+
   .header-nav-actions {
     display: flex;
   }
@@ -610,7 +645,22 @@ a:hover {
     font-size: 1rem;
   }
 
-  /* Compact pill — Call + language sit in a row beside the blank space */
+  /* Compact Call in open hamburger menu (desktop Call+lang is .nav-call-row) */
+  .nav-call-drawer {
+    display: none;
+  }
+
+  .nav.is-open .nav-call-drawer {
+    display: inline-flex;
+    width: auto;
+    max-width: 100%;
+    align-self: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+  }
+
   .nav.is-open .nav-call-row {
     width: auto;
     max-width: 100%;

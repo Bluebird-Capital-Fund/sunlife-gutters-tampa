@@ -121,8 +121,9 @@ const breadcrumbItems = simpleBreadcrumbItems('About Us')
               <a href="/seamless-gutters-tampa-fl/">Products & Services</a>
             </>
           )}
-          <NavCallRow telHref={`tel:${phoneTel}`} callLabel={callLabelNav} />
+          <a href={`tel:${phoneTel}`} class="btn btn-primary btn-lg nav-call-drawer">{callLabelNav}</a>
         </nav>
+        <NavCallRow telHref={`tel:${phoneTel}`} callLabel={callLabelNav} />
       </div>
     </div>
   </header>
