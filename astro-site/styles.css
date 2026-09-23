@@ -230,13 +230,19 @@ a:hover {
   flex-wrap: nowrap;
   flex-shrink: 1;
   min-width: 0;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.nav > a,
+.nav > .nav-dropdown {
+  flex-shrink: 0;
 }
 
 .nav a {
   color: var(--color-text);
   font-weight: 500;
   font-size: 1rem;
+  white-space: nowrap;
   transition: color var(--transition), opacity var(--transition);
 }
 
@@ -258,8 +264,14 @@ a:hover {
   font-weight: 500;
 }
 
+.nav a.btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .nav .btn-lg {
-  min-width: auto;
+  min-width: max-content;
+  white-space: nowrap;
 }
 
 /* Language switcher — offer-bar corner (pill buttons) + mobile header actions */
@@ -364,30 +376,55 @@ a:hover {
   text-decoration: none;
 }
 
-/* Mid desktop: Spanish labels are longer — tighten nav so Call fits */
-@media (max-width: 1280px) and (min-width: 1121px) {
+/* Mid desktop: longer Spanish labels — tighten before hamburger */
+@media (max-width: 1400px) and (min-width: 1281px) {
   .nav {
-    gap: 0.75rem;
+    gap: 0.85rem;
   }
 
   .nav a:not(.btn),
   .nav .nav-dropdown-toggle {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
   }
 
   .nav .btn-lg {
-    padding: 0.5rem 0.85rem;
-    font-size: 0.85rem;
-    white-space: nowrap;
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
   }
 
   .logo-img {
-    height: 72px;
-    max-width: 260px;
+    height: 76px;
+    max-width: 300px;
   }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1280px) and (min-width: 1121px) {
+  .nav {
+    gap: 0.55rem;
+  }
+
+  .nav a:not(.btn),
+  .nav .nav-dropdown-toggle {
+    font-size: 0.8125rem;
+  }
+
+  .nav .btn-lg {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .logo-img {
+    height: 64px;
+    max-width: 220px;
+  }
+
+  .header-inner {
+    gap: var(--space-sm);
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (max-width: 1180px) {
   .offer-bar-inner .lang-switcher {
     display: none;
   }
@@ -502,6 +539,8 @@ a:hover {
   background: none;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color var(--transition), opacity var(--transition);
 }
 
@@ -570,21 +609,22 @@ a:hover {
 
 @media (max-width: 1200px) {
   .nav {
-    gap: var(--space-lg);
+    gap: 0.65rem;
   }
 
-  .nav a {
-    font-size: 0.95rem;
+  .nav a:not(.btn),
+  .nav .nav-dropdown-toggle {
+    font-size: 0.875rem;
   }
 
   .nav .btn-lg {
-    padding: 0.7rem 1rem;
-    font-size: 0.92rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 
-/* Nav-specific breakpoint so header doesn't cram before mobile */
-@media (max-width: 1120px) {
+/* Hamburger earlier — Spanish labels need more room than English */
+@media (max-width: 1180px) {
   .header-nav {
     min-height: auto;
   }
