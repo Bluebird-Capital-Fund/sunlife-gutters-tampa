@@ -425,38 +425,7 @@ a:hover {
 }
 
 @media (max-width: 1180px) {
-  .offer-bar {
-    padding: 0.45rem 0 0.5rem;
-  }
-
-  .offer-bar-inner {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    max-width: none;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 0.5rem;
-  }
-
-  .offer-bar-inner .offer-message {
-    width: 100%;
-    max-width: none;
-    padding: 0 0.15rem;
-    font-size: 0.82rem;
-    line-height: 1.35;
-  }
-
-  /* Keep language pills under the offer text (not in the header row) */
-  .offer-bar-inner .lang-switcher {
-    display: inline-flex;
-    position: static;
-    right: auto;
-    top: auto;
-    transform: none;
-  }
-
+  /* Language pills stay under offer text — hide duplicate in header */
   .offer-bar-inner .lang-switcher-full {
     display: inline;
   }
@@ -486,16 +455,6 @@ a:hover {
 
   .offer-bar-inner .lang-switcher-short {
     display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .offer-bar-inner {
-    padding: 0 0.4rem;
-  }
-
-  .offer-bar-inner .offer-message {
-    font-size: 0.78rem;
   }
 }
 
@@ -3307,6 +3266,56 @@ form[data-lead-form] button[type="submit"].is-busy {
 
 .offer-link:hover {
   opacity: 0.9;
+}
+
+/* Mobile/tablet: nearly full-width offer text + language buttons below it.
+   Must come AFTER base .offer-bar-inner so it overrides the desktop 11rem padding. */
+@media (max-width: 1180px) {
+  .offer-bar {
+    padding: 0.45rem 0 0.5rem;
+  }
+
+  .offer-bar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.4rem;
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.65rem;
+  }
+
+  .offer-bar-inner .offer-message {
+    display: block;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .offer-bar-inner .lang-switcher {
+    display: inline-flex;
+    align-self: center;
+    position: static;
+    right: auto;
+    top: auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .offer-bar-inner {
+    padding: 0 0.5rem;
+  }
+
+  .offer-bar-inner .offer-message {
+    font-size: 0.8rem;
+  }
 }
 
 .hero-split {
