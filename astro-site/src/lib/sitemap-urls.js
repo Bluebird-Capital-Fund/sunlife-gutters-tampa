@@ -2,6 +2,11 @@
  * Canonical sitemap URL rules for SunLife Gutters Tampa.
  * Location landings are served at /service-area/gutters-*-fl/ (Vercel rewrites),
  * not /locations/... — include those public paths and drop redirect stubs.
+ *
+ * Build output (via @astrojs/sitemap chunks + locale-sitemap-filenames):
+ *   sitemap-en.xml — English URLs
+ *   sitemap-es.xml — Spanish /es/ URLs
+ *   sitemap-index.xml — index of both
  */
 
 import { getLiveHreflangPair, LIVE_ES_PATHS, normalizePath, SITE_ORIGIN } from './i18n.js'
@@ -65,6 +70,21 @@ export const SITEMAP_REDIRECT_STUB_PATHS = new Set([
 ])
 
 /**
+ * @param {string} page absolute URL
+ * @returns {boolean}
+ */
+export function isSpanishSitemapUrl(page) {
+  let pathname = ''
+  try {
+    pathname = new URL(page).pathname
+  } catch {
+    return false
+  }
+  if (!pathname.endsWith('/')) pathname = `${pathname}/`
+  return pathname === '/es/' || pathname.startsWith('/es/')
+}
+
+/**
  * @param {string} siteOrigin e.g. https://sunlifegutters.com
  * @returns {string[]}
  */
@@ -117,5 +137,17 @@ export function sitemapSerialize(item) {
     { url: `${origin}${normalizePath(pair.es)}`, lang: 'es-US' },
     { url: `${origin}${normalizePath(pair.en)}`, lang: 'x-default' },
   ]
+  return item
+}
+
+/** @param {import('@astrojs/sitemap').SitemapItem} item */
+export function sitemapChunkEn(item) {
+  if (!item?.url || isSpanishSitemapUrl(item.url)) return undefined
+  return item
+}
+
+/** @param {import('@astrojs/sitemap').SitemapItem} item */
+export function sitemapChunkEs(item) {
+  if (!item?.url || !isSpanishSitemapUrl(item.url)) return undefined
   return item
 }

@@ -2,5 +2,6 @@
 User-agent: *
 Allow: /
 
-# Canonical sitemap (Astro @astrojs/sitemap). /sitemap.xml redirects here.
+# Sitemap index lists sitemap-en.xml (English) and sitemap-es.xml (Spanish).
+# /sitemap.xml redirects to the index.
 Sitemap: https://sunlifegutters.com/sitemap-index.xml
