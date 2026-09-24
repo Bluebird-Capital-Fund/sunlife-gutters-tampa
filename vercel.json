@@ -7,6 +7,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": false
+    },
+    {
       "source": "/es/blog/what-are-seamless-gutters-and-why-florida-homes-need-them/",
       "destination": "/es/blog/que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan/",
       "permanent": true
