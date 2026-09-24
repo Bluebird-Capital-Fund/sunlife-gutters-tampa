@@ -1,0 +1,402 @@
+---
+/**
+ * Spanish city service page body (chrome provided by EsSiteChrome).
+ * Content comes from city-service-page-fallbacks-es.js.
+ */
+import Breadcrumbs from './Breadcrumbs.astro'
+import FinancingBanner from './FinancingBanner.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
+import { externalLinkAttrs } from '../lib/external-link.js'
+import { getSiteSettings } from '../lib/site-settings.js'
+import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
+import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
+import { asStr, mediaUrl, statLookup } from '../lib/sanity-strings.js'
+import { POPULAR_SERVICE_AREA_CITIES } from '../lib/service-area-cities.js'
+import { simpleBreadcrumbItemsEs } from '../lib/breadcrumbs.js'
+import { ES_FORM_INTRO, ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+
+interface Props {
+  cityPage: Record<string, unknown>
+  formIdPrefix?: string
+}
+
+const { cityPage: cityPageProp, formIdPrefix = 'es-service' } = Astro.props
+const _cityPage = cityPageProp ?? {}
+
+let settings = {}
+try {
+  settings = await getSiteSettings()
+} catch (err) {
+  console.warn('[EsCityServiceMain] Sanity fetch failed; using fallbacks.', err)
+}
+
+const business = settings?.business ?? {}
+const formsCfg = settings?.forms ?? {}
+const footerEstimate = settings?.footerEstimate ?? {}
+const reviews = settings?.reviews ?? {}
+const reviewValues = reviews?.reviewValues
+const reviewSummary = reviews?.summary
+
+const companyName = asStr(business.companyName) || 'SunLife Gutters Tampa'
+const phoneDisplay = asStr(business.phoneDisplay) || '(813) 548-5310'
+const phoneTel = asStr(business.phoneTel) || '8135485310'
+const telLink = `tel:${phoneTel}`
+const callLabel = `${ES_NAV.callPrefix} ${phoneDisplay}`
+
+const slug = asStr(_cityPage?.slug)
+const pageH1 = asStr(_cityPage?.headline) || 'Servicios de Canaletas en Tampa'
+const pageEyebrow = asStr(_cityPage?.eyebrow) || 'Servicio'
+const pageLead = asStr(_cityPage?.lead)
+const formHeading = asStr(_cityPage?.formHeading) || ES_NAV.bookConsultation
+const formIntro = asStr(_cityPage?.formIntro) || ES_FORM_INTRO
+const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
+const formMethod = asStr(footerEstimate?.formMethod) || 'post'
+
+const heroBgSrc = asStr(_cityPage?.layoutBackgrounds?.hero?.imageSrc) || heroBackgroundFor(`service-${slug}`)
+const heroBgStyle = heroBgSrc
+  ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
+  : undefined
+
+const cityContentSections = Array.isArray(_cityPage?.contentSections) ? _cityPage.contentSections : []
+const closingSection =
+  _cityPage?.closingSection && typeof _cityPage.closingSection === 'object' ? _cityPage.closingSection : null
+const faq = _cityPage?.faq && typeof _cityPage.faq === 'object' ? _cityPage.faq : {}
+
+const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey) || '4.9'
+const reviewCount = statLookup(reviewValues, reviewSummary?.reviewCountKey) || '247'
+const reviewCountDisplay = `${asStr(reviewSummary?.reviewCountPrefix) || '('}${reviewCount}${asStr(reviewSummary?.reviewCountSuffix) || ')'}`
+const testimonials = Array.isArray(reviews?.testimonials) ? reviews.testimonials.slice(0, 4) : []
+
+const mapEmbedUrl = localizeMapEmbedUrl(asStr(settings?.mapEmbedUrl), LOCALE_ES)
+const breadcrumbItems = simpleBreadcrumbItemsEs(pageEyebrow || pageH1)
+const estimateCtaHref = '#contact'
+const estimateCtaText = ES_NAV.bookConsultation
+
+const sectionShowsCtas = (sec) => sec?.showCtas !== false
+const sectionImageAfter = (sec) => asStr(sec?.imagePlacement).toLowerCase() === 'after'
+
+const serviceAreaEyebrow = 'Área de servicio'
+const serviceAreaHeadline = 'Canaletas en Tampa y Comunidades Cercanas'
+const serviceAreaIntro =
+  'Estamos orgullosos de ofrecer servicios de canaletas y exteriores en todo Tampa Bay, incluyendo Clearwater, Tampa, St. Petersburg, Wesley Chapel, Plant City y comunidades cercanas. Con base en Seffner, nuestro equipo local ayuda cada día a propietarios y negocios a proteger sus propiedades con trabajo de calidad y servicio honesto. ¿No ve su ciudad? Contáctenos; es posible que aún podamos ayudar.'
+---
+
+<main>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="hero hero-split">
+    <div class="hero-bg" style={heroBgStyle}></div>
+    <div class="container hero-split-inner">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">{pageEyebrow}</div>
+        <h1>{pageH1}</h1>
+        <p class="hero-lead">{pageLead}</p>
+        <div class="hero-actions">
+          <a href={telLink} class="btn btn-primary btn-lg cta1-primary-call">{callLabel}</a>
+        </div>
+      </div>
+
+      <form
+        class="hero-form"
+        data-lead-form={`${formIdPrefix}-hero`}
+        data-page-locale="es-US"
+        action={formAction}
+        method={formMethod}
+        aria-label="Formulario de consulta"
+      >
+        <input type="hidden" name="pageLocale" value="es-US" />
+        <input type="hidden" name="language" value="es-US" />
+        <div class="hero-form-heading">
+          <div class="hero-form-kicker">{ES_NAV.freeEstimate}</div>
+          <h2>{formHeading}</h2>
+        </div>
+        <p class="hero-form-sub">{formIntro}</p>
+        <div class="hero-form-grid">
+          <div class="hero-form-field">
+            <label for={`${formIdPrefix}-hero-name`}>
+              {ES_NAV.name} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${formIdPrefix}-hero-name`} name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${formIdPrefix}-hero-email`}>
+              {ES_NAV.email} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${formIdPrefix}-hero-email`} name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${formIdPrefix}-hero-phone`}>
+              {ES_NAV.phone} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${formIdPrefix}-hero-phone`} name="phone" type="tel" required autocomplete="tel" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${formIdPrefix}-hero-location`}>{ES_NAV.city}</label>
+            <input
+              id={`${formIdPrefix}-hero-location`}
+              name="location"
+              type="text"
+              autocomplete="address-level2"
+            />
+          </div>
+          <div class="hero-form-field hero-form-field-full">
+            <label for={`${formIdPrefix}-hero-message`}>{ES_NAV.projectDetails}</label>
+            <textarea id={`${formIdPrefix}-hero-message`} name="message" rows="3"></textarea>
+          </div>
+        </div>
+        <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" />
+        <div class="lead-form-honeypot-wrap" aria-hidden="true">
+          <label for={`${formIdPrefix}-hero-website`}>Leave blank</label>
+          <input
+            type="text"
+            id={`${formIdPrefix}-hero-website`}
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+        <p class="lead-form-status" data-lead-form-status role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-lg">{ES_NAV.submit}</button>
+      </form>
+    </div>
+  </section>
+
+  <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={phoneTel} locale="es" />
+
+  <section class="section city-service-content">
+    <div class="container">
+      <article class="city-service-article">
+        {(cityContentSections.length > 0
+          ? cityContentSections
+          : [
+              {
+                heading: 'Detalles del servicio',
+                body: '<p>Contenido del servicio en preparación.</p>',
+              },
+            ]
+        ).map((sec) => (
+          <div class="city-service-block">
+            {!sectionImageAfter(sec) && asStr(sec.imageSrc) ? (
+              <img
+                src={mediaUrl(asStr(sec.imageSrc))}
+                alt={asStr(sec.imageAlt) || asStr(sec.heading)}
+                class="city-service-section-image"
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
+            <h2 class="section-title section-title-secondary">{asStr(sec.heading)}</h2>
+            <div class="city-service-body" set:html={sanitizeCmsHtml(asStr(sec.body))} />
+            {sectionImageAfter(sec) && asStr(sec.imageSrc) ? (
+              <img
+                src={mediaUrl(asStr(sec.imageSrc))}
+                alt={asStr(sec.imageAlt) || asStr(sec.heading)}
+                class="city-service-section-image city-service-section-image--after"
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
+            {sectionShowsCtas(sec) ? (
+              <div class="why-choose-actions city-service-ctas">
+                <a href={telLink} class="btn btn-primary btn-lg">{callLabel}</a>
+                <a
+                  href={estimateCtaHref}
+                  class="btn btn-outline btn-lg request-estimate"
+                  {...externalLinkAttrs(estimateCtaHref)}
+                >
+                  {estimateCtaText}
+                </a>
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </article>
+    </div>
+  </section>
+
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="faq-panel">
+        <h2
+          class="section-title section-title-secondary"
+          id={asStr(faq?.headingId) || `${formIdPrefix}-faq-heading`}
+        >
+          {asStr(faq?.headline) || 'Preguntas frecuentes'}
+        </h2>
+        <div class="faq-list" data-faq-accordion>
+          {(Array.isArray(faq?.items) && faq.items.length > 0
+            ? faq.items
+            : [
+                {
+                  question: '¿Cuánto dura una instalación típica?',
+                  answerHtml:
+                    '<p>La mayoría de los proyectos se completan en un día, según el tamaño y la complejidad del techo.</p>',
+                },
+              ]
+          )
+            .slice(0, 8)
+            .map((item, idx) => {
+              const n = idx + 1
+              const btnId = `${formIdPrefix}-faq-btn-${n}`
+              const panelId = `${formIdPrefix}-faq-panel-${n}`
+              return (
+                <div class="faq-item">
+                  <button
+                    type="button"
+                    class="faq-summary"
+                    id={btnId}
+                    aria-expanded="false"
+                    aria-controls={panelId}
+                  >
+                    <span class="faq-question">{asStr(item.question)}</span>
+                    <span class="faq-chevron" aria-hidden="true"></span>
+                  </button>
+                  <div
+                    class="faq-answer-outer"
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={btnId}
+                    aria-hidden="true"
+                  >
+                    <div class="faq-answer" set:html={sanitizeCmsHtml(asStr(item.answerHtml))} />
+                  </div>
+                </div>
+              )
+            })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section google-reviews">
+    <div class="container">
+      <h2 class="section-title reviews-title">Opiniones de Nuestros Clientes en Tampa Bay</h2>
+      <div class="reviews-summary">
+        <div class="reviews-summary-left">
+          <p class="reviews-summary-brand">
+            <img
+              src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
+              alt="Resumen de calificación de Google"
+              class="google-logo"
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>Resumen de calificación de Google</span>
+          </p>
+          <p class="reviews-summary-rating">
+            <strong>{reviewRating}</strong>
+            <img
+              src={mediaUrl(asStr(reviewSummary?.starsImageSrc))}
+              alt={asStr(reviewSummary?.starsImageAlt) || 'Calificación de 5 estrellas'}
+              class="review-stars review-stars-inline"
+              width="96"
+              height="18"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{reviewCountDisplay}</span>
+          </p>
+        </div>
+        <a href="/es/testimonios/" class="btn btn-outline btn-lg request-estimate reviews-summary-cta">
+          Ver Más Testimonios
+        </a>
+      </div>
+      <div class="testimonials-grid">
+        {testimonials.map((t) => (
+          <blockquote class="testimonial">
+            <div class="review-brand review-brand-top">
+              <img
+                src={mediaUrl(asStr(t.avatarSrc))}
+                alt={asStr(t.author)}
+                class="review-avatar"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="review-meta">
+                <strong>{asStr(t.author)}</strong>
+                <span class="review-time">{asStr(t.timeAgo)}</span>
+              </div>
+            </div>
+            <img
+              src={mediaUrl(asStr(reviewSummary?.starsImageSrc))}
+              alt={asStr(reviewSummary?.starsImageAlt)}
+              class="review-stars"
+              width="96"
+              height="18"
+              loading="lazy"
+              decoding="async"
+            />
+            <p>&quot;{asStr(t.quote)}&quot;</p>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {closingSection ? (
+    <section class="section city-service-closing">
+      <div class="container">
+        <article class="city-service-article">
+          <div class="city-service-block">
+            <h2 class="section-title section-title-secondary">{asStr(closingSection.heading)}</h2>
+            <div class="city-service-body" set:html={sanitizeCmsHtml(asStr(closingSection.body))} />
+            {sectionShowsCtas(closingSection) ? (
+              <div class="why-choose-actions city-service-ctas">
+                <a href={telLink} class="btn btn-primary btn-lg">{callLabel}</a>
+                <a
+                  href={estimateCtaHref}
+                  class="btn btn-outline btn-lg request-estimate"
+                  {...externalLinkAttrs(estimateCtaHref)}
+                >
+                  {estimateCtaText}
+                </a>
+              </div>
+            ) : null}
+          </div>
+        </article>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section service-area city-service-map" id="city-map">
+    <div class="container">
+      <div class="why-eyebrow">{serviceAreaEyebrow}</div>
+      <h2 class="section-title">{serviceAreaHeadline}</h2>
+      <p class="section-lead service-area-intro">{serviceAreaIntro}</p>
+      <div class="service-area-grid service-area-grid--stacked">
+        {mapEmbedUrl ? (
+          <div class="map-wrap">
+            <iframe
+              src={mapEmbedUrl}
+              width="600"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`Mapa de área de servicio de ${companyName}`}
+            />
+          </div>
+        ) : null}
+        <div class="cities-list cities-list--pills">
+          <p class="cities-label">Áreas de servicio populares</p>
+          <nav class="cities-nav cities-nav--pills" aria-label="Ciudades que servimos">
+            {POPULAR_SERVICE_AREA_CITIES.map((c) => (
+              <a href={asStr(c.href)} {...externalLinkAttrs(asStr(c.href))}>
+                {asStr(c.name)}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

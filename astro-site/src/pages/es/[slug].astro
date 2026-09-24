@@ -1,0 +1,45 @@
+---
+/**
+ * Spanish city service pages: /es/{slug}/
+ * Content from city-service-page-fallbacks-es.js (authoritative until Sanity ES docs exist).
+ */
+import EsSiteChrome from '../../components/EsSiteChrome.astro'
+import EsCityServiceMain from '../../components/EsCityServiceMain.astro'
+import {
+  cityServicePageFallbackEs,
+  cityServicePageFallbacksEs,
+} from '../../lib/city-service-page-fallbacks-es.js'
+import { asStr, mediaUrl } from '../../lib/sanity-strings.js'
+import { heroBackgroundFor } from '../../lib/hero-backgrounds.js'
+
+export function getStaticPaths() {
+  return Object.keys(cityServicePageFallbacksEs).map((slug) => ({
+    params: { slug },
+  }))
+}
+
+const slug = asStr(Astro.params?.slug)
+const cityPage = cityServicePageFallbackEs(slug)
+
+if (!cityPage) {
+  throw new Error(`[es/${slug}] Missing Spanish city service page fallback`)
+}
+
+const title = asStr(cityPage.title) || `${asStr(cityPage.headline)} | SunLife Gutters`
+const description =
+  asStr(cityPage.seoDescription) ||
+  'Servicios de canaletas en Tampa con SunLife Gutters. Solicite su consulta gratis.'
+
+const heroSrc = asStr(cityPage?.layoutBackgrounds?.hero?.imageSrc) || heroBackgroundFor(`service-${slug}`)
+const preloadImageHref = heroSrc ? mediaUrl(heroSrc) : ''
+const formIdPrefix = `es-${slug.replace(/[^a-z0-9]+/gi, '-').slice(0, 40)}`
+---
+
+<EsSiteChrome
+  title={title}
+  description={description}
+  formIdPrefix={formIdPrefix}
+  preloadImageHref={preloadImageHref}
+>
+  <EsCityServiceMain cityPage={cityPage} formIdPrefix={formIdPrefix} />
+</EsSiteChrome>
