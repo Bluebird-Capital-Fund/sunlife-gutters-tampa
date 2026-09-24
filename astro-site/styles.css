@@ -316,12 +316,12 @@ a:hover {
   display: inline;
 }
 
-/* Brown offer bar — right corner, high-contrast pill buttons */
+/* Offer bar — language switcher only */
 .offer-bar-inner .lang-switcher {
-  position: absolute;
-  right: var(--space-xl);
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  transform: none;
+  right: auto;
+  top: auto;
   z-index: 2;
   gap: 0.4rem;
 }
@@ -3165,14 +3165,14 @@ form[data-lead-form] button[type="submit"].is-busy {
 .offer-bar {
   background: var(--color-dark);
   color: #fff;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
 }
 
 .offer-bar-inner {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 11rem 0 var(--space-xl);
+  padding: 0 var(--space-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3180,70 +3180,27 @@ form[data-lead-form] button[type="submit"].is-busy {
   font-size: 0.9rem;
 }
 
-.offer-message {
-  margin: 0;
-  text-align: center;
-  font-style: italic;
-}
-
-.offer-link {
-  color: #fff;
-  font-weight: 600;
-  text-decoration: underline;
-  transition: color var(--transition), opacity var(--transition);
-}
-
-.offer-link:hover {
-  opacity: 0.9;
-}
-
-/* Mobile/tablet: nearly full-width offer text + language buttons below it.
-   Must come AFTER base .offer-bar-inner so it overrides the desktop 11rem padding. */
+/* Mobile/tablet: keep English / Español labels in the offer bar */
 @media (max-width: 1180px) {
   .offer-bar {
-    padding: 0.45rem 0 0.5rem;
+    padding: 0.4rem 0;
   }
 
   .offer-bar-inner {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-    gap: 0.4rem;
     max-width: none;
     width: 100%;
     box-sizing: border-box;
     padding: 0 0.65rem;
   }
 
-  .offer-bar-inner .offer-message {
-    display: block;
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-size: 0.82rem;
-    line-height: 1.35;
-    text-align: center;
-  }
-
   .offer-bar-inner .lang-switcher {
     display: inline-flex;
-    align-self: center;
-    position: static;
-    right: auto;
-    top: auto;
-    transform: none;
   }
 }
 
 @media (max-width: 640px) {
   .offer-bar-inner {
     padding: 0 0.5rem;
-  }
-
-  .offer-bar-inner .offer-message {
-    font-size: 0.8rem;
   }
 }
 

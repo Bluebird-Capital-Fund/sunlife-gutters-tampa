@@ -68,7 +68,6 @@ const pageDescription = asStr(meta?.description)
 
 const hp = homePage
 const header = mergeHeaderFromSettings(settings, hp.header)
-const offerBar = header?.offerBar
 const navItems = header?.navItems
 const hero = hp.hero
 const brandsMarquee = hp.brandsMarquee
@@ -555,11 +554,6 @@ const homepageFaqItems = [
 const faqItems = isLp ? (Array.isArray(faq?.items) ? faq.items : []) : homepageFaqItems
 const lpFormMainHeading = isLp ? 'Book Your Free Consultation' : homepageHeadlines.footerEstimate
 
-const offerBarTextBefore = lpSeasonCopy(offerBar?.textBeforeDiscount)
-const offerBarDiscountLabel = lpSeasonCopy(offerBar?.discountLabel)
-const offerBarTextAfter = lpSeasonCopy(offerBar?.textAfterDiscount)
-const offerBarCtaText = lpSeasonCopy(offerBar?.ctaText)
-
 const showHeroFormKicker = !isLp && asStr(universalFormKicker).trim() !== ''
 
 const heroLeadFormAttr = isLp ? `lp-${lpSlug}-hero` : 'hero'
@@ -725,18 +719,6 @@ const serviceHref = (svc) => {
   <header class="header">
     <div class="offer-bar">
       <div class="offer-bar-inner">
-        <p class="offer-message">
-          {offerBarTextBefore}
-          {offerBarDiscountLabel ? <strong>{offerBarDiscountLabel}</strong> : null}
-          {offerBarTextAfter}
-          <a
-            href={asStr(offerBar?.ctaHref)}
-            class="offer-link"
-            {...externalLinkAttrs(asStr(offerBar?.ctaHref))}
-          >
-            <strong>{offerBarCtaText}</strong>
-          </a>
-        </p>
         <LanguageSwitcher />
       </div>
     </div>

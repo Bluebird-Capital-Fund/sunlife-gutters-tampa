@@ -355,13 +355,13 @@ function hasUpdatedLinks(doc) {
     typeof privacyHref === 'string' && privacyHref.includes('/privacy-policy/')
 }
 
-/** Top offer-bar message; linked phrase is `ctaText` → `ctaHref`. */
+/** Top offer-bar (language switcher only; marketing copy removed). */
 const CANONICAL_OFFER_BAR = {
-  textBeforeDiscount: 'Fast, friendly service you can count on. ',
+  textBeforeDiscount: '',
   discountLabel: '',
   textAfterDiscount: '',
-  ctaText: 'Book your free consultation today.',
-  ctaHref: 'https://sunlifegutters.com/contact-us/#contact',
+  ctaText: '',
+  ctaHref: '#contact',
 }
 
 /** Shared hero + footer form intro used site-wide. */
