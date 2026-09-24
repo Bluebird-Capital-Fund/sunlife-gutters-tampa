@@ -7,7 +7,7 @@ import Breadcrumbs from './Breadcrumbs.astro'
 import FinancingBanner from './FinancingBanner.astro'
 import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
-import { getSiteSettings } from '../lib/site-settings.js'
+import { getSiteSettings, getHomePage } from '../lib/site-settings.js'
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, mediaUrl, statLookup } from '../lib/sanity-strings.js'
@@ -24,18 +24,23 @@ const { cityPage: cityPageProp, formIdPrefix = 'es-service' } = Astro.props
 const _cityPage = cityPageProp ?? {}
 
 let settings = {}
+let homePage = {}
 try {
-  settings = await getSiteSettings()
+  ;[settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
 } catch (err) {
   console.warn('[EsCityServiceMain] Sanity fetch failed; using fallbacks.', err)
 }
 
 const business = settings?.business ?? {}
 const formsCfg = settings?.forms ?? {}
-const footerEstimate = settings?.footerEstimate ?? {}
-const reviews = settings?.reviews ?? {}
+const footerEstimate = settings?.footerEstimate ?? homePage?.footerEstimate ?? {}
+const reviews = settings?.reviews ?? homePage?.reviews ?? {}
 const reviewValues = reviews?.reviewValues
 const reviewSummary = reviews?.summary
+
+const googleIconSrc = asStr(reviewSummary?.googleIconSrc)
+const starsImageSrc = asStr(reviewSummary?.starsImageSrc)
+const starsImageAlt = asStr(reviewSummary?.starsImageAlt) || 'Calificación de 5 estrellas'
 
 const companyName = asStr(business.companyName) || 'SunLife Gutters Tampa'
 const phoneDisplay = asStr(business.phoneDisplay) || '(813) 548-5310'
@@ -278,28 +283,32 @@ const serviceAreaIntro =
       <div class="reviews-summary">
         <div class="reviews-summary-left">
           <p class="reviews-summary-brand">
-            <img
-              src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
-              alt="Resumen de calificación de Google"
-              class="google-logo"
-              width="20"
-              height="20"
-              loading="lazy"
-              decoding="async"
-            />
+            {googleIconSrc ? (
+              <img
+                src={mediaUrl(googleIconSrc)}
+                alt="Resumen de calificación de Google"
+                class="google-logo"
+                width="20"
+                height="20"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
             <span>Resumen de calificación de Google</span>
           </p>
           <p class="reviews-summary-rating">
             <strong>{reviewRating}</strong>
-            <img
-              src={mediaUrl(asStr(reviewSummary?.starsImageSrc))}
-              alt={asStr(reviewSummary?.starsImageAlt) || 'Calificación de 5 estrellas'}
-              class="review-stars review-stars-inline"
-              width="96"
-              height="18"
-              loading="lazy"
-              decoding="async"
-            />
+            {starsImageSrc ? (
+              <img
+                src={mediaUrl(starsImageSrc)}
+                alt={starsImageAlt}
+                class="review-stars review-stars-inline"
+                width="96"
+                height="18"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
             <span>{reviewCountDisplay}</span>
           </p>
         </div>
@@ -311,29 +320,33 @@ const serviceAreaIntro =
         {testimonials.map((t) => (
           <blockquote class="testimonial">
             <div class="review-brand review-brand-top">
-              <img
-                src={mediaUrl(asStr(t.avatarSrc))}
-                alt={asStr(t.author)}
-                class="review-avatar"
-                width="48"
-                height="48"
-                loading="lazy"
-                decoding="async"
-              />
+              {asStr(t.avatarSrc) ? (
+                <img
+                  src={mediaUrl(asStr(t.avatarSrc))}
+                  alt={asStr(t.author)}
+                  class="review-avatar"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
               <div class="review-meta">
                 <strong>{asStr(t.author)}</strong>
                 <span class="review-time">{asStr(t.timeAgo)}</span>
               </div>
             </div>
-            <img
-              src={mediaUrl(asStr(reviewSummary?.starsImageSrc))}
-              alt={asStr(reviewSummary?.starsImageAlt)}
-              class="review-stars"
-              width="96"
-              height="18"
-              loading="lazy"
-              decoding="async"
-            />
+            {starsImageSrc ? (
+              <img
+                src={mediaUrl(starsImageSrc)}
+                alt={starsImageAlt}
+                class="review-stars"
+                width="96"
+                height="18"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : null}
             <p>&quot;{asStr(t.quote)}&quot;</p>
           </blockquote>
         ))}
