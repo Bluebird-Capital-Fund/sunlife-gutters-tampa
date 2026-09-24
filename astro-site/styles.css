@@ -2462,10 +2462,6 @@ form[data-lead-form] button[type='submit'].btn-primary:hover {
   margin-top: var(--space-sm);
 }
 
-.hero-form--compact .lead-form-sms-consent {
-  margin-top: 0.15rem;
-}
-
 .lead-form-sms-consent-label {
   display: flex;
   gap: 0.4rem;
@@ -3428,7 +3424,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 .hero-form--compact .hero-form-sub {
   margin: 0.05rem 0 0.1rem;
   font-size: 0.72rem;
-  line-height: 1.25;
+  line-height: 1.12;
 }
 
 .hero-form--compact .hero-form-grid {
@@ -3460,8 +3456,8 @@ form[data-lead-form] button[type="submit"].is-busy {
 }
 
 .hero-form--compact .lead-form-sms-consent-text {
-  font-size: 0.6rem;
-  line-height: 1.2;
+  font-size: 0.55rem;
+  line-height: 1.15;
 }
 
 .hero-form--compact button[type='submit'].btn-primary {

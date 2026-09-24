@@ -13,7 +13,7 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, mediaUrl, statLookup } from '../lib/sanity-strings.js'
 import { POPULAR_SERVICE_AREA_CITIES } from '../lib/service-area-cities.js'
 import { simpleBreadcrumbItemsEs } from '../lib/breadcrumbs.js'
-import { ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import { ES_FORM_INTRO, ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
 
 interface Props {
   cityPage: Record<string, unknown>
@@ -52,8 +52,7 @@ const slug = asStr(_cityPage?.slug)
 const pageH1 = asStr(_cityPage?.headline) || 'Servicios de Canaletas en Tampa'
 const pageEyebrow = asStr(_cityPage?.eyebrow) || 'Servicio'
 const pageLead = asStr(_cityPage?.lead)
-const formIntro =
-  'Obtenga recomendaciones honestas y precios transparentes de un equipo de confianza en Tampa Bay.'
+const formIntro = ES_FORM_INTRO
 const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
 const formMethod = asStr(footerEstimate?.formMethod) || 'post'
 
@@ -149,7 +148,7 @@ const serviceAreaIntro =
             <textarea id={`${formIdPrefix}-hero-message`} name="message" rows="2"></textarea>
           </div>
         </div>
-        <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" compact />
+        <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" />
         <div class="lead-form-honeypot-wrap" aria-hidden="true">
           <label for={`${formIdPrefix}-hero-website`}>Leave blank</label>
           <input
