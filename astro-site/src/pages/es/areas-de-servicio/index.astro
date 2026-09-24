@@ -94,19 +94,21 @@ const breadcrumbItems = simpleBreadcrumbItemsEs('Áreas de Servicio')
               ))}
             </nav>
           </div>
+          {mapEmbedUrl ? (
+            <div class="map-wrap">
+              <iframe
+                title="Mapa del área de servicio de SunLife Gutters Tampa"
+                src={mapEmbedUrl}
+                width="600"
+                height="420"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          ) : null}
         </div>
-
-        {mapEmbedUrl ? (
-          <div class="service-area-map" style="margin-top: 2rem;">
-            <iframe
-              title="Mapa del área de servicio de SunLife Gutters Tampa"
-              src={mapEmbedUrl}
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            />
-          </div>
-        ) : null}
       </div>
     </section>
   </main>
