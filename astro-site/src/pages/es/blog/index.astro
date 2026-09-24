@@ -10,8 +10,9 @@ import {
   getBlogPagination,
   sliceBlogPage,
 } from '../../../lib/blog-list.js'
+import { localizeBlogPostsForEs } from '../../../lib/blog-post-fallbacks-es.js'
 
-const allPosts = await fetchAllBlogPosts(sanity)
+const allPosts = localizeBlogPostsForEs(await fetchAllBlogPosts(sanity))
 const { totalPages } = getBlogPagination(allPosts.length, BLOG_POSTS_PER_PAGE)
 const currentPage = 1
 const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)

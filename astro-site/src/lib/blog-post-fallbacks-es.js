@@ -1,5 +1,5 @@
 /**
- * Spanish blog post fallbacks for `/es/{slug}/` (same English slugs).
+ * Spanish blog post fallbacks for `/es/blog/{slug}/` (same English slugs).
  */
 
 export const blogPostFallbacksEs = {
@@ -302,4 +302,23 @@ export const blogPostFallbacksEs = {
 
 export function blogPostFallbackEs(slug) {
   return blogPostFallbacksEs[slug] || null
+}
+
+/**
+ * Overlay Spanish headline/lead onto EN list rows for /es/blog/ cards.
+ * Keeps thumb/date from Sanity; uses ES fallback copy when available.
+ */
+export function localizeBlogPostsForEs(posts) {
+  if (!Array.isArray(posts)) return []
+  return posts.map((post) => {
+    const slug = String(post?.slug || '').trim()
+    const es = slug ? blogPostFallbacksEs[slug] : null
+    if (!es) return post
+    return {
+      ...post,
+      headline: es.headline || post.headline,
+      lead: es.lead || es.tldr || post.lead,
+      thumbAlt: es.headline || post.thumbAlt,
+    }
+  })
 }

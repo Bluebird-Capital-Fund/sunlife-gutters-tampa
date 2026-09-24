@@ -1,0 +1,204 @@
+---
+/**
+ * Spanish blog post body (chrome via EsSiteChrome).
+ * Content from blog-post-fallbacks-es.js; images merged from EN Sanity post when available.
+ */
+import Breadcrumbs from './Breadcrumbs.astro'
+import FinancingBanner from './FinancingBanner.astro'
+import SmsMarketingConsent from './SmsMarketingConsent.astro'
+import { getSiteSettings } from '../lib/site-settings.js'
+import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
+import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
+import { asStr, mediaUrl } from '../lib/sanity-strings.js'
+import { simpleBreadcrumbItemsEs } from '../lib/breadcrumbs.js'
+import { formatBlogDate } from '../lib/blog-list.js'
+import { ES_FORM_INTRO, ES_NAV } from '../lib/i18n.js'
+
+interface Props {
+  post: Record<string, unknown>
+  enPost?: Record<string, unknown> | null
+  formIdPrefix?: string
+}
+
+const { post: postProp, enPost = null, formIdPrefix = 'es-blog-post' } = Astro.props
+const post = postProp ?? {}
+const en = enPost && typeof enPost === 'object' ? enPost : {}
+
+let settings = {}
+try {
+  settings = await getSiteSettings()
+} catch (err) {
+  console.warn('[EsBlogPostMain] Sanity fetch failed; using fallbacks.', err)
+}
+
+const business = settings?.business ?? {}
+const formsCfg = settings?.forms ?? {}
+const footerEstimate = settings?.footerEstimate ?? {}
+
+const companyName = asStr(business.companyName) || 'SunLife Gutters Tampa'
+const phoneDisplay = asStr(business.phoneDisplay) || '(813) 548-5310'
+const phoneTel = asStr(business.phoneTel) || '8135485310'
+const telLink = `tel:${phoneTel}`
+const logoBlack = asStr(business.logoHorizontalBlack)
+
+const slug = asStr(post?.slug)
+const pageH1 = asStr(post?.headline) || 'Artículo'
+const postCategory = asStr(post?.category)
+const postTldr = asStr(post?.tldr) || asStr(post?.lead)
+const contentSections = Array.isArray(post?.contentSections) ? post.contentSections : []
+
+const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
+const formMethod = asStr(footerEstimate?.formMethod) || 'post'
+
+const heroBgSrc =
+  asStr(en?.layoutBackgrounds?.hero?.imageSrc) ||
+  asStr(post?.layoutBackgrounds?.hero?.imageSrc) ||
+  heroBackgroundFor(`blog-${slug}`)
+const heroBgStyle = heroBgSrc
+  ? `background-image: linear-gradient(135deg, rgba(56, 69, 85, 0.88) 0%, rgba(56, 69, 85, 0.84) 50%, rgba(56, 69, 85, 0.88) 100%), url("${mediaUrl(heroBgSrc)}"); background-size: cover; background-position: center; background-repeat: no-repeat;`
+  : undefined
+
+const lastUpdatedRaw = asStr(en?._updatedAt) || asStr(en?.publishedAt) || asStr(post?.publishedAt)
+const lastUpdatedLabel = formatBlogDate(lastUpdatedRaw, 'es-US')
+
+const blogAuthorBio =
+  'SunLife Gutters Tampa es una empresa local de canaletas con años de experiencia en instalación, reparación, reemplazo y protectores de canaletas en toda Tampa Bay.'
+
+const breadcrumbItems = simpleBreadcrumbItemsEs(pageH1, { label: 'Blog', href: '/es/blog/' })
+const idPrefix = formIdPrefix
+---
+
+<main>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="hero hero-split blog-post-hero" aria-label="Artículo">
+    <div class="hero-bg" style={heroBgStyle} />
+    <div class="container hero-split-inner">
+      <div class="hero-copy">
+        {postCategory ? <p class="hero-eyebrow">{postCategory}</p> : null}
+        <h1>{pageH1}</h1>
+        {postTldr ? (
+          <p class="hero-lead">
+            <strong>Resumen:</strong> {postTldr}
+          </p>
+        ) : null}
+        <div class="hero-actions">
+          <a href={telLink} class="btn btn-primary btn-lg cta1-primary-call">
+            {ES_NAV.callPrefix} {phoneDisplay}
+          </a>
+        </div>
+      </div>
+
+      <form
+        class="hero-form hero-form--compact"
+        data-lead-form={`${idPrefix}-hero`}
+        data-page-locale="es-US"
+        action={formAction}
+        method={formMethod}
+        aria-label="Formulario de consulta"
+      >
+        <input type="hidden" name="pageLocale" value="es-US" />
+        <input type="hidden" name="language" value="es-US" />
+        <div class="hero-form-heading">
+          <div class="hero-form-kicker">{ES_NAV.freeEstimate}</div>
+          <h2>{ES_NAV.bookConsultation}</h2>
+        </div>
+        <p class="hero-form-sub">{ES_FORM_INTRO}</p>
+        <div class="hero-form-grid">
+          <div class="hero-form-field">
+            <label for={`${idPrefix}-name`}>
+              {ES_NAV.name} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${idPrefix}-name`} name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${idPrefix}-email`}>
+              {ES_NAV.email} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${idPrefix}-email`} name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${idPrefix}-phone`}>
+              {ES_NAV.phone} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
+            </label>
+            <input id={`${idPrefix}-phone`} name="phone" type="tel" required autocomplete="tel" />
+          </div>
+          <div class="hero-form-field">
+            <label for={`${idPrefix}-location`}>{ES_NAV.city}</label>
+            <input id={`${idPrefix}-location`} name="location" type="text" autocomplete="address-level2" />
+          </div>
+          <div class="hero-form-field hero-form-field-full">
+            <label for={`${idPrefix}-message`}>{ES_NAV.projectDetails}</label>
+            <textarea id={`${idPrefix}-message`} name="message" rows="2" />
+          </div>
+        </div>
+        <SmsMarketingConsent checkboxId={`${idPrefix}-hero-sms-consent`} locale="es" compact />
+        <div class="lead-form-honeypot-wrap" aria-hidden="true">
+          <label for={`${idPrefix}-website`}>Leave blank</label>
+          <input type="text" id={`${idPrefix}-website`} name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <p class="lead-form-status" data-lead-form-status role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary btn-lg">{ES_NAV.submit}</button>
+      </form>
+    </div>
+  </section>
+
+  <FinancingBanner phoneDisplay={phoneDisplay} phoneTel={phoneTel} locale="es" />
+
+  <section class="section blog-post">
+    <div class="container">
+      <article class="blog-post-article">
+        <div class="blog-post-inner">
+          {contentSections.map((sec, idx) => {
+            const enSec = Array.isArray(en?.contentSections) ? en.contentSections[idx] : null
+            const imageSrc = asStr(sec?.imageSrc) || asStr(enSec?.imageSrc)
+            const imageAlt = asStr(sec?.imageAlt) || asStr(enSec?.imageAlt) || asStr(sec?.heading)
+            return (
+              <div class="blog-post-block">
+                {imageSrc ? (
+                  <img
+                    src={mediaUrl(imageSrc)}
+                    alt={imageAlt}
+                    class="blog-post-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : null}
+                <h2 class="section-title section-title-secondary">{asStr(sec.heading)}</h2>
+                <div
+                  class="blog-post-body prose-plain"
+                  style="white-space: pre-line;"
+                  set:html={sanitizeCmsHtml(asStr(sec.body))}
+                />
+              </div>
+            )
+          })}
+        </div>
+
+        {lastUpdatedLabel ? (
+          <p class="blog-post-updated">
+            Última actualización: <time datetime={lastUpdatedRaw}>{lastUpdatedLabel}</time>
+          </p>
+        ) : null}
+
+        <aside class="blog-author-card" aria-labelledby={`${idPrefix}-author-heading`}>
+          <div class="blog-author-inner">
+            {logoBlack ? (
+              <img
+                src={mediaUrl(logoBlack)}
+                alt=""
+                class="blog-author-logo"
+                width="180"
+                height="48"
+                loading="lazy"
+              />
+            ) : null}
+            <h2 class="blog-author-heading" id={`${idPrefix}-author-heading`}>Sobre el autor</h2>
+            <p class="blog-author-name">{companyName}</p>
+            <p class="blog-author-bio">{blogAuthorBio}</p>
+          </div>
+        </aside>
+      </article>
+    </div>
+  </section>
+</main>

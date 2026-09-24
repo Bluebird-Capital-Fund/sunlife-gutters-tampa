@@ -1,0 +1,65 @@
+---
+/**
+ * Spanish blog posts: /es/blog/{slug}/
+ * Content from blog-post-fallbacks-es.js; hero images merged from EN Sanity post when available.
+ */
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import EsBlogPostMain from '../../../components/EsBlogPostMain.astro'
+import { sanity } from '../../../lib/sanity.js'
+import {
+  blogPostFallbackEs,
+  blogPostFallbacksEs,
+} from '../../../lib/blog-post-fallbacks-es.js'
+import { asStr, mediaUrl } from '../../../lib/sanity-strings.js'
+import { heroBackgroundFor } from '../../../lib/hero-backgrounds.js'
+
+export async function getStaticPaths() {
+  const fallbackSlugs = Object.keys(blogPostFallbacksEs)
+  let sanitySlugs = []
+  try {
+    const rows = await sanity.fetch(`*[_type == "blogPost" && defined(slug.current)]{"slug": slug.current}`)
+    sanitySlugs = (Array.isArray(rows) ? rows : []).map((r) => asStr(r?.slug)).filter(Boolean)
+  } catch (err) {
+    console.warn('[es/blog/[slug]] Failed to load blog slugs from Sanity.', err)
+  }
+  const slugs = Array.from(new Set([...fallbackSlugs, ...sanitySlugs]))
+  return slugs
+    .filter((slug) => blogPostFallbackEs(slug))
+    .map((slug) => ({ params: { slug } }))
+}
+
+const slug = asStr(Astro.params?.slug)
+const esPost = blogPostFallbackEs(slug)
+
+if (!esPost) {
+  throw new Error(`[es/blog/${slug}] Missing Spanish blog post fallback`)
+}
+
+let enPost = null
+try {
+  enPost = await sanity.fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, { slug })
+} catch (err) {
+  console.warn(`[es/blog/${slug}] Sanity EN post fetch failed.`, err)
+}
+
+const title = asStr(esPost.title) || `${asStr(esPost.headline)} | SunLife Gutters Tampa`
+const description =
+  asStr(esPost.seoDescription) ||
+  'Consejos sobre canaletas y exteriores en Tampa Bay con SunLife Gutters.'
+
+const heroSrc =
+  asStr(enPost?.layoutBackgrounds?.hero?.imageSrc) ||
+  asStr(esPost?.layoutBackgrounds?.hero?.imageSrc) ||
+  heroBackgroundFor(`blog-${slug}`)
+const preloadImageHref = heroSrc ? mediaUrl(heroSrc) : ''
+const formIdPrefix = `es-blog-${slug.replace(/[^a-z0-9]+/gi, '-').slice(0, 36)}`
+---
+
+<EsSiteChrome
+  title={title}
+  description={description}
+  formIdPrefix={formIdPrefix}
+  preloadImageHref={preloadImageHref}
+>
+  <EsBlogPostMain post={esPost} enPost={enPost} formIdPrefix={formIdPrefix} />
+</EsSiteChrome>

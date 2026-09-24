@@ -10,6 +10,7 @@ import {
   getBlogPagination,
   sliceBlogPage,
 } from '../../../../lib/blog-list.js'
+import { localizeBlogPostsForEs } from '../../../../lib/blog-post-fallbacks-es.js'
 
 export async function getStaticPaths() {
   const all = await fetchAllBlogPosts(sanity)
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
 const pageParam = String(Astro.params?.page || '')
 const currentPage = Math.max(2, parseInt(pageParam, 10) || 2)
 
-const allPosts = await fetchAllBlogPosts(sanity)
+const allPosts = localizeBlogPostsForEs(await fetchAllBlogPosts(sanity))
 const { totalPages } = getBlogPagination(allPosts.length, BLOG_POSTS_PER_PAGE)
 
 if (currentPage > totalPages || currentPage < 2) {

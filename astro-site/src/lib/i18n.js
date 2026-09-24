@@ -3,6 +3,8 @@
  * Missing pairs fall back to /es/ (ES) or / (EN).
  */
 
+import { blogPostFallbackEs } from './blog-post-fallbacks-es.js'
+
 export const LOCALE_EN = 'en-US'
 export const LOCALE_ES = 'es-US'
 export const SITE_ORIGIN = 'https://sunlifegutters.com'
@@ -113,6 +115,23 @@ export function getAlternatePath(pathname, targetLocale) {
     }
     return `/blog/page/${n}/`
   }
+
+  const esBlogPost = current.match(/^\/es\/blog\/([a-z0-9-]+)\/$/)
+  if (esBlogPost && esBlogPost[1] !== 'page' && blogPostFallbackEs(esBlogPost[1])) {
+    if (targetLocale === LOCALE_ES || targetLocale === 'es') return current
+    return `/${esBlogPost[1]}/`
+  }
+
+  const enBlogPost = current.match(/^\/([a-z0-9-]+)\/$/)
+  if (
+    enBlogPost &&
+    blogPostFallbackEs(enBlogPost[1]) &&
+    (targetLocale === LOCALE_ES || targetLocale === 'es') &&
+    LIVE_ES_PATHS.has('/es/blog/')
+  ) {
+    return `/es/blog/${enBlogPost[1]}/`
+  }
+
   if (targetLocale === LOCALE_ES || targetLocale === 'es') {
     const mapped = EN_TO_ES_PATH[current]
     if (mapped && LIVE_ES_PATHS.has(mapped)) return mapped
@@ -125,6 +144,16 @@ export function getAlternatePath(pathname, targetLocale) {
 /** Prefer live pair for hreflang; return null if Spanish twin is not live. */
 export function getLiveHreflangPair(pathname) {
   const current = normalizePath(pathname)
+
+  const esBlogPost = current.match(/^\/es\/blog\/([a-z0-9-]+)\/$/)
+  if (esBlogPost && esBlogPost[1] !== 'page' && blogPostFallbackEs(esBlogPost[1]) && LIVE_ES_PATHS.has('/es/blog/')) {
+    return { en: `/${esBlogPost[1]}/`, es: current }
+  }
+  const enBlogPost = current.match(/^\/([a-z0-9-]+)\/$/)
+  if (enBlogPost && blogPostFallbackEs(enBlogPost[1]) && LIVE_ES_PATHS.has('/es/blog/')) {
+    return { en: current, es: `/es/blog/${enBlogPost[1]}/` }
+  }
+
   if (isSpanishPath(current)) {
     if (!LIVE_ES_PATHS.has(current)) return null
     const en = ES_TO_EN_PATH[current]
