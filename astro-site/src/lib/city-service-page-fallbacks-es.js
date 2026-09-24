@@ -8,7 +8,7 @@ const FORM_INTRO =
 const CLOSING_HEADING = 'Solicite una Consulta Gratis en Tampa, FL'
 
 const WHY_SUNLIFE_UL = `<ul>
-<li>Empresa familiar con sede en Seffner</li>
+<li>Empresa local con sede en Seffner</li>
 <li>Más de 10,000 proyectos completados</li>
 <li>Calificación de 4.9 estrellas en Google con 247 reseñas</li>
 <li>Más de 7 años sirviendo a Tampa Bay</li>
@@ -497,7 +497,7 @@ ${WHY_SUNLIFE_UL}
       {
         heading: '¿Por Qué Elegir SunLife Gutters Tampa?',
         showCtas: true,
-        body: `<p>No debería tener que perseguir a un contratista solo para saber qué pasa con su proyecto. SunLife Gutters Tampa es una empresa familiar local construida alrededor de comunicación clara, recomendaciones honestas y tratar a los clientes como quisiéramos que trataran a nuestra familia.</p>
+        body: `<p>No debería tener que perseguir a un contratista solo para saber qué pasa con su proyecto. SunLife Gutters Tampa es una empresa local construida alrededor de comunicación clara, recomendaciones honestas y tratar a los clientes como quisiéramos que trataran a nuestra familia.</p>
 ${WHY_SUNLIFE_UL}
 <p>También ofrecemos <a href="/es/mantenimiento-canaletas-tampa-fl/">planes de mantenimiento de canaletas en Tampa</a> para propietarios que quieren adelantarse a la acumulación alrededor de sus espacios exteriores. Los planes incluyen dos limpiezas profesionales al año, una <a href="/es/inspeccion-canaletas-tampa-fl/">inspección anual de canaletas en Tampa</a>, servicio prioritario y descuentos en <a href="/es/">servicios de canaletas en Tampa</a> adicionales.</p>`,
       },
@@ -1537,9 +1537,9 @@ ${WHY_SUNLIFE_UL}
       {
         heading: 'Por Qué los Negocios de Tampa Eligen SunLife Gutters Tampa',
         showCtas: true,
-        body: `<p>SunLife Gutters Tampa es una empresa familiar local que pone fuerte énfasis en la comunicación, mano de obra confiable y hacer el proceso fácil de seguir. Desde el estimado inicial hasta la instalación y el recorrido final, sabrá qué ocurre con su proyecto.</p>
+        body: `<p>SunLife Gutters Tampa es una empresa local que pone fuerte énfasis en la comunicación, mano de obra confiable y hacer el proceso fácil de seguir. Desde el estimado inicial hasta la instalación y el recorrido final, sabrá qué ocurre con su proyecto.</p>
 <ul>
-<li>Empresa familiar de <a href="/es/">canaletas en Tampa, FL</a></li>
+<li>Empresa local de <a href="/es/">canaletas en Tampa, FL</a></li>
 <li>Más de 10,000 proyectos completados</li>
 <li>Calificación de 4.9 estrellas en Google con 247 reseñas</li>
 <li>Más de 7 años sirviendo a Tampa Bay</li>
@@ -1682,7 +1682,7 @@ ${WHY_SUNLIFE_UL}
       {
         heading: 'Por Qué los Propietarios Eligen SunLife Gutters Tampa',
         showCtas: true,
-        body: `<p>Que alguien trabaje en su casa debe sentirse sencillo. SunLife Gutters Tampa es una empresa familiar local, y valoramos mucho presentarnos, comunicar con claridad y ayudar a los propietarios a entender sus opciones sin hacer el proceso más complicado de lo necesario.</p>
+        body: `<p>Que alguien trabaje en su casa debe sentirse sencillo. SunLife Gutters Tampa es una empresa local, y valoramos mucho presentarnos, comunicar con claridad y ayudar a los propietarios a entender sus opciones sin hacer el proceso más complicado de lo necesario.</p>
 ${WHY_SUNLIFE_UL}
 <p>Para propietarios que quieren ayuda manteniendo sus canaletas después del proyecto, nuestros planes de mantenimiento incluyen dos limpiezas profesionales al año, una inspección y ajuste anual, servicio prioritario y descuentos en servicios adicionales y limpiezas extras.</p>`,
       },
@@ -2608,7 +2608,7 @@ ${WHY_SUNLIFE_UL}
         showCtas: true,
         body: `<p>Los problemas de drenaje pueden ser frustrantes porque el agua que ve no siempre viene del lugar que espera. SunLife Gutters Tampa se toma el tiempo de mirar la propiedad, hablar de lo que ha estado notando y seguir el agua antes de recomendar un enfoque de drenaje.</p>
 <ul>
-<li>Empresa familiar con sede en Seffner</li>
+<li>Empresa local con sede en Seffner</li>
 <li>Más de 10,000 proyectos completados</li>
 <li>Calificación de 4.9 estrellas en Google con 247 reseñas</li>
 <li>Más de 7 años sirviendo a Tampa Bay</li>
