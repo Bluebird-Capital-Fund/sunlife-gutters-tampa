@@ -14,6 +14,11 @@ import { asStr, mediaUrl, statLookup } from '../lib/sanity-strings.js'
 import { POPULAR_SERVICE_AREA_CITIES } from '../lib/service-area-cities.js'
 import { simpleBreadcrumbItemsEs } from '../lib/breadcrumbs.js'
 import { ES_FORM_INTRO, ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import {
+  ES_REVIEW_POSTED_ON,
+  ES_REVIEW_TRANSLATED_NOTE,
+  localizePlainTestimonialEs,
+} from '../lib/reviews-es.js'
 
 interface Props {
   cityPage: Record<string, unknown>
@@ -69,7 +74,9 @@ const faq = _cityPage?.faq && typeof _cityPage.faq === 'object' ? _cityPage.faq 
 const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey) || '4.9'
 const reviewCount = statLookup(reviewValues, reviewSummary?.reviewCountKey) || '247'
 const reviewCountDisplay = `${asStr(reviewSummary?.reviewCountPrefix) || '('}${reviewCount}${asStr(reviewSummary?.reviewCountSuffix) || ')'}`
-const testimonials = Array.isArray(reviews?.testimonials) ? reviews.testimonials.slice(0, 4) : []
+const testimonials = (
+  Array.isArray(reviews?.testimonials) ? reviews.testimonials.slice(0, 4) : []
+).map(localizePlainTestimonialEs)
 
 const mapEmbedUrl = localizeMapEmbedUrl(asStr(settings?.mapEmbedUrl), LOCALE_ES)
 const breadcrumbItems = simpleBreadcrumbItemsEs(pageEyebrow || pageH1)
@@ -347,6 +354,21 @@ const serviceAreaIntro =
               />
             ) : null}
             <p>&quot;{asStr(t.quote)}&quot;</p>
+            <div class="review-posted-on">
+              {googleIconSrc ? (
+                <img
+                  src={mediaUrl(googleIconSrc)}
+                  alt={ES_REVIEW_POSTED_ON}
+                  class="google-logo"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
+              <span>{ES_REVIEW_POSTED_ON}</span>
+            </div>
+            {t.translated ? <p class="review-translated-note">{ES_REVIEW_TRANSLATED_NOTE}</p> : null}
           </blockquote>
         ))}
       </div>

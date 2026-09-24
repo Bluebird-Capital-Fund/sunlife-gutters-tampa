@@ -4,11 +4,17 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro'
 import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
 import { getSiteSettings, getHomePage } from '../../../lib/site-settings.js'
 import { asStr, mediaUrl, statLookup } from '../../../lib/sanity-strings.js'
-import { gutterGuardsReviews } from '../../../lib/lp-gutter-guards-reviews.js'
-import { gutterInstallationReviews } from '../../../lib/lp-gutter-installation-reviews.js'
-import { gutterRepairReviews } from '../../../lib/lp-gutter-repair-reviews.js'
-import { guttersReviews } from '../../../lib/lp-gutters-reviews.js'
+import { gutterGuardsReviewsEs } from '../../../lib/lp-gutter-guards-reviews-es.js'
+import { gutterInstallationReviewsEs } from '../../../lib/lp-gutter-installation-reviews-es.js'
+import { gutterRepairReviewsEs } from '../../../lib/lp-gutter-repair-reviews-es.js'
+import { guttersReviewsEs } from '../../../lib/lp-gutters-reviews-es.js'
 import { ES_NAV } from '../../../lib/i18n.js'
+import {
+  ES_REVIEW_POSTED_ON,
+  ES_REVIEW_TRANSLATED_NOTE,
+  localizeLpTestimonialEs,
+  localizePlainTestimonialEs,
+} from '../../../lib/reviews-es.js'
 
 let settings = {}
 let homePage = {}
@@ -23,41 +29,11 @@ const reviewSummary = reviewsData?.summary ?? {}
 const reviewValues = reviewsData?.reviewValues ?? {}
 const existingTestimonials = Array.isArray(reviewsData?.testimonials) ? reviewsData.testimonials : []
 const testimonials = [
-  ...existingTestimonials.map((t) => ({
-    author: asStr(t.author),
-    avatarSrc: asStr(t.avatarSrc),
-    timeAgo: asStr(t.timeAgo),
-    quoteHtml: '',
-    quote: asStr(t.quote),
-  })),
-  ...gutterGuardsReviews.map((t) => ({
-    author: asStr(t.author),
-    avatarSrc: asStr(t.avatarSrc),
-    timeAgo: asStr(t.timeAgo),
-    quoteHtml: t.quoteHtml,
-    quote: '',
-  })),
-  ...gutterInstallationReviews.map((t) => ({
-    author: asStr(t.author),
-    avatarSrc: asStr(t.avatarSrc),
-    timeAgo: asStr(t.timeAgo),
-    quoteHtml: t.quoteHtml,
-    quote: '',
-  })),
-  ...gutterRepairReviews.map((t) => ({
-    author: asStr(t.author),
-    avatarSrc: asStr(t.avatarSrc),
-    timeAgo: asStr(t.timeAgo),
-    quoteHtml: t.quoteHtml,
-    quote: '',
-  })),
-  ...guttersReviews.map((t) => ({
-    author: asStr(t.author),
-    avatarSrc: asStr(t.avatarSrc),
-    timeAgo: asStr(t.timeAgo),
-    quoteHtml: t.quoteHtml,
-    quote: '',
-  })),
+  ...existingTestimonials.map(localizePlainTestimonialEs),
+  ...gutterGuardsReviewsEs.map(localizeLpTestimonialEs),
+  ...gutterInstallationReviewsEs.map(localizeLpTestimonialEs),
+  ...gutterRepairReviewsEs.map(localizeLpTestimonialEs),
+  ...guttersReviewsEs.map(localizeLpTestimonialEs),
 ]
 
 const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey)
@@ -81,10 +57,10 @@ const breadcrumbItems = simpleBreadcrumbItemsEs('Testimonios')
             <p class="reviews-summary-brand">
               <img
                 src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
-                alt={asStr(reviewSummary?.brandLabel)}
+                alt="Resumen de calificación de Google"
                 class="google-logo"
               />
-              <span>{asStr(reviewSummary?.brandLabel)}</span>
+              <span>Resumen de calificación de Google</span>
             </p>
             <p class="reviews-summary-rating">
               <strong>{reviewRating}</strong>
@@ -107,7 +83,7 @@ const breadcrumbItems = simpleBreadcrumbItemsEs('Testimonios')
                 <img src={mediaUrl(asStr(t.avatarSrc))} alt={asStr(t.author)} class="review-avatar" />
                 <div class="review-meta">
                   <strong>{asStr(t.author)}</strong>
-                  <span class="review-time">{asStr(t.timeAgo)}</span>
+                  {t.timeAgo ? <span class="review-time">{asStr(t.timeAgo)}</span> : null}
                 </div>
               </div>
               <img
@@ -119,11 +95,12 @@ const breadcrumbItems = simpleBreadcrumbItemsEs('Testimonios')
               <div class="review-posted-on">
                 <img
                   src={mediaUrl(asStr(reviewSummary?.googleIconSrc))}
-                  alt={asStr(reviewSummary?.brandLabel)}
+                  alt={ES_REVIEW_POSTED_ON}
                   class="google-logo"
                 />
-                <span>{asStr(reviewsData?.postedOnLabel) || 'Publicado en Google'}</span>
+                <span>{ES_REVIEW_POSTED_ON}</span>
               </div>
+              {t.translated ? <p class="review-translated-note">{ES_REVIEW_TRANSLATED_NOTE}</p> : null}
             </blockquote>
           ))}
         </div>

@@ -17,7 +17,12 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import {
   POPULAR_SERVICE_AREA_CITIES,
 } from '../lib/service-area-cities.js'
-import { EN_TO_ES_PATH, ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import { ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS, EN_TO_ES_PATH, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import {
+  ES_REVIEW_POSTED_ON,
+  ES_REVIEW_TRANSLATED_NOTE,
+  localizePlainTestimonialEs,
+} from '../lib/reviews-es.js'
 
 const [settings, homePage] = await Promise.all([getSiteSettings(), getHomePage()])
 
@@ -104,9 +109,9 @@ const typedPhrases = [
   'Protectores de canaletas',
 ]
 
-const homepageTestimonials = Array.isArray(reviews?.testimonials)
-  ? reviews.testimonials.slice(0, 6)
-  : []
+const homepageTestimonials = (
+  Array.isArray(reviews?.testimonials) ? reviews.testimonials.slice(0, 6) : []
+).map(localizePlainTestimonialEs)
 
 const homesCountRaw =
   asStr(whyStamp?.homesCountTemplate)?.replace(
@@ -424,15 +429,16 @@ function translateStatLabel(valueKey, label) {
             <div class="review-posted-on">
               <img
                 src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
-                alt={asStr(reviewsSummary?.brandLabel)}
+                alt={ES_REVIEW_POSTED_ON}
                 class="google-logo"
                 width="20"
                 height="20"
                 loading="lazy"
                 decoding="async"
               />
-              <span>{asStr(reviews?.postedOnLabel) || 'Publicado en Google'}</span>
+              <span>{ES_REVIEW_POSTED_ON}</span>
             </div>
+            {t.translated ? <p class="review-translated-note">{ES_REVIEW_TRANSLATED_NOTE}</p> : null}
           </blockquote>
         ))}
       </div>
