@@ -17,6 +17,7 @@ export const EN_TO_ES_PATH = {
   '/reviews/': '/es/testimonios/',
   '/faqs/': '/es/preguntas-frecuentes/',
   '/service-area/': '/es/areas-de-servicio/',
+  '/blog/': '/es/blog/',
   '/seamless-gutters-tampa-fl/': '/es/canaletas-seamless-tampa-fl/',
   '/gutter-installation-tampa-fl/': '/es/instalacion-canaletas-tampa-fl/',
   '/super-gutters-tampa-fl/': '/es/super-gutters-tampa-fl/',
@@ -51,6 +52,7 @@ export const LIVE_ES_PATHS = new Set([
   '/es/testimonios/',
   '/es/preguntas-frecuentes/',
   '/es/areas-de-servicio/',
+  '/es/blog/',
   '/es/canaletas-seamless-tampa-fl/',
   '/es/instalacion-canaletas-tampa-fl/',
   '/es/super-gutters-tampa-fl/',
@@ -103,6 +105,14 @@ export function getLocaleFromPath(pathname) {
  */
 export function getAlternatePath(pathname, targetLocale) {
   const current = normalizePath(pathname)
+  const blogPage = current.match(/^\/(?:es\/)?blog\/page\/(\d+)\/$/)
+  if (blogPage) {
+    const n = blogPage[1]
+    if (targetLocale === LOCALE_ES || targetLocale === 'es') {
+      return LIVE_ES_PATHS.has('/es/blog/') ? `/es/blog/page/${n}/` : '/es/'
+    }
+    return `/blog/page/${n}/`
+  }
   if (targetLocale === LOCALE_ES || targetLocale === 'es') {
     const mapped = EN_TO_ES_PATH[current]
     if (mapped && LIVE_ES_PATHS.has(mapped)) return mapped
@@ -204,6 +214,7 @@ export const ES_MORE_SERVICES_LINKS = [
 export const ES_ABOUT_LINKS = [
   { label: 'Sobre Nosotros', href: '/es/sobre-nosotros/' },
   { label: 'Áreas de Servicio', href: '/es/areas-de-servicio/' },
+  { label: 'Blog', href: '/es/blog/' },
   { label: 'Preguntas frecuentes', href: '/es/preguntas-frecuentes/' },
   { label: 'Contacto', href: '/es/contacto/' },
 ]

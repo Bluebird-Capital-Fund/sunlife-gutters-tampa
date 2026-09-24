@@ -1,0 +1,54 @@
+---
+import EsSiteChrome from '../../../components/EsSiteChrome.astro'
+import BlogPostGrid from '../../../components/BlogPostGrid.astro'
+import Breadcrumbs from '../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../lib/breadcrumbs.js'
+import { sanity } from '../../../lib/sanity.js'
+import {
+  BLOG_POSTS_PER_PAGE,
+  fetchAllBlogPosts,
+  getBlogPagination,
+  sliceBlogPage,
+} from '../../../lib/blog-list.js'
+
+const allPosts = await fetchAllBlogPosts(sanity)
+const { totalPages } = getBlogPagination(allPosts.length, BLOG_POSTS_PER_PAGE)
+const currentPage = 1
+const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)
+const breadcrumbItems = simpleBreadcrumbItemsEs('Blog')
+---
+
+<EsSiteChrome
+  title="Blog de Canaletas | SunLife Gutters Tampa"
+  description="Consejos, guías y novedades sobre canaletas, mantenimiento y protección del hogar en Tampa Bay con SunLife Gutters."
+  formIdPrefix="es-blog-idx"
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section blog-index-section" id="articles">
+      <div class="container">
+        <h1 class="section-title section-title-secondary blog-index-heading">Todos los artículos</h1>
+        <div class="blog-index-intro-block">
+          <p>
+            Explore nuestros artículos más recientes con consejos prácticos para proteger y mejorar su
+            hogar. Encontrará orientación sobre canaletas seamless, protectores de canaletas, screen
+            rooms, soffit y fascia, preparación para tormentas y otros temas útiles para propietarios
+            en todo Tampa Bay.
+          </p>
+          <p>
+            ¿Busca información sobre un tema específico? Cuéntenos durante su consulta gratuita.
+            Con gusto respondemos sus preguntas y creamos recursos útiles según lo que los
+            propietarios quieren saber.
+          </p>
+        </div>
+        <BlogPostGrid
+          posts={posts}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          locale="es"
+          basePath="/es/blog/"
+        />
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>

@@ -5,32 +5,63 @@
 import { asStr, mediaUrl } from '../lib/sanity-strings.js'
 import { excerpt, formatBlogDate } from '../lib/blog-list.js'
 
-const { posts = [], currentPage = 1, totalPages = 1 } = Astro.props
+const {
+  posts = [],
+  currentPage = 1,
+  totalPages = 1,
+  locale = 'en',
+  basePath = '/blog/',
+} = Astro.props
+
+const isEs = locale === 'es' || locale === 'es-US'
+const rootPath = String(basePath || '/blog/').endsWith('/')
+  ? String(basePath || '/blog/')
+  : `${basePath}/`
 
 function hrefForPage(n) {
-  if (n <= 1) return '/blog/'
-  return `/blog/page/${n}/`
+  if (n <= 1) return rootPath
+  return `${rootPath}page/${n}/`
 }
+
+const labels = isEs
+  ? {
+      empty: 'Aún no hay artículos.',
+      pageOf: (cur, total) => `Página ${cur} de ${total}`,
+      listAria: 'Lista de artículos del blog',
+      readCta: 'Leer artículo',
+      pagesAria: 'Páginas del blog',
+      prev: 'Anterior',
+      next: 'Siguiente',
+      untitled: 'Artículo',
+    }
+  : {
+      empty: 'No articles yet.',
+      pageOf: (cur, total) => `Page ${cur} of ${total}`,
+      listAria: 'Blog article list',
+      readCta: 'Read article',
+      pagesAria: 'Blog pages',
+      prev: 'Previous',
+      next: 'Next',
+      untitled: 'Article',
+    }
 ---
 
 <div class="blog-index-toolbar">
   <p class="blog-index-count" role="status">
-    {posts.length === 0
-      ? 'No articles yet.'
-      : `Page ${currentPage} of ${totalPages}`}
+    {posts.length === 0 ? labels.empty : labels.pageOf(currentPage, totalPages)}
   </p>
 </div>
 
-<div class="blog-index-scroll" tabindex="0" aria-label="Blog article list">
+<div class="blog-index-scroll" tabindex="0" aria-label={labels.listAria}>
   <ul class="blog-index-grid">
     {posts.map((post) => {
       const slug = asStr(post?.slug)
       const href = slug ? `/${slug}/` : '#'
-      const title = asStr(post?.headline) || 'Article'
+      const title = asStr(post?.headline) || labels.untitled
       const lead = excerpt(asStr(post?.lead), 180)
       const thumb = asStr(post?.thumb)
       const thumbAlt = asStr(post?.thumbAlt) || title
-      const dateLabel = formatBlogDate(post?.publishedAt)
+      const dateLabel = formatBlogDate(post?.publishedAt, isEs ? 'es-US' : 'en-US')
       return (
         <li class="blog-index-card">
           <a href={href} class="blog-index-card-link">
@@ -45,7 +76,7 @@ function hrefForPage(n) {
               {dateLabel ? <time class="blog-index-date" datetime={asStr(post?.publishedAt)}>{dateLabel}</time> : null}
               <h2 class="blog-index-card-title">{title}</h2>
               {lead ? <p class="blog-index-card-excerpt">{lead}</p> : null}
-              <span class="blog-index-card-cta">Read article</span>
+              <span class="blog-index-card-cta">{labels.readCta}</span>
             </div>
           </a>
         </li>
@@ -55,10 +86,10 @@ function hrefForPage(n) {
 </div>
 
 {totalPages > 1 ? (
-  <nav class="blog-pagination" aria-label="Blog pages">
+  <nav class="blog-pagination" aria-label={labels.pagesAria}>
     {currentPage > 1 ? (
       <a href={hrefForPage(currentPage - 1)} class="blog-pagination-dir blog-pagination-prev">
-        Previous
+        {labels.prev}
       </a>
     ) : (
       <span class="blog-pagination-spacer" aria-hidden="true" />
@@ -76,7 +107,7 @@ function hrefForPage(n) {
     </ol>
     {currentPage < totalPages ? (
       <a href={hrefForPage(currentPage + 1)} class="blog-pagination-dir blog-pagination-next">
-        Next
+        {labels.next}
       </a>
     ) : (
       <span class="blog-pagination-spacer" aria-hidden="true" />

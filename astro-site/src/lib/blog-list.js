@@ -58,9 +58,10 @@ export function excerpt(text, maxLen = 160) {
   return `${t.slice(0, maxLen - 1).trim()}…`
 }
 
-export function formatBlogDate(iso) {
+export function formatBlogDate(iso, locale = 'en-US') {
   if (!iso || typeof iso !== 'string') return ''
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return ''
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  const loc = locale === 'es' || locale === 'es-US' ? 'es-US' : 'en-US'
+  return d.toLocaleDateString(loc, { year: 'numeric', month: 'long', day: 'numeric' })
 }

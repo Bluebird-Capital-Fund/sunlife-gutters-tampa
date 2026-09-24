@@ -1,0 +1,74 @@
+---
+import EsSiteChrome from '../../../../components/EsSiteChrome.astro'
+import BlogPostGrid from '../../../../components/BlogPostGrid.astro'
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro'
+import { simpleBreadcrumbItemsEs } from '../../../../lib/breadcrumbs.js'
+import { sanity } from '../../../../lib/sanity.js'
+import {
+  BLOG_POSTS_PER_PAGE,
+  fetchAllBlogPosts,
+  getBlogPagination,
+  sliceBlogPage,
+} from '../../../../lib/blog-list.js'
+
+export async function getStaticPaths() {
+  const all = await fetchAllBlogPosts(sanity)
+  const { totalPages } = getBlogPagination(all.length, BLOG_POSTS_PER_PAGE)
+  if (totalPages <= 1) return []
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+  }))
+}
+
+const pageParam = String(Astro.params?.page || '')
+const currentPage = Math.max(2, parseInt(pageParam, 10) || 2)
+
+const allPosts = await fetchAllBlogPosts(sanity)
+const { totalPages } = getBlogPagination(allPosts.length, BLOG_POSTS_PER_PAGE)
+
+if (currentPage > totalPages || currentPage < 2) {
+  const qs = Astro.url.search || ''
+  return Astro.redirect(`/es/blog/${qs}`)
+}
+
+const posts = sliceBlogPage(allPosts, currentPage, BLOG_POSTS_PER_PAGE)
+const breadcrumbItems = simpleBreadcrumbItemsEs(`Página ${currentPage}`, {
+  label: 'Blog',
+  href: '/es/blog/',
+})
+---
+
+<EsSiteChrome
+  title={`Blog de canaletas — página ${currentPage} | SunLife Gutters Tampa`}
+  description={`Artículos sobre canaletas (página ${currentPage} de ${totalPages}). Consejos y guías para propietarios en Tampa Bay.`}
+  formIdPrefix={`es-blog-p${currentPage}`}
+>
+  <main>
+    <Breadcrumbs items={breadcrumbItems} />
+    <section class="section blog-index-section" id="articles">
+      <div class="container">
+        <h1 class="section-title section-title-secondary blog-index-heading">Todos los artículos</h1>
+        <div class="blog-index-intro-block">
+          <p>
+            Explore nuestros artículos más recientes con consejos prácticos para proteger y mejorar su
+            hogar. Encontrará orientación sobre canaletas seamless, protectores de canaletas, screen
+            rooms, soffit y fascia, preparación para tormentas y otros temas útiles para propietarios
+            en todo Tampa Bay.
+          </p>
+          <p>
+            ¿Busca información sobre un tema específico? Cuéntenos durante su consulta gratuita.
+            Con gusto respondemos sus preguntas y creamos recursos útiles según lo que los
+            propietarios quieren saber.
+          </p>
+        </div>
+        <BlogPostGrid
+          posts={posts}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          locale="es"
+          basePath="/es/blog/"
+        />
+      </div>
+    </section>
+  </main>
+</EsSiteChrome>
