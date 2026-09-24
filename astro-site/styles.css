@@ -2031,6 +2031,17 @@ main > .breadcrumbs {
   font-weight: 700;
 }
 
+.about-list--compact {
+  margin-top: var(--space-md);
+}
+
+.about-list--compact li {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  padding-left: 1.25rem;
+}
+
 .about-content p {
   margin: 0;
   color: var(--color-text-muted);
