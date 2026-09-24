@@ -13,7 +13,7 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, mediaUrl, statLookup } from '../lib/sanity-strings.js'
 import { POPULAR_SERVICE_AREA_CITIES } from '../lib/service-area-cities.js'
 import { simpleBreadcrumbItemsEs } from '../lib/breadcrumbs.js'
-import { ES_FORM_INTRO, ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import { ES_NAV, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
 
 interface Props {
   cityPage: Record<string, unknown>
@@ -53,7 +53,8 @@ const pageH1 = asStr(_cityPage?.headline) || 'Servicios de Canaletas en Tampa'
 const pageEyebrow = asStr(_cityPage?.eyebrow) || 'Servicio'
 const pageLead = asStr(_cityPage?.lead)
 const formHeading = asStr(_cityPage?.formHeading) || ES_NAV.bookConsultation
-const formIntro = asStr(_cityPage?.formIntro) || ES_FORM_INTRO
+const formIntro =
+  'Obtenga recomendaciones honestas y precios transparentes de un equipo de confianza en Tampa Bay.'
 const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
 const formMethod = asStr(footerEstimate?.formMethod) || 'post'
 
@@ -102,7 +103,7 @@ const serviceAreaIntro =
       </div>
 
       <form
-        class="hero-form"
+        class="hero-form hero-form--compact"
         data-lead-form={`${formIdPrefix}-hero`}
         data-page-locale="es-US"
         action={formAction}
@@ -146,10 +147,10 @@ const serviceAreaIntro =
           </div>
           <div class="hero-form-field hero-form-field-full">
             <label for={`${formIdPrefix}-hero-message`}>{ES_NAV.projectDetails}</label>
-            <textarea id={`${formIdPrefix}-hero-message`} name="message" rows="3"></textarea>
+            <textarea id={`${formIdPrefix}-hero-message`} name="message" rows="2"></textarea>
           </div>
         </div>
-        <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" />
+        <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" compact />
         <div class="lead-form-honeypot-wrap" aria-hidden="true">
           <label for={`${formIdPrefix}-hero-website`}>Leave blank</label>
           <input

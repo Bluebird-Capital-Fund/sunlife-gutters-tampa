@@ -2462,6 +2462,10 @@ form[data-lead-form] button[type='submit'].btn-primary:hover {
   margin-top: var(--space-sm);
 }
 
+.hero-form--compact .lead-form-sms-consent {
+  margin-top: 0.15rem;
+}
+
 .lead-form-sms-consent-label {
   display: flex;
   gap: 0.4rem;
@@ -3402,6 +3406,67 @@ form[data-lead-form] button[type="submit"].is-busy {
 
 .hero-form-field-full {
   grid-column: 1 / -1;
+}
+
+/* Compact hero form (ES service pages) — keep Enviar above the fold */
+.hero-form--compact {
+  padding: 0.85rem 1rem 1rem;
+  gap: 0.45rem;
+  transform: translateY(-28px);
+}
+
+.hero-form--compact .hero-form-kicker {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-form--compact h2 {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+}
+
+.hero-form--compact .hero-form-sub {
+  margin: 0.1rem 0 0.15rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.hero-form--compact .hero-form-grid {
+  gap: 0.4rem 0.65rem;
+}
+
+.hero-form--compact .hero-form-field {
+  gap: 0.18rem;
+}
+
+.hero-form--compact label {
+  font-size: 0.75rem;
+}
+
+.hero-form--compact input,
+.hero-form--compact textarea {
+  padding: 0.38rem 0.7rem;
+  font-size: 0.8125rem;
+}
+
+.hero-form--compact textarea {
+  min-height: 2.4rem;
+  resize: vertical;
+}
+
+.hero-form--compact .lead-form-sms-consent {
+  margin: 0;
+}
+
+.hero-form--compact .lead-form-sms-consent-text {
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.hero-form--compact button[type='submit'].btn-primary {
+  margin-top: 0.1rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  font-size: 0.9rem;
 }
 
 .brands-marquee {
