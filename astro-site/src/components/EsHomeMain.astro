@@ -44,6 +44,34 @@ const reviewValues = reviews?.reviewValues
 const formsCfg = settings?.forms ?? {}
 const footerEstimate = settings?.footerEstimate ?? hp.footerEstimate
 const contactBanner = hp.contactBanner
+const team = hp.team
+const teamMembers = Array.isArray(team?.members) ? team.members : []
+
+const TEAM_ROLE_ES = {
+  'Lead Production Manager': {
+    name: 'Gerente Principal de Producción',
+    bio: 'Coordina cuadrillas, pide materiales y mantiene cada permiso de elevación alineado con las normas del condado.',
+  },
+  'Field Quality Lead': {
+    name: 'Líder de Calidad en Campo',
+    bio: 'Inspecciona el espaciado de soportes, el sellado y las rutas de descarga de bajantes antes del cierre del trabajo.',
+  },
+  'Client Concierge': {
+    name: 'Atención al Cliente',
+    bio: 'Su punto de contacto para actualizaciones de agenda, documentación de garantía y visitas de seguimiento.',
+  },
+}
+
+const teamMembersEs = teamMembers.map((m) => {
+  const enName = asStr(m?.name)
+  const localized = TEAM_ROLE_ES[enName]
+  return {
+    imageSrc: asStr(m?.imageSrc),
+    imageAlt: asStr(m?.imageAlt) || (localized?.name ?? enName),
+    name: localized?.name ?? enName,
+    bio: localized?.bio ?? asStr(m?.bio),
+  }
+})
 
 const reviewRating = statLookup(reviewValues, reviewsSummary?.ratingValueKey)
 const reviewCount = statLookup(reviewValues, reviewsSummary?.reviewCountKey)
@@ -105,7 +133,7 @@ const servicesItems = [
     number: '02',
     title: 'Canaletas seamless',
     description:
-      'Mejore su hogar con canaletas seamless a medida que ofrecen protección duradera, menos fugas y un acabado limpio.',
+      'Mejore su hogar con canaletas sin juntas (seamless) a medida que ofrecen protección duradera, menos fugas y un acabado limpio.',
     href: serviceHref('/seamless-gutters-tampa-fl/'),
   },
   {
@@ -133,7 +161,7 @@ const servicesItems = [
     number: '06',
     title: 'Siding',
     description:
-      'Dé a su hogar un look renovado con siding duradero que mejora el atractivo y resiste el calor, la humedad y el clima de Florida.',
+      'Dé a su hogar un look renovado con revestimiento exterior duradero que mejora el atractivo y resiste el calor, la humedad y el clima de Florida.',
     href: serviceHref('/siding-tampa-fl/'),
   },
 ]
@@ -141,9 +169,9 @@ const servicesItems = [
 const uniquePointsItems = [
   {
     iconId: 'clipboard',
-    title: 'Estimados honestos',
+    title: 'Consultas honestas',
     description:
-      'Ofrecemos estimados claros y directos, con precios transparentes y recomendaciones en las que puede confiar. Sin sorpresas ni ventas innecesarias.',
+      'Ofrecemos consultas claras y directas, con precios transparentes y recomendaciones en las que puede confiar. Sin sorpresas ni ventas innecesarias.',
   },
   {
     iconId: 'package',
@@ -173,7 +201,7 @@ const uniquePointsItems = [
     iconId: 'message',
     title: 'Comunicación clara',
     description:
-      'Desde el primer estimado hasta el recorrido final, siempre sabrá qué esperar con un servicio receptivo y comunicación constante en cada paso.',
+      'Desde su consulta inicial hasta el recorrido final, siempre sabrá qué esperar con un servicio receptivo y comunicación constante en cada paso.',
   },
 ]
 
@@ -240,7 +268,7 @@ function translateStatLabel(valueKey, label) {
     <div class="hero-bg" style={heroBgStyle}></div>
     <div class="container hero-split-inner">
       <div class="hero-copy">
-        <div class="hero-eyebrow">Empresa familiar de canaletas en Tampa Bay</div>
+        <div class="hero-eyebrow">Solicite Su Consulta Gratis Hoy</div>
         <h1>La Mejor Empresa de Canaletas en Tampa</h1>
         <p class="hero-typed" aria-live="polite">
           <span id="hero-typed-text"></span><span class="hero-caret" aria-hidden="true">|</span>
@@ -251,10 +279,9 @@ function translateStatLabel(valueKey, label) {
           <li>
             <strong>Calificación 4.9 en Google</strong> de <strong>247 reseñas</strong>
           </li>
-          <li><strong>Empresa familiar</strong> con sede en Seffner</li>
           <li><strong>Opciones de garantía de por vida</strong> disponibles*</li>
           <li><strong>Financiamiento flexible</strong> disponible</li>
-          <li><strong>Comunicación clara</strong> desde el estimado hasta la instalación</li>
+          <li><strong>Comunicación clara</strong> desde su consulta inicial hasta la instalación</li>
         </ul>
         <div class="hero-actions">
           <a href={telLink} class="btn btn-primary btn-lg cta1-primary-call">
@@ -333,20 +360,20 @@ function translateStatLabel(valueKey, label) {
 
   <section id="reviews" class="section google-reviews">
     <div class="container">
-      <h2 class="section-title reviews-title">Lo que dicen los vecinos de Tampa Bay</h2>
+      <h2 class="section-title reviews-title">Opiniones de Nuestros Clientes en Tampa Bay</h2>
       <div class="reviews-summary">
         <div class="reviews-summary-left">
           <p class="reviews-summary-brand">
             <img
               src={mediaUrl(asStr(reviewsSummary?.googleIconSrc))}
-              alt={asStr(reviewsSummary?.brandLabel) || 'Google'}
+              alt="Resumen de calificación de Google"
               class="google-logo"
               width="20"
               height="20"
               loading="lazy"
               decoding="async"
             />
-            <span>{asStr(reviewsSummary?.brandLabel) || 'Google'}</span>
+            <span>Resumen de calificación de Google</span>
           </p>
           <p class="reviews-summary-rating">
             <strong>{reviewRating}</strong>
@@ -363,7 +390,7 @@ function translateStatLabel(valueKey, label) {
           </p>
         </div>
         <a href="/es/testimonios/" class="btn btn-outline btn-lg request-estimate reviews-summary-cta">
-          Solicitar consulta
+          Ver Más Testimonios
         </a>
       </div>
       <div class="testimonials-grid">
@@ -416,7 +443,7 @@ function translateStatLabel(valueKey, label) {
     <section id="process" class="image-scroller" aria-label="Proyectos recientes">
       <div class="container projects-head">
         <h2 class="section-title projects-title">
-          Trabajo reciente de canaletas en Tampa y alrededores
+          Proyectos Recientes de Canaletas en Tampa y Alrededores
         </h2>
       </div>
       <div class="projects-carousel" id="projects-carousel">
@@ -489,8 +516,8 @@ function translateStatLabel(valueKey, label) {
         <p class="section-lead">
           Desde casas frente al agua y vecindarios consolidados hasta comunidades en crecimiento en
           todo Tampa Bay, ofrecemos soluciones de canaletas y exteriores a medida, respaldadas por
-          recomendaciones honestas, buena mano de obra y comunicación clara desde el estimado hasta
-          el recorrido final.
+          recomendaciones honestas, buena mano de obra y comunicación clara desde su consulta
+          inicial hasta el recorrido final.
         </p>
         <ul class="why-choose-list">
           <li>
@@ -500,8 +527,8 @@ function translateStatLabel(valueKey, label) {
           </li>
           <li>
             <strong>Soluciones exteriores completas:</strong>{' '}
-            Desde canaletas seamless y Super Gutters hasta protectores, screen rooms, lanais, trim
-            de techo,{' '}
+            Desde canaletas seamless y Super Gutters hasta protectores, screen rooms, lanais, borde
+            del techo,{' '}
             <a href={serviceHref('/gutter-repair-tampa-fl/')}>reparaciones de canaletas en Tampa</a>
             {' '}y mantenimiento, un solo equipo local con experiencia lo maneja todo.
           </li>
@@ -512,9 +539,8 @@ function translateStatLabel(valueKey, label) {
           </li>
         </ul>
         <p class="why-choose-note">
-          Pregunte por mejoras listas para tormentas, incluyendo protectores de canaletas,
-          extensiones de bajantes y mantenimiento preventivo para ayudar a proteger su hogar todo el
-          año.
+          Consulte por opciones para preparar sus canaletas para las tormentas, incluyendo
+          protectores, extensiones de bajantes y mantenimiento preventivo.
         </p>
         <div class="why-choose-actions">
           <a href={telLink} class="btn btn-primary btn-lg">
@@ -530,7 +556,7 @@ function translateStatLabel(valueKey, label) {
 
   <section id="services" class="section services" style={servicesBgStyle}>
     <div class="container">
-      <h2 class="section-title">Servicios de canaletas en Tampa hechos para el clima de Florida</h2>
+      <h2 class="section-title">Servicios de Canaletas en Tampa Diseñadas para el Clima de Florida</h2>
       <div class="services-grid">
         {servicesItems.map((svc) => (
           <article class="service-card">
@@ -553,19 +579,19 @@ function translateStatLabel(valueKey, label) {
     <div class="container about-grid">
       <div class="about-content">
         <div class="about-eyebrow">Fundada en familia desde 2018</div>
-        <h2 class="section-title">Contratistas de canaletas con experiencia en Tampa</h2>
+        <h2 class="section-title">Contratistas de Canaletas con Amplia Experiencia en Tampa</h2>
         <p class="about-lead">
           Fundada en diciembre de 2018, SunLife nació de la visión de Kevin y Jessica Stroh. Lo que
           empezó con un equipo de canaletas seamless creció hasta ser un equipo completo de
           exteriores que sirve al área de Tampa Bay, ofreciendo canaletas seamless, Super Gutters,
-          screen rooms, lanais y trim de techo, manteniendo los estimados honestos y la atención al
+          screen rooms, lanais y borde del techo, manteniendo consultas honestas y la atención al
           detalle que han definido a la empresa desde el inicio.
         </p>
         <ul class="about-list">
           <li>Aluminio seamless fabricado en el camión para un ajuste perfecto</li>
           <li>Soportes resistentes a la corrosión espaciados para el viento de Old Tampa Bay</li>
-          <li>Accesorios a color que combinan con stucco, siding o ladrillo</li>
-          <li>Servicios de techo disponibles a través de socios locales de confianza</li>
+          <li>Accesorios a color que combinan con stucco, revestimiento exterior o ladrillo</li>
+          <li>Servicios para techos disponibles a través de socios locales de confianza</li>
         </ul>
         <div class="about-video-actions">
           <a href={telLink} class="btn btn-primary btn-lg">
@@ -638,7 +664,7 @@ function translateStatLabel(valueKey, label) {
           fin.
         </p>
         <p class="section-lead">
-          Llámenos cuando quiera o reserve su consulta gratuita en línea.
+          Llámenos o solicite su consulta gratuita en línea.
         </p>
         <div class="contact-banner-actions">
           <a href={telLink} class="contact-banner-phone">
@@ -663,7 +689,7 @@ function translateStatLabel(valueKey, label) {
   <section id="service-area" class="section service-area">
     <div class="container">
       <div class="why-eyebrow">Área de servicio</div>
-      <h2 class="section-title">Canaletas en Tampa y comunidades cercanas</h2>
+      <h2 class="section-title">Canaletas en Tampa y Comunidades Cercanas</h2>
       <p class="section-lead service-area-intro">{esServiceIntro}</p>
       <div class="service-area-grid service-area-grid--stacked">
         {mapEmbedUrl ? (
@@ -691,6 +717,32 @@ function translateStatLabel(valueKey, label) {
       </div>
     </div>
   </section>
+
+  {teamMembersEs.length > 0 ? (
+    <section id="team" class="section our-team">
+      <div class="container">
+        <h2 class="section-title">Nuestro Equipo de Canaletas en Tampa</h2>
+        <div class="team-grid">
+          {teamMembersEs.map((m) => (
+            <article class="team-card">
+              {m.imageSrc ? (
+                <img
+                  src={mediaUrl(m.imageSrc)}
+                  alt={m.imageAlt}
+                  width="640"
+                  height="480"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
+              <h3>{m.name}</h3>
+              <p>{m.bio}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
 
   <section class="section faq-section" id="faq">
     <div class="container">
