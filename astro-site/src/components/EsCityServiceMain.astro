@@ -52,6 +52,8 @@ const slug = asStr(_cityPage?.slug)
 const pageH1 = asStr(_cityPage?.headline) || 'Servicios de Canaletas en Tampa'
 const pageEyebrow = asStr(_cityPage?.eyebrow) || 'Servicio'
 const pageLead = asStr(_cityPage?.lead)
+const formIntro =
+  'Obtenga recomendaciones honestas y precios transparentes de un equipo de confianza en Tampa Bay.'
 const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
 const formMethod = asStr(footerEstimate?.formMethod) || 'post'
 
@@ -111,66 +113,40 @@ const serviceAreaIntro =
         <input type="hidden" name="language" value="es-US" />
         <div class="hero-form-heading">
           <div class="hero-form-kicker">{ES_NAV.freeEstimate}</div>
-          <h2>Consulta Gratis</h2>
+          <h2>{ES_NAV.bookConsultation}</h2>
         </div>
+        <p class="hero-form-sub">{formIntro}</p>
         <div class="hero-form-grid">
           <div class="hero-form-field">
-            <label class="hero-form-label-sr" for={`${formIdPrefix}-hero-name`}>
+            <label for={`${formIdPrefix}-hero-name`}>
               {ES_NAV.name} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
             </label>
-            <input
-              id={`${formIdPrefix}-hero-name`}
-              name="name"
-              type="text"
-              required
-              autocomplete="name"
-              placeholder="Nombre *"
-            />
+            <input id={`${formIdPrefix}-hero-name`} name="name" type="text" required autocomplete="name" />
           </div>
           <div class="hero-form-field">
-            <label class="hero-form-label-sr" for={`${formIdPrefix}-hero-email`}>
+            <label for={`${formIdPrefix}-hero-email`}>
               {ES_NAV.email} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
             </label>
-            <input
-              id={`${formIdPrefix}-hero-email`}
-              name="email"
-              type="email"
-              required
-              autocomplete="email"
-              placeholder="Correo *"
-            />
+            <input id={`${formIdPrefix}-hero-email`} name="email" type="email" required autocomplete="email" />
           </div>
           <div class="hero-form-field">
-            <label class="hero-form-label-sr" for={`${formIdPrefix}-hero-phone`}>
+            <label for={`${formIdPrefix}-hero-phone`}>
               {ES_NAV.phone} <span class="required-mark" aria-hidden="true">{ES_NAV.required}</span>
             </label>
-            <input
-              id={`${formIdPrefix}-hero-phone`}
-              name="phone"
-              type="tel"
-              required
-              autocomplete="tel"
-              placeholder="Teléfono *"
-            />
+            <input id={`${formIdPrefix}-hero-phone`} name="phone" type="tel" required autocomplete="tel" />
           </div>
           <div class="hero-form-field">
-            <label class="hero-form-label-sr" for={`${formIdPrefix}-hero-location`}>{ES_NAV.city}</label>
+            <label for={`${formIdPrefix}-hero-location`}>{ES_NAV.city}</label>
             <input
               id={`${formIdPrefix}-hero-location`}
               name="location"
               type="text"
               autocomplete="street-address"
-              placeholder="Dirección"
             />
           </div>
           <div class="hero-form-field hero-form-field-full">
-            <label class="hero-form-label-sr" for={`${formIdPrefix}-hero-message`}>{ES_NAV.projectDetails}</label>
-            <input
-              id={`${formIdPrefix}-hero-message`}
-              name="message"
-              type="text"
-              placeholder="Detalles del proyecto"
-            />
+            <label for={`${formIdPrefix}-hero-message`}>{ES_NAV.projectDetails}</label>
+            <textarea id={`${formIdPrefix}-hero-message`} name="message" rows="2"></textarea>
           </div>
         </div>
         <SmsMarketingConsent checkboxId={`${formIdPrefix}-hero-sms-consent`} locale="es" compact />
