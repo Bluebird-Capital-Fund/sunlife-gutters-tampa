@@ -1,14 +1,34 @@
 /**
- * Spanish blog post fallbacks for `/es/blog/{slug}/` (same English slugs).
+ * Spanish blog post fallbacks for `/es/blog/{es-slug}/`.
+ * English Sanity posts keep EN slugs; `enSlug` links each ES post to its twin.
  */
 
+/** @type {Record<string, string>} English blog slug → Spanish blog slug */
+export const EN_TO_ES_BLOG_SLUG = {
+  'what-are-seamless-gutters-and-why-florida-homes-need-them':
+    'que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan',
+  'seamless-gutters-the-homeowners-complete-guide': 'canaletas-seamless-guia-completa-para-propietarios',
+  'diy-vs-professional-gutter-installation-why-hire-an-expert':
+    'diy-vs-instalacion-profesional-de-canaletas-por-que-contratar-un-experto',
+  'soffit-fascia-protecting-your-roofs-hidden-edges':
+    'soffit-y-fascia-protegiendo-los-bordes-ocultos-de-su-techo',
+  'super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow':
+    'super-gutters-actualice-de-5-a-7-pulgadas-para-maximo-flujo',
+}
+
+/** @type {Record<string, string>} */
+export const ES_TO_EN_BLOG_SLUG = Object.fromEntries(
+  Object.entries(EN_TO_ES_BLOG_SLUG).map(([en, es]) => [es, en]),
+)
+
 export const blogPostFallbacksEs = {
-  'what-are-seamless-gutters-and-why-florida-homes-need-them': {
+  'que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan': {
     title:
       'Qué Son las Canaletas Seamless y Por Qué las Casas de Florida las Necesitan | SunLife Gutters Tampa',
     seoDescription:
       'Canaletas seamless para casas en Florida: menos fugas y mejor drenaje. Guía de SunLife Gutters sobre canaletas sin uniones en Tampa Bay.',
-    slug: 'what-are-seamless-gutters-and-why-florida-homes-need-them',
+    slug: 'que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan',
+    enSlug: 'what-are-seamless-gutters-and-why-florida-homes-need-them',
     category: 'Canaletas seamless',
     headline: 'Qué Son las Canaletas Seamless y Por Qué las Casas de Florida las Necesitan',
     tldr: 'Las canaletas seamless se fabrican a medida en el sitio para tramos continuos con el mínimo de juntas: ideales para la lluvia torrencial y la humedad de Florida. Menos uniones significan menos fugas, menos enganche de escombros y mejor rendimiento en tormentas que los sistemas seccionales antiguos.',
@@ -46,11 +66,12 @@ export const blogPostFallbacksEs = {
     ],
   },
 
-  'seamless-gutters-the-homeowners-complete-guide': {
+  'canaletas-seamless-guia-completa-para-propietarios': {
     title: 'Canaletas Seamless: Guía Completa para Propietarios | SunLife Gutters Tampa',
     seoDescription:
       'Guía completa de canaletas seamless para propietarios en Florida: instalación, costos y mantenimiento con SunLife Gutters en Tampa Bay.',
-    slug: 'seamless-gutters-the-homeowners-complete-guide',
+    slug: 'canaletas-seamless-guia-completa-para-propietarios',
+    enSlug: 'seamless-gutters-the-homeowners-complete-guide',
     category: 'Guías',
     headline: 'Canaletas Seamless: La Guía Completa para Propietarios',
     tldr: 'Las canaletas seamless se fabrican a medida en el sitio para menos fugas, líneas más limpias y un mejor ajuste a las líneas de techo de Florida. Esta guía cubre qué son, cómo funciona la instalación, factores de costo y mantenimiento — para que proteja su hogar con confianza.',
@@ -109,12 +130,13 @@ export const blogPostFallbacksEs = {
     ],
   },
 
-  'diy-vs-professional-gutter-installation-why-hire-an-expert': {
+  'diy-vs-instalacion-profesional-de-canaletas-por-que-contratar-un-experto': {
     title:
       'DIY vs. Instalación Profesional de Canaletas: Por Qué Contratar un Experto | SunLife Gutters Tampa',
     seoDescription:
       'DIY vs. instalación profesional de canaletas en Tampa: por qué los expertos de SunLife Gutters evitan fugas, mala pendiente y daños por agua.',
-    slug: 'diy-vs-professional-gutter-installation-why-hire-an-expert',
+    slug: 'diy-vs-instalacion-profesional-de-canaletas-por-que-contratar-un-experto',
+    enSlug: 'diy-vs-professional-gutter-installation-why-hire-an-expert',
     category: 'Instalación',
     headline: 'DIY vs. Instalación Profesional de Canaletas: ¿Por Qué Contratar un Experto?',
     tldr: 'Los proyectos DIY de canaletas pueden ahorrar mano de obra al inicio, pero la lluvia fuerte de Florida expone rápido la mala pendiente, las juntas que gotean y los hangers débiles. Los profesionales aportan fabricación seamless, dimensionamiento correcto, fijación lista para tormentas y garantías — a menudo más barato que reparar daños por agua después.',
@@ -160,11 +182,12 @@ export const blogPostFallbacksEs = {
     ],
   },
 
-  'soffit-fascia-protecting-your-roofs-hidden-edges': {
+  'soffit-y-fascia-protegiendo-los-bordes-ocultos-de-su-techo': {
     title: 'Soffit y Fascia: Protegiendo los Bordes Ocultos de Su Techo | SunLife Gutters Tampa',
     seoDescription:
       'Soffit y fascia en casas de Tampa: ventilación del ático, soporte de canaletas y señales de daño. Guía de SunLife Gutters para el techo.',
-    slug: 'soffit-fascia-protecting-your-roofs-hidden-edges',
+    slug: 'soffit-y-fascia-protegiendo-los-bordes-ocultos-de-su-techo',
+    enSlug: 'soffit-fascia-protecting-your-roofs-hidden-edges',
     category: 'Soffit y fascia',
     headline: 'Soffit y Fascia: Protegiendo los Bordes Ocultos de Su Techo',
     tldr: 'El soffit ventila el ático; la fascia ancla las canaletas y sella el borde del techo. Juntos protegen contra humedad, plagas y pudrición — especialmente en la humedad de Florida. Conozca materiales, señales de alerta y cómo se ve una reparación profesional.',
@@ -234,11 +257,12 @@ export const blogPostFallbacksEs = {
     ],
   },
 
-  'super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow': {
+  'super-gutters-actualice-de-5-a-7-pulgadas-para-maximo-flujo': {
     title: 'Super Gutters: Actualice de 5" a 7" para Máximo Flujo | SunLife Gutters Tampa',
     seoDescription:
       'Super Gutters de 7" vs. canaletas de 5" en Tampa: más capacidad para lluvias fuertes de Florida. Guía de actualización de SunLife Gutters.',
-    slug: 'super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow',
+    slug: 'super-gutters-actualice-de-5-a-7-pulgadas-para-maximo-flujo',
+    enSlug: 'super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow',
     category: 'Super Gutters',
     headline: 'Super Gutters: Actualice de 5" a 7" para Máximo Flujo',
     tldr: 'Los Super Gutters de siete pulgadas mueven mucha más agua que los sistemas estándar de 5 pulgadas — ideales para aguaceros de Florida, áreas grandes de techo y pool cages. Conozca cómo difieren, el proceso de conversión, costos y si su casa es candidata.',
@@ -301,21 +325,35 @@ export const blogPostFallbacksEs = {
 }
 
 export function blogPostFallbackEs(slug) {
-  return blogPostFallbacksEs[slug] || null
+  const key = String(slug || '').trim()
+  return blogPostFallbacksEs[key] || null
+}
+
+export function esBlogSlugFromEn(enSlug) {
+  const key = String(enSlug || '').trim()
+  return EN_TO_ES_BLOG_SLUG[key] || null
+}
+
+export function enBlogSlugFromEs(esSlug) {
+  const key = String(esSlug || '').trim()
+  return ES_TO_EN_BLOG_SLUG[key] || null
 }
 
 /**
  * Overlay Spanish headline/lead onto EN list rows for /es/blog/ cards.
- * Keeps thumb/date from Sanity; uses ES fallback copy when available.
+ * Rewrites slug to the Spanish URL slug when a fallback exists.
  */
 export function localizeBlogPostsForEs(posts) {
   if (!Array.isArray(posts)) return []
   return posts.map((post) => {
-    const slug = String(post?.slug || '').trim()
-    const es = slug ? blogPostFallbacksEs[slug] : null
-    if (!es) return post
+    const enSlug = String(post?.slug || '').trim()
+    const esSlug = enSlug ? EN_TO_ES_BLOG_SLUG[enSlug] : null
+    const es = esSlug ? blogPostFallbacksEs[esSlug] : null
+    if (!es || !esSlug) return post
     return {
       ...post,
+      slug: esSlug,
+      enSlug,
       headline: es.headline || post.headline,
       lead: es.lead || es.tldr || post.lead,
       thumbAlt: es.headline || post.thumbAlt,

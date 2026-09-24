@@ -3,6 +3,56 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/es/blog/what-are-seamless-gutters-and-why-florida-homes-need-them/",
+      "destination": "/es/blog/que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/what-are-seamless-gutters-and-why-florida-homes-need-them",
+      "destination": "/es/blog/que-son-las-canaletas-seamless-y-por-que-las-casas-de-florida-las-necesitan/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/seamless-gutters-the-homeowners-complete-guide/",
+      "destination": "/es/blog/canaletas-seamless-guia-completa-para-propietarios/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/seamless-gutters-the-homeowners-complete-guide",
+      "destination": "/es/blog/canaletas-seamless-guia-completa-para-propietarios/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/diy-vs-professional-gutter-installation-why-hire-an-expert/",
+      "destination": "/es/blog/diy-vs-instalacion-profesional-de-canaletas-por-que-contratar-un-experto/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/diy-vs-professional-gutter-installation-why-hire-an-expert",
+      "destination": "/es/blog/diy-vs-instalacion-profesional-de-canaletas-por-que-contratar-un-experto/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/soffit-fascia-protecting-your-roofs-hidden-edges/",
+      "destination": "/es/blog/soffit-y-fascia-protegiendo-los-bordes-ocultos-de-su-techo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/soffit-fascia-protecting-your-roofs-hidden-edges",
+      "destination": "/es/blog/soffit-y-fascia-protegiendo-los-bordes-ocultos-de-su-techo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow/",
+      "destination": "/es/blog/super-gutters-actualice-de-5-a-7-pulgadas-para-maximo-flujo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/super-gutters-upgrade-from-5-to-7-inch-for-maximum-flow",
+      "destination": "/es/blog/super-gutters-actualice-de-5-a-7-pulgadas-para-maximo-flujo/",
+      "permanent": true
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": false

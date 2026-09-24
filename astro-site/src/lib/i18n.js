@@ -3,7 +3,12 @@
  * Missing pairs fall back to /es/ (ES) or / (EN).
  */
 
-import { blogPostFallbackEs } from './blog-post-fallbacks-es.js'
+import {
+  blogPostFallbackEs,
+  EN_TO_ES_BLOG_SLUG,
+  enBlogSlugFromEs,
+  esBlogSlugFromEn,
+} from './blog-post-fallbacks-es.js'
 
 export const LOCALE_EN = 'en-US'
 export const LOCALE_ES = 'es-US'
@@ -42,6 +47,10 @@ export const EN_TO_ES_PATH = {
   '/french-drains-tampa-fl/': '/es/drenaje-frances-tampa-fl/',
   '/siding-tampa-fl/': '/es/siding-tampa-fl/',
   '/soffit-fascia-repair-tampa-fl/': '/es/reparacion-soffit-fascia-tampa-fl/',
+  // Blog posts (EN root slug → ES /es/blog/{spanish-slug}/)
+  ...Object.fromEntries(
+    Object.entries(EN_TO_ES_BLOG_SLUG).map(([en, es]) => [`/${en}/`, `/es/blog/${es}/`]),
+  ),
 }
 
 /** Paths that are published and should emit hreflang + appear in sitemap-es. */
@@ -77,6 +86,7 @@ export const LIVE_ES_PATHS = new Set([
   '/es/drenaje-frances-tampa-fl/',
   '/es/siding-tampa-fl/',
   '/es/reparacion-soffit-fascia-tampa-fl/',
+  ...Object.values(EN_TO_ES_BLOG_SLUG).map((es) => `/es/blog/${es}/`),
 ])
 
 /** @type {Record<string, string>} */
@@ -117,19 +127,20 @@ export function getAlternatePath(pathname, targetLocale) {
   }
 
   const esBlogPost = current.match(/^\/es\/blog\/([a-z0-9-]+)\/$/)
-  if (esBlogPost && esBlogPost[1] !== 'page' && blogPostFallbackEs(esBlogPost[1])) {
-    if (targetLocale === LOCALE_ES || targetLocale === 'es') return current
-    return `/${esBlogPost[1]}/`
+  if (esBlogPost && esBlogPost[1] !== 'page') {
+    const esSlug = esBlogPost[1]
+    const enSlug = enBlogSlugFromEs(esSlug) || (blogPostFallbackEs(esSlug) ? esSlug : null)
+    if (enSlug || blogPostFallbackEs(esSlug)) {
+      if (targetLocale === LOCALE_ES || targetLocale === 'es') return current
+      return `/${enSlug || esSlug}/`
+    }
   }
 
   const enBlogPost = current.match(/^\/([a-z0-9-]+)\/$/)
-  if (
-    enBlogPost &&
-    blogPostFallbackEs(enBlogPost[1]) &&
-    (targetLocale === LOCALE_ES || targetLocale === 'es') &&
-    LIVE_ES_PATHS.has('/es/blog/')
-  ) {
-    return `/es/blog/${enBlogPost[1]}/`
+  if (enBlogPost && (targetLocale === LOCALE_ES || targetLocale === 'es') && LIVE_ES_PATHS.has('/es/blog/')) {
+    const enSlug = enBlogPost[1]
+    const esSlug = esBlogSlugFromEn(enSlug)
+    if (esSlug && blogPostFallbackEs(esSlug)) return `/es/blog/${esSlug}/`
   }
 
   if (targetLocale === LOCALE_ES || targetLocale === 'es') {
@@ -146,12 +157,21 @@ export function getLiveHreflangPair(pathname) {
   const current = normalizePath(pathname)
 
   const esBlogPost = current.match(/^\/es\/blog\/([a-z0-9-]+)\/$/)
-  if (esBlogPost && esBlogPost[1] !== 'page' && blogPostFallbackEs(esBlogPost[1]) && LIVE_ES_PATHS.has('/es/blog/')) {
-    return { en: `/${esBlogPost[1]}/`, es: current }
+  if (esBlogPost && esBlogPost[1] !== 'page' && LIVE_ES_PATHS.has('/es/blog/')) {
+    const esSlug = esBlogPost[1]
+    const enSlug = enBlogSlugFromEs(esSlug)
+    if (enSlug && blogPostFallbackEs(esSlug) && LIVE_ES_PATHS.has(current)) {
+      return { en: `/${enSlug}/`, es: current }
+    }
   }
   const enBlogPost = current.match(/^\/([a-z0-9-]+)\/$/)
-  if (enBlogPost && blogPostFallbackEs(enBlogPost[1]) && LIVE_ES_PATHS.has('/es/blog/')) {
-    return { en: current, es: `/es/blog/${enBlogPost[1]}/` }
+  if (enBlogPost && LIVE_ES_PATHS.has('/es/blog/')) {
+    const enSlug = enBlogPost[1]
+    const esSlug = esBlogSlugFromEn(enSlug)
+    if (esSlug && blogPostFallbackEs(esSlug)) {
+      const esPath = `/es/blog/${esSlug}/`
+      if (LIVE_ES_PATHS.has(esPath)) return { en: current, es: esPath }
+    }
   }
 
   if (isSpanishPath(current)) {
