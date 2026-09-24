@@ -3408,65 +3408,73 @@ form[data-lead-form] button[type="submit"].is-busy {
   grid-column: 1 / -1;
 }
 
-/* Compact hero form (ES service pages) — keep Enviar above the fold */
+/* Compact hero form (ES service pages) — placeholder-first, less vertical stack */
 .hero-form--compact {
-  padding: 0.85rem 1rem 1rem;
-  gap: 0.45rem;
-  transform: translateY(-28px);
+  padding: 0.75rem 0.9rem 0.85rem;
+  gap: 0.4rem;
+  transform: translateY(-20px);
 }
 
 .hero-form--compact .hero-form-kicker {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
 }
 
 .hero-form--compact h2 {
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.28rem);
 }
 
 .hero-form--compact .hero-form-sub {
-  margin: 0.1rem 0 0.15rem;
-  font-size: 0.78rem;
-  line-height: 1.3;
+  display: none;
 }
 
 .hero-form--compact .hero-form-grid {
-  gap: 0.4rem 0.65rem;
+  gap: 0.35rem 0.5rem;
 }
 
 .hero-form--compact .hero-form-field {
-  gap: 0.18rem;
+  gap: 0;
 }
 
-.hero-form--compact label {
-  font-size: 0.75rem;
+.hero-form--compact .hero-form-label-sr,
+.hero-form--compact label:not(.lead-form-sms-consent-label) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hero-form--compact input,
 .hero-form--compact textarea {
-  padding: 0.38rem 0.7rem;
+  padding: 0.48rem 0.7rem;
   font-size: 0.8125rem;
 }
 
-.hero-form--compact textarea {
-  min-height: 2.4rem;
-  resize: vertical;
+.hero-form--compact input::placeholder,
+.hero-form--compact textarea::placeholder {
+  color: #8a94a6;
+  opacity: 1;
 }
 
 .hero-form--compact .lead-form-sms-consent {
-  margin: 0;
+  margin: 0.05rem 0 0;
 }
 
 .hero-form--compact .lead-form-sms-consent-text {
-  font-size: 0.68rem;
-  line-height: 1.3;
+  font-size: 0.62rem;
+  line-height: 1.25;
 }
 
 .hero-form--compact button[type='submit'].btn-primary {
-  margin-top: 0.1rem;
-  padding-top: 0.55rem;
-  padding-bottom: 0.55rem;
-  font-size: 0.9rem;
+  margin-top: 0.05rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .brands-marquee {

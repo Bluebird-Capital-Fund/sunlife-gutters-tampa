@@ -1022,6 +1022,8 @@
 
   function makeAddressFieldFullWidth(input) {
     if (!input || !input.parentElement) return;
+    var form = input.closest('form');
+    if (form && form.classList.contains('hero-form--compact')) return;
     var wrap = input.parentElement;
     if (wrap.classList.contains('hero-form-field')) wrap.classList.add('hero-form-field-full');
     if (wrap.classList.contains('contact-form-field')) wrap.classList.add('contact-form-field-full');
@@ -1224,6 +1226,7 @@
         firstInput.type = 'text';
         firstInput.required = true;
         firstInput.autocomplete = 'given-name';
+        firstInput.placeholder = formIsEs ? 'Nombre *' : 'First name *';
 
         var lastInput = document.createElement('input');
         lastInput.id = lastId;
@@ -1231,14 +1234,17 @@
         lastInput.type = 'text';
         lastInput.required = true;
         lastInput.autocomplete = 'family-name';
+        lastInput.placeholder = formIsEs ? 'Apellido *' : 'Last name *';
 
-        firstWrap.appendChild(
-          buildFieldLabel(firstId, formIsEs ? 'Nombre' : 'First name', requiredMarkText)
-        );
+        var firstLabel = buildFieldLabel(firstId, formIsEs ? 'Nombre' : 'First name', requiredMarkText);
+        var lastLabel = buildFieldLabel(lastId, formIsEs ? 'Apellido' : 'Last Name', requiredMarkText);
+        if (form.classList.contains('hero-form--compact')) {
+          firstLabel.classList.add('hero-form-label-sr');
+          lastLabel.classList.add('hero-form-label-sr');
+        }
+        firstWrap.appendChild(firstLabel);
         firstWrap.appendChild(firstInput);
-        lastWrap.appendChild(
-          buildFieldLabel(lastId, formIsEs ? 'Apellido' : 'Last Name', requiredMarkText)
-        );
+        lastWrap.appendChild(lastLabel);
         lastWrap.appendChild(lastInput);
 
         var emailWrap = form.querySelector('input[name="email"]');
@@ -1267,6 +1273,9 @@
         locationInput.setAttribute('id', locationInput.id || (form.getAttribute('data-lead-form') || 'lead') + '-address');
         locationInput.removeAttribute('required');
         setFieldLabelText(locationInput, formIsEs ? 'Dirección' : 'Address');
+        if (!locationInput.getAttribute('placeholder')) {
+          locationInput.setAttribute('placeholder', formIsEs ? 'Dirección' : 'Address');
+        }
         makeAddressFieldFullWidth(locationInput);
         setupMapboxAddressAutofill(locationInput, mapboxToken);
       }
