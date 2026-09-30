@@ -364,6 +364,16 @@ const CANONICAL_OFFER_BAR = {
   ctaHref: '#contact',
 }
 
+const CANONICAL_FACEBOOK_URL = 'https://www.facebook.com/SunLifeGutters/'
+const CANONICAL_INSTAGRAM_URL = 'https://www.instagram.com/sunlifegutters/'
+const CANONICAL_GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/hucQCwDEny6JPLBs5'
+
+const CANONICAL_SOCIAL_LINKS = [
+  { platform: 'facebook', href: CANONICAL_FACEBOOK_URL, ariaLabel: 'SunLife Gutters Tampa on Facebook' },
+  { platform: 'instagram', href: CANONICAL_INSTAGRAM_URL, ariaLabel: 'SunLife Gutters Tampa on Instagram' },
+  { platform: 'google maps', href: CANONICAL_GOOGLE_MAPS_URL, ariaLabel: 'SunLife Gutters Tampa on Google Maps' },
+]
+
 /** Shared hero + footer form intro used site-wide. */
 export const CANONICAL_FORM_INTRO =
   'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
@@ -480,7 +490,16 @@ export async function getSiteSettings() {
       : reviewsMerged,
     header: normalizeHeader(mergedHeader ?? singleton?.header) ?? {},
     footerEstimate: normalizeFooterEstimate(linksSource?.footerEstimate ?? singleton?.footerEstimate),
-    footerBrand: linksSource?.footerBrand ?? singleton?.footerBrand,
+    footerBrand: {
+      ...(linksSource?.footerBrand ?? singleton?.footerBrand ?? {}),
+      socialLinks: CANONICAL_SOCIAL_LINKS,
+    },
+    businessListings: {
+      ...(singleton?.businessListings ?? {}),
+      googleMaps: CANONICAL_GOOGLE_MAPS_URL,
+      facebook: CANONICAL_FACEBOOK_URL,
+      instagram: CANONICAL_INSTAGRAM_URL,
+    },
     footerColumns: normalizeFooterColumns(footerColumnsRaw),
     footerSupport: normalizeFooterSupport(linksSource?.footerSupport ?? singleton?.footerSupport),
     forms: singleton?.forms ?? linksSource?.forms,
