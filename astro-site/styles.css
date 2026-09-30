@@ -3175,7 +3175,7 @@ form[data-lead-form] button[type="submit"].is-busy {
   padding: 0 var(--space-xl);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: var(--space-md);
   font-size: 0.9rem;
 }
