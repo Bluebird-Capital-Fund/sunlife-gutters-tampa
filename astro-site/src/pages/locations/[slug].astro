@@ -23,6 +23,8 @@ import { locationPageFallback, locationPageFallbacks } from '../../lib/location-
 import { sanitizeCmsHtml } from '../../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl } from '../../lib/sanity-strings.js'
 import { locationBreadcrumbItems, locationLabelFromSlug } from '../../lib/breadcrumbs.js'
+import { serviceAreaPathForLocation } from '../../lib/service-area-canonical.js'
+import { CANONICAL_SITE_ORIGIN } from '../../lib/local-business-json-ld.js'
 
 export async function getStaticPaths() {
   try {
@@ -114,6 +116,10 @@ const estimateCtaHref = '#contact'
 const pageH1 = asStr(locPage?.headline) || asStr(hero?.headline) || 'Gutter Services in Tampa, FL'
 const pageTitle = `${pageH1} | SGT`
 const breadcrumbItems = locationBreadcrumbItems(locationLabelFromSlug(slug))
+const serviceAreaPath = serviceAreaPathForLocation(slug)
+const canonicalUrl = serviceAreaPath
+  ? `${(Astro.site?.origin || CANONICAL_SITE_ORIGIN).replace(/\/+$/, '')}${serviceAreaPath}`
+  : ''
 
 const normalizeServiceCardHref = (href) => {
   const value = asStr(href).trim()
@@ -157,6 +163,7 @@ const serviceHref = (svc) => {
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
+  canonical={canonicalUrl}
   theme={settings?.theme}
   forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
 >

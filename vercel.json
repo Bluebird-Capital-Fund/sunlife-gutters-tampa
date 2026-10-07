@@ -138,6 +138,11 @@
       "permanent": true
     },
     {
+      "source": "/locations/gutters-lakeland-fl/",
+      "destination": "/service-area/gutters-lakeland-fl/",
+      "permanent": true
+    },
+    {
       "source": "/locations/gutters-thonotosassa-fl/",
       "destination": "/service-area/gutters-thonotosassa-fl/",
       "permanent": true
