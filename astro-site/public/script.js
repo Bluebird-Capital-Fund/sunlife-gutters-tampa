@@ -545,15 +545,25 @@
     return String(value || '').trim();
   }
 
-  /** As user types / pastes: US digits only, max 10 → NNN-NNN-NNNN (partial while typing). */
-  function formatPhoneInputLive(el) {
-    var d = el.value.replace(/\D/g, '');
-    if (d.length >= 11 && d.charAt(0) === '1') {
+  function phoneDigits(value) {
+    var d = String(value || '').replace(/\D/g, '');
+    if (d.length === 11 && d.charAt(0) === '1') {
       d = d.slice(1);
     }
-    d = d.slice(0, 10);
+    return d;
+  }
+
+  /**
+   * As user types / pastes: NNN-NNN-NNNN (partial while typing). Extra digits are kept
+   * (unformatted) rather than truncated so a mistyped/pasted number fails validation
+   * instead of silently submitting the wrong 10 digits.
+   */
+  function formatPhoneInputLive(el) {
+    var d = phoneDigits(el.value);
     var out = '';
-    if (d.length <= 3) {
+    if (d.length > 10) {
+      out = d;
+    } else if (d.length <= 3) {
       out = d;
     } else if (d.length <= 6) {
       out = d.slice(0, 3) + '-' + d.slice(3);
@@ -1250,14 +1260,25 @@
       }
 
       var phoneInput = form.querySelector('input[name="phone"]');
+      var phoneInvalidMsg = formIsEs
+        ? 'Ingrese un número de teléfono de 10 dígitos.'
+        : 'Please enter a 10-digit phone number.';
+      var validatePhoneInput = function () {
+        if (!phoneInput) return;
+        var d = phoneDigits(phoneInput.value);
+        phoneInput.setCustomValidity(d.length === 0 || d.length === 10 ? '' : phoneInvalidMsg);
+      };
       if (phoneInput) {
-        phoneInput.setAttribute('maxlength', '12');
+        phoneInput.removeAttribute('maxlength');
         phoneInput.setAttribute('autocomplete', 'tel');
+        phoneInput.setAttribute('inputmode', 'tel');
         phoneInput.addEventListener('input', function () {
           formatPhoneInputLive(phoneInput);
+          validatePhoneInput();
         });
         phoneInput.addEventListener('blur', function () {
           formatPhoneInputLive(phoneInput);
+          validatePhoneInput();
         });
       }
 
@@ -1275,6 +1296,7 @@
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
+        validatePhoneInput();
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
@@ -1442,6 +1464,8 @@
                                 ? 'Please confirm SMS consent to submit this form.'
                                 : err === 'invalid_email'
                                   ? 'Please enter a valid email address.'
+                                  : err === 'invalid_phone'
+                                    ? phoneInvalidMsg
                                   : err === 'upstream_unreachable'
                                     ? 'Could not reach the form service. Please try again or call us.'
                                     : err === 'upstream_error'
