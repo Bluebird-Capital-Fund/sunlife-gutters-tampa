@@ -1,0 +1,38 @@
+---
+/**
+ * Header nav dropdown trigger. With `labelHref`, the label is a crawlable link to a hub page
+ * and only the chevron toggles the submenu (mobile); desktop still opens the menu on hover.
+ */
+const { ddId, label, labelHref = '', toggleAriaLabel = '' } = Astro.props
+const href = typeof labelHref === 'string' ? labelHref.trim() : ''
+const ariaLabel = toggleAriaLabel || `${label} menu`
+---
+
+{href ? (
+  <div class="nav-dropdown-head">
+    <a href={href} class="nav-dropdown-label">{label}</a>
+    <button
+      type="button"
+      class="nav-dropdown-toggle nav-dropdown-toggle--icon"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls={ddId}
+      aria-label={ariaLabel}
+      id={`${ddId}-btn`}
+    >
+      <span class="nav-dropdown-chevron" aria-hidden="true"></span>
+    </button>
+  </div>
+) : (
+  <button
+    type="button"
+    class="nav-dropdown-toggle"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-controls={ddId}
+    id={`${ddId}-btn`}
+  >
+    {label}
+    <span class="nav-dropdown-chevron" aria-hidden="true"></span>
+  </button>
+)}

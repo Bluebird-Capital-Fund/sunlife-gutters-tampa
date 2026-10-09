@@ -4,6 +4,136 @@
  * when a fallback is defined for that slug.
  */
 export const cityServicePageFallbacks = {
+  'gutters-tampa-fl': {
+    title: 'Gutters in Tampa | Book Free Consultation | SunLife Gutters',
+    slug: 'gutters-tampa-fl',
+    eyebrow: 'Gutters',
+    headline: 'Gutters in Tampa',
+    lead:
+      "Tampa's heavy rain can quickly expose gutters that are clogged, leaking, undersized, or sending runoff to the wrong place. Our gutters in Tampa are designed to keep roof runoff moving and help protect vulnerable areas around your property. SunLife Gutters Tampa provides complete gutter solutions built around Florida weather and your specific drainage needs.",
+    seoDescription:
+      'Need gutters in Tampa? Protect your roof, siding, and foundation with expert gutter services. Free consultation.',
+    hideServices: true,
+    formHeading: 'Book a Free Consultation',
+    formIntro:
+      'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.',
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-residential-gutter-install.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Tampa Gutters Designed for Heavy Rain and Storms',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-entryway-gutter-installation.webp',
+        imageAlt: 'Seamless gutters installed above the entryway of a Tampa home',
+        body: `<p>A gutter system has to handle more than an occasional afternoon shower in Tampa. Intense summer thunderstorms and tropical weather can send a sudden rush of water across the roof, while leaves, palm debris, and roof granules can restrict flow when the system needs it most.</p>
+<p>Common gutter problems we see include:</p>
+<ul>
+<li>Overflow during intense downpours</li>
+<li>Gutters sagging or separating from the roofline</li>
+<li>Leaks at corners and connections</li>
+<li>Downspouts that back up during storms</li>
+<li>Leaves and roof debris blocking water flow</li>
+<li>Mulch and soil washing out below the roofline</li>
+<li>Water marks along fascia or exterior walls</li>
+<li>Runoff collecting near patios, walkways, or foundations</li>
+</ul>`,
+      },
+      {
+        heading: 'Complete Gutter Solutions for Tampa Properties',
+        showCtas: true,
+        body: `<p>Every property moves water differently. Roof size, pitch, valleys, surrounding trees, landscaping, and available drainage areas all affect what the gutter system needs to do. We consider those details before recommending a repair, replacement, or new installation.</p>
+<p>Our Tampa gutter services include:</p>
+<ul>
+<li>Seamless gutter installation</li>
+<li>Gutter repair and replacement</li>
+<li>Super Gutters</li>
+<li>Gutter inspections</li>
+<li>Gutter cleaning and maintenance</li>
+<li>Gutter guards</li>
+<li>Residential gutter systems</li>
+<li>Commercial gutter systems</li>
+<li>Half round and copper gutters</li>
+<li>Custom gutters and color options</li>
+<li>Downspouts and extensions</li>
+<li>Underground drainage and French drains</li>
+<li>Soffit and fascia repair</li>
+</ul>
+<p>Our goal is to create a clear path for water from the roof to an appropriate discharge area. That may mean correcting one problem section or planning gutters, downspouts, and drainage together as a complete system.</p>`,
+      },
+      {
+        heading: 'Why Professional Gutter Service Matters in Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-townhome-gutter-installation.webp',
+        imageAlt: 'Professional gutter and downspout installation on a Tampa townhome',
+        body: `<p>Gutter problems are not always caused by the first thing you can see. Overflow might come from debris, but it can also be caused by poor slope, limited capacity, an undersized downspout, or a roof area that concentrates too much runoff in one section.</p>
+<p>Tampa's sudden downpours tend to expose those weak points quickly. Fixing only the visible symptom can leave the same drainage problem waiting for the next storm.</p>
+<p>Professional gutter service looks at how the whole system performs so repairs and improvements address the actual source of the problem.</p>`,
+      },
+      {
+        heading: 'Why Choose SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>You shouldn't have to guess what your property needs or keep calling about the same gutter problem after every storm. Here's what you can expect when you work with SunLife Gutters Tampa:</p>
+<ul>
+<li>10,000+ projects completed</li>
+<li>4.9-star Google rating from 200+ reviews</li>
+<li>Custom seamless gutter fabrication</li>
+<li>Systems planned for Florida's heavy rainfall</li>
+<li>Gutters and drainage evaluated together</li>
+<li>Residential and commercial solutions</li>
+<li>Installation, repair, cleaning, and maintenance</li>
+<li>Clear, itemized estimates</li>
+<li>Responsive communication throughout the project</li>
+<li>Careful work around landscaping and exterior areas</li>
+<li>Final walkthrough and warranty paperwork</li>
+<li>Lifetime warranty options available*</li>
+<li>Flexible financing available</li>
+</ul>
+<p>For ongoing care, SunLife offers the Gutter Club and Free Flow plans, with two professional cleanings per year, an annual inspection and tune-up, priority service, 10% off added services, and 25% off extra cleanings.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'gutters-tampa-faq',
+      headline: 'Tampa Gutter FAQs',
+      items: [
+        {
+          question: 'What gutters are best for Tampa homes?',
+          answerHtml:
+            "<p>The right gutters depend on your roof area, pitch, runoff patterns, surrounding trees, and where downspouts can safely discharge water. Tampa's intense summer rainfall makes capacity especially important. Seamless gutters are a popular option because they are fabricated to fit the property. Gutter size and downspout placement should ultimately be selected around the home's actual drainage requirements.</p>",
+        },
+        {
+          question: 'How do I know if my Tampa gutters need to be replaced?',
+          answerHtml:
+            '<p>Recurring leaks, widespread deterioration, sagging sections, separation from the fascia, or repeated overflow can indicate that replacement should be considered. Age alone does not determine whether Tampa gutters need replacing. Some systems can be repaired if the damage is isolated. An inspection can help determine whether correcting specific sections or replacing the existing system makes more practical sense.</p>',
+        },
+        {
+          question: 'How often should gutters be cleaned in Tampa?',
+          answerHtml:
+            '<p>Many Tampa properties benefit from cleaning around twice per year, although the actual frequency depends on nearby vegetation and how quickly debris accumulates. Homes surrounded by trees or palms may need more frequent attention. Leaves, seeds, roof granules, and other debris can restrict outlets and downspouts, making regular checks particularly useful before periods of heavier seasonal rainfall.</p>',
+        },
+        {
+          question: 'Why does water collect near my Tampa home even though I have gutters?',
+          answerHtml:
+            '<p>Having gutters does not automatically mean roof runoff is being discharged effectively. Downspouts may empty too close to the building, the surrounding grade may hold water, or the system may direct runoff toward an already saturated area. For Tampa properties with recurring puddles, the gutters, downspouts, discharge points, and ground-level drainage should be evaluated together to identify the source.</p>',
+        },
+        {
+          question: 'Can SunLife provide gutters for Tampa commercial properties?',
+          answerHtml:
+            '<p>Yes. SunLife Gutters Tampa provides gutter solutions for residential and commercial properties. Commercial buildings often have larger roof areas and longer gutter runs, which can increase the amount of runoff the system must manage during Tampa storms. Gutter capacity, downspout placement, and discharge areas should be planned around the individual building rather than using a standard residential-style configuration.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: 'Book a Free Consultation in Tampa, FL',
+      showCtas: true,
+      body: `<p>A gutter system should do more than catch rain at the roofline. It should move that water through the downspouts and toward an appropriate drainage area without creating recurring overflow, erosion, or standing water around your property.</p>
+<p>Contact SunLife Gutters Tampa for a free consultation. We'll look at how your property handles runoff, explain the gutter or drainage work that makes sense, and provide a clear estimate before the project moves forward.</p>`,
+    },
+  },
   'underground-drainage-tampa-fl': {
     title: 'Underground Drainage in Tampa | Book Free Consultation | SunLife',
     slug: 'underground-drainage-tampa-fl',

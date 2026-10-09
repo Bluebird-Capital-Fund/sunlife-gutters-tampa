@@ -4,6 +4,7 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro'
 import FooterSocialIcon from './FooterSocialIcon.astro'
+import NavDropdownToggle from './NavDropdownToggle.astro'
 import FooterContactInfo from './FooterContactInfo.astro'
 import FooterHoursRow from './FooterHoursRow.astro'
 import FooterSmsDisclosure from './FooterSmsDisclosure.astro'
@@ -86,17 +87,7 @@ const breadcrumbItems =
                 const ddId = `${navDdPrefix}-nav-dd-${i}`
                 return (
                   <div class="nav-dropdown" data-nav-dropdown>
-                    <button
-                      type="button"
-                      class="nav-dropdown-toggle"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      aria-controls={ddId}
-                      id={`${ddId}-btn`}
-                    >
-                      {label}
-                      <span class="nav-dropdown-chevron" aria-hidden="true" />
-                    </button>
+                    <NavDropdownToggle ddId={ddId} label={label} labelHref={asStr(item.labelHref)} />
                     <ul class="nav-dropdown-menu" id={ddId} role="menu">
                       {dropdown.map((link) => (
                         <li role="none">

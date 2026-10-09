@@ -13,6 +13,7 @@ import SmsMarketingConsent from './SmsMarketingConsent.astro'
 import HeaderNavActions from './HeaderNavActions.astro'
 import NavCallRow from './NavCallRow.astro'
 import LanguageSwitcher from './LanguageSwitcher.astro'
+import NavDropdownToggle from './NavDropdownToggle.astro'
 import { externalLinkAttrs } from '../lib/external-link.js'
 import { googleBusinessProfileUrl } from '../lib/footer-contact-heading.js'
 import { getSiteSettings, getHomePage } from '../lib/site-settings.js'
@@ -20,6 +21,7 @@ import { asStr, mediaUrl } from '../lib/sanity-strings.js'
 import {
   ES_ABOUT_LINKS,
   ES_FORM_INTRO,
+  ES_GUTTERS_HUB_HREF,
   ES_GUTTERS_LINKS,
   ES_MORE_SERVICES_LINKS,
   ES_NAV,
@@ -128,17 +130,12 @@ const esFooterColumns = [
         <HeaderNavActions telHref={telLink} phoneDisplay={phoneDisplay} />
         <nav class="nav">
           <div class="nav-dropdown" data-nav-dropdown>
-            <button
-              type="button"
-              class="nav-dropdown-toggle"
-              aria-expanded="false"
-              aria-haspopup="true"
-              aria-controls={`${formIdPrefix}-gutters-dd`}
-              id={`${formIdPrefix}-gutters-dd-btn`}
-            >
-              {ES_NAV.gutters}
-              <span class="nav-dropdown-chevron" aria-hidden="true" />
-            </button>
+            <NavDropdownToggle
+              ddId={`${formIdPrefix}-gutters-dd`}
+              label={ES_NAV.gutters}
+              labelHref={ES_GUTTERS_HUB_HREF}
+              toggleAriaLabel={`Menú de ${ES_NAV.gutters}`}
+            />
             <ul class="nav-dropdown-menu" id={`${formIdPrefix}-gutters-dd`} role="menu">
               {ES_GUTTERS_LINKS.map((link) => (
                 <li role="none">

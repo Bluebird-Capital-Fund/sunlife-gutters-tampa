@@ -21,6 +21,136 @@ const WHY_SUNLIFE_UL = `<ul>
 </ul>`
 
 export const cityServicePageFallbacksEs = {
+  'canaletas-tampa-fl': {
+    title: 'Canaletas en Tampa | Consulta Gratis | SunLife Gutters',
+    slug: 'canaletas-tampa-fl',
+    eyebrow: 'Canaletas',
+    headline: 'Canaletas en Tampa',
+    lead:
+      'Las lluvias intensas de Tampa pueden revelar rápidamente canaletas obstruidas, con fugas, de tamaño insuficiente o que envían el escurrimiento al lugar equivocado. Nuestras canaletas en Tampa están diseñadas para mantener el agua del techo en movimiento y ayudar a proteger las áreas vulnerables alrededor de su propiedad. SunLife Gutters Tampa ofrece soluciones completas de canaletas pensadas para el clima de Florida y las necesidades de drenaje específicas de su propiedad.',
+    seoDescription:
+      '¿Necesita canaletas en Tampa? Proteja su techo, siding y cimientos con servicios expertos de canaletas de SunLife Gutters. Solicite su consulta gratis.',
+    hideServices: true,
+    formHeading: FORM_HEADING,
+    formIntro: FORM_INTRO,
+    layoutBackgrounds: {
+      hero: {
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-residential-gutter-install.webp',
+      },
+    },
+    contentSections: [
+      {
+        heading: 'Canaletas en Tampa Diseñadas para Lluvias Intensas y Tormentas',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-entryway-gutter-installation.webp',
+        imageAlt: 'Canaletas seamless instaladas sobre la entrada de una casa en Tampa',
+        body: `<p>En Tampa, un sistema de canaletas tiene que manejar mucho más que un aguacero ocasional por la tarde. Las tormentas eléctricas intensas del verano y el clima tropical pueden enviar una gran cantidad de agua por el techo de forma repentina, mientras que las hojas, los restos de palmas y los gránulos del techo pueden restringir el flujo justo cuando el sistema más lo necesita.</p>
+<p>Entre los problemas de canaletas más comunes que vemos se incluyen:</p>
+<ul>
+<li>Desbordamiento durante aguaceros intensos</li>
+<li>Canaletas que se hunden o se separan de la línea del techo</li>
+<li>Fugas en esquinas y uniones</li>
+<li>Bajantes que se obstruyen durante las tormentas</li>
+<li>Hojas y escombros del techo que bloquean el flujo de agua</li>
+<li>Mulch y tierra que se lavan debajo de la línea del techo</li>
+<li>Marcas de agua en la fascia o en las paredes exteriores</li>
+<li>Escurrimiento que se acumula cerca de patios, aceras o cimientos</li>
+</ul>`,
+      },
+      {
+        heading: 'Soluciones Completas de Canaletas para Propiedades en Tampa',
+        showCtas: true,
+        body: `<p>Cada propiedad maneja el agua de forma distinta. El tamaño del techo, la pendiente, los valles, los árboles cercanos, el paisajismo y las áreas de drenaje disponibles influyen en lo que necesita hacer el sistema de canaletas. Tenemos en cuenta esos detalles antes de recomendar una reparación, un reemplazo o una instalación nueva.</p>
+<p>Nuestros servicios de canaletas en Tampa incluyen:</p>
+<ul>
+<li>Instalación de canaletas seamless</li>
+<li>Reparación y reemplazo de canaletas</li>
+<li>Super Gutters</li>
+<li>Inspecciones de canaletas</li>
+<li>Limpieza y mantenimiento de canaletas</li>
+<li>Protectores de canaletas</li>
+<li>Sistemas de canaletas residenciales</li>
+<li>Sistemas de canaletas comerciales</li>
+<li>Canaletas semicirculares y de cobre</li>
+<li>Canaletas personalizadas y opciones de color</li>
+<li>Bajantes y extensiones</li>
+<li>Drenaje subterráneo y drenaje francés</li>
+<li>Reparación de soffit y fascia</li>
+</ul>
+<p>Nuestro objetivo es crear un camino claro para que el agua vaya del techo a un área de descarga adecuada. Eso puede significar corregir una sola sección problemática o planificar canaletas, bajantes y drenaje en conjunto como un sistema completo.</p>`,
+      },
+      {
+        heading: 'Por Qué Importa un Servicio Profesional de Canaletas en Tampa',
+        showCtas: false,
+        imagePlacement: 'after',
+        imageSrc: 'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-townhome-gutter-installation.webp',
+        imageAlt: 'Instalación profesional de canaletas y bajantes en un townhome de Tampa',
+        body: `<p>Los problemas de canaletas no siempre se deben a lo primero que se ve. El desbordamiento puede venir de los escombros, pero también puede deberse a una pendiente incorrecta, a una capacidad limitada, a un bajante de tamaño insuficiente o a un área del techo que concentra demasiado escurrimiento en una sola sección.</p>
+<p>Los aguaceros repentinos de Tampa tienden a revelar esos puntos débiles rápidamente. Corregir solo el síntoma visible puede dejar el mismo problema de drenaje esperando la próxima tormenta.</p>
+<p>Un servicio profesional de canaletas evalúa el funcionamiento de todo el sistema para que las reparaciones y mejoras resuelvan el origen real del problema.</p>`,
+      },
+      {
+        heading: '¿Por Qué Elegir SunLife Gutters Tampa?',
+        showCtas: true,
+        body: `<p>No debería tener que adivinar qué necesita su propiedad ni seguir llamando por el mismo problema de canaletas después de cada tormenta. Esto es lo que puede esperar al trabajar con SunLife Gutters Tampa:</p>
+<ul>
+<li>Más de 10,000 proyectos completados</li>
+<li>Calificación de 4.9 estrellas en Google con más de 200 reseñas</li>
+<li>Fabricación de canaletas seamless a la medida</li>
+<li>Sistemas planificados para las lluvias intensas de Florida</li>
+<li>Evaluación conjunta de canaletas y drenaje</li>
+<li>Soluciones residenciales y comerciales</li>
+<li>Instalación, reparación, limpieza y mantenimiento</li>
+<li>Estimados claros y detallados</li>
+<li>Comunicación oportuna durante todo el proyecto</li>
+<li>Trabajo cuidadoso alrededor del paisajismo y las áreas exteriores</li>
+<li>Recorrido final y documentación de garantía</li>
+<li>Opciones de garantía de por vida disponibles*</li>
+<li>Financiamiento flexible disponible</li>
+</ul>
+<p>Para el cuidado continuo, SunLife ofrece los planes Gutter Club y Free Flow, con dos limpiezas profesionales al año, una inspección y ajuste anual, servicio prioritario, 10% de descuento en servicios adicionales y 25% de descuento en limpiezas extra.</p>`,
+      },
+    ],
+    faq: {
+      headingId: 'canaletas-tampa-faq',
+      headline: 'Preguntas Frecuentes sobre Canaletas en Tampa',
+      items: [
+        {
+          question: '¿Qué canaletas son mejores para las casas en Tampa?',
+          answerHtml:
+            '<p>Las canaletas adecuadas dependen del área del techo, la pendiente, los patrones de escurrimiento, los árboles cercanos y los lugares donde los bajantes pueden descargar el agua de forma segura. Las intensas lluvias de verano en Tampa hacen que la capacidad sea especialmente importante. Las canaletas seamless son una opción popular porque se fabrican a la medida de la propiedad. En última instancia, el tamaño de las canaletas y la ubicación de los bajantes deben elegirse según las necesidades reales de drenaje de la casa.</p>',
+        },
+        {
+          question: '¿Cómo sé si mis canaletas en Tampa necesitan reemplazo?',
+          answerHtml:
+            '<p>Las fugas recurrentes, el deterioro generalizado, las secciones hundidas, la separación de la fascia o los desbordamientos repetidos pueden indicar que conviene considerar un reemplazo. La edad por sí sola no determina si las canaletas en Tampa deben reemplazarse. Algunos sistemas pueden repararse si el daño está localizado. Una inspección puede ayudar a determinar si tiene más sentido corregir secciones específicas o reemplazar el sistema existente.</p>',
+        },
+        {
+          question: '¿Con qué frecuencia se deben limpiar las canaletas en Tampa?',
+          answerHtml:
+            '<p>Muchas propiedades en Tampa se benefician de una limpieza unas dos veces al año, aunque la frecuencia real depende de la vegetación cercana y de la rapidez con que se acumulan los escombros. Las casas rodeadas de árboles o palmas pueden necesitar atención más frecuente. Las hojas, semillas, gránulos del techo y otros escombros pueden restringir las salidas y los bajantes, por lo que las revisiones periódicas son especialmente útiles antes de las temporadas de lluvias más intensas.</p>',
+        },
+        {
+          question: '¿Por qué se acumula agua cerca de mi casa en Tampa aunque tengo canaletas?',
+          answerHtml:
+            '<p>Tener canaletas no significa automáticamente que el escurrimiento del techo se esté descargando de forma eficaz. Los bajantes pueden vaciar demasiado cerca de la construcción, el nivel del terreno alrededor puede retener agua o el sistema puede dirigir el escurrimiento hacia un área que ya está saturada. En propiedades de Tampa con charcos recurrentes, conviene evaluar en conjunto las canaletas, los bajantes, los puntos de descarga y el drenaje a nivel del suelo para identificar el origen.</p>',
+        },
+        {
+          question: '¿SunLife puede instalar canaletas en propiedades comerciales de Tampa?',
+          answerHtml:
+            '<p>Sí. SunLife Gutters Tampa ofrece soluciones de canaletas para propiedades residenciales y comerciales. Los edificios comerciales suelen tener techos más grandes y tramos de canaleta más largos, lo que puede aumentar la cantidad de escurrimiento que el sistema debe manejar durante las tormentas de Tampa. La capacidad de las canaletas, la ubicación de los bajantes y las áreas de descarga deben planificarse según cada edificio, en lugar de usar una configuración estándar de tipo residencial.</p>',
+        },
+      ],
+    },
+    closingSection: {
+      heading: CLOSING_HEADING,
+      showCtas: true,
+      body: `<p>Un sistema de canaletas debe hacer más que recoger la lluvia en la línea del techo. Debe llevar esa agua por los bajantes hacia un área de drenaje adecuada sin provocar desbordamientos recurrentes, erosión ni agua estancada alrededor de su propiedad.</p>
+<p>Comuníquese con SunLife Gutters Tampa para solicitar una consulta gratis. Evaluaremos cómo su propiedad maneja el escurrimiento, le explicaremos qué trabajo de canaletas o drenaje tiene sentido y le daremos un estimado claro antes de que el proyecto avance.</p>`,
+    },
+  },
+
   'canaletas-seamless-tampa-fl': {
     title: 'Canaletas Seamless en Tampa | Consulta Gratis | SunLife Gutters',
     slug: 'canaletas-seamless-tampa-fl',

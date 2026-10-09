@@ -25,6 +25,7 @@ export const EN_TO_ES_PATH = {
   '/faqs/': '/es/preguntas-frecuentes/',
   '/service-area/': '/es/areas-de-servicio/',
   '/blog/': '/es/blog/',
+  '/gutters-tampa-fl/': '/es/canaletas-tampa-fl/',
   '/seamless-gutters-tampa-fl/': '/es/canaletas-seamless-tampa-fl/',
   '/gutter-installation-tampa-fl/': '/es/instalacion-canaletas-tampa-fl/',
   '/super-gutters-tampa-fl/': '/es/super-gutters-tampa-fl/',
@@ -64,6 +65,7 @@ export const LIVE_ES_PATHS = new Set([
   '/es/preguntas-frecuentes/',
   '/es/areas-de-servicio/',
   '/es/blog/',
+  '/es/canaletas-tampa-fl/',
   '/es/canaletas-seamless-tampa-fl/',
   '/es/instalacion-canaletas-tampa-fl/',
   '/es/super-gutters-tampa-fl/',
@@ -241,6 +243,9 @@ export const ES_NAV = {
   projectDetails: 'Detalles del proyecto',
   required: '*',
 }
+
+/** Top-level "Canaletas" nav label target (not listed in the dropdown). */
+export const ES_GUTTERS_HUB_HREF = '/es/canaletas-tampa-fl/'
 
 export const ES_GUTTERS_LINKS = [
   { label: 'Reparación de canaletas', href: '/es/reparacion-canaletas-tampa-fl/' },

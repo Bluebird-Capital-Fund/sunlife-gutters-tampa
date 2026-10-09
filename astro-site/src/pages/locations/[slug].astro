@@ -4,6 +4,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import FooterSocialIcon from '../../components/FooterSocialIcon.astro'
+import NavDropdownToggle from '../../components/NavDropdownToggle.astro'
 import FooterContactInfo from '../../components/FooterContactInfo.astro'
 import FooterHoursRow from '../../components/FooterHoursRow.astro'
 import FooterSmsDisclosure from '../../components/FooterSmsDisclosure.astro'
@@ -193,17 +194,7 @@ const serviceHref = (svc) => {
                 const ddId = `city-nav-dd-${i}`
                 return (
                   <div class="nav-dropdown" data-nav-dropdown>
-                    <button
-                      type="button"
-                      class="nav-dropdown-toggle"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      aria-controls={ddId}
-                      id={`${ddId}-btn`}
-                    >
-                      {label}
-                      <span class="nav-dropdown-chevron" aria-hidden="true"></span>
-                    </button>
+                    <NavDropdownToggle ddId={ddId} label={label} labelHref={asStr(item.labelHref)} />
                     <ul class="nav-dropdown-menu" id={ddId} role="menu">
                       {dropdown.map((link) => (
                         <li role="none">

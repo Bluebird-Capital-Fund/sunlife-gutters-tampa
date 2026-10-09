@@ -9,6 +9,7 @@ export const SERVICE_HUB_CATEGORIES = [
     heading: 'Gutter Services',
     headingId: 'gutter-services',
     links: [
+      { label: 'Gutters', href: '/gutters-tampa-fl/' },
       { label: 'Gutter Installation', href: '/gutter-installation-tampa-fl/' },
       { label: 'Gutter Repair', href: '/gutter-repair-tampa-fl/' },
       { label: 'Emergency Gutter Repair', href: '/emergency-gutter-repair-tampa-fl/' },

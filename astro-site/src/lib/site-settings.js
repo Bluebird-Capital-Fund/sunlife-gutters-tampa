@@ -259,7 +259,8 @@ function normalizeHeader(header) {
 
     const guttersItem = {
       label: 'Gutters',
-      href: '/seamless-gutters-tampa-fl/',
+      href: '/gutters-tampa-fl/',
+      labelHref: '/gutters-tampa-fl/',
       dropdown: buildServicesDropdownLinks(),
     }
     const moreServicesItem = {
