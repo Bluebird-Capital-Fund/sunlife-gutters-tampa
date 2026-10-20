@@ -1,0 +1,436 @@
+---
+/**
+ * Facebook ad landing page: layout patterned after Superior FB LP 1.
+ * Primary CTAs open the SunLife lead signup form (modal), not a booking calendar.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import SmsMarketingConsent from '../../../components/SmsMarketingConsent.astro'
+import { getSiteSettings } from '../../../lib/site-settings.js'
+import { asStr, mediaUrl } from '../../../lib/sanity-strings.js'
+import { googleBusinessProfileUrl } from '../../../lib/footer-contact-heading.js'
+
+const settings = await getSiteSettings()
+const business = settings?.business ?? {}
+const formsCfg = settings?.forms ?? {}
+const footerEstimate = settings?.footerEstimate ?? {}
+const formFields = footerEstimate?.formFields ?? {}
+
+const companyName = asStr(business?.companyName) || 'SunLife Gutters Tampa'
+const phoneDisplay = asStr(business?.phoneDisplay) || '(813) 548-5310'
+const phoneTel = asStr(business?.phoneTel) || '+18135485310'
+const phoneDigits = phoneTel.replace(/\D/g, '').replace(/^1(?=\d{10})/, '')
+const telLink = `tel:${phoneDigits}`
+const email = asStr(business?.email) || 'office@sunlifegutters.com'
+const address = asStr(business?.addressShort) || '1502 Lenna Ave, Seffner, FL 33584'
+const addressHref = googleBusinessProfileUrl(settings)
+const logoBlack = asStr(business?.logoHorizontalBlack)
+const copyrightHref = asStr(business?.copyrightSiteUrl) || 'https://sunlifegutters.com/'
+
+const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
+const formMethod = asStr(footerEstimate?.formMethod) || 'post'
+const submitLabel = asStr(formFields?.submitButton) || 'Request Free Estimate'
+const requiredMark = asStr(formsCfg?.requiredIndicator) || '*'
+
+const heroImageSrc = mediaUrl(
+  'Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-seamless-gutter-installation-front-home.webp',
+)
+const heroImageAlt =
+  'Seamless white gutter installation along the front roofline of a Tampa Bay home'
+const measureImageSrc = mediaUrl(
+  'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-front-elevation-gutter-install-stone-home.webp',
+)
+const measureImageAlt =
+  'SunLife Gutters Tampa crew work on a stone home gutter and downspout install'
+
+const proofBarItems = [
+  'Seamless gutters, formed on site',
+  'Written estimate after we measure',
+  'Insured Tampa Bay crews',
+]
+
+const trustPoints = [
+  '4.9 stars, 200+ Google reviews',
+  'Serving Tampa Bay since 2018',
+  'Family owned',
+  'Fully insured crews',
+]
+
+const formCtaLabel = 'Get My Free Estimate'
+const callCtaLabel = `Call ${phoneDisplay}`
+
+const measureBullets = [
+  'Free on-site consultation and written estimate',
+  'Seamless aluminum gutters formed on site',
+  'Downspout placement planned for your lot, not a template',
+  'Full cleanup and a final walkthrough',
+]
+
+const steps = [
+  {
+    n: '1',
+    title: 'You request.',
+    body: 'Submit the form or call. We confirm next steps quickly.',
+  },
+  {
+    n: '2',
+    title: 'We measure.',
+    body: 'On-site walk of the roofline, runoff, and downspout placement.',
+  },
+  {
+    n: '3',
+    title: 'You get a number.',
+    body: 'A written estimate with the system spec. No pressure to sign.',
+  },
+  {
+    n: '4',
+    title: 'We install.',
+    body: 'Gutters formed on site, installed, cleaned up, walked through.',
+  },
+]
+
+const reviews = [
+  {
+    author: 'Harold Swanson',
+    quote:
+      'Fantastic! Wonderful job on the install, and quality. Well worth the investment. Kevin and his team were wonderful. Pop up drains were well worth the money.',
+    avatarSrc: mediaUrl('Media (SGT)/Reviews (SGT)/reviewer-01.png'),
+  },
+  {
+    author: 'Joshua Hurst',
+    quote:
+      'SunLife Gutters does a fantastic job with communication and quality. It was a pleasure working with the staff before, during, and after the installation on my home.',
+    avatarSrc: mediaUrl('Media (SGT)/Reviews (SGT)/reviewer-02.png'),
+  },
+  {
+    author: 'Alex Botardo',
+    quote:
+      'SunLife Gutters exceeded my expectations! From start to finish, their team was professional, responsive, and courteous. Craftsmanship truly shows.',
+    avatarSrc: mediaUrl('Media (SGT)/Reviews (SGT)/reviewer-03.png'),
+  },
+]
+
+const serviceCities =
+  'Tampa, Brandon, Clearwater, St. Petersburg, Largo, Plant City, Seffner, Apollo Beach, Riverview'
+
+const title = 'Gutter Installation in Tampa Bay | Free Estimate'
+const description =
+  'Seamless, custom-fit gutter installation across Tampa Bay. Family owned, 4.9 stars. Request a free on-site estimate from SunLife Gutters Tampa.'
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  theme={settings?.theme}
+  forms={{ submitPath: asStr(settings?.forms?.submitPath) || '/api/lead' }}
+  robotsNoindex={true}
+  preloadImageHref={heroImageSrc}
+  localBusinessName={companyName}
+>
+  <div class="fb-lp">
+    <header class="fb-lp-header">
+      <div class="fb-lp-header-inner">
+        <a href="/" class="logo" aria-label={`${companyName} home`}>
+          {
+            logoBlack ? (
+              <img
+                src={mediaUrl(logoBlack)}
+                alt={companyName}
+                class="logo-img"
+                width="280"
+                height="68"
+              />
+            ) : (
+              <span class="fb-lp-brand-text">{companyName}</span>
+            )
+          }
+        </a>
+        <p class="fb-lp-tagline">Local. Trusted. Family owned.</p>
+        <div class="fb-lp-header-actions">
+          <button type="button" class="btn btn-primary btn-shimmer" data-open-lead-modal>
+            {formCtaLabel}
+          </button>
+          <a href={telLink} class="btn btn-outline">{callCtaLabel}</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="fb-lp-hero" aria-label="Gutter installation offer">
+        <div class="container fb-lp-hero-inner">
+          <div class="fb-lp-hero-copy">
+            <p class="fb-lp-eyebrow">Gutter Installation: Tampa Bay</p>
+            <h1 class="fb-lp-hero-title">Seamless gutters, custom-fit to your roofline.</h1>
+            <p class="fb-lp-hero-lead">
+              One crew, measured and formed on site, sized for Florida rain the way it actually comes
+              off a roof. Request a free on-site estimate and get a straight number, not a sales pitch.
+            </p>
+            <ul class="fb-lp-trust">
+              {trustPoints.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <div class="fb-lp-hero-actions">
+              <button type="button" class="btn btn-primary btn-lg btn-shimmer" data-open-lead-modal>
+                {formCtaLabel}
+              </button>
+              <a href={telLink} class="btn btn-outline btn-lg">{callCtaLabel}</a>
+            </div>
+          </div>
+          <div class="fb-lp-hero-media">
+            <img
+              src={heroImageSrc}
+              alt={heroImageAlt}
+              width="1024"
+              height="875"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <aside class="fb-lp-proof-bar" aria-label="Key promises">
+        <div class="container fb-lp-proof-bar-inner">
+          {proofBarItems.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </aside>
+
+      <section class="fb-lp-book section">
+        <div class="container fb-lp-book-grid">
+          <div class="fb-lp-book-copy">
+            <h2 class="section-title section-title-secondary">
+              Request a quote. We measure, then we quote.
+            </h2>
+            <p class="section-lead">
+              No phone tag, no ballpark guesses over email. We come out, look at the roofline and the
+              drainage, and give you a written number.
+            </p>
+            <ul class="fb-lp-bullets">
+              {measureBullets.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <div class="fb-lp-hero-actions" style="margin-top: 1.5rem">
+              <button type="button" class="btn btn-primary btn-lg btn-shimmer" data-open-lead-modal>
+                {formCtaLabel}
+              </button>
+              <a href={telLink} class="btn btn-outline btn-lg">{callCtaLabel}</a>
+            </div>
+          </div>
+          <div class="fb-lp-book-media">
+            <img
+              src={measureImageSrc}
+              alt={measureImageAlt}
+              width="768"
+              height="768"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="fb-lp-reviews section" aria-label="Customer reviews">
+        <div class="container">
+          <h2 class="section-title section-title-secondary">200+ reviews, 4.9 stars.</h2>
+          <div class="fb-lp-review-grid">
+            {
+              reviews.map((r) => (
+                <figure class="fb-lp-review">
+                  <div class="fb-lp-stars" aria-label="5 star review">
+                    ★ ★ ★ ★ ★
+                  </div>
+                  <blockquote>
+                    <p>{r.quote}</p>
+                  </blockquote>
+                  <figcaption>
+                    {r.avatarSrc ? (
+                      <img src={r.avatarSrc} alt="" width="40" height="40" class="fb-lp-review-avatar" />
+                    ) : null}
+                    <span>
+                      <strong>{r.author}</strong>
+                      <span class="fb-lp-review-source">Posted on Google</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="fb-lp-steps section">
+        <div class="container">
+          <h2 class="section-title section-title-secondary">Four steps, no surprises.</h2>
+          <ol class="fb-lp-step-list">
+            {
+              steps.map((s) => (
+                <li class="fb-lp-step">
+                  <span class="fb-lp-step-n" aria-hidden="true">
+                    {s.n}
+                  </span>
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section class="fb-lp-area section">
+        <div class="container">
+          <h2 class="section-title section-title-secondary">
+            Serving {serviceCities} and the surrounding Tampa Bay area.
+          </h2>
+          <div class="fb-lp-area-cta">
+            <div class="fb-lp-hero-actions fb-lp-hero-actions-center">
+              <button type="button" class="btn btn-primary btn-lg btn-shimmer" data-open-lead-modal>
+                {formCtaLabel}
+              </button>
+              <a href={telLink} class="btn btn-outline btn-lg">{callCtaLabel}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="fb-lp-footer">
+      <div class="container fb-lp-footer-inner">
+        <p>
+          {companyName}
+          {address ? (
+            <>
+              {' · '}
+              {addressHref ? (
+                <a href={addressHref} target="_blank" rel="noopener noreferrer">
+                  {address}
+                </a>
+              ) : (
+                address
+              )}
+            </>
+          ) : null}
+          {' · '}
+          <a href={`mailto:${email}`}>{email}</a>
+          {' · '}
+          <a href={telLink}>{phoneDisplay}</a>
+        </p>
+        <p class="fb-lp-footer-copy">
+          <a href={copyrightHref}>© {new Date().getFullYear()} {companyName}</a>
+          {' · '}
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <div
+      id="fb-lp-lead-modal"
+      class="fb-lp-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="fb-lp-lead-modal-title"
+    >
+      <button type="button" class="fb-lp-modal-backdrop" data-close-lead-modal aria-label="Close form"></button>
+      <div class="fb-lp-modal-panel">
+        <button type="button" class="fb-lp-modal-close" data-close-lead-modal aria-label="Close form">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h2 id="fb-lp-lead-modal-title" class="fb-lp-modal-title">Get My Free Estimate</h2>
+        <p class="fb-lp-modal-lead">Tell us about your project. We will follow up with next steps.</p>
+        <form
+          class="contact-form fb-lp-modal-form"
+          data-lead-form="lp-fb-landing-1"
+          action={formAction}
+          method={formMethod}
+          aria-label="Request a free gutter estimate"
+        >
+          <div class="contact-form-grid">
+            <div class="contact-form-field contact-form-field-full">
+              <label for="fb-lp-name">
+                {asStr(formFields?.nameLabel) || 'Name'}{' '}
+                <span class="required-mark" aria-hidden="true">{requiredMark}</span>
+              </label>
+              <input id="fb-lp-name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="contact-form-field">
+              <label for="fb-lp-email">
+                {asStr(formFields?.emailLabel) || 'Email'}{' '}
+                <span class="required-mark" aria-hidden="true">{requiredMark}</span>
+              </label>
+              <input id="fb-lp-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="contact-form-field">
+              <label for="fb-lp-phone">
+                {asStr(formFields?.phoneLabel) || 'Phone'}{' '}
+                <span class="required-mark" aria-hidden="true">{requiredMark}</span>
+              </label>
+              <input id="fb-lp-phone" name="phone" type="tel" required autocomplete="tel" />
+            </div>
+            <div class="contact-form-field">
+              <label for="fb-lp-location">{asStr(formFields?.cityLabel) || 'City'}</label>
+              <input id="fb-lp-location" name="location" type="text" autocomplete="address-level2" />
+            </div>
+            <div class="contact-form-field contact-form-field-full">
+              <label for="fb-lp-message">
+                {asStr(formFields?.projectDetailsLabel) || 'Project Details'}
+              </label>
+              <textarea id="fb-lp-message" name="message" rows="3"></textarea>
+            </div>
+          </div>
+          <SmsMarketingConsent checkboxId="fb-lp-sms-consent" compact />
+          <div class="lead-form-honeypot-wrap" aria-hidden="true">
+            <label for="fb-lp-website">Leave blank</label>
+            <input type="text" id="fb-lp-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <p class="lead-form-status" data-lead-form-status role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary btn-lg btn-shimmer">{submitLabel}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var modal = document.getElementById('fb-lp-lead-modal')
+      if (!modal) return
+
+      function openModal() {
+        modal.hidden = false
+        document.body.style.overflow = 'hidden'
+        var first = modal.querySelector('input:not([tabindex="-1"]), textarea, button[type="submit"]')
+        if (first) first.focus()
+      }
+
+      function closeModal() {
+        modal.hidden = true
+        document.body.style.overflow = ''
+      }
+
+      document.querySelectorAll('[data-open-lead-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault()
+          openModal()
+        })
+      })
+
+      modal.querySelectorAll('[data-close-lead-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          closeModal()
+        })
+      })
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) {
+          e.preventDefault()
+          closeModal()
+        }
+      })
+    })()
+  </script>
+</BaseLayout>
