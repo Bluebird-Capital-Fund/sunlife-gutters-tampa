@@ -30,12 +30,16 @@ const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formActi
 const formMethod = asStr(footerEstimate?.formMethod) || 'post'
 const submitLabel = asStr(formFields?.submitButton) || 'Request Free Estimate'
 const requiredMark = asStr(formsCfg?.requiredIndicator) || '*'
+const formModalHeading = asStr(footerEstimate?.headline) || 'Tell Us About Your Tampa Gutter Project'
+const formModalIntro =
+  asStr(footerEstimate?.intro) ||
+  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
 
 const heroImageSrc = mediaUrl(
-  'Media (SGT)/Images (SGT)/sunlife-gutters-brandon-fl-seamless-gutter-installation-front-home.webp',
+  'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-5-star-google-rating-front-porch.jpg',
 )
 const heroImageAlt =
-  'Seamless white gutter installation along the front roofline of a Tampa Bay home'
+  'SunLife Gutters Tampa seamless gutter install on a Tampa Bay home front porch, 4.9 star Google rating'
 const measureImageSrc = mediaUrl(
   'Media (SGT)/Images (SGT)/sunlife-gutters-tampa-front-elevation-gutter-install-stone-home.webp',
 )
@@ -181,7 +185,7 @@ const description =
               src={heroImageSrc}
               alt={heroImageAlt}
               width="1024"
-              height="875"
+              height="1024"
               decoding="async"
               fetchpriority="high"
             />
@@ -341,8 +345,8 @@ const description =
         <button type="button" class="fb-lp-modal-close" data-close-lead-modal aria-label="Close form">
           <span aria-hidden="true">×</span>
         </button>
-        <h2 id="fb-lp-lead-modal-title" class="fb-lp-modal-title">Get My Free Estimate</h2>
-        <p class="fb-lp-modal-lead">Tell us about your project. We will follow up with next steps.</p>
+        <h2 id="fb-lp-lead-modal-title" class="fb-lp-modal-title">{formModalHeading}</h2>
+        <p class="fb-lp-modal-lead">{formModalIntro}</p>
         <form
           class="contact-form fb-lp-modal-form"
           data-lead-form="lp-fb-landing-1"
