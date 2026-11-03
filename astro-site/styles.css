@@ -1003,7 +1003,7 @@ a.btn-primary[href^="tel:"]:hover {
   }
 
   .hero.is-home .brands-marquee {
-    margin-top: 1.75rem;
+    margin-top: 3rem;
   }
 
   .hero.is-home .hero-eyebrow,
@@ -3555,7 +3555,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 }
 
 .hero.is-home .brands-marquee {
-  margin-top: 2.75rem;
+  margin-top: 4.75rem;
 }
 
 .hero.is-home .brands-inner {
