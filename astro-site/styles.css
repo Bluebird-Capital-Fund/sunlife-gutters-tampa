@@ -1021,9 +1021,9 @@ a.btn-primary[href^="tel:"]:hover {
 
   .hero.is-home .hero-lead-list,
   .hero.hero-split:not(.is-lp) .hero-lead-list {
-    gap: 0.18rem;
-    font-size: 0.92rem;
-    margin-bottom: var(--space-lg);
+    gap: 0.28rem;
+    font-size: 0.98rem;
+    margin-bottom: 1.25rem;
   }
 
   .hero.is-home .hero-actions,
@@ -3459,7 +3459,7 @@ form[data-lead-form] button[type="submit"].is-busy {
 .hero.is-home .hero-split-inner {
   grid-template-columns: 1fr minmax(420px, 460px);
   gap: var(--space-xl);
-  padding-bottom: var(--space-md);
+  padding-bottom: 1.35rem;
   align-items: start;
 }
 
@@ -3476,17 +3476,18 @@ form[data-lead-form] button[type="submit"].is-busy {
 
 .hero.is-home .hero-lead,
 .hero.is-home .hero-lead-list {
-  margin-bottom: var(--space-lg);
+  margin-bottom: 1.35rem;
 }
 
 .hero.is-home .hero-lead-list {
-  gap: 0.22rem;
-  font-size: clamp(0.9rem, 1.45vw, 1.02rem);
-  line-height: 1.32;
+  gap: 0.32rem;
+  font-size: clamp(0.95rem, 1.55vw, 1.08rem);
+  line-height: 1.38;
 }
 
 .hero.is-home .hero-actions {
   margin-top: 0;
+  margin-bottom: 0.35rem;
 }
 
 .hero.is-home .hero-form,
