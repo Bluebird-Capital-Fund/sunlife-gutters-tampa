@@ -194,7 +194,7 @@ const breadcrumbItems = simpleBreadcrumbItems('Services')
         </div>
 
         <form
-          class="hero-form"
+          class="hero-form hero-form--home"
           data-lead-form="services-hero"
           action={universalFormAction}
           method={universalFormMethod}
@@ -233,10 +233,10 @@ const breadcrumbItems = simpleBreadcrumbItems('Services')
             </div>
             <div class="hero-form-field hero-form-field-full">
               <label for="services-hero-message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label>
-              <textarea id="services-hero-message" name="message" rows="3"></textarea>
+              <textarea id="services-hero-message" name="message" rows="2"></textarea>
             </div>
           </div>
-          <SmsMarketingConsent checkboxId="services-hero-sms-consent" />
+          <SmsMarketingConsent checkboxId="services-hero-sms-consent" compact />
           <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </form>
       </div>

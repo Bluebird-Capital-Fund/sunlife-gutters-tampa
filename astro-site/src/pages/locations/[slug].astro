@@ -240,7 +240,7 @@ const serviceHref = (svc) => {
         </div>
 
         <form
-          class="hero-form"
+          class="hero-form hero-form--home"
           data-lead-form="location-hero"
           action={universalFormAction}
           method={universalFormMethod}
@@ -279,10 +279,10 @@ const serviceHref = (svc) => {
             </div>
             <div class="hero-form-field hero-form-field-full">
               <label for="message">{asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}</label>
-              <textarea id="message" name="message" rows="3"></textarea>
+              <textarea id="message" name="message" rows="2"></textarea>
             </div>
           </div>
-          <SmsMarketingConsent checkboxId="location-hero-sms-consent" />
+          <SmsMarketingConsent checkboxId="location-hero-sms-consent" compact />
           <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </form>
       </div>

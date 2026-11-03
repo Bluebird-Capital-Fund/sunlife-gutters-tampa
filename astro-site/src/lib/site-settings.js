@@ -377,7 +377,7 @@ const CANONICAL_SOCIAL_LINKS = [
 
 /** Shared hero + footer form intro used site-wide. */
 export const CANONICAL_FORM_INTRO =
-  'Start with a free consultation and get honest recommendations and transparent pricing from a team Tampa Bay homeowners trust.'
+  'Start with a free consultation and get honest recommendations and transparent pricing.'
 
 function normalizeOfferBar(offerBar) {
   return {

@@ -17,7 +17,7 @@ import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import {
   POPULAR_SERVICE_AREA_CITIES,
 } from '../lib/service-area-cities.js'
-import { ES_NAV, LIVE_ES_PATHS, EN_TO_ES_PATH, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
+import { ES_FORM_INTRO, ES_NAV, LIVE_ES_PATHS, EN_TO_ES_PATH, LOCALE_ES, localizeMapEmbedUrl } from '../lib/i18n.js'
 import {
   ES_REVIEW_POSTED_ON,
   ES_REVIEW_TRANSLATED_NOTE,
@@ -100,8 +100,6 @@ const uniquePointsBgStyle = uniquePointsBgSrc
 
 const formAction = asStr(formsCfg?.submitPath) || asStr(footerEstimate?.formAction) || '/api/lead'
 const formMethod = asStr(footerEstimate?.formMethod) || 'post'
-const homepageHeroFormIntro =
-  'Comience con una consulta gratuita y obtenga recomendaciones honestas y precios transparentes.'
 
 const typedPhrases = [
   'Instalación de canaletas',
@@ -310,7 +308,7 @@ function translateStatLabel(valueKey, label) {
           <div class="hero-form-kicker">{ES_NAV.freeEstimate}</div>
           <h2>{ES_NAV.bookConsultation}</h2>
         </div>
-        <p class="hero-form-sub">{homepageHeroFormIntro}</p>
+        <p class="hero-form-sub">{ES_FORM_INTRO}</p>
         <div class="hero-form-grid">
           <div class="hero-form-field">
             <label for="es-hero-name">

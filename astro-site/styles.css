@@ -3297,7 +3297,7 @@ form[data-lead-form] button[type="submit"].is-busy {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: 1fr minmax(420px, 460px);
   gap: var(--space-2xl);
   align-items: start;
   padding-bottom: var(--space-4xl);
@@ -3430,29 +3430,79 @@ form[data-lead-form] button[type="submit"].is-busy {
   grid-column: 1 / -1;
 }
 
-/* ES service/blog hero: normal type size; only tighten intro line-height + SMS slightly */
+/* Compact hero form used site-wide (homepage, services, city pages, blog, /es/) */
+.hero-form--home,
 .hero-form--fold {
-  gap: 0.65rem;
-  padding: calc(var(--space-xl) - 0.15rem) var(--space-xl);
+  transform: none;
+  padding: 0.95rem 1.2rem;
+  gap: 0.45rem;
 }
 
+.hero-form--home h2,
+.hero-form--fold h2 {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+}
+
+.hero-form--home .hero-form-kicker,
+.hero-form--fold .hero-form-kicker {
+  font-size: 0.65rem;
+}
+
+.hero-form--home .hero-form-sub,
 .hero-form--fold .hero-form-sub {
-  margin: 0.15rem 0 0.35rem;
+  margin: 0.05rem 0 0.2rem;
+  font-size: 0.8rem;
   line-height: 1.25;
 }
 
-.hero-form--fold .lead-form-sms-consent {
-  margin-top: 0.15rem;
+.hero-form--home .hero-form-grid,
+.hero-form--fold .hero-form-grid {
+  gap: 0.42rem 0.7rem;
 }
 
+.hero-form--home .hero-form-field,
+.hero-form--fold .hero-form-field {
+  gap: 0.18rem;
+}
+
+.hero-form--home label,
+.hero-form--fold label {
+  font-size: 0.78rem;
+}
+
+.hero-form--home input,
+.hero-form--home textarea,
+.hero-form--fold input,
+.hero-form--fold textarea {
+  padding: 0.38rem 0.7rem;
+  font-size: 0.8125rem;
+}
+
+.hero-form--home textarea,
+.hero-form--fold textarea {
+  min-height: 2.1rem;
+}
+
+.hero-form--home .lead-form-sms-consent,
+.hero-form--fold .lead-form-sms-consent {
+  margin-top: 0.05rem;
+}
+
+.hero-form--home .lead-form-sms-consent-label,
+.hero-form--home .lead-form-sms-consent-text,
 .hero-form--fold .lead-form-sms-consent-label,
 .hero-form--fold .lead-form-sms-consent-text {
-  font-size: 0.7rem;
-  line-height: 1.3;
+  font-size: 0.68rem;
+  line-height: 1.25;
 }
 
-.hero-form--fold textarea {
-  min-height: 2.6rem;
+.hero-form--home a.btn-primary.btn-lg,
+.hero-form--home button[type='submit'].btn-primary,
+.hero-form--fold a.btn-primary.btn-lg,
+.hero-form--fold button[type='submit'].btn-primary {
+  margin-top: 0.05rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
 }
 
 /* Homepage hero: tighten fold so submit + financing eyebrow stay visible together */
@@ -3492,66 +3542,6 @@ form[data-lead-form] button[type="submit"].is-busy {
 .hero.is-home .hero-actions {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.hero.is-home .hero-form,
-.hero.is-home .hero-form.hero-form--home {
-  transform: none;
-  padding: 0.95rem 1.2rem;
-  gap: 0.45rem;
-}
-
-.hero.is-home .hero-form h2 {
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-}
-
-.hero.is-home .hero-form-kicker {
-  font-size: 0.65rem;
-}
-
-.hero.is-home .hero-form-sub {
-  margin: 0.05rem 0 0.2rem;
-  font-size: 0.8rem;
-  line-height: 1.25;
-}
-
-.hero.is-home .hero-form-grid {
-  gap: 0.42rem 0.7rem;
-}
-
-.hero.is-home .hero-form-field {
-  gap: 0.18rem;
-}
-
-.hero.is-home .hero-form label {
-  font-size: 0.78rem;
-}
-
-.hero.is-home .hero-form input,
-.hero.is-home .hero-form textarea {
-  padding: 0.38rem 0.7rem;
-  font-size: 0.8125rem;
-}
-
-.hero.is-home .hero-form textarea {
-  min-height: 2.1rem;
-}
-
-.hero.is-home .lead-form-sms-consent {
-  margin-top: 0.05rem;
-}
-
-.hero.is-home .lead-form-sms-consent-label,
-.hero.is-home .lead-form-sms-consent-text {
-  font-size: 0.68rem;
-  line-height: 1.25;
-}
-
-.hero.is-home .hero-form a.btn-primary.btn-lg,
-.hero.is-home .hero-form button[type='submit'].btn-primary {
-  margin-top: 0.05rem;
-  padding-top: 0.55rem;
-  padding-bottom: 0.55rem;
 }
 
 .hero.is-home .brands-marquee {

@@ -218,7 +218,7 @@ export function localizeMapEmbedUrl(url, locale = LOCALE_EN) {
 
 /** Shared Spanish form intro (hero + footer). */
 export const ES_FORM_INTRO =
-  'Comience con una consulta gratuita y obtenga recomendaciones honestas y precios transparentes de un equipo en el que confían los propietarios de Tampa Bay.'
+  'Comience con una consulta gratuita y obtenga recomendaciones honestas y precios transparentes.'
 
 /** Shared Spanish chrome labels. */
 export const ES_NAV = {
