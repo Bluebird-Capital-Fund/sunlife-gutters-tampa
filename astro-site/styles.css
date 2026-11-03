@@ -988,37 +988,45 @@ a.btn-primary[href^="tel:"]:hover {
     margin-top: 0;
   }
 
-  /* Homepage — mobile hero density (keep hero-lead font size) */
+  /* Homepage — mobile hero density */
+  .hero.is-home.hero-split,
   .hero.hero-split:not(.is-lp) {
-    padding-top: var(--space-lg);
+    padding-top: var(--space-md);
     padding-left: var(--space-lg);
     padding-right: var(--space-lg);
   }
 
+  .hero.is-home .hero-split-inner,
   .hero.hero-split:not(.is-lp) .hero-split-inner {
-    padding-bottom: var(--space-2xl);
-    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    gap: var(--space-lg);
   }
 
+  .hero.is-home .hero-eyebrow,
   .hero.hero-split:not(.is-lp) .hero-eyebrow {
     margin-bottom: 0.2rem;
   }
 
+  .hero.is-home h1,
   .hero.hero-split:not(.is-lp) h1 {
-    font-size: clamp(1.75rem, 6.5vw, 2.1rem);
+    font-size: clamp(1.6rem, 6vw, 1.95rem);
     line-height: 1.18;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
+  .hero.is-home .hero-typed,
   .hero.hero-split:not(.is-lp) .hero-typed {
     display: none;
   }
 
+  .hero.is-home .hero-lead-list,
   .hero.hero-split:not(.is-lp) .hero-lead-list {
-    gap: 0.28rem;
-    margin-bottom: var(--space-xl);
+    gap: 0.18rem;
+    font-size: 0.92rem;
+    margin-bottom: var(--space-lg);
   }
 
+  .hero.is-home .hero-actions,
   .hero.hero-split:not(.is-lp) .hero-actions {
     margin-top: 0;
   }
@@ -3441,6 +3449,113 @@ form[data-lead-form] button[type="submit"].is-busy {
 
 .hero-form--fold textarea {
   min-height: 2.6rem;
+}
+
+/* Homepage hero: tighten fold so submit + financing eyebrow stay visible together */
+.hero.is-home.hero-split {
+  padding-top: var(--space-xl);
+}
+
+.hero.is-home .hero-split-inner {
+  grid-template-columns: 1fr minmax(420px, 460px);
+  gap: var(--space-xl);
+  padding-bottom: var(--space-md);
+  align-items: start;
+}
+
+.hero.is-home h1 {
+  font-size: clamp(2rem, 4.2vw, 2.85rem);
+  margin-bottom: var(--space-md);
+}
+
+.hero.is-home .hero-typed {
+  min-height: 1.5rem;
+  margin-bottom: var(--space-sm);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.hero.is-home .hero-lead,
+.hero.is-home .hero-lead-list {
+  margin-bottom: var(--space-lg);
+}
+
+.hero.is-home .hero-lead-list {
+  gap: 0.22rem;
+  font-size: clamp(0.9rem, 1.45vw, 1.02rem);
+  line-height: 1.32;
+}
+
+.hero.is-home .hero-actions {
+  margin-top: 0;
+}
+
+.hero.is-home .hero-form,
+.hero.is-home .hero-form.hero-form--home {
+  transform: none;
+  padding: 0.95rem 1.2rem;
+  gap: 0.45rem;
+}
+
+.hero.is-home .hero-form h2 {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+}
+
+.hero.is-home .hero-form-kicker {
+  font-size: 0.65rem;
+}
+
+.hero.is-home .hero-form-sub {
+  margin: 0.05rem 0 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.hero.is-home .hero-form-grid {
+  gap: 0.42rem 0.7rem;
+}
+
+.hero.is-home .hero-form-field {
+  gap: 0.18rem;
+}
+
+.hero.is-home .hero-form label {
+  font-size: 0.78rem;
+}
+
+.hero.is-home .hero-form input,
+.hero.is-home .hero-form textarea {
+  padding: 0.38rem 0.7rem;
+  font-size: 0.8125rem;
+}
+
+.hero.is-home .hero-form textarea {
+  min-height: 2.1rem;
+}
+
+.hero.is-home .lead-form-sms-consent {
+  margin-top: 0.05rem;
+}
+
+.hero.is-home .lead-form-sms-consent-label,
+.hero.is-home .lead-form-sms-consent-text {
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.hero.is-home .hero-form a.btn-primary.btn-lg,
+.hero.is-home .hero-form button[type='submit'].btn-primary {
+  margin-top: 0.05rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.hero.is-home .brands-inner {
+  padding: 0.45rem 0;
+}
+
+.hero.is-home + .financing-banner {
+  padding-top: 0.9rem;
+  padding-bottom: 0.95rem;
 }
 
 .brands-marquee {

@@ -174,6 +174,9 @@ const whyStampLine3 = isLp
   ? asStr(whyStamp?.line3)
   : 'Projects completed from roof to grade.'
 const universalFormIntro = CANONICAL_FORM_INTRO
+const homepageHeroFormIntro =
+  'Start with a free consultation and get honest recommendations and transparent pricing.'
+const heroFormIntro = isLp ? universalFormIntro : homepageHeroFormIntro
 
 /** LP-only section imagery overrides (hero / difference / services / about / unique points). */
 const lpSectionImagesBySlug = {
@@ -771,7 +774,7 @@ const serviceHref = (svc) => {
       class:list={[
         'hero',
         'hero-split',
-        isLp ? 'is-lp' : null,
+        isLp ? 'is-lp' : 'is-home',
         isLp && lpSlug ? `lp-hero-${lpSlug}` : null,
       ]}
     >
@@ -811,7 +814,7 @@ const serviceHref = (svc) => {
           </div>
         </div>
         <form
-          class="hero-form"
+          class:list={['hero-form', !isLp ? 'hero-form--home' : null]}
           data-lead-form={heroLeadFormAttr}
           action={universalFormAction}
           method={universalFormMethod}
@@ -821,7 +824,7 @@ const serviceHref = (svc) => {
             {showHeroFormKicker ? <div class="hero-form-kicker">{universalFormKicker}</div> : null}
             <h2>{lpFormMainHeading}</h2>
           </div>
-          <p class="hero-form-sub">{universalFormIntro}</p>
+          <p class="hero-form-sub">{heroFormIntro}</p>
           <div class="hero-form-grid">
             <div class="hero-form-field">
               <label for={heroNameId}>
@@ -852,10 +855,10 @@ const serviceHref = (svc) => {
               <label for={heroMessageId}>
                 {asStr(universalFormFields?.projectDetailsLabel) || 'Project Details'}
               </label>
-              <textarea id={heroMessageId} name="message" rows="3"></textarea>
+              <textarea id={heroMessageId} name="message" rows={isLp ? 3 : 2}></textarea>
             </div>
           </div>
-          <SmsMarketingConsent checkboxId={heroSmsConsentId} />
+          <SmsMarketingConsent checkboxId={heroSmsConsentId} compact={!isLp} />
           <div class="lead-form-honeypot-wrap" aria-hidden="true">
             <label for={heroWebsiteId}>Leave blank</label>
             <input type="text" id={heroWebsiteId} name="website" tabindex="-1" autocomplete="off" />
