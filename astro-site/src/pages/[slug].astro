@@ -32,6 +32,13 @@ export async function getStaticPaths() {
       sanity.fetch(`*[_type == "blogPost" && defined(slug.current)]{"slug": slug.current}`),
       sanity.fetch(`*[_type == "cityServicePage" && defined(slug.current)]{"slug": slug.current}`),
     ])
+    const reserved = new Set([
+      'book',
+      'thank-you',
+      'booking-confirmation',
+      'thank-you-booked',
+      'financing',
+    ])
     const slugs = Array.from(
       new Set(
         [
@@ -40,7 +47,7 @@ export async function getStaticPaths() {
           ...Object.keys(cityServicePageFallbacks).map((slug) => ({ slug })),
         ]
           .map((r) => asStr(r?.slug))
-          .filter(Boolean)
+          .filter((slug) => slug && !reserved.has(slug))
       )
     )
     return slugs.map((slug) => ({ params: { slug } }))

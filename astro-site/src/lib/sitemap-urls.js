@@ -67,6 +67,9 @@ export const SITEMAP_REDIRECT_STUB_PATHS = new Set([
   '/tampa-florida/',
   '/thank-you/',
   '/es/thank-you/',
+  '/book/',
+  '/booking-confirmation/',
+  '/thank-you-booked/',
 ])
 
 /**
@@ -108,6 +111,15 @@ export function sitemapIncludePage(page) {
 
   if (pathname.includes('/lp/')) return false
   if (pathname.startsWith('/locations/')) return false
+  if (
+    pathname === '/book/' ||
+    pathname === '/booking-confirmation/' ||
+    pathname === '/thank-you/' ||
+    pathname === '/thank-you-booked/' ||
+    pathname === '/es/thank-you/'
+  ) {
+    return false
+  }
   if (SITEMAP_REDIRECT_STUB_PATHS.has(pathname)) return false
 
   // Only include live Spanish paths under /es/

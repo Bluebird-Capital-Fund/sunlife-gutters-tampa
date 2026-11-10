@@ -18,6 +18,7 @@ import { mergeHeaderFromSettings, CANONICAL_FORM_INTRO } from '../lib/site-setti
 import { heroBackgroundFor } from '../lib/hero-backgrounds.js'
 import { sanitizeCmsHtml } from '../lib/sanitize-cms-html.js'
 import { asStr, applyTemplate, mediaUrl, statLookup } from '../lib/sanity-strings.js'
+import { reviewCountDisplay as canonicalReviewCountDisplay } from '../lib/review-count.js'
 import {
   HOMEPAGE_SERVICE_AREA_HEADLINE,
   SERVICE_PAGE_SERVICE_AREA_INTRO,
@@ -90,7 +91,11 @@ const reviewValues = reviewsToRender?.reviewValues
 const reviewSummary = reviewsToRender?.summary
 const reviewRating = statLookup(reviewValues, reviewSummary?.ratingValueKey) || '4.9'
 const reviewCount = statLookup(reviewValues, reviewSummary?.reviewCountKey) || '247'
-const reviewCountDisplay = `${asStr(reviewSummary?.reviewCountPrefix) || '('}${reviewCount}${asStr(reviewSummary?.reviewCountSuffix) || ')'}`
+const reviewCountDisplay = canonicalReviewCountDisplay(
+  asStr(reviewSummary?.reviewCountPrefix),
+  reviewCount,
+  asStr(reviewSummary?.reviewCountSuffix),
+)
 const reviewsCtaHref = asStr(reviewSummary?.ctaHref) || '/reviews/'
 const cityContentSections = Array.isArray(_cityPage?.contentSections) ? _cityPage.contentSections : []
 const closingSection = _cityPage?.closingSection && typeof _cityPage.closingSection === 'object'

@@ -1,0 +1,24 @@
+---
+import StandardPageChrome from '../../components/StandardPageChrome.astro'
+import BookingEmbed from '../../components/BookingEmbed.astro'
+---
+
+<StandardPageChrome
+  title="Schedule a Free Estimate | SunLife Gutters Tampa"
+  description="Schedule your free on-site gutter estimate online. Pick a time that works for you."
+  navDdPrefix="book"
+  hideBreadcrumbs
+  minimalChrome
+  robotsNoindex
+>
+  <main class="section book-page">
+    <div class="container book-page-inner">
+      <p class="hero-eyebrow">Schedule Online</p>
+      <h1 class="section-title section-title-secondary">Schedule a Free On-Site Estimate</h1>
+      <p class="section-lead">
+        Choose a time that works for you. We will follow up to confirm your appointment.
+      </p>
+      <BookingEmbed />
+    </div>
+  </main>
+</StandardPageChrome>

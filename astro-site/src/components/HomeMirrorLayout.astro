@@ -31,6 +31,7 @@ import { gutterGuardsReviews, chunkReviews } from '../lib/lp-gutter-guards-revie
 import { gutterInstallationReviews } from '../lib/lp-gutter-installation-reviews.js'
 import { gutterRepairReviews } from '../lib/lp-gutter-repair-reviews.js'
 import { guttersReviews } from '../lib/lp-gutters-reviews.js'
+import { reviewCountDisplay as canonicalReviewCountDisplay } from '../lib/review-count.js'
 import { simpleBreadcrumbItems, titleCaseSlugPart } from '../lib/breadcrumbs.js'
 import {
   HOMEPAGE_SERVICE_AREA_INTRO,
@@ -102,7 +103,11 @@ const formsCfg = settings?.forms ?? {}
 
 const reviewRating = statLookup(reviewValues, reviewsSummary?.ratingValueKey)
 const reviewCount = statLookup(reviewValues, reviewsSummary?.reviewCountKey)
-const reviewCountDisplay = `${asStr(reviewsSummary?.reviewCountPrefix)}${reviewCount}${asStr(reviewsSummary?.reviewCountSuffix)}`
+const reviewCountDisplay = canonicalReviewCountDisplay(
+  asStr(reviewsSummary?.reviewCountPrefix),
+  reviewCount,
+  asStr(reviewsSummary?.reviewCountSuffix),
+)
 const reviewsCtaHref = asStr(reviewsSummary?.ctaHref) || '/reviews/'
 
 const callLabelNav = applyTemplate(asStr(header?.callCtaTemplate), {

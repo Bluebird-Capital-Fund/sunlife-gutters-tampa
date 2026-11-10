@@ -21,6 +21,8 @@ const KNOWN_PATH_LABELS = {
   'privacy-policy': 'Privacy Policy',
   'terms-of-service': 'Terms of Service',
   'thank-you': 'Thank You',
+  book: 'Schedule Estimate',
+  'booking-confirmation': 'Booking Confirmed',
 }
 
 /** Explicit service labels keyed by slug (no Tampa / FL). */

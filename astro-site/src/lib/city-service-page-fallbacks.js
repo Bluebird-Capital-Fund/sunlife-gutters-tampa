@@ -80,7 +80,7 @@ export const cityServicePageFallbacks = {
         body: `<p>You shouldn't have to guess what your property needs or keep calling about the same gutter problem after every storm. Here's what you can expect when you work with SunLife Gutters Tampa:</p>
 <ul>
 <li>10,000+ projects completed</li>
-<li>4.9-star Google rating from 200+ reviews</li>
+<li>4.9-star Google rating from 247 reviews</li>
 <li>Custom seamless gutter fabrication</li>
 <li>Systems planned for Florida's heavy rainfall</li>
 <li>Gutters and drainage evaluated together</li>
